@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fullpage v2</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script> <!-- 이 플러그인이 옛날거니까 jquery 버전 낮은걸로 불러오기 -->
+    <script src="fullpage2/jquery.easings.min.js"></script>
+    <script src="fullpage2/scrolloverflow.js"></script>
+    <script src="fullpage2/jquery.fullpage.js"></script>
+    <link rel="stylesheet" href="fullpage2/jquery.fullpage.css">
+    <script>
+      $(function(){
+        $('#fullpage').fullpage({
+          anchors:['first','second','third','fourth','fifth','sixth'],
+          lockAnchors: true,
+          navigation: true,
+          navigationTooltips: ['1페이지','2페이지','3페이지','4페이지','5페이지','6페이지'],
+          showActiveTooltip: true,
+          slidesNavigation: true,
+          sectionsColor : ['#ffcccc','#9922cc','#66eecc','#33eeaa','#ffdd99','#ee99ee'],
+          sectionSelector: '.section',
+          slideSelector: '.slide',
+        });
+      });
+    </script>
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body>
+    <div id="fullpage">
+      <section class="section first" id="sect1">Section1 contents</section>
+      <section class="section second" id="sect2">Section2 contents</section>
+      <section class="section third" id="sect3">Section3 contents</section>
+      <section class="section fourth" id="sect4">
+        <div class="slide" data-anchor="slide1">slide1</div>
+        <div class="slide" data-anchor="slide2">slide2</div>
+        <div class="slide" data-anchor="slide3">slide3</div>
+        <div class="slide" data-anchor="slide4">slide4</div>
+      </section>
+      <section class="section fifth" id="sect5">Section5 contents</section>
+      <section class="section sixth" id="sect6">Section6 contents</section>
+    </div>
+  </body>
+</html>

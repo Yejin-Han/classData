@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>navigation menu</title>
+        <style type="text/css">
+            body, nav, ul, li{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            nav{
+                width: 625px;
+                height: 43px;
+                margin: 90px auto;
+            }
+            nav>ul{
+                width: 625px;
+                height: 43px;
+            }
+            nav>ul>li{
+                float: left;
+                height: 43px;
+            }
+            nav>ul>li>a{
+                display: block; /*크기 주려고*/
+                height: 43px;
+                background: url("navigation/topmenu_collection.gif") no-repeat;
+            }
+            nav>ul>.menu1>a{
+                width: 124px;
+            }
+            nav>ul>.menu2>a{
+                width: 108px;
+                background-position: -124px 0;
+            }
+            nav>ul>.menu3>a{
+                width: 90px;
+                background-position: -232px 0;
+            }
+            nav>ul>.menu4>a{
+                width: 101px;
+                background-position: -322px 0;
+            }
+            nav>ul>.menu5>a{
+                width: 109px;
+                background-position: -423px 0;
+            }
+            nav>ul>.menu6>a{
+                width: 93px;
+                background-position: -532px 0;
+            }
+            nav>ul>.menu1>a:hover{
+                background-position: 0 -43px;
+            }
+            nav>ul>.menu2>a:hover{
+                background-position: -124px -43px;
+            }
+            nav>ul>.menu3>a:hover{
+                background-position: -232px -43px;
+            }
+            nav>ul>.menu4>a:hover{
+                background-position: -322px -43px;
+            }
+            nav>ul>.menu5>a:hover{
+                background-position: -423px -43px;
+            }
+            nav>ul>.menu6>a:hover{
+                background-position: -532px -43px;
+            }
+            nav>ul>li>a>span{
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li class="menu1"><a href="#"><span>HTML에 대해</span></a></li>
+                <li class="menu2"><a href="#"><span>CSS에 대해</span></a></li>
+                <li class="menu3"><a href="#"><span>웹표준</span></a></li>
+                <li class="menu4"><a href="#"><span>웹접근성</span></a></li>
+                <li class="menu5"><a href="#"><span>묻고 답하기</span></a></li>
+                <li class="menu6"><a href="#"><span>자료실</span></a></li>
+            </ul>
+        </nav>
+    </body>
+</html>

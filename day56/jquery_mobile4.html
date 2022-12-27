@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>jquery mobile4 - sub</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script>
+			$(function(){
+
+			});
+		</script>
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<div data-role="page" id="main">
+			<div data-role="header" data-position="fixed">
+				<h1>Header</h1>
+				<a href="#" data-icon="arrow-l" data-iconpos="notext">Home</a>
+				<a href="#" data-icon="user" data-iconpos="notext">Settings</a>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" data-icon="delete">link1</a></li>
+						<li><a href="#" data-icon="minus">link2</a></li>
+						<li><a href="#" data-icon="forward">link3</a></li>
+						<li><a href="#" data-icon="alert">link4</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				<h2>Sub Page Title</h2>
+				<a href="jquery_mobile3.html" data-role="button" data-rel="back">Main Page</a>
+				<p>Sub Page Content Text</p>
+				<div>
+					<a href="#" data-role="button" data-inline="true">btn1</a>
+					<a href="#" data-role="button" data-inline="true">btn2</a>
+				</div>
+				<div data-role="controlgroup">
+					<a href="#" data-role="button" class="ui-btn-active">on</a>
+					<a href="#" data-role="button">off</a>
+				</div>
+				<div data-role="controlgroup" data-type="horizontal">
+					<a href="#" data-role="button" class="ui-btn-active">on</a>
+					<a href="#" data-role="button">off</a>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="searchbox">검색</label>
+					<input type="search" id="searchbox" name="searchbox">
+				</div>
+				<h2>column layout(단-grid 설정)</h2>
+				<h3>2col layout</h3>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+					</div>
+					<div class="ui-block-b">
+						It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+					</div>
+				</div>
+				<h3>3col layout</h3>
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+					</div>
+					<div class="ui-block-b">
+						The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+					</div>
+					<div class="ui-block-c">
+						The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+					</div>
+					<div class="ui-block-a">
+						The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+					</div>
+					<div class="ui-block-c">
+						The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h3>footer title</h3>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" data-icon="bullets">link5</a></li>
+						<li><a href="#" data-icon="location">link6</a></li>
+						<li><a href="#" data-icon="shop">link7</a></li>
+						<li><a href="#" data-icon="action">link8</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

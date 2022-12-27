@@ -1,0 +1,1 @@
+﻿http://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn?vid=61275E424F5928640C6BEA9B085DA5B72866&outKey=V1212ccd519d089158310675b389fa5c322edd7b0ff7510ce0ce6675b389fa5c322ed&controlBarMovable=true&jsCallable=true&skinName=tvcast_white

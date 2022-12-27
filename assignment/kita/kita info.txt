@@ -1,0 +1,84 @@
+header
+1240 99
+border-bottom 1px e9e6ed
+
+전체 container w:1240
+main visual #3971ce
+h:742
+-slide_banner.gif
+820 305
+margin-right:20
+margin-bottom:20
+-reorg.jpg
+400 305
+margin-bottom:20
+-morning_kita.jpg
+610 297
+margin-right:20
+-notice.gif
+610 297
+전체 위아래 마진 60
+
+schedule #f6f7f9
+h:445
+-schedule_title.gif
+330 78
+margin-bottom:32
+박스 4개 모든 애들 border 1px dcdcdc
+-business1, 2, 3, 4.gif
+293 223
+margin-right:20
+전체 위아래 마진 50 60
+전체 아래에 border 1px e7ecf0
+
+info_area
+h:594
+- data 398 231
+margin-bottom:20
+- report 798 231
+margin-left 20
+margin-bottom:20
+- seminar 398 219
+- commerce 798 219
+박스 4개 모든 애들 border 1px dcdcdc 
+전체 위아래 마진 60
+
+support #3f5270
+h:906
+margin-top 87
+-support_title: 222 35
+-support1~8.gif 
+margin-bottom 74
+박스 8개 296 296 border 다 있음
+각자 줘야되는 마진 다 20임
+마지막 margin 100
+
+service
+h:662
+- statistics, marketing, academy.gif
+400 502
+margin-right:20
+전체 위아래 마진 80
+border-bottom  1px eaeef1
+
+guide f7faff
+h:387
+-guide_title 181 18
+margin-bottom:41
+-business_list.gif
+860 235
+-family_site_title.gif title 98 18
+margin-bottom:41
+- family_site.gif
+280 115
+margin-bottom: 120
+전체 위아래 마진 38 56
+
+footer #283f5e
+footer_top 
+w:1240
+h:72
+border-bottom: 1px 3c5372
+footer_bottom
+w:1240
+h:116

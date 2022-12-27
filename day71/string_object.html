@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>문자열 객체</title>
+		<script>
+			let str="Javascript";
+			console.log(str.charAt(4)); //s
+			console.log(str.matchc('_asc').input);
+			/* /* let str2="Jav ascript";
+			console.log(str2.charAt(4)); //a
+			let msg="";
+			let index=0;
+			const write=()=>{
+				msg+=str.charAt(index);
+				document.write(msg);
+				index++;
+				if(index>=str.length) clearInterval(timer);
+			}
+			let timer=setInterval(write,200); */
+			let str3="html_css_script";
+			console.log(str3.split('_')); //["html","css","script"]
+			let m="abc@naver.com";
+			let m2=m.split('@'); console.log(m2);
+			let m3=m2[1].split('.'); console.log(m3); 
+
+			let Email=prompt('이메일 주소 입력', '');
+			let siteURL=["co.kr","com","net","or.kr","go.kr"];
+			let chk1=0; //@입력 판단
+			let chk2=0; //siteURL 판단
+			if(Email.indexOf('@')>0) chk1=1;
+			/* for(let i=0; i<siteURL.length; i++){
+				if(Email.indexOf(siteURL[i])>0) chk2=true;
+			}
+			for(let j in siteURL){
+				if(Email.indexOf(siteURL[j])>0) chk2=true;
+			} */
+			for(let k of siteURL){
+				if(Email.indexOf(k)>0) chk2=true;
+			}
+			if(chk1 && chk2){
+				document.write("email 정상입력 확인되었습니다." + Email);
+			} else{
+				alert("이메일을 잘못 입력했습니다.");
+				window.location.reload();
+			}
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

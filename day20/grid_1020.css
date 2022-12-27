@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+.container{
+	width: 1020px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.container>[class*=col]{
+	float: left;
+	margin: 20px 10px 0;
+}
+.container>.col1{
+	width: 65px;
+}
+.container>.col2{
+	width: 150px;
+}
+.container>.col3{
+	width: 235px;
+}
+.container>.col4{
+	width: 320px;
+}
+.container>.col5{
+	width: 405px;
+}
+.container>.col6{
+	width: 490px;
+}
+.container>.col7{
+	width: 575px;
+}
+.container>.col8{
+	width: 660px;
+}
+.container>.col9{
+	width: 745px;
+}
+.container>.col10{
+	width: 830px;
+}
+.container>.col11{
+	width: 915px;
+}
+.container>.col12{
+	width: 1000px;
+}
+.container::after{
+	content: "";
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+	clear: both;
+}

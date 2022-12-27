@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>list style</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: "나눔고딕", sans-serif;
+                color: #333;
+            }
+            h1{
+                margin: 20px;
+            }
+            div{
+                margin: 20px;
+                border: 2px solid #063;
+                padding: 20px;
+            }
+            #box1>ul{
+                background: #3cf;
+                margin: 0;
+                padding: 0;
+                list-style-type: /*disc,circle,square,decimal,decimal-zero*/ none;
+            }
+            #box2>ul{
+                background: #9c9;
+                margin: 0;
+                padding: 0;
+                list-style-position: /*inside, outside(기본)*/ inside;
+            }
+            #box3>ul{
+                font-size: 22px;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                list-style-image: url("img_bull/LI_BULL.gif");
+                list-style-position: inside;
+                font-weight: bold;
+            }
+            #box4>ul{
+                font-size: 22px;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            #box4>ul>li{
+                background: url("img_bull/LI_BULL.gif") no-repeat left center;
+                padding-left: 19px;
+                font-weight: bold;
+            }
+            #box5>ul{
+                font-size: 16px;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            #box5>ul>li{
+                background: url("img_bull/spr_ico.gif") no-repeat -97px -94px;
+                padding-left: 8px;
+            }
+            #box6>ul{
+                font-size: 16px;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>list style</h1>
+        <div id="box1">
+            <ul>
+                <li>센터 안내</li>
+                <li>서비스 안내</li>
+                <li>이벤트 &amp; 정보</li>
+                <li>온라인스토어</li>
+            </ul>
+        </div>
+        <div id="box2">
+            <ul>
+                <li>센터 안내</li>
+                <li>서비스 안내</li>
+                <li>이벤트 &amp; 정보</li>
+                <li>온라인스토어</li>
+            </ul>
+        </div>
+        <div id="box3">
+            <ul>
+                <li>센터 안내</li>
+                <li>서비스 안내</li>
+                <li>이벤트 &amp; 정보</li>
+                <li>온라인스토어</li>
+            </ul>
+        </div>
+        <div id="box4">
+            <ul>
+                <li>센터 안내</li>
+                <li>서비스 안내</li>
+                <li>이벤트 &amp; 정보</li>
+                <li>온라인스토어</li>
+            </ul>
+        </div>
+        <div id="box5">
+            <ul>
+                <li>센터 안내</li>
+                <li>서비스 안내</li>
+                <li>이벤트 &amp; 정보</li>
+                <li>온라인스토어</li>
+            </ul>
+        </div>
+        <div id="box6">
+            <ul>
+                <li>센터 안내</li>
+                <li>서비스 안내</li>
+                <li>이벤트 &amp; 정보</li>
+                <li>온라인스토어</li>
+            </ul>
+        </div>
+    </body>
+</html>
+

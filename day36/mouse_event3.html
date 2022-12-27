@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>mouse event</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                $('.box1').on('mouseover',function(){
+                    console.log("mouse over event");
+                });
+                $('.box1').on('mouseout',function(){
+                    console.log("mouse out event");
+                });
+                $('.box2').mouseenter(function(){
+                    console.log("MOUSE ENTER EVENT");
+                });
+                $('.box2').mouseleave(function(){
+                    console.log("MOUSE LEAVE EVENT");
+                });
+            });
+        </script>
+        <style type="text/css">
+            .box1,.box2{
+                width: 400px;
+                height: 400px;
+                float: left;
+                border: 2px solid #039;
+                margin: 30px;
+                background: #ffc;
+            }
+            .inner{
+                width: 300px;
+                height: 300px;
+                margin: 50px;
+                background: #f60;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">
+            <div class="inner">1-innerBox</div>
+        </div>
+        <div class="box2">
+            <div class="inner">2-innerBox</div>
+        </div>
+    </body>
+</html>

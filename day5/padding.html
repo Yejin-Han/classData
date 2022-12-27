@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>여백 줄임표기</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: "맑은 고딕", sans-serif;
+                color: #151515;
+            }
+            div{
+                border: 5px solid #09f;
+                padding: 24px;
+            }
+            #box1{
+                margin: 30px 100px 50px 60px;
+            }
+            #box2{
+                margin: 30px 120px 40px; /* margin-top!만은 위의 margin-bottom과 겹치려는 성질이 있어서 위의 bottom보다 작으면 무시되고 크면 이 top만이 반영됨 */
+            }
+            #box3{
+                margin: 50px 180px;
+            }
+            #box4{
+                margin: 60px;
+            }
+            #box5{
+                margin-left: 300px;
+                /*margin: 0 0 0 300px;*/ /* 한 방향만 margin값 주고 싶으면 그냥 -left 등을 쓰는 게 나을 수 있다. 다른 값을 0 줘버리면 나중에 골치 아플 수 있음. */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box1">Div box1</div>
+        <div id="box2">Div box2</div>
+        <div id="box3">Div box3</div>
+        <div id="box4">Div box4</div>
+        <div id="box5">Div box5</div>
+    </body>
+</html>

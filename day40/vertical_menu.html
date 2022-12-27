@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                $('#nav>ul>li').on('mouseenter',function(){
+                    $('#nav>ul>li').removeClass('active');
+                    $(this).addClass('active'); //마우스 진입해있는 해당 개체에 active라는 클래스 추가
+                    /*$('.sub').hide();*/
+                    $('.sub').stop().fadeOut(150);
+                    $(this).children('.sub').stop().fadeIn(150); //자식 중에 sub을 찾아서 보여라
+                });
+            });
+        </script>
+        <style type="text/css">
+            body,nav,ul,li,div{
+                margin: 0; padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            body{
+                font-size: 12px;
+                font-family: "맑은 고딕", sans-serif;
+            }
+            #nav{
+                width: 300px; height: 450px;
+                background: #fff;
+                border: 1px solid #555;
+                margin: 40px 0 0 80px;
+                position: relative;
+            }
+            #nav>ul{
+                width: 150px; height: 450px;
+                border-right: 1px solid #555;
+            }
+            #nav>ul>li{
+                border-bottom: 1px solid #ccc;
+                background: #f4f4f4;
+                transition: all 0.2s;
+            }
+            #nav>ul>li.active{
+                background: #235;
+            }
+            #nav>ul>li.active>a{
+                color: #fff;
+            }
+            #nav>ul>li>a{
+                display: block;
+                width: 130px;
+                height: 30px;
+                line-height: 30px;
+                padding: 15px 0 15px 20px;
+                font-weight: bold;
+                color: #333;
+                transition: all 0.2s;
+            }
+            #nav .sub{
+                position: absolute; left: 151px; top: 0;
+                width: 149px; height: 450px;
+                padding: 24px 22px;
+                line-height: 30px;
+                box-sizing: border-box;
+                background: #fff;
+                display: none;
+            }
+            #nav .sub a{
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <nav id="nav">
+            <ul>
+                <li>
+                    <a href="#">국내도서</a>
+                    <div class="sub">
+                        <ul>
+                            <li><a href="#">베스트셀러</a></li>
+                            <li><a href="#">새로나온책</a></li>
+                            <li><a href="#">추천도서</a></li>
+                            <li><a href="#">특가도서</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">외국도서</a>
+                    <div class="sub">
+                        <ul>
+                            <li><a href="#">베스트셀러</a></li>
+                            <li><a href="#">새로나온책</a></li>
+                            <li><a href="#">영미도서 이벤트</a></li>
+                            <li><a href="#">영미잡지정기구독</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">eBook</a>
+                    <div class="sub">
+                        <ul>
+                            <li><a href="#">베스트</a></li>
+                            <li><a href="#">신간</a></li>
+                            <li><a href="#">추천</a></li>
+                            <li><a href="#">무료</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">중고장터</a>
+                    <div class="sub">
+                        <ul>
+                            <li><a href="#">판매자페이지</a></li>
+                            <li><a href="#">중고책구매방법</a></li>
+                            <li><a href="#">구매상품배송조회</a></li>
+                            <li><a href="#">스마트비교서비스</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>

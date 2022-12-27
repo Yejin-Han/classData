@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plugin mousewheel</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script>
+      $(function(){
+        let leftNum=0;
+        $(window).on('mousewheel',function(event){
+          if(event.deltaY<0){
+            leftNum+=20;
+          } else{
+            leftNum-=20;
+          }
+          $('.box').css('left',leftNum);
+        });
+      });
+    </script>
+    <style type="text/css">
+      .box{
+        width: 50px; height: 50px; line-height: 50px;
+        background: #249; color: #fff;
+        text-align: center;
+        position: absolute; left:10px; top:50px;
+        transition:all 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">BOX</div>
+  </body>
+</html>

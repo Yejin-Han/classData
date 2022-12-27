@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>for - select > option</title>
+        <script>
+            document.write('<select name="birth" id="year">')
+            for(let i=1922; i<=2022; i++){
+                if(i==2022){
+                    document.write('<option value="'+i+'년" selected>'+i+'년</option>');
+                } else{
+                    document.write('<option value="'+i+'년">'+i+'년</option>');
+                }
+            }
+            document.write('</select>&nbsp;');
+
+            document.write('<select name="birth" id="month">');
+            for(let j=1; j<=12; j++){
+                document.write('<option value="'+j+'월">'+j+'월</option>');
+            }
+            document.write('</select>&nbsp;');
+            
+            document.write('<select name="birth" id="day">');
+            for(let k=1; k<=31; k++){
+                document.write('<option value="'+k+'일">'+k+'일</option>');
+            }
+            document.write('</select>');
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>filter</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+            }
+            img{
+                display: block;
+                margin: 25px;
+            }
+            .pic1{
+                filter: blur(5px);
+                transition: all 0.4s;
+            }
+            .pic1:hover{
+                filter: blur(0px);
+            }
+            .pic2{
+                filter: grayscale(100%);
+                transition: all 0.4s;
+            }
+            .pic2:hover{
+                filter: grayscale(0%);
+            }
+        </style>
+    </head>
+    <body>
+        <img src="../day37/img_jq/VENENO.JPG" alt="" class="pic1">
+        <img src="../day37/img_jq/XL1.JPG" alt="" class="pic2">
+    </body>
+</html>

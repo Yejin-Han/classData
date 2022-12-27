@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>마우스 좌표 인식</title>
+		<style type="text/css">
+			#div_box{
+				border: 1px solid #ccc;
+				width: 300px; height: 300px;
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div_box"></div>
+		<button type="button" id="btn">clear</button>
+		<div id="result_box"></div>
+		<script>
+			const div=document.getElementById('div_box');
+			const btn=document.getElementById('btn');
+			const result=document.getElementById('result_box');
+			div.addEventListener('click',(e)=>{
+				result.innerHTML=`<p>screenX : ${e.screenX}, screenY : ${e.screenY}</p>`;
+				result.innerHTML+=`<p>clientX : ${e.clientX}, clientY : ${e.clientY}</p>`;
+				result.innerHTML+=`<p>pageX : ${e.pageX}, pageY : ${e.pageY}</p>`;
+				result.innerHTML+=`<p>offsetX : ${e.offsetX}, offsetY : ${e.offsetY}</p>`;
+			});
+			btn.addEventListener('click',()=>{
+				result.innerHTML='';
+			});
+		</script>
+	</body>
+</html>

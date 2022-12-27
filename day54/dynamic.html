@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>동적생성 개체</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				$('#createbtn').on('click',function(){
+					$('<button type="button" id="removebtn">box제거</button>').appendTo($('.btnArea'));
+				});
+				$(document).on('click','#removebtn',function(){
+					$('.box').remove();
+				});
+			});
+		</script>
+		<style type="text/css">
+			.createbtn{
+				cursor: pointer;
+			}
+			.btnArea{
+				margin: 15px 8px; padding: 24px;
+				border: 2px solid #039;
+			}
+			.box{
+				width: 200px; height: 100px;
+				margin: 20px 10px;
+				background: #9c9;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="createbtn">버튼생성</button>
+		<div class="btnArea"></div>
+		<div class="box"></div>
+	</body>
+</html>

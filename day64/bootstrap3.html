@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>Bootstrap 3-3</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<h1>Navigation Bar</h1>
+		<section class="container">
+			<h2>Basic</h2>
+			<nav class="navbar">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">Main</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#">Main1</a></li>
+					<li><a href="#">Main2</a></li>
+					<li><a href="#">Main3</a></li>
+					<li><a href="#">Main4</a></li>
+				</ul>
+			</nav>
+		</section>
+		<section class="container-fluid">
+			<h2>Navigation bar - dropdown</h2>
+			<nav class="navbar navbar-inverse">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">Logo</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#">Main1</a></li>
+					<li><a href="#">Main2</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Main3<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Sub3-1</a></li>
+							<li><a href="#">Sub3-2</a></li>
+							<li><a href="#">Sub3-3</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Main4</a></li>
+				</ul>
+			</nav>
+		</section>
+	</body>
+</html>

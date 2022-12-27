@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style type="text/css">
+			body,section,div,ul,li{ margin: 0; padding: 0; }
+			ul{ list-style: none; }
+			#slide_container{
+				width: 200px; height: 200px;
+				border: 2px solid #f60;
+				margin: 100px auto;
+				overflow: hidden;
+			}
+			#slide_container>#slide{
+				display: flex;
+				transition: transform 0.4s;
+			}
+			#slide_container .items{
+				flex: 0 0 100%;
+				width: 200px; height: 200px;
+				text-align: center; line-height: 200px;
+				font-size: 40px; font-weight: bold;
+			}
+			#slide_container .i1{ background: #9c9; }
+			#slide_container .i2{ background: #c99; }
+			#slide_container .i3{ background: #99c; }
+		</style>
+	</head>
+	<body>
+		<section>
+			<div id="slide_container">
+				<ul id="slide">
+					<li class="items i1">1</li>
+					<li class="items i2">2</li>
+					<li class="items i3">3</li>
+				</ul>
+			</div>
+			<button type="button" id="prev">prev</button>
+			<button type="button" id="next">next</button>
+		</section>
+		<script>
+			const slide=document.querySelector('#slide');
+			const items=slide.querySelectorAll('.items');
+			const lastIndex=items.length-1;
+			//items[0]==items.item(0);
+			const first=items.item(0);
+			const last=items.item(lastIndex);
+			const w=first.clientWidth; //imgW
+			console.log(w);
+			let indexNum=1;
+			slide.append(first.cloneNode(true));
+			slide.insertBefore(last.cloneNode(true),first);
+			slide.style.transition='none';
+			slide.style.transform=`translateX(-${w*indexNum}px)`;
+			
+			let direct=1;
+			const slideMove=(direct)=>{
+				direct>0 ? indexNum++:indexNum--;
+				slide.style.transition='transform 0.4s';
+				slide.style.transform=`translateX(-${w*indexNum}px)`;
+			}
+			slide.addEventListener('transitionend',()=>{
+				if(indexNum==(lastIndex+2)){
+					indexNum=1; //4-->1
+					slide.style.transition='none';
+					slide.style.transform=`translateX(-${w*indexNum}px)`;
+				}
+				if(indexNum==0){
+					indexNum=lastIndex+1; //0-->3
+					slide.style.transition='none';
+					slide.style.transform=`translateX(-${w*indexNum}px)`;
+				}
+			});
+			let timer=setInterval('slideMove(direct)',2000);
+			
+			const prev=document.querySelector('#prev');
+			const next=document.querySelector('#next');
+
+			prev.addEventListener('click',()=>{
+				direct=0;
+				clearInterval(timer);
+				if(indexNum==0){
+					indexNum=lastIndex+1; //0-->3
+					slide.style.transition='none';
+					slide.style.transform=`translateX(-${w*indexNum}px)`;
+				} else{
+					slideMove(direct);
+				}
+				timer=setInterval('slideMove(direct+1)',2000);
+			});
+			next.addEventListener('click',()=>{
+				direct=1;
+				clearInterval(timer);
+				if(indexNum==(lastIndex+2)){
+					indexNum=1; //4-->1
+					slide.style.transition='none';
+					slide.style.transform=`translateX(-${w*indexNum}px)`;
+				} else{
+					slideMove(direct);
+				}
+				timer=setInterval('slideMove(direct)',2000);
+			});
+		</script>
+	</body>
+</html>

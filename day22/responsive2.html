@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=none">
+        <title>반응형 스타일</title>
+        <link rel="stylesheet" href="responsive2_style.css">
+    </head>
+    <body>
+        <section>
+            <p>
+                글로벌그룹 태성이
+                <strong>화장품 용기 문화의</strong><br>
+                <strong>새로운 장</strong>을 열겠습니다.
+            </p>
+            <p>
+                글로벌그룹 태성이
+                <strong>화장품 용기 문화의</strong>
+                <strong class="s2">새로운 장</strong>을 열겠습니다.
+            </p>
+        <!-- ::before 활용 -->
+            <p>
+                글로벌그룹 태성이<span class="br1"></span>
+                <strong>화장품 용기 문화의</strong><span class="br2"></span>
+                <strong class="s2">새로운 장</strong>을 열겠습니다.
+            </p>
+        <!-- span에 block 선언, (web)br2:block,br1:none->(tablet,mobile)br1:block -->
+        </section>
+    </body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>과제2 - 표</title>
+        <style>
+            body{
+                margin: 0px;
+                font-size: 14px;
+                font-family: "Nanum Gothic", "맑은 고딕", sans-serif;
+                color: #333;
+            }
+            table{
+                border-collapse: collapse;
+                border-spacing: 0px;
+                margin: 30px;
+                width: 800px;
+                /*border-width: 0px;*/
+                border: 0px none;
+                /*border-top-style: solid;
+                border-top-width: 3px;
+                border-top-color: #333;*/
+                border-top: 3px solid #333;
+            }
+            thead th{
+                /*border-bottom-style: solid;
+                border-bottom-width: 2px;
+                border-bottom-color: #666;*/
+                border-bottom: 2px solid #666;
+                text-align: right;
+                height: 44px;
+                color: #333;
+            }
+            tbody th, tbody td{
+                /*border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: #ddd;*/
+                border-bottom: 1px solid #ddd;
+                text-align: right;
+                height: 40px;
+                color: #666;
+            }
+            .align_left, tbody th{
+                text-align: left;
+                color: #333;
+            }
+            caption{
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <caption>주식배당</caption>
+            <thead>
+                <tr>
+                    <th class="align_left">구분</th>
+                    <th>2016</th>
+                    <th>2017</th>
+                    <th>2018</th>
+                    <th>2019</th>
+                    <th>2020</th>
+                    <th>2021</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>배당종류</th>
+                    <td>현금배당</td>
+                    <td>현금배당</td>
+                    <td>현금배당</td>
+                    <td>현금배당</td>
+                    <td>현금배당</td>
+                    <td>현금배당</td>
+                </tr>
+                <tr>
+                    <th>주당배당금(원)</th>
+                    <td>1,131</td>
+                    <td>1,446</td>
+                    <td>314</td>
+                    <td>376</td>
+                    <td>402</td>
+                    <td>511</td>
+                </tr>
+                <tr>
+                    <th>시가배당률(%)</th>
+                    <td>0.1%</td>
+                    <td>0.2%</td>
+                    <td>0.3%</td>
+                    <td>0.2%</td>
+                    <td>0.1%</td>
+                    <td>0.1%</td>
+                </tr>
+                <tr>
+                    <th>(연결)배당성향(%)</th>
+                    <td>4.3%</td>
+                    <td>5.5%</td>
+                    <td>7.1%</td>
+                    <td>9.4%</td>
+                    <td>5.9%</td>
+                    <td>0.5%</td>
+                </tr>
+                <tr>
+                    <th>배당 총액(백만원)</th>
+                    <td>32,581</td>
+                    <td>42,470</td>
+                    <td>45,901</td>
+                    <td>54,688</td>
+                    <td>59,279</td>
+                    <td>76,292</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

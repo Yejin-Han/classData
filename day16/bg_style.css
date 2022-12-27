@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+body{
+	margin: 0;
+	padding: 0;
+}
+div{
+	margin: 20px;
+}
+.mainbox{
+	height: 280px;
+	border: 2px solid #f30;
+	background: url("bg2/POSTER1.JPG") no-repeat left top,
+				url("bg2/POSTER2.JPG") no-repeat right top,
+				url("bg2/POSTER3.JPG") no-repeat right bottom,
+				url("bg2/POSTER4.JPG") no-repeat left bottom,
+				url("bg2/POSTER5.JPG") repeat-x center center;
+}
+.clipbox1, .clipbox2{
+	width: 500px;
+	height: 250px;
+	border: 20px solid rgba(255, 102, 30, 0.4);
+}
+.clipbox1{
+	background: url("bg2/POSTER6.JPG") repeat;
+	background-clip: border-box;
+}
+.clipbox2{
+	background: url("bg2/POSTER6.JPG") repeat;
+	background-clip: padding-box;
+}
+div[class*=sizebox]{
+	width: 220px;
+	height: 510px;
+	border: 2px solid #04f;
+	float: left;
+	margin: 5px 10px;
+}
+.sizebox1{
+	background: url("bg2/POSTER7.JPG") no-repeat;
+}
+.sizebox2{
+	background: url("bg2/poster7.jpg") no-repeat;
+	background-size: 50% 100%;
+}
+.sizebox3{
+	background: url("bg2/poster7.jpg") no-repeat;
+	background-size: 190px 390px;
+}
+.sizebox4{
+	background: url("bg2/poster7.jpg") no-repeat;
+	background-size: cover;
+}
+.sizebox5{
+	background: url("bg2/poster7.jpg") no-repeat;
+	background-size: contain;
+}
+body{
+	margin-top: 500px;
+	background: url("bg2/slide_banner3.jpg") no-repeat center top;
+	background-size: contain;
+}

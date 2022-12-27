@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>event적용, this</title>
+		<style type="text/css">
+			div{
+				border: 1px solid #ccc;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<button type="button" id="btn1">btn1</button>
+		<div id="box2"></div>
+		<button type="button" id="btn2">btn2</button>
+		<script>
+			const outPut1=function(){
+				document.getElementById('box1').innerHTML+=this;
+			}
+			window.addEventListener('load',outPut1);
+			document.getElementById('btn1').addEventListener('click',outPut1);
+			/* 화살표 함수 내 this는 함수를 선언된 공간 개체로 인식 -> 바깥에서 선언하면 그저 window */
+			const outPut2=()=>{
+				document.getElementById('box2').innerHTML+=this;
+			}
+			window.addEventListener('load',outPut2);
+			document.getElementById('btn2').addEventListener('click',outPut2);
+		</script>
+	</body>
+</html>

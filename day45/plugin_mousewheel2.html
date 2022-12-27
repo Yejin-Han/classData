@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mousewheel plugin- scroll animation</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script>
+      $(function(){
+        let n=0;
+        let movingState=false;
+        $(window).on('mousewheel',function(event){
+          console.log(movingState);
+          if(!movingState){ //!(movingState==true)
+            movingState=true;
+            if(event.deltaY<0){
+              n++;
+              if(n>=3){
+                n=3;
+              }
+            } else{
+              n--;
+              if(n<=0){
+                n=0;
+              }
+            }
+            $('html,body').stop().animate({scrollTop:$(window).height()*n},350,'easeOutCubic',function(){
+              movingState=false;
+            });
+          }
+        });
+      });
+    </script>
+    <style type="text/css">
+      body,html{
+        width: 100%; height: 100%;
+      }
+      body,section{
+        margin: 0; padding: 0;
+      }
+      section{
+        height: 100%;
+        font-size: 5em;
+      }
+      #page1{
+        background: #9c9;
+      }
+      #page2{
+        background: #fc0;
+      }
+      #page3{
+        background: #29c;
+      }
+      #page4{
+        background: #96f;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="page1">PAGE1</section>
+    <section id="page2">PAGE2</section>
+    <section id="page3">PAGE3</section>
+    <section id="page4">PAGE4</section>
+  </body>
+</html>

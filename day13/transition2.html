@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>transition2</title>
+        <style type="text/css">
+            div{
+                background: #69f;
+                padding: 20px;
+                padding-left: 80px;
+                position: absolute;
+                left: -40px;
+                transition: all 0.2s;
+                cursor: pointer;
+            }
+            div:hover{
+                left: -5px;
+            }
+            .btn1{
+                top: 30px;
+            }
+            .btn2{
+                top: 100px;
+            }
+            .btn3{
+                top: 170px;
+            }
+            .btn4{
+                left: 0;
+                top: 250px;
+                padding: 0;
+                text-align: center;
+                line-height: 100px;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .btn4:hover{
+                line-height: 150px;
+                width: 150px;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="btn1">btn1</div>
+        <div class="btn2">btn2</div>
+        <div class="btn3">btn3</div>
+        <div class="btn4">btn4</div>
+    </body>
+</html>

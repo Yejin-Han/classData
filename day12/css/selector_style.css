@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+body{
+	margin: 0;
+	font-size: 12px;
+	font-family: "맑은 고딕", sans-serif;
+}
+h1, h2{
+	margin-left: 30px;
+}
+div{
+	margin: 30px;
+	padding: 20px;
+	border: 2px solid #555;
+}
+.box1>p:first-child{
+	color: #f60;
+	font-weight: bold;
+}
+.box1>p:last-child{
+	color: #06f;
+	font-weight: bold;
+}
+.box1>p:nth-child(3){
+	color: #393;
+	text-decoration: underline;
+}
+.box1>p:nth-last-child(3){
+	color: #c39;
+	font-style: italic;
+}
+table{
+	border-collapse: separate;
+	border-spacing: 5px;
+	border: 2px solid #639;
+	width: 500px;
+	margin: 20px auto;
+}
+caption,th{
+	text-align: left;
+}
+th,td{
+	border: 1px solid #639;
+	padding: 4px 8px;
+}
+.box2>table>tbody>tr>td:first-of-type{
+	color: #fc0;
+	font-weight: bold;
+}
+.box2>table>tbody>tr>td:nth-of-type(2){
+	background: #616;
+	color: #39c;
+}
+tr:nth-of-type(2n){
+	background: #555;
+	color: #fff;
+}
+.box3>p::before{
+	content: "[W3C Reference] - ";
+	color: #f60;
+	font-weight: bold;
+}
+.box3>p::after{
+	content: " - css position 속성에 대해";
+	color: #009;
+	font-style: italic;
+	display: block;
+}
+.box3>span::before{
+	content: "'";
+}
+.box3>span:after{
+	content: "'";
+}
+.box4{
+	width: 400px;
+}
+.box4>p::first-line{
+	color: #390;
+}
+.box4>p::first-letter{
+	font-size: 2em;
+	color: #960;
+	font-weight: bold;
+	float: left;
+	margin-right: 5px;
+}

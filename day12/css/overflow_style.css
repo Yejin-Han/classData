@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+body{
+	margin: 0;
+	font-size: 14px;
+	font-family: "맑은 고딕", sans-serif;
+	color: #333;
+	/*overflow-축(x,y) : ~*/ overflow-x: hidden;
+}
+h1{
+	margin: 10px;
+	padding: 10px;
+	border: 2px solid #039;
+}
+div{
+	width: 270px;
+	height: 230px;
+	border: 2px solid #333;
+	padding: 12px 8px;
+	float: left;
+	text-align: justify;
+	margin: 0 10px;
+}
+#box1{
+	overflow: visible;
+}
+#box2{
+	overflow: hidden;
+}
+#box3{
+	overflow: scroll;
+}
+#box4{
+	overflow: auto;
+}
+#wrap{
+	background: #fc0;
+	border: 2px solid #f30;
+	margin: 5px;
+	padding: 5px;
+	width: 95%;
+	overflow: hidden; /*float 선언 된 자식요소의 높이(합) 인지 - 자체 높이로 설정*/
+}

@@ -1,0 +1,387 @@
+220810
+Hyper Text Markup Language
+
+<html>
+	<head>
+	 문서 설정
+	 <title>제목표시줄</title> (유일한 가시가능 부분)
+	</head>
+
+	<body>
+	 본문
+	</body>
+</html>
+
+공백문자 &nbsp;
+&문자 &amp;
+줄바꿈 태그 <br>
+속성 -- <시작명령v속성="값"v속성2="값2">
+
+<body>에 직접 속성 주는 건 css 사용 불가할 때나 하는거니까 기억하지 마셈.
+
+
+
+220811
+[문자 꾸미기]
+  굵은 글씨 <b></b> (잘 안 씀 but 가끔 제품명 등) // ★ <strong></strong> : 강조체(객관적)
+  이탤릭체(기울임) <i></i> (잘 안 씀 but 가끔 분류학명칭, 생각 등) // <em></em> : 강조체(주관적)
+  밑줄 <ins></ins> (잘 안 씀) // css에서 수정
+  중간줄(취소선) <del></del> (잘 안 씀) // css에서 수정
+  <mark> : 강조체 - 사용자 임의 강조 like 형광펜 (어플 쪽에서 쓸까말까)
+
+[단락] <p></p> (한 줄도 p!) 한 줄 갭 있음 // p와 p 사이는 항상 한줄갭임
+[제목] <h1></h1> ~ <h6></h6> 한 줄 갭 있음 - 제목의 중요도 우선순위
+  h1 회사로고, 페이지 당 1개만 사용, <strong> 중복 사용 불가
+  h2 소제목
+  h3 h2 아래의 부제목
+  ...
+  일반사용 h1~h3
+
+
+
+220816
+인용문 단락 <blockquote cite="출처"></blockquote> -> 결과 좌우 들여쓰기 됨, 끝에 줄바뀜.
+인용문 <q cite="출처"></q> -> 글 양끝에 큰 따옴표 붙음.
+공간분할 <div></div> -> 결과 줄바꿈 됨. (한줄 갭 x)
+특수문자 ⓒ (copyright) --- &copy;
+
+
+
+220817
+[외부파일 호출] 1. (이미지)
+<img src="파일경로" alt="대체설명글"> * 현재 html파일과 같은 폴더에 위치하는 img라면 파일경로는 img명만 적어도 된다.
+
+[파일연결](링크 명령)
+<a href="경로"> aaa </a>
+- aaa에 경로가 연결됨
+- 웹 주소는 https부터 풀로 다
+- 웹/뷰어/프로그램으로 열 수 없는 확장자는 자동으로 다운로드로 넘어감.
+
+[파일 경로] : 절대경로/상대경로 구분
+- 상대경로로 만든 후, 절대경로로 바꿀 것. (절대경로는 하위 경로를 모두 포함하는 주소(웹)가 있어야 함.)
+- 현재 html 파일이 있는 폴더 밖에 있는 폴더에 위치하는 파일을 가져와야 함. -> ../를 앞에 붙이기
+
+
+
+220818
+[목록명령] - 위 아래 한 줄 씩 갭, 약간 들여쓰기 됨
+1. 순서 있는 목록
+    <ol type="A/a/I/i" start="시작순번">
+        <li></li>
+        <li></li>
+    </ol>
+2. 순서 없는 목록(대부분!)
+    <ul type="disc/circle/square">
+        <li></li>
+        <li></li>
+    </ul>
+3. 용어 정의 목록
+    <dl>
+        <dt>용어</dt>
+        <dd>설명1</dd><dd>설명2</dd><dd>설명3</dd> - dd는 들여쓰기 됨.
+    </dl>
+
+
+
+220819
+[링크명령]
+- 새창에서 열기
+<a href="경로" target="(_self,) _blank"></a> : 자기 자신(기본값)을 새 창에서 연다
+
+- 문서 내 연결
+<tag id="고유이름"></tag>
+<a href="#문서내 지점이름(=고유이름)"></a>
+* id 이름 쓰는 원칙 : 영문먼저, 띄어쓰기 x, 특수문자는 일반적으로 _ , - 만 가능( _ 위주로 씀), 한글 x, 문서 당 하나만 존재.
+
+- 타 문서 연결(html)
+<a href="문서이름.html#문서내 지점이름"></a>
+
+
+
+220822
+[표 만들기]
+<table>
+    <tr> : 행
+        <th></th> : 입력(제목)칸, 기본으로 굵게, 가운데정렬
+        <td>...</td> : 입력 공간(열을 만들어 줌)
+        <td>...</td>
+    </tr>
+</table>
+
+행 합치기 : 합쳐지는 첫번째 행의 <td> 속성에 rowspan = "몇 줄"
+열 합치기 : colspan = "몇 칸"
+
+[html 단위]
+기본단위 : px, 기타 %
+
+[표 속성]; 거의 다 css에서 해야 하는거라 쓰지는 마
+<table>
+align(left/center/right) 표 자체의 위치에 대한 정렬
+border="?(px)" table에 border를 1이상 주면 td는 다 1, 0주면 td도 0
+width, ((height))
+bgcolor, bordercolor : 기본 입체로 보이는데, 단색으로 정해주면 입체가 사라짐
+background 반복되는 배경그림
+* cellspacing(셀 간의 간격 --> 대개 0), cellpadding(셀 안의 여백 --> 대개 3~5px)  :: 안쪽으로 주는 간격이라 전체 크기는 동일
+
+<td>
+border
+bordercolor
+width, ((height))
+bgcolor
+background
+align(left/center/right) * valign(top/middle/bottom) 글자 위치 정렬
+
+[접근성]
+표 제목 <caption>제목</caption>
+-------------행 그룹화 요소---------------------------
+표 내용 <thead> </thead> th로만 구성
+          <tbody> </tbody> 복수 구성 가능
+          <tfoot> </tfoot> 구성 가능
+--------------------------------------------------------
+-------------열 그룹화 요소(caption 바로 뒤에)--------
+<colgroup span="?"></colgroup>
+   (열 개수 3개라면)<col><col><col>
+   (그 중 두개 묶고싶다면)<col><col span="2">
+
+입력순서
+<thead></thead>
+<tfoot></tfoot>
+<tbody></tbody>
+
+속성
+<id="">
+<headers="">
+--------------------------------------------------------------------------
+<scope=""> -> rowspan colspan 없는 테이블만 쓸 수 있음 따라서 그런 테이블을 만드려고 노력해야 함.
+col,row // 읽는 순서 지정
+
+[글자에 블럭잡고 싶을 때 등에 쓰이는 태그]
+<span></span>
+
+
+
+220824
+[inline Frame(iFrame)] - 일정공간에 외부문서(파일)를 호출해서 보여준다.
+<iframe src="문서파일경로" width="" height="" marginwidth="0" marginheight="0" frameborder="0" scrolling="no/yes/auto" name="공간이름"></iframe>
+--> css에서 가능하지만 그냥 쓰고 validation을 빼고 함. 속성들 적으셈!!
+
+***영상 페이지 삽입할 때 씀
+<css에서 쓴다면>
+* marginwidth, marginheight는 margin: 0;
+* frameborder은 border: 0;
+* scrolling="no"는 overflow: hidden;
+
+220825
+[inline level] : em strong span a img mark ins del 등 + form 안의 input
+[block level] : h1~h6 p iframe table div ul li ol dl dt dd blockquote 등
+
+block : 자동 줄바꿈, 너비, 높이 지정 가능, 여백(바깥, 안쪽) 적용 가능
+inline : 안쪽 여백 중 좌우만 적용 가능
+
+[html5 sectioning-group]
+<header></header> : 제목태그(h), 목록태그(ul ol)
+<nav></nav> : 주요 내비게이션에만 쓰임
+<main></main> : 요즘 메인페이지에서 쓰이는 그런 태그ㅎ
+<footer></footer>
+<section></section> : =챕터
+<article></article> : =독립컨텐츠(like 연재물)
+<aside></aside> : =본문과 관계없는 광고, 바로가기 버튼
+
+[대략적인 웹 구조]
+<header>
+h1
+ul.tnb(top navigation bar)
+<nav>
+ul.gnb(global navigation bar)
+<main>
+div.snb(side navigation bar)
+section1
+section2 (div's)
+...
+sectionN (article)
+aside (direct btns)
+<footer>
+ul.footer-menu
+address
+copyright
+div
+dl
+
+
+
+220829
+[form tag] ((여기 없는 tag는 day8 참고))
+-입력 후 데이터 전송 명령
+<form action="전송할 주소" method="전송방식(get, post)">
+* 이 action주소가 보통 php일 것
+  ** get - 전송속도 빠름, 전송주소 노출 -----> 검색
+  ** post(기본) - 전송속도 느림, 전송주소 노출 x -----> 로그인, 회원가입
+
+    //input도 크게 보면 inline속성 but css 기본 여백설정은 같이 해준다.
+    <input type="text" name="그룹명" id="(그룹 안의)개체명"
+				readonly disabled(비활성화)/enabled(활성화)
+				//html5에서 나온 속성
+				(value="" 전송값)
+				placeholder="공간에 임시로 삽입해놓을 글귀 등"
+				required(필수사항 기입x시 경고)
+				maxlength=""
+				autofocus (처음에 커서가 가 있음)>
+    <input type="password"(*** 등으로 가려져 나옴), 속성은 동일>
+    <input type="radio" name="공통그룹" id="" value="" ((checked))> //자체 on/off 불가, 중복선택 x
+    <input type="checkbox" name="" id="" value="" ((checked))> //자체 on/off 가능
+    <select name="" id""> 콤보박스 드롭다운리스트!!
+        <optgroup label="">
+        	<option value="" selected(기본으로 선택되어보임)>값1</option> //선택하면 value=""의 값이 전송됨
+        	<option value="">값2</option>
+        </optgroup>
+    </select>
+    <button type="submit" name="" id="">확인</button>
+    <button type="reset" name="" id="">취소</button> //폼 화면 내에서 값을 지우고 다시 입력하겠다 할 때
+    <button type="button" name="" id="">중복확인</button>
+</form>
+
+
+
+220830
+[form-label]
+<label></label>
+만약 input type="radio/checkbox"등과 붙어있는 내용을 선택해도 input에 영향을 주고 싶다  -----> <label for="input의 id">붙어있을 내용</label>
+
+[form 그룹화 요소]
+<form>
+    <fieldset> --- 중복사용 가능
+        <legend> 그룹화요소의 제목 like caption </legend> : css display none;
+        table, div, p, > input ..
+    </fieldset> : 테두리가 기본 있음. -> css bd0;
+    <fieldset>
+        <legend> 그룹화요소의 제목 like caption </legend>
+        table, div, p, > input ..
+    </fieldset>
+    ...
+</form>
+
+[기타 속성]
+<textarea cols="보여줄 글자수" rows="보여줄 행 수 " id name placeholder>
+입력공간
+</textarea> --- value속성 x
+
+<input type="file" id="" name="" ...> --- 파일 찾아보기 그런거
+
+<input type="image" src="~" id="" name=""> --- 쓰지 마세요!
+
+
+
+220907
+[a태그 href에 특수한 기능]
+특정 주소를 받는 사람으로 하여 아웃룩 열기
+<a href="mailto:id@address.com"></a>
+
+전화걸기(모바일)
+<a href="tel:0221243114">ddd</a>
+
+[<hr>태그]
+다 깨졌을 때 섹션끼리 구분선 넣어주는 용도, css에서 안 보이게 해야 함
+
+
+
+220914
+[onclick 속성 - js 기본내장함수]
+onclick = "..." 클릭이 발생하면 "..." 실행
+- alert('경고문구')
+
+
+
+220916
+[multimedia 태그]
+* 재생기는 js로
+* inline요소임.
+1. audio
+- 변환을 안해서 파일 확장자 종류가 하나일 때
+<audio src="경로" autoplay preload="auto" loop controls></audio>
+- 같은 파일 확장자 여러 개일 때
+<audio autoplay loop controls>
+    <source src="경로1" type="audio/확장자1">
+    ...
+    <source src="경로n" type="audio/확장자n">
+</audio>
+  -> 브라우저마다 여러 source들 중 그에 맞는 걸로 자동선택됨.
+.mp3 : 현재 95% 가능 (옛날 firefox 지원 x)
+.ogg : ie 지원 x
+.wav : safari 지원 x
+따라서 세 확장자 파일 모두 준비!
+
+2. video
+- 확장자 하나일 때
+<video src="url" preload="auto" autoplay loop controls poster="썸네일 이미지 경로" width="" height=""></video>
+- 확장자 여러개일 때
+<video>
+    <source src="경로1" type="video/확장자1">
+    <source src="경로2" type="video/확장자2">
+</video>
+.mp4 : 옛날 firefox 지원 x
+.ogv : ie 지원 x
+//.webm : ie 지원 x
+
+3. embed : 외부 개체 삽입, audio video 모두 가능 ----------> 지금 안쓴다는 것 같다.
+<embed src="경로" width="" height="">
+
+
+
+220920
+[favicon]
+favicon-generator.org 에 logo.jpg/gif/png 넣고 돌려서
+이미지 파일(.ico), 코드를 받아서 넣으면 됨.
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+이런 식의...
+
+[media query]
+<style type="" media=""></style>
+1. 웹 : media="screen and (min-width:1025px)"
+2. 태블릿 : media="screen and (max-width:1024px) and (min-width:641px)"
+3. 모바일 : media="screen and (max-width:640px)"
+사이즈는 현재에 맞추어 조절하기
+(-> html 시트에서 하는 법)
+
+
+
+220922
+[image map]
+- 이미지 내의 특정 영역에 링크를 걸고 싶을 때
+- image map generator에서 태그 생성, 입력해주면 됨.
+- 접근성면에서는 떨어짐.
+  -> 해당 영역에 투명한 a 태그를 얹어주는게 낫긴 함.
+(ex)
+<img src="img/small_slide.png" usemap="#image_map" alt="">
+<map name="image_map">
+    <area alt="자세히보기" title="topcit 안내 정보" href="#" coords="36,225,150,265" shape="rect">
+</map>
+
+
+
+220928
+[html5 properties]
+태그 안 속성으로
+- hidden (js로 작업 가능할 때 css display none 대신 쓸 수 있음)
+- draggable="true" (기본) draggable="false" : 드래그 안 됨
+- contenteditable(="true", 기본) / ="false" 출력물 안에서 수정 가능
+
+
+
+221004
+[figure 태그] : 개체 설명글 -  하나의 제목을 가지고 여러 img가 묶여있을 때, 기사 안에서 이미지와 간단한 설명글 있을 때
+---> alt 내용 생략 가능
+<figure>
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <figcaption>설명글(제목글)</figcaption>
+</figure>
+
+
+
+221118
+[html 안에 html 불러오기]
+php명령 <? include ("파일명.html(상대경로)") ?>
+상대경로 -> 절대경로(dothome에 올렸다면 그 안의 폴더로)

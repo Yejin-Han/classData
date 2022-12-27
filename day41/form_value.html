@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form value값 변경</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        $('#input1').val('아이디 or 이메일');
+        $('#input2').val('이 곳에 인사말을 남겨주세요.'); //value값 없는 속성에 억지로 넣어줌
+        const text1=$('#input1').val();
+        const text2=$('#input2').val();
+        const text3=$('#btn').text();
+        $('#input1').focus(function(){
+          $(this).val('');
+        });
+        $('#input1').blur(function(){
+          $(this).val(text1);
+        });
+        $('#input2').focus(function(){
+          $(this).val('인사말 : ');
+        });
+        $('#input2').blur(function(){
+          $(this).val(text2);
+        });
+        $('#btn').focus(function(){
+          $(this).text('로그인');
+        });
+        $('#btn').blur(function(){
+          $(this).text(text3);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <input type="text" name="input1" id="input1" value="text field">
+      <br><br>
+      <textarea name="input2" id="input2" cols="60" rows="5">text multi lines area</textarea>
+      <br><br>
+      <button type="button" id="btn">login</button>
+    </form>
+  </body>
+</html>

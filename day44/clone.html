@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복제(clone)</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function(){
+        /* $('#nav a').each(function(){
+          const off=$(this).find('.off');
+          const on=off.clone();
+          on.appendTo($(this)).removeClass('off').addClass('on');
+        }); */
+        $('#nav a').on('mouseenter',function(){
+          const off=$(this).find('.off');
+          const on=off.clone();
+          on.appendTo($(this)).removeClass('off').addClass('on');
+          off.stop().animate({'top':'45px'},300);
+          on.stop().css('top','-45px').animate({'top':'0px'},300); //top 0으로 보내놓으면 그걸 기억하고 있으므로 다시 mouseenter되면 강제로 원래 위치로 돌려놔야 animate가 작동함.
+        });
+        $('#nav a').on('mouseleave',function(){
+          const off=$(this).find('.off');
+          const on=$(this).find('.on');
+          off.stop().animate({'top':'0px'},300);
+          on.stop().animate({'top':'-45px'},300,function(){
+            on.remove(); //animate가 발동하고 on을 그냥 두면 계속 그 위로 복제되므로 on이 -45px에 고정적으로 남게 된다. 지워줘야 함.
+          });
+        });
+      });
+    </script>
+    <style type="text/css">
+      body,nav,ul,li{
+        margin:0; padding:0;
+      }
+      ul{
+        list-style:none;
+      }
+      a{
+        text-decoration: none;
+      }
+      body{
+        font-family:Arial, sans-serif;
+        font-size:14px;
+        background: #ededed;
+      }
+      #nav{
+        position:absolute; left:50%; top:100px;
+        transform:translateX(-50%);
+      }
+      #nav>ul{
+        height:45px;
+        overflow:hidden;
+      }
+      #nav>ul>li{
+        float:left;
+        line-height: 45px;
+      }
+      #nav>ul>li>a{
+        display:block;
+        position:relative;
+        height: 45px;
+        font-weight: bold;
+      }
+      #nav>ul>li>a>span{
+        display:block;
+        padding: 0 24px;
+        height: 45px;
+        position:relative; left:0;
+      }
+      #nav>ul>li>a>span.off{
+        top:0;
+        background: #090909;
+        color: #fff;
+      }
+      #nav>ul>li>a>span.on{
+        position:absolute; top:-45px;
+        background: #fff;
+        color: #090909;
+      }
+    </style>
+  </head>
+  <body>
+  <nav id="nav">
+    <ul>
+      <li>
+        <a href="#"><span class="off">Jquery</span></a>
+      </li>
+      <li>
+        <a href="#"><span class="off">Jquery ui</span></a>
+      </li>
+      <li>
+        <a href="#"><span class="off">Jquery mobile</span></a>
+      </li>
+      <li>
+        <a href="#"><span class="off">ECMAScript</span></a>
+      </li>
+    </ul>
+  </nav>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>DOM 객체</title>
+		<style type="text/css">
+			div{
+				border: 2px solid #039; padding: 20px;
+				display: inline-block; margin: 15px;
+			}
+			img{ width: 90px; height: auto; }
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<h3>box1 - 0번을 마지막으로</h3>
+			<ul>
+				<li><img src="image/img1.jpg" alt=""></li>
+				<li><img src="image/img2.jpg" alt=""></li>
+				<li><img src="image/img3.jpg" alt=""></li>
+				<li><img src="image/img4.jpg" alt=""></li>
+				<li><img src="image/img5.jpg" alt=""></li>
+				<li><img src="image/img6.jpg" alt=""></li>
+				<li><img src="image/img7.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div id="box2">
+			<h3>box2 - 마지막을 0번으로</h3>
+			<ul>
+				<li><img src="image/img1.jpg" alt=""></li>
+				<li><img src="image/img2.jpg" alt=""></li>
+				<li><img src="image/img3.jpg" alt=""></li>
+				<li><img src="image/img4.jpg" alt=""></li>
+				<li><img src="image/img5.jpg" alt=""></li>
+				<li><img src="image/img6.jpg" alt=""></li>
+				<li><img src="image/img7.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div id="box3">
+			<h3>box3 - loop</h3>
+			<ul>
+				<li><img src="image/img1.jpg" alt=""></li>
+				<li><img src="image/img2.jpg" alt=""></li>
+				<li><img src="image/img3.jpg" alt=""></li>
+				<li><img src="image/img4.jpg" alt=""></li>
+				<li><img src="image/img5.jpg" alt=""></li>
+				<li><img src="image/img6.jpg" alt=""></li>
+				<li><img src="image/img7.jpg" alt=""></li>
+			</ul>
+		</div>
+		<script>
+			document.getElementById('box1').onclick=()=>{
+				let list=document.getElementById('box1').getElementsByTagName('li');
+				let first=list.item(0);
+				document.getElementById('box1').getElementsByTagName('ul').item(0).appendChild(first);
+			}
+			document.getElementById('box2').onclick=()=>{
+				let list=document.getElementById('box2').getElementsByTagName('li');
+				let first=list.item(0);
+				let last=list.item(list.length-1);
+				document.getElementById('box2').getElementsByTagName('ul').item(0).insertBefore(last,first);
+			}
+			const cloneSetting=()=>{
+				let list=document.getElementById('box3').getElementsByTagName('li');
+				let first=list.item(0);
+				let last=list.item(list.length-1);
+				let first_clone=first.cloneNode(true);
+				let last_clone=last.cloneNode(true);
+				document.getElementById('box3').getElementsByTagName('ul').item(0).insertBefore(last_clone,first);
+				document.getElementById('box3').getElementsByTagName('ul').item(0).appendChild(first_clone);
+			}
+			cloneSetting();
+		</script>
+	</body>
+</html>

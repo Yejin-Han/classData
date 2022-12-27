@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>snow animation</title>
+		<style type="text/css">
+			body{ margin: 0; padding: 0; overflow: hidden;}
+			section{
+				width: 100vw; height: 100vh;
+				background: #000;
+				position: relative;
+			}
+			span{
+				width: 10px; height: 10px;
+				border-radius: 50%;
+				position: absolute; left: 0; top: 0;
+				background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0.7819502801120448) 94%);
+			}
+		</style>
+	</head>
+	<body>
+		<section></section>
+		<script>
+			const area=document.querySelector('section'); //tagname으로 잡으면 item 써줘야함
+			const createSnow=()=>{ // 랜덤으로 크기, 위치, 투명도 지정하기. 움직임 설정
+				const snow=document.createElement('span');
+				area.appendChild(snow);
+				snow.style.left=Math.random()*window.innerWidth+'px';
+				snow.style.top=Math.random()*(-600)+'px';
+				snow.size=Math.random()*6+4 // 4 ~ 10 랜덤으로 사이즈 부여
+				snow.style.width=snow.size+'px';
+				snow.style.height=snow.size+'px';
+				snow.style.opacity=snow.size/10;
+
+				// 현재 랜덤으로 퍼트린 눈들의 위치값들을 호출해야 함. 호출안하고 식 만들면 다 똑같은 높이에서 떨어짐
+				
+				// 라디안 변수로 X 값 변경. ( 사이즈에 비례)
+				// 각 눈들이 떨어지는 방향과 속도를 랜덤으로 넣어줄 변수도 필요
+
+				let yPos=parseInt(snow.style.top);
+				let xPos=parseInt(snow.style.left);
+				let ySpeed=snow.size*0.2; // y축 증가 변수( 사이즈에 비례해야함. 크면 빠르게, 작으면 느리게)
+				let xRad=snow.size*0.002;
+				let rad=0;
+				let r=snow.size*2; // 사인 반경 크기비례
+				let xDirection=Math.random(); // 
+
+				(function(){ // 즉시실행함수
+					const snowing=()=>{
+						window.requestAnimationFrame(snowing);
+						yPos += ySpeed;
+						if( yPos >= window.innerHeight+20){
+							yPos=Math.random()*(-600);
+							xDirection=Math.random();
+						} // 눈사이의 마진 고려해서 더해줌
+						snow.style.top=`${yPos}px`;
+						rad+=xRad;
+						if(rad >= Math.PI*2){ rad=0; }
+						if(xDirection>0.5){
+							snow.style.left=xPos+Math.sin(rad)*r+'px';
+						} else{
+							snow.style.left=xPos-Math.sin(rad)*r+'px';
+						}
+						// xPos+=Math.sin(rad)*0.25;
+						// snow.style.left=xPos+'px';
+					}
+					snowing();
+				})();
+			}
+			for( let i = 0; i <= 150; i++){
+				createSnow();
+			}
+			// for문으로 createSnow 실행 --> 반복 횟수만큼 눈 생성
+		</script>
+	</body>
+</html>

@@ -1,0 +1,127 @@
+﻿메타태그 속성 정리 
+01
+<META HTTP-EQUIV="Expire" ConTENT="-1"> : 캐쉬의 완료 즉 파기 시간을 정의 한다.
+02
+<META HTTP-EQUIV="Last-Modified" ConTENT="Mon,20 Jul 2007 19:30:30"> : 최종수정 년 월 일 시를 나타낸다(일반적으로 과거를 이야기 한다.).
+03
+<META HTTP-EQUIV='Cache-Control' ConTENT='no-cache'>
+04
+<META HTTP-EQUIV='Pragma' ConTENT='no-cache'> : 캐쉬가 되지 않게 한다.
+05
+<META HTTP-EQUIV="Content-type" content="text/html; charset=euc-kr"> : 웹문서의 언어 설정(euc-kr, utf-8, 등등).
+06
+<META HTTP-EQUIV="Imagetoolbar" content="no"> : 그림위에 마우스 오버시 이미지 관련 툴바가 생기지 않는다.
+07
+<META HTTP-EQUIV="Refresh" content="15;URL=http://bibaram.com"> : 웹사이트 및 웹페이지로 정해진 시간(초)후에 이동
+08
+<META HTTP-EQUIV="Page-Enter" content="RevealTrans(Duration=5/시간 초단위, Transition=21) "> : 웹페이지 로딩시 트랜지션 효과 (스르르 전환 효과 - 익스플로러 이외에는 테스트 안했습니다.)
+09
+ 
+10
+※ 이하는 content="" 사이에 들어가는 내용입니다.
+11
+<META name="Subject" content=""> : 웹페이지주제 입력
+12
+<META name="Title" content=""> : 웹페이지이름 입력
+13
+<META name="Descript-xion" content=""> : 웹페이지의 소개 또는 설명문 입력
+14
+<META name="Keywords" content=""> : 키워드 입력 여러키워드는 "," 으로 분리 할수있음(비바람, bibaram)
+15
+<META name="Author" content=""> : 만든사람 이름
+16
+<META name="Publisher" content=""> : 만든 단체나 회사 이름
+17
+<META name="Other Agent" content=""> : 웹책임자 이름
+18
+<META name="Classification" content=""> : 카테고리위치(분류)
+19
+<META name="Generator" content=": 드림위버, 나모웹에디터 등등의 <META name="Reply-To(Email)" content="메일주소 입력">
+20
+<META name="Filename" content=""> : 파일이름 입력
+21
+<META name="Author-Date(Date)" content=""> : 제작일 년-월-일 시:분:초 등의 형식으로 나타낸다
+22
+<META name="Location" content=""> : 위치(KR, US, 등등등)
+23
+<META name="Distribution" content=""> : 배포자
+24
+<META name="Copyright" content="">: 저작권
+25
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> : ie 엔진 정의 
+26
+ 
+27
+※ 메타검색엔진은 자료를 수집하는 자동화된 로봇이 존재 합니다. 그 해당 로봇이 웹사이트에 도달했을때 내려주는 명령입니다.
+28
+<META name="Robots" content=""> : ALL
+29
+<META name="robots" content="index,follow" /> : 이 문서도 긁어가고 링크된 문서도 긁어감.
+30
+<META name="robots" content="noindex,follow" /> : 이 문서는 긁어가지 말고 링크된 문서만 긁어감.
+31
+<META name="robots" content="index,nofollow" /> : 이 문서는 긁어가되, 링크는 무시함.
+32
+<META name="robots" content="noindex,nofollow" /> : 이 문서도 긁지 않고, 링크도 무시함.
+33
+* charset 속성은 인터넷 익스플로러만 제공하는데 이 속성의 값은 문서에서 사용하는 문자셋의 이름이다. 되도록 이 속성대신에 http-equiv와 content 속성을 사용 할 것을 권장한다.
+34
+ 
+35
+각 설명 및 사용 방법
+36
+ 
+37
+<META name="generator" content="웹페이지 제작도구">
+38
+- 웹페이지를 만드는데 사용한 프로그램 프로그램 이름을 넣으려면 content="메모장" 과 같은 식으로 적으시면 됩니다.
+39
+<META name="author" contents="웹페이지를 제작한 사람 이름">
+40
+- 웹페이지를 만든 제작자를 넣으려면 content="제작자 이름등" 와 같이 적으시면 됩니다.
+41
+<META name="keywords" content="홈페이지가 담고 있는 내용">
+42
+- 웹페이지가 담고 있는 내용을 content="tip, 별, 시" 와 같이 ',' 를 단어 사이에 넣어 나열하면 됩니다. 검색엔진에서 검색어를 입력하고 찾기를 할 때 불러들이는 부분들입니다. 메타태그의 핵심기능이라고 할 수 있습니다.
+43
+<META name="descript-x-xion" content="웹페이지 소개">
+44
+- 웹페이지에 대한 간단한 소개글을 적습니다.
+45
+<META http-equiv="refresh" content="1; url=http://bibaram.com">
+46
+- 1초 후에 <a href="http://bibaram.com으로" target="_blank">http://bibaram.com으로</a> 자동으로 이동하게 하는 옵션입니다.
+47
+<META http-equiv="Pragma" content="no-cache">
+48
+- 캐쉬에서 해당 페이지를 읽어들이는 걸 방지합니다. 들어올 때마다 새로고침을 한 것과 같은 효과입니다.
+49
+<META http-equiv="expires" content="MON, 01 apr 2002 00:00:01 GMT">
+50
+- 지정된 시간 이후에는 웹문서 캐쉬(cache) 금지. 일반적으로 현재 시간보다 과거 시간을 설정합니다.
+51
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-5">
+52
+- 문자 형식 지정 - HTML은 ISO코드, 완성형 코드등의 다양한 문자셋을 지정합니다. 일반적으로 ISO코드 or UTF 를 많이 사용합니다.
+53
+<META http-equiv="Content-script-x-x-Type" content="text/javascript-x-x">
+54
+- 스크립트 형식 지정
+55
+- 스크립트 형식에는 text/javascript-x-x(자바스크립트) 와 VBscript-x-x(비쥬얼베이직 스크립트)가 있습니다.
+56
+<META http-equiv="Content-Style-Type" content="text/css">
+57
+- 스타일시트 형식 지정
+58
+<META http-equiv="Page-Exit" content="RevealTrans(Duration=10, Transition=50)">
+59
+- 웹문서를 들어오거나 나갈때 효과주기. 속성값이 Page-Enter, Page-Exit는 웹문서를 들어오거나 나갈 때 한쪽 모서리 부터 서서히 드러나거나 사라지는 효과를 줍니다.
+60
+(위에서 설명한 바와 같이 익스플로러에서만 확인 했습니다.)
+61
+기타
+62
+<META name="MSSmartTagsPreventParsing" content="TRUE" />
+63
+- 모든 글을 퍼갈수 있도록 허용 즉 펌글 허용

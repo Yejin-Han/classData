@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--모바일-->
+        <title>float layout</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+                color: #333;
+            }
+            #wrap{
+                width: 900px;
+            }
+            #box1{
+                width: 450px;
+                height: 90px;
+                background: #fc9;
+                float: left;
+            }
+            #box2{
+                width: 450px;
+                height: 90px;
+                background: #9c6;
+                float: left;
+            }
+            #box3{
+                width: 900px;
+                height: 200px;
+                background: #39c;
+                clear: left;
+            }
+            #box4{
+                width: 300px;
+                height: 120px;
+                background: #c0f;
+                float: left;
+            }
+            #box5{
+                width: 300px;
+                height: 120px;
+                background: #93c;
+                float: left;
+            }
+            #box6{
+                width: 300px;
+                height: 120px;
+                background: #0cf;
+                float: left;
+            }
+            #box7{
+                width: 400px;
+                height: 100px;
+                background: #f60;
+                clear: left;
+                float: left;
+                margin: 30px 0 50px;
+            }
+            #box8{
+                width: 400px;
+                height: 100px;
+                background: #392;
+                float: right;               /*--> 감싼 wrap의 크기를 정해줬으니까 float: right;을 줘도 wrap 안에서 right이 돼서 문제 없음.*/
+                margin: 30px 0 50px;
+                /*float: left;
+                margin: 30px 0 50px 100px; */
+                /*float한 상태에서 margin-bottom을 줘야 밑에 개체(clear 상태)에 영향을 줄 수 있다.*/
+            }
+            #box9{
+                width: 900px;
+                height: 100px;
+                background: #353535;
+                color: #fff;
+                clear: both;
+                /*clear: left;*/
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="box1">div box1</div>
+            <div id="box2">div box2</div>
+            <div id="box3">div box3</div>
+            <div id="box4">div box4</div>
+            <div id="box5">div box5</div>
+            <div id="box6">div box6</div>
+            <div id="box7">div box7</div>
+            <div id="box8">div box8</div>
+            <div id="box9">div box9</div>
+        </div>
+    </body>
+</html>

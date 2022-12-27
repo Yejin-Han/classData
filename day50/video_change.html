@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>video change slide</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				let indexNum=0; //현재 보이는 video 순번
+				let vdW=$('.mv').width(); //video너비 -> 이동거리 계산
+				let maxNum=$('.mv').length; //video 수
+				$('.paginate>li').eq(indexNum).addClass('on'); //pagination 첫번째 transition
+				$('.mv>video').trigger('pause');
+				$('.mv').eq(indexNum).children('video').trigger('play');
+				function mvChange(){
+					let movies=$('.movie_wrap').children('.mv');
+					$('.movie_wrap').stop().animate({left:-vdW},300,function(){
+						movies.eq(0).appendTo($('.movie_wrap'));
+						$('.movie_wrap').css('left',0);
+						$('.mv>video').trigger('pause');
+						$('.mv').eq(0).children('video').get(0).currentTime=0; //video라는 속성 자체를 가져와서 시간 설정
+						$('.mv').eq(0).children('video').trigger('play'); //<=> get(0).play();
+					});
+					indexNum++;
+					if(indexNum>=maxNum){
+						indexNum=0;
+					}
+					$('.video_title>ul>li').hide();
+					$('.video_title>ul>li').eq(indexNum).show();
+					$('.paginate>li').filter('.on').removeClass('on');
+					$('.paginate>li').eq(indexNum).addClass('on');
+				}
+				function mvChange_prev(){
+					let movies=$('.movie_wrap').children('.mv');
+					movies.eq(maxNum-1).prependTo($('.movie_wrap'));
+					$('.movie_wrap').css('left',-vdW);
+					$('.movie_wrap').stop().animate({left:0},300,function(){
+						$('.mv>video').trigger('pause');
+						$('.mv').eq(0).children('video').get(0).currentTime=0; //video라는 속성 자체를 가져와서 시간 설정
+						$('.mv').eq(0).children('video').trigger('play'); //<=> get(0).play();
+					});
+					indexNum--;
+					if(indexNum<0){
+						indexNum=maxNum-1;
+					}
+					$('.video_title>ul>li').hide();
+					$('.video_title>ul>li').eq(indexNum).show();
+					$('.paginate>li').filter('.on').removeClass('on');
+					$('.paginate>li').eq(indexNum).addClass('on');
+				}
+				let timer=setInterval(mvChange,5000);
+				$('.next').on('click',function(event){
+					event.preventDefault();
+					clearInterval(timer);
+					mvChange();
+					timer=setInterval(mvChange,5000);
+				});
+				$('.prev').on('click',function(event){
+					event.preventDefault();
+					clearInterval(timer);
+					mvChange_prev();
+					timer=setInterval(mvChange,5000);
+				});
+			});
+		</script>
+		<style type="text/css">
+			body,section,div,video,ul,li{
+				margin: 0; padding: 0;
+			}
+			body{
+				font-family: Arial, "맑은 고딕", sans-serif;
+			}
+			ul{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			#wrapper{
+				width: 720px; height: 1280px;
+				margin: 50px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			#wrapper>.movie_wrap{
+				width: 2880px; height: 1280px;
+				position: relative; left: 0; top: 0;
+			}
+			#wrapper>.movie_wrap>.mv{
+				width: 720px; height: 1280px;
+				float: left;
+			}
+			#wrapper>.video_title{
+				height: 30px; line-height: 30px;
+				font-size: 40px; font-weight: bold; color: #fff;
+				position: absolute; left: 50%; bottom: 100px;
+				transform: translateX(-50%);
+			}
+			#wrapper>.video_title li{
+				display: none;
+			}
+			#wrapper>.video_title li:first-child{
+				display: block;
+			}
+			#wrapper>a{
+				display: block;
+				width: 80px; height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background: #f4f6f7;
+				font-size: 16px;
+				color: #333;
+				position: absolute; top: 50%;
+				transform: translateY(-50%);
+			}
+			#wrapper>.prev{
+				left: 10px;
+			}
+			#wrapper>.next{
+				right: 10px;
+			}
+			#wrapper>.paginate{
+				position: absolute; left: 50%; bottom: 30px;
+				transform: translateX(-50%);
+			}
+			#wrapper>.paginate>li{
+				width: 70px; height: 6px;
+				background: #333;
+				border-radius: 3px;
+				float: left;
+				margin-right: 20px;
+				overflow: hidden;
+			}
+			#wrapper>.paginate>li:last-child{
+				margin-right: 0;
+			}
+			#wrapper>.paginate>li>span{
+				display: block;
+				width: 0%; height: 6px;
+				border-radius: 3px;
+				background: #fff;
+				text-indent: -9999px;
+			}
+			#wrapper>.paginate>li.on>span{
+				width: 100%;
+				transition: all 5s;
+				transition-timing-function: linear;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="wrapper">
+			<div class="movie_wrap">
+				<div class="mv">
+					<video autoplay muted>
+						<source src="movie/cup-of-couple-.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="mv">
+					<video autoplay muted>
+						<source src="movie/mikhail-nilov.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="mv">
+					<video autoplay muted>
+						<source src="movie/rodnae-production.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="mv">
+					<video autoplay muted>
+						<source src="movie/vlada-karpovich.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+			<div class="video_title">
+				<ul>
+					<li>cup-of-couple-</li>
+					<li>mikhail-nilov</li>
+					<li>rodnae-production</li>
+					<li>vlada-karpovich</li>
+				</ul>
+			</div>
+			<a href="#" class="prev">PREV</a>
+			<a href="#" class="next">NEXT</a>
+			<ul class="paginate">
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+			</ul>
+		</section>
+	</body>
+</html>

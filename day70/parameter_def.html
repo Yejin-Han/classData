@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>함수 매개변수 기본값 설정</title>
+		<script>
+			/* 함수 매개변수 기본값 설정 */
+			const sum=(a,b=1)=>{
+				return a+b;
+			}
+			console.log(sum(5));
+			console.log(sum(5,9));
+
+			/* rest parameter( ... ) */
+			const func=(...rest)=>{
+				console.log(rest);
+			}
+			func(1,2,3,4,5);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

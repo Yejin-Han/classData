@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>반응형 - 미디어쿼리</title>
+        <style type="text/css" media="screen and (min-width:1025px)">
+            section{
+                width: 80%;
+                margin: 30px auto;
+                padding: 100px 0;
+                color: #080;
+                border: 15px solid #390;
+                font-size: 100px;
+                text-align: center;
+            }
+        </style>
+        <style type="text/css" media="screen and (max-width:1024px) and (min-width:641px)">
+            section{
+                width: 80%;
+                margin: 30px auto;
+                padding: 70px 0;
+                color: #f30;
+                border: 10px solid #f60;
+                font-size: 60px;
+                text-align: center;
+            }
+        </style>
+        <style type="text/css" media="screen and (max-width:640px)">
+            section{
+                width: 90%;
+                margin: 30px auto;
+                padding: 50px 15px;
+                color: #069;
+                border: 5px solid #039;
+                font-size: 20px;
+                text-align: center;
+                box-sizing: border-box;
+            }
+        </style>
+        <style type="text/css">
+            section{
+                transition: all 0.5s;
+                background: url("slide_banner3.jpg") no-repeat center center;
+                background-size: cover;
+            }
+        </style>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <section>
+            <p>MEDIA QUERY</p>
+        </section>
+    </body>
+</html>

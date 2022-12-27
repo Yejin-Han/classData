@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vertical accordion menu</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        $('#gnb>ul>li>a').on('click',function(event){
+          event.preventDefault();
+          /* $('.sub').hide();
+          $(this).next().show(); */
+          if($(this).next().css('display')=='none'){ //클릭한 개체 뒤의 sub이 보이지 않고 있으면 클릭 event function 실행해
+            $('#gnb>ul>li>a').removeClass('active');
+            $(this).addClass('active');
+            $('.sub:visible').slideUp(); //보이고 있는 것만 slideup 해
+            $(this).next().slideDown();
+          } else{
+            $(this).removeClass('active');
+            $(this).next().slideUp();
+          }
+        });
+      });
+    </script>
+    <style type="text/css">
+        body,nav,ul,li{
+            margin:0; padding:0;
+        }
+        ul{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        body{
+            font-size:12px;
+            font-family:"맑은 고딕", sans-serif;
+        }
+        #gnb{
+            width:200px; height:450px;
+            border:1px solid #555;
+            margin: 70px 0 0 100px;
+            background: #fff;
+        }
+        #gnb>ul{
+          width:200px; height:450px;
+        }
+        #gnb>ul>li{
+          border-bottom: 1px solid #ccc;
+          background: #f4f4f4;
+        }
+        #gnb>ul>li>a{
+          display: block;
+          width: 200px; height: 30px;
+          line-height: 30px;
+          padding-left: 20px;
+          box-sizing:border-box;
+          font-weight:bold;
+          color:#333;
+          transition:all 0.4s;
+        }
+        #gnb>ul>li>a.active{
+          background:#235;
+          color:#fff;
+        }
+        #gnb>ul>li>.sub{
+          padding: 24px 20px;
+          border-top: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.6em;
+          display:none;
+        }
+        #gnb>ul>li>.sub a{
+          color:#5d5d5d;
+        }
+    </style>
+  </head>
+  <body>
+    <nav id="gnb">
+      <ul>
+        <li>
+          <a href="#">국내도서</a>
+          <div class="sub">
+            <ul>
+              <li><a href="#">베스트셀러</a></li>
+              <li><a href="#">새로나온책</a></li>
+              <li><a href="#">추천도서</a></li>
+              <li><a href="#">특가도서</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">외국도서</a>
+          <div class="sub">
+            <ul>
+              <li><a href="#">베스트셀러</a></li>
+              <li><a href="#">새로나온책</a></li>
+              <li><a href="#">영미도서 이벤트</a></li>
+              <li><a href="#">영미잡지정기구독</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">eBook</a>
+          <div class="sub">
+            <ul>
+              <li><a href="#">베스트</a></li>
+              <li><a href="#">신간</a></li>
+              <li><a href="#">추천</a></li>
+              <li><a href="#">무료</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">중고장터</a>
+          <div class="sub">
+            <ul>
+              <li><a href="#">판매자페이지</a></li>
+              <li><a href="#">중고책구매방법</a></li>
+              <li><a href="#">구매상품배송조회</a></li>
+              <li><a href="#">스마트비교서비스</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

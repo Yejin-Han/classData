@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rollover menu(tab)</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        /* let a=$('#nav').find('a');
+        let src0; let src1;
+        a.mouseover(function(){
+          src0=$(this).find('img').attr('src');
+          src1=src0.replace('_off','_on');
+          $(this).find('img').attr('src',src1);
+        });
+        a.mouseout(function(){
+          $(this).find('img').attr('src',src0);
+        }); */
+        
+        //이미지 preload할 때
+        let a=$('#nav').find('a');
+        a.each(function(){
+          const img=$(this).find('img');
+          const originsrc=img.attr('src');
+          const oversrc=originsrc.replace('_off','_on');
+          $('<img>').attr('src',oversrc); //미리 oversrc이미지 데이터 로드(preload개념) ----> $('<img>')로 잡으면 막연히 img태그에 attr 속성 바꿨을 뿐이므로 실제로 적용되지는 않는다. append 안하면 보이지 않음. 미리 load만 했을 뿐
+          $(this).hover(function(){
+            img.attr('src',oversrc);
+          }, function(){
+            img.attr('src',originsrc);
+          });
+        });
+      });
+    </script>
+    <style type="text/css">
+      body,nav,ul,li{
+        margin:0; padding:0;
+      }
+      ul{
+        list-style:none;
+      }
+      img{
+        display:block; border:0;
+      }
+      #nav{
+        background: #090909;
+        padding: 70px 0 0 200px;
+      }
+      #nav>ul{
+        overflow:hidden;
+      }
+      #nav>ul>li{
+        float:left;
+        margin-right:10px;
+      }
+      #nav>ul>li:last-child{
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <ul>
+        <li><a href=""><img src="rollOver/menu01_off.png" alt="home"></a></li>
+        <li><a href=""><img src="rollOver/menu02_off.png" alt="products"></a></li>
+        <li><a href=""><img src="rollOver/menu03_off.png" alt="company"></a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

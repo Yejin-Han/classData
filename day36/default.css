@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+body,section,form,fieldset,legend,p,table,caption,tbody,tr,th,td,input,select,option,button{
+	margin: 0;
+	padding: 0;
+}
+fieldset{
+	border: 0;
+}
+legend,caption{
+	display: none;
+}
+button,select,input:not([type=radio]){
+	border: 1px solid #ccc;
+}
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}

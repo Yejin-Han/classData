@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>positioning - fixed</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: "Noto Sans", sans-serif;
+            }
+            h1{
+                background: #333;
+                color: #fff;
+                margin: 0;
+                position: absolute; left: 0; top: 0; z-index: 100;
+            }
+            #box1{
+                background: #fc0;
+                width: 400px;
+                padding: 15px;
+                margin-left: 150px;
+                position: relative;
+            }
+            #box2{
+                width: 420px;
+                height: 280px;
+                padding: 5px;
+                background: #09c;
+                position: fixed; right: 20px; bottom: 30px; z-index: 1;
+                /*브라우저 영역(크기) 좌표로 인지*/
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Position : fixed</h1>
+        <div id="box1">
+            웹 표준(Web Standards)<br>
+            <div id="box2">
+                <p>
+                    웹 사용성(Web Usability) : 사용자가 웹 사이트를 사용하면서 얻는 사용자 경험(UX: User eXperience)과 웹 사이트를 편리하고 정확하게 사용할 수 있는가를 가리킨다.
+                </p>
+                <p>
+                    웹 표준(Web Standards) : 월드 와이드 웹을 서술하고 정의하는 공식 표준이나 다른 기술 규격을 가리키는 일반적인 용어이다.
+                </p>
+                <p>
+                    반응형 웹 디자인(Responsive Web Design) : 사용자의 환경과 행동 패턴에 유기적으로 적절하게 반응하는 웹 요소들에 대한 총체적 디자인을 말한다.
+                </p>
+                <p>
+                    적응형 웹 디자인(Adaptive Web Design) : 몇 개의 해상도를 정의하여 CSS 코딩 시 브라우저가 범위 사이즈에 속하면 그에 따라 정의된 스타일로 표현한다.
+                </p>
+            </div>
+            월드 와이드 웹을 서술하고 정의하는 공식 표준이나 다른 기술 규격을 가리키는 일반적인 용어이다.
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </body>
+</html>

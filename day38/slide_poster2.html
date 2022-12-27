@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>포스터 애니메이션 반복실행</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                function slidePoster(){
+                    let imgs=$('.slide_container').find('img'); //갱신되는 이미지 구성을 찾아 매번 새롭게 인식
+                    imgs.eq(0).animate({left:'500px'},600,function(){
+                        imgs.eq(0).appendTo($('.slide_container')).css('left','-500px');
+                    });
+                    imgs.eq(1).animate({left:'0px'},600);
+                }
+                setInterval(slidePoster,3000);
+            });
+        </script>
+        <style type="text/css">
+            .slide_container{
+                width: 500px; height: 716px;
+                border: 5px solid #09c;
+                margin: 50px auto;
+                position: relative;
+                overflow: hidden;
+            }
+            .slide_container>img{
+                position: absolute; left: 0; top: 0;
+            }
+            .slide_container>img:not(:first-of-type){
+                left: -500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide_container">
+            <img src="poster/1.jpg" alt="">
+            <img src="poster/2.jpg" alt="">
+            <img src="poster/3.jpg" alt="">
+            <img src="poster/4.jpg" alt="">
+            <img src="poster/5.jpg" alt="">
+            <img src="poster/6.jpg" alt="">
+        </div>
+    </body>
+</html>

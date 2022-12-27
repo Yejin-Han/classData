@@ -1,0 +1,109 @@
+ <!DOCTYPE html>
+ <html lang="ko">
+     <head>
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <title>회원가입</title>
+         <link rel="stylesheet" href="form_signup_style.css">
+     </head>
+     <body>
+         <section id="membership">
+             <form action="#" method="post">
+                <fieldset>
+                    <legend>회원가입 양식</legend>
+                    <p class="info_text">아래에 있는 필수 정보를 입력하세요.</p>
+                    <table>
+                        <caption>회원필수정보</caption>
+                        <tbody>
+                            <tr>
+                                <th scope="row">이 름</th>
+                                <td><input type="text" id="name" name="name" autofocus required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">주민번호 앞자리</th>
+                                <td><input type="number" id="birth" name="birth" maxlength="6" required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">성 별</th>
+                                <td>
+                                    <input type="radio" id="m" name="gender" value="m">
+                                    <label for="m">남자</label>
+                                    <input type="radio" id="w" name="gender" value="w">
+                                    <label for="w">여자</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">아이디</th>
+                                <td>
+                                    <input type="text" id="id" name="id" required>
+                                    <button type="button" id="dupl_chk">중복확인</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">비밀번호</th>
+                                <td><input type="password" id="pw" name="pw" placeholder="영문,숫자,특수문자 8~16자" maxlength="16" minlength="8" required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">이메일</th>
+                                <td>
+                                    <input type="text" name="email" id="e1"> &#64;
+                                    <input type="text" name="email" id="d2" readonly>
+                                    <select name="email" id="e3">
+                                        <option value="0" selected>이메일 선택</option>
+                                        <option value="naver.com">Naver</option>
+                                        <option value="gmail.com">Google</option>
+                                        <option value="daum.net">Daum</option>
+                                        <option value="">직접 입력</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">연락처</th>
+                                <td>
+                                    <p>
+                                        <span>일반전화</span>
+                                        <select name="tel" id="tel1">
+                                            <option value="" selected>지역번호</option>
+                                            <option value="02">02</option>
+                                            <option value="051">051</option>
+                                        </select>
+                                        <input type="tel" name="tel" id="tel2">
+                                        <input type="text" name="tel" id="tel3">
+                                        <!-- tel이 낫다고 함 모바일 자판 바뀌니까 -->
+                                    </p>
+                                    <p>
+                                        <span>휴대전화</span>
+                                        <select name="mobile" id="mb1">
+                                            <option value="010" selected>010</option>
+                                            <option value="011">011</option>
+                                        </select>
+                                        <input type="tel" name="mobile" id="mb2">
+                                        <input type="tel" name="mobile" id="mb3">
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">주 소</th>
+                                <td>
+                                    <p>
+                                        <input type="text" name="addr" id="form_num" size="5" readonly>
+                                        <button type="button" id="form_search">우편번호검색</button>
+                                    </p>
+                                    <p><input type="text" name="addr" id="addr1" readonly placeholder="기본주소"></p>
+                                    <p><input type="text" name="addr" id="addr2" readonly placeholder="상세주소"></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btns">
+                        <a href="#" id="prev">이전단계</a>
+                        <!-- js의 경우
+                        <button type="button" id="prv" onclick="window.history.back();">이전단계</button> -->
+                        <button type="reset" id="reset">입력취소</button>
+                        <button type="submit" id="next">다음단계</button>
+                    </div>
+                </fieldset>
+             </form>
+         </section>
+     </body>
+ </html>

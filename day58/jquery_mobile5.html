@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no, email=no">
+		<title>jquery mobile back버튼, navbar 상태</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	</head>
+	<body>
+		<div data-role="page" id="page1" data-add-back-btn="true">
+			<header data-role="header">
+				<h1>PAGE1</h1>
+				<a href="#page1" data-icon="home">Home</a>
+				<nav data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">BTN1</a></li>
+						<li><a href="#page2" class="ui-icon-info ui-btn-icon-top">BTN2</a></li>
+						<li><a href="#page3" class="ui-icon-cloud ui-btn-icon-top">BTN3</a></li>
+						<li><a href="#page4" class="ui-icon-search ui-btn-icon-top">BTN4</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section data-role="content">
+				PAGE1 CONTENT<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</section>
+			<footer data-role="footer">
+				<h3>Page1 Footer</h3>
+			</footer>
+		</div>
+		<div data-role="page" id="page2">
+			<header data-role="header">
+				<h1>PAGE2</h1>
+				<a href="#page1" data-icon="home">Home</a>
+				<nav data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-icon-home ui-btn-icon-top">BTN1</a></li>
+						<li><a href="#page2" class="ui-icon-info ui-btn-icon-top ui-btn-active ui-state-persist">BTN2</a></li>
+						<li><a href="#page3" class="ui-icon-cloud ui-btn-icon-top">BTN3</a></li>
+						<li><a href="#page4" class="ui-icon-search ui-btn-icon-top">BTN4</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section data-role="content">
+				PAGE2 CONTENT<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</section>
+			<footer data-role="footer">
+				<h3>Page2 Footer</h3>
+			</footer>
+		</div>
+		<div data-role="page" id="page3">
+			<header data-role="header">
+				<h1>PAGE3</h1>
+				<a href="#page1" data-icon="home">Home</a>
+				<nav data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-icon-home ui-btn-icon-top">BTN1</a></li>
+						<li><a href="#page2" class="ui-icon-info ui-btn-icon-top">BTN2</a></li>
+						<li><a href="#page3" class="ui-icon-cloud ui-btn-icon-top ui-btn-active ui-state-persist">BTN3</a></li>
+						<li><a href="#page4" class="ui-icon-search ui-btn-icon-top">BTN4</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section data-role="content">
+				PAGE3 CONTENT<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</section>
+			<footer data-role="footer">
+				<h3>Page3 Footer</h3>
+			</footer>
+		</div>
+		<div data-role="page" id="page4">
+			<header data-role="header">
+				<h1>PAGE4</h1>
+				<a href="#page1" data-icon="home">Home</a>
+				<nav data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-icon-home ui-btn-icon-top">BTN1</a></li>
+						<li><a href="#page2" class="ui-icon-info ui-btn-icon-top">BTN2</a></li>
+						<li><a href="#page3" class="ui-icon-cloud ui-btn-icon-top">BTN3</a></li>
+						<li><a href="#page4" class="ui-icon-search ui-btn-icon-top">BTN4</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section data-role="content">
+				PAGE4 CONTENT<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</section>
+			<footer data-role="footer">
+				<h3>Page4 Footer</h3>
+			</footer>
+		</div>
+	</body>
+</html>

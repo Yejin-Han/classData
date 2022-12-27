@@ -1,0 +1,113 @@
+@charset "utf-8";
+
+body,section,nav,div,h2{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+body{
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+}
+nav{
+	width: 120px;
+	height: 100%;
+	position: fixed; right: 0; top: 0;
+	z-index: 9999;
+	background: rgba(0,0,0,0.7);
+	color: #fff;
+	text-align: center;
+	border-left: 5px solid #eee;
+}
+nav>a{
+	display: block;
+	width: 80px;
+	height: 40px;
+	position: absolute; left: 50%; bottom: 30px;
+	transform: translateX(-50%);
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	background: #f3f4f7;
+	color: #00e;
+}
+section{
+	/*대신 margin주고 overflow: hidden;거는 방법도 있음.*/
+	padding: 50px 0 0 70px;
+	box-sizing: border-box;
+	height: 100vh; /*"화면"의 100%*/
+	margin-right: 125px; /*width없이 margin주면 그만큼 제외한 나머지 전체*/
+	position: relative;
+}
+#content1{
+	background: #39f;
+}
+#content2{
+	background: #6f9;
+}
+#content3{
+	background: #f6c;
+}
+h2{
+	width: 310px;
+	height: 60px;
+	line-height: 40px;
+	padding: 7px 5px;
+	border: 3px solid #009;
+	box-sizing: border-box;
+	/*position: absolute;도 가능, left top좌표 주고 padding주면 width height 필요x*/
+}
+#content1>div{
+	width: 400px;
+	height: 300px;
+	background: #f3f4f7;
+	border: 2px solid #e00;
+	float: left;
+	margin: 50px 50px 0 0;
+	position: relative;
+}
+#content1>div>div{
+	width: 300px;
+	height: 226px;
+	background: rgba(126,64,32,0.5);
+	border: 1px solid #393;
+	position: absolute; left: 50px; top: 37px;
+	/*left: 50%; top: 50%;
+	transform: translate(-50%, -50%);*/
+	display: none;
+}
+#content1>div:hover>div{
+	display: block;
+}
+#content1::after{
+	content: "";
+	display: block;
+	clear: left;
+}
+/*.contents대신 section:not(#content1 or :first-of-type) 가능*/
+.contents>div{
+	box-shadow: 3px 3px 5px 0 rgba(0,0,0,0.5);
+}
+.contents>.box1{
+	width: 600px;
+	height: 350px;
+	position: absolute; left: 50%; top: 160px;
+	z-index: 200;
+	transform: translateX(-50%);
+	background: #369;
+}
+.contents>.box2{
+	width: 800px;
+	height: 300px;
+	position: absolute; left: 0; top: 360px;
+	transform: translateX(-100%);
+	background: #fd0;
+	transition: all 0.4s;
+}
+.contents>.box1:hover+.box2{
+	width: 800px;
+	left: 50%; transform: translateX(-50%);
+}

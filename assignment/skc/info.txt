@@ -1,0 +1,25 @@
+전체 width 923->924
+header
+height 110
+
+main_visual
+height 891->892
+
+corporation
+height 1000
+
+creation
+height 1000
+
+communication
+height 987
+
+footer
+height 230
+
+Q:footer 로고는 무슨 태그로 두면 되는지?
+이것도 의미없이 배경으로 깔면 되나..?
+Q:버튼모양은 버튼태그로 만드나 div로 만드나?
+
+Q:이미지 없으니까 배경깔고 a 태그 위로 올리면 되는거?
+Q:communication섹션은 배경 흰색이라 innerbox없는데 top버튼은 어디에 넣어야되나?

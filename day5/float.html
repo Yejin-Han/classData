@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>float basic</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+                color: #333;
+            }
+            section, div{
+                border: 1px solid #009;
+            }
+            section{
+                width: 500px;
+                height: 140px;
+                margin: 20px 0 0 250px;
+            }
+            section>div{
+                width: 120px;
+                height: 98px;
+                margin: 20px 0 20px 20px; /*margin: 20px; margin-right: 0;*/
+                text-align: center;
+                line-height: 98px;
+                color: #eee;
+            }
+            p{
+                background: #090909;
+                color: #fff;
+            }
+            .wrap1>.first{
+                float: left;
+                background: #9c9;
+            }
+            .wrap1>.second{
+                float: left;
+                background: #fc0;
+            }
+            .wrap1>p{
+                clear: left;
+            }
+            .wrap2>.third{
+                float: right;
+                background: #c37;
+                margin-right: 20px;
+            }
+            .wrap2>.fourth{
+                float: right;
+                background: #39c;
+            }
+            .wrap2>p{
+                clear: right;
+            }
+            .wrap3>.fifth{
+                float: left;
+                background: #c3c;
+            }
+            .wrap3>.sixth{
+                float: right;
+                background: #009;
+                margin-right: 20px;
+            }
+            .wrap3>p{
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>float</h1>
+        <section class="wrap1">
+            <div class="first">first block</div>
+            <div class="second">second block</div>
+            <p>text</p>
+        </section>
+        <section class="wrap2">
+            <div class="third">third block</div>
+            <div class="fourth">fourth block</div>
+            <p>text</p>
+        </section>
+        <section class="wrap3">
+            <div class="fifth">fifth block</div>
+            <div class="sixth">sixth block</div>
+            <p>text</p>
+        </section>
+    </body>
+</html>

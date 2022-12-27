@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+@keyframes movingX{
+	0%{
+		left: 50px;
+		transform: rotate(0);
+	}
+	50%{
+		left: 600px;
+		transform: rotate(300deg);
+	}
+	100%{
+		left: 750px;
+		transform: rotate(360deg);
+	}
+}
+#roundbox{
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	line-height: 200px;
+	font-size: 2.5em;
+	font-weight: bold;
+	background: #9c9;
+	color: #363;
+	border-radius: 50%;
+	position: absolute; left: 50px; top: 90px;
+	animation-name: movingX;
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-fill-mode: both;
+}
+#roundbox:active{
+	animation-play-state: paused;
+}
+
+
+@keyframes change_color{
+	0%{
+		background: #cccccc;
+	}
+	20%{
+		background: #ff3300;
+	}
+	40%{
+		background: #99cc99;
+	}
+	60%{
+		background: #0066ff;
+	}
+	80%{
+		background: #ee33ee;
+	}
+	100%{
+		background: #cccccc;
+	}
+}
+#bar{
+	background: #ccc;
+	color: #090909;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 30px 60px;
+	position: absolute; top: 360px; left: 50%;
+	transform: translateX(-50%); /*가운데 올 때 margin-left 대신 !!*/
+	cursor: pointer;
+}
+#bar:hover{
+	animation-name: change_color;
+	animation-duration: 2.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}

@@ -1,0 +1,623 @@
+221018
+[기본]
+cdn <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+jquery(document).ready(function(){
+
+})
+↓
+$(document).ready(function(){
+
+});
+↓
+$(function(){
+
+});
+***모든 건 이 안에서 해결할 것, 실행은 html, css 뒤에 됨***
+
+[제이쿼리 개체로 선택]
+$('css선택자')
+ex)$('.active')
+
+[지정된 제이쿼리 개체 보이기/숨기기]
+selector.show( ); / selector.hide( );
+
+[지정된 제이쿼리 개체에 스타일시트 속성값 변경]
+selector.css('속성','값'); --- cross-browsing 자동 처리
+
+[속성 값 인식 및 호출]
+selector.함수('속성');
+//호출할 때는 줄임표기인지 아닌지 생각하고 확실히 지정해서 적어주자.
+
+[width, height]
+selector.css('width','~px')
+↓(많이 써서 따로 함수 가능)
+selector.width(number);
+selector.height(number);
+
+selector.css('width')         !=  selector.width();
+//"~px"라는 문자로 인식됨      //그냥 숫자만 인식됨
+===> 정수타입 변환 함수인 parseInt("") 사용해야함
+
+[chain method]
+selector.내장함수1( ).내장함수2( ). ...
+// 순서대로 진행
+
+[css를 다중적용해야할 때]
+css({'속성1': '값1', '속성2': '값2' ...}); ' ' 생략가능
+
+[animation1 - fadein, fadeout, fadeTo]
+1. selector.fadeIn(time,function(){
+	완료시 실행...
+});
+// display: none ---> block이 된 후 opacity 조절됨
+// 시간 단위 = 1/1000초 ----> 기본 0.4s=400, 'slow' 0.6s=600, 'fast' 0.2s=200
+
+2. selector.fadeOut(time,function(){
+	완료시 실행...
+});
+// display: block ---> none
+
+3. selector.fadeTo(time,opacity(0~1));
+//특정 opacity 값까지 fade해라
+
+
+221019
+[animation2 - slideDown, slideUp]
+1. selector.slideDown(time,function(){
+	완료시 실행...
+});
+// display: none ---> block
+// 시간 단위 = 1/1000초
+2. selector.slideUp(time,function(){
+	완료시 실행...
+});
+// display: block ---> none
+
+[mouse event 적용] : 1 이벤트적용함수(on), 2 이벤트함수
+// click, mouseover, mouseout, mouseenter, mouseleave, mousedown, mouseup(css의 active,active해제와 같음), mousemove, mousewheel
+*이벤트 버블링 : 한 부모 안에 많은 자식,자손이 있을 때 부모에 이벤트 명령을 주면 모든 자식,자손에도 이벤트가 발생함. (//버블링 방지하는 것도 따로 있긴 함)
+**gnb li 등에 갖다대면 slideup down되는거 --> mouseenter, mouseleave 활용!!!!!!
+(이벤트 버블링이 일어날 때 over,out은 매번 반응하지만 enter,leave는 그렇지 않기 때문)
+
+1. selector.on('event1 event2...',function( ){
+	실행명령...
+});
+// 이벤트 해제 가능(selector.off('event'))
+// 나중에 생긴 body 안 개체에도 적용 가능
+2. selector.이벤트함수(function( ){
+	실행명령...
+});
+// 나중에 생긴 body 안 개체에는 적용 불가능
+
+
+
+221020
+[animation3 - animate]
+selector.animate({속성: '목표값', 속성: '목표값', ...}, time, function( ){
+	실행명령...
+});
+* transform 속성은 컨트롤 안된다.
+
+
+
+221021
+[하위요소 선택]
+selector.find(select) -- 자손
+         or
+selector.children(select) -- 자식요소만
+
+[이전 명령 정지]
+stop( );
+** chain method면 앞에 명령이 계속 같이 누적되므로 animation때는 animation만 하도록 앞의 명령은 정지시킴.
+
+[해당 개체에 출력]
+(js의 document.개체명.innerHTML="";과 비슷)
+** 마크업에서 해당 개체에 썼던 내용이 갱신됨. 누적 안됨. 출력되는 순간의 명령의 것만 출력됨.
+1. selector.text("~") : 문자 출력
+2. selector.html("~") : 기본 출력 + tag도 인식 출력
+3. selector.empty( ) : 내용 삭제
+
+[tag 속성 변경]
+selector.attr('속성','값');
+* 속성값의 개수/쓸 수 있는 값 제한되어있다
+selector.removeAttr('속성'); //속성 자체 지우기
+
+[타 속성 변경]
+selector.prop( );
+
+[여러개 한번에 이전 상태로 되돌리기]
+1. const에 해당 속성 값을 저장 (이전 상태 값 기억하기)
+// const 상수명=selector.attr('속성');(호출식) 등으로
+2. 바꿀 값에 상수명 넣어줌.
+
+
+
+
+221024
+[class 제어]
+1. 추가
+selector.addClass('클래스명');
+2. 삭제
+selector.removeClass('클래스명');
+
+[input(내용추가)] : 기존 내용 위치를 바꿔 삽입 / 새로운 것 추가
+1. 추가(삽입)
+objA.append(objB); //A개체 안에 B개체를 추가(삽입), 제일 뒤로
+||
+objB.appendTo(objA); //B개체를 A개체 안에 추가(삽입), 제일 뒤로
+
+objA.prepend(objB); //A개체 안에 B개체를 추가(삽입), 제일 앞으로
+||
+objB.prependTo(objA);
+
+2. 삭제
+selector.remove( );
+
+
+[순번 지정 후 호출]
+selector.eq(number) //시작:0번째
+
+
+
+221025
+[offset]
+selector.offset( ); //문서 맨왼쪽 맨 위를 기준으로 개체의 위치(속성: left, top) 인식
+
+[scrollTop 속성]
+해당 문서가 보일 브라우저 top에 위치할 수치 지정
+// $('개체')를 잡아서 {scrollTop:topPos}로 지정해놓았다면, 윈도우가 보여주는 화면의 맨 위 좌표가 $('개체')에서의 topPos 위치가 됨.
+
+[scrollTop 함수]
+스크롤시 이동한 문서의 거리를 인식하는 함수 --> 기준 : document(html보다 상위)
+현재 브라우저가 보여주는 문서의 위치를 알려줌.
+
+[scroll 함수 - 이벤트 함수임!!]
+$(window).scroll(~) //스크롤이 발생하는 동안에 ~를 반복 실행
+
+[길이 인식 시 체크할 사항] *단위 안 붙음.
+.height() --> css에 입력한 height 값 인식
+.innerHeight() --> height + padding
+.outerHeight() --> height + padding + border
+.outerHeight(true) --> height + padding + border + margin
+
+[이벤트 시 기본동작(html)방지]
+.on('event',function(event){
+	event.preventDefault();
+};
+
+[plug-in : easing] //애니메이션 뒤에 사용
+easeIn, easeOut, easeInOut, easeOutSine, easeOutQuad, easeOutQuart, easeOutQuint, easeOutCirc, easeOutCubic, easeOutExpo, easeOutElastic, easeOutBounce, easeOutBack
+
+
+
+
+221026
+[toggle 함수]
+selector.toggle( ) --> show( )/hide( ) 번갈아 실행
+selector.toggleClass('~') -->addClass/removeClass 번갈아 실행
+----------------------------------------------------------------------↑잘 씀↓잘 안 씀
+selector.fadeToggle(time)
+selector.slideToggle(time)
+
+  |
+  |
+  |
+ ↓
+
+[if문 써서 제어하기]
+if(css('display')=='none'){
+	show( );
+} else{
+	hide( );
+}
+
+  |
+  |
+  |
+ ↓
+
+[조건을 걸 수 없을 때(속성값의 구분이 힘들 때)]
+**event마다 state값이 번갈아 바뀐다는 전제조건 필요**
+상태변수 임의 설정 -> 임의변수 state 값이 1일 때는 div.show( ), 0일 때는 div.hide( );
+
+[동위요소 선택]
+selector.next( ) - 해당개체 바로 다음 개체 선택
+selector.prev( ) - 해당개체 바로 이전 개체 선택
+
+[시작 지연함수]
+selector.delay(time).func(인자);  //후속함수(인자를 보유하는)를 지정 시간동안 대기시킨 후 실행
+
+**timeout loop
+function autoLink(){
+    message=count+"초 후 네이버로 이동합니다.";
+    $('div').text(message);
+    count--;
+    timer=setTimeout(autoLink,1000);
+    if(count<0){
+        clearTimeout(timer);
+        window.location.href="https://www.naver.com";
+    }
+}
+autoLink();
+// 자신 안에서 함수를 실행시켜서 반복, 작동 안돼야할 시점에서 clearTimeout
+
+
+
+
+221027
+[form value 정의 및 호출]
+selector.val('값'); / selector.val( );
+
+[form event]
+1. focus / blur(focus를 잃을 때)
+
+
+
+
+221028
+[동위요소 선택2]
+selector.next( )
+selector.prev( )
+------------------------------------------------
+selector.nextAll( ), selector.nextAll(요소), selector.nextAll(':contains(~)') //'내용' 중 ~를 포함하는 개체 선택
+selector.prevAll( ), selector.prevAll(요소), selector.prevAll(':contains(~)')
+selector.nextUntil(요소) //selector 뒤의 동위요소들 중 해당 요소 직전까지
+selector.prevUntil(요소) //selector 앞의 동위요소들 중 해당 요소 직후까지
+selector.siblings( ) //css의 not 개념
+
+[상위요소 선택]
+selector.parent( ) //부모요소 찾기
+selector.parents(요소) //조상까지 포함해서 찾기
+
+[선택명령의 종료] : chain method 사용시 선택자를 잘못잡는 경우가 생기기 때문에
+selector.선택명령1( ).함수.**end( )**.선택명령2( ).함수; //이렇게 하면 selector에 대해 명령과 함수가 2개 각각 적용된다.
+
+[반복실행(개체별)]
+selector.each(function( ){...}); --- selector는 복수인 개체여야 함
+** function의 인자를 i로 받으면 저절로 count 변수로 인식되어 진행할 때마다 i++가 됨!!
+
+
+
+
+221031
+[문자 교체]
+문자열(변수).replace('교체할 문자(A)','교체되어 출력될 문자(B)') //즉 A를 B로 교체
+ex) src='img.gif' ---> src.replace('.gif','_ov.gif') ===> src='img_ov.gif'
+
+[preload] : 이미지 등을 미리 불러와 load 속도를 더 빠르게 하기 위함.
+a.each(function(){
+  const img=$(this).find('img');
+  const originsrc=img.attr('src');
+  const oversrc=originsrc.replace('_off','_on');
+  ****$('<img>').attr('src',oversrc); //미리 oversrc이미지 데이터 로드(preload개념으로만 쓰이는 코드고 실제로는 의미없음!!!!!!) ----> $('<img>')로 잡으면 막연히 img태그에 attr 속성 바꿨을 뿐이므로 실제로 적용되지는 않는다. append 안하면 보이지 않음. 미리 load만 했을 뿐****
+  $(this).hover(function(){
+    img.attr('src',oversrc);
+  }, function(){
+    img.attr('src',originsrc);
+  });
+});
+
+[mouseover과 mouseout의 줄임표기]
+a.mouseover(function1(){}); a.mouseout(function2(){});
+========> a.hover(function1(){}, function2(){}); //함수임
+
+[plug-in : jqueryui]
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+1. draggable //relative선언 된 것으로 간주
+selector.draggable({
+	css속성:값,
+	axis:'x/y' (해당 축으로만 드래그 됨),
+	containment:'parent' (부모 안에서만 드래그 됨),
+	stack:' ' (zIndex 순서처리),
+	revert: true (놓으면 원래자리로 돌아가기)
+}); //draggable 선택자와 stack 선택자를 동일하게 두면 그 안에서 해당 개체를 선택할 때마다 z-index가 자동으로 바뀐다.
+ -- 지원 이벤트('on' event로) : dragstart(드래그 시작시) / dragstop / drag(드래그 하는 동안 반복실행)
+
+
+
+221101
+[plug-in : jqueryui] 이어서
+2. droppable //draggable 선언 했을 때 사용
+selector.droppable({
+	tolerance: 'fit/intersect/touch' (인식범위: 정확한 위치 / 50%이상 겹침 / 살짝이라도 걸치면 인식)
+	drop:function(event, ui){
+		**ui.draggable(draggable되다가 drop된 개체)** 마치 $(this) 같은
+		code...
+	}
+});
+
+[video]
+video.pause( )
+video.play( )
+video.currentTime=~ (ms아니고 그냥 s)
+video.duration( ) 총 재생시간
+volume=0~1 //보통 muted되어있으므로 필요x
+muted
+
+[clone]
+selector.clone( ) : 개체 복제 <----> selector.remove( )
+
+
+
+221102
+[resize] : 사이즈가 바뀌면 해당 function을 실행해라
+$(window).resize(function(){
+  code...
+});
+
+
+
+
+221103
+[plug-in : mousewheel]
+mousewheel "event" - 방향인식 : event.delta(값: 1(up), -1(down))
+**mousewheel "plug-in" - 방향인식 : event.deltaY(값: 1, -1)
+
+[plug-in : quickFlip]
+$('.quickFlip').quickFlip();
+div.quickFlip을 세로로 절반 나누어서 그 안의 첫번째 div.quickFlipCta를 먼저 슬라이드 hide하고
+두번째 div.quickFlipCta를 슬라이드 show한다.
+*div.quickFlipCta는 이름 고정
+
+[plug-in : tubular] : youtube 배경동영상 넣기
+<script src="https://www.youtube.com/iframe_api"></script>
+// youtube iframe 기본 설정 불러와줘야 함
+selector.tubular({
+  ratio:16/9,
+  videoId:' '
+  등 직접 tubular.js를 보고 기본설정과 다르게 필요한 것 적어주기
+});
+
+[순번 자체의 인식 및 호출]
+selector.index( )
+
+
+
+221107
+[plug-in : liteAccordion]
+$('.accordion').liteAccordion({});
+
+
+221108
+[filter] : 동위요소 선택
+selector.filter('~') //selector 중에서 ~인 개체 선택
+
+[plug-in : fotorama] //photo gallery용
+
+[plug-in : bxSlider] //slide 대표1
+$('.slider').bxSlider({});
+* swipe와 link가 동시에 사용되면 link가 막힌다
+- swipe 막기 => touchEnabled: false;
+- 막지 않고 각각 link 연결 //pagination index에 따라 각각 link 걸어주기
+$('.bx-viewport').click(function( ){
+    let txt=$('.bx-controls').find('a').filter('.active').text();
+    let sIndex=$('.bx-controls').find('a').filter('.active').attr('data-slide-index');
+    let pIndex=$('.bx-controls').find('a').filter('.active').parent().index();
+    //위 3가지 중 하나 아래의 조건문에 활용
+    switch(pIndex){ //pagination 4개일 때
+        case "0":
+            window.location.href="#";
+            break;
+        case "1":
+            window.location.href="#";
+            break;
+        case "2":
+            window.location.href="#";
+            break;
+        case "3": //default:
+            window.location.href="#";
+            break;
+    }
+});
+
+cdn써주고 class명 등만 맞춰주면 자동 적용,
+해당 플러그인의 설정 확인하고 바꾸기
+head의 style로 직접 속성 바꾸기
+
+
+
+
+221109
+[plug-in : lightbox, fancybox, colorbox] //각자 기본 디자인 등장 효과 등이 다르므로 골라서 사용(colorbox가 가장 오래된거라고 함)
+① lightbox
+<ul>
+    <li>
+      <a href="띄울 그림 경로" data-lightbox="gallery" data-title="">
+        <img src="기본으로 나올 그림 경로" alt="thumbnail1">
+      </a>
+    </li>
+</ul>
+<script>
+    lightbox.option({
+        'albumLabel': "",
+        'showImageNumberLabel': true, 등
+    })
+</script>
+② fancybox
+<ul>
+    <li>
+      <a href="띄울 그림 경로" data-fancybox="gallery" data-title="">
+        <img src="기본으로 나올 그림 경로" alt="thumbnail1">
+      </a>
+    </li>
+</ul>
+③ colorbox
+<ul>
+    <li>
+      <a href="띄울 그림 경로" class="group">
+        <img src="기본으로 나올 그림 경로" alt="thumbnail1">
+      </a>
+    </li>
+</ul>
+
+data-~box, class=""로 묶어서 슬라이드처럼 볼 수 있게 함
+
+
+
+
+221110
+[plug-in : fullpage 2.0] //옛날거 but 무료라서
+
+[이벤트 버블링 방지]
+event.stopPropagation( );
+
+
+
+
+221111
+[이벤트 강제 실행]
+selector.trigger('event method');
+
+
+
+221114
+[select에서의 이벤트]
+- form 'change' 이벤트
+- selected된 개체 선택
+- value 호출
+- 새 창으로 연결
+$('#familysite').on('change',function(){
+    let url=$('#familysite').find('option:selected').val();
+    window.open(url); //전체 창 사이즈
+});
+
+
+
+221115
+[plug-in : iscroll]
+var myScroll;
+    function loadScroll(){
+        myScroll = new IScroll('#wrapper',{
+            scrollX: true,
+            scrollY: false,
+            mousewheel: true,
+        });
+    }
+document.addEventListener('touchmove',function(e){e.preventDefault();},false);
+**body onload="loadScroll()"
+
+[mouse position]
+이벤트 발생위치(page(body) 기준 좌표)
+--> event.pageX / event.pageY
+
+
+
+221117
+[동적생성 개체] //script 안에서 append한 개체
+동적생성 개체에 event 적용시
+$(document).on('event','selector',function( ){...});
+
+
+
+221118, 221121, 221123, 221124, 221128
+[jquery mobile] //link는 explorer에서만 확인됨. 아니면 서버에 올려서 확인
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+---------------------------------------------------------------------------------------
+- data-role="page" //모바일의 한 화면으로 만들어 줌. 한 page만 정확히 보임
+- data-role="header", "content", "footer", "navbar", "button", "listview", "list-divider", "controlgroup", "fieldcontain", "collapsible-set", "panel" 등 지정해주면 css 자동걸림 
+**collapsible-set > collapsible*n : +로 접혀있는 아코디언 메뉴 제작에 사용 
+**panel : 숨겨진 슬라이드 메뉴 + data-display="reveal, push, overlay"로 위치 적용
++ panel 내용에 data-rel="~"을 가진 link를 걸어주면 해당하는 역할을 함 ex)close
+- data-icon="home", "gear", "bars", "refresh", "search", "info", "plus", "check", "star", "grid", "back", "arrow_l", "user", "delete", "minus", "forward", "alert", "bullets", "location", "shop", "action", "cloud" 등 icon 기본으로 주고 배치도 자동으로 됨
+- data-iconpos="top", "right", "bottom", "left", "notext"
+- ** class="ui-icon-home ui-btn-icon-top"
+- data-rel="back", "dialog" 등
+- data-transition="fade", "slide", "slideup", "slidedown", "pop", "flip", "turn", "flow" 등
+- rel="external" //내부도메인을 외부도메인처럼 열리게 하기
+- data-position="fixed"
+- data-inline="true"
+- class="ui-btn-active"
+- class="ui-state-persist" //상태유지, 주로 active 상태랑 같이 씀.
+- class="ui-~~~~" 해서 엄청나게 많은 효과를 줄 수 있음
+- data-type="horizontal"
+- class="ui-grid-a"(2단),"ui-grid-b"(3단) > ui-block-a, ui-block-b, ui-block-c
+- data-add-back-btn="true" //링크 걸리면 자동으로 뒤로가기 생성
+- data-clear-btn="true" //폼에서 내용입력 시 자동으로 input 안에 내용삭제버튼 생성
+---------------------------------------------------------------------------------------
+
+ex)
+<div data-role="page" id="main">
+    <div data-role="header">
+        <h1>Main Page Header</h1>
+    </div>
+    <div data-role="content">
+        <h2>Main Content Title</h2>
+        <p>main content texts</p>
+        <a href="jquery_mobile_sub1.html" data-role="button">sub page1</a>
+        <a href="#sub2" data-role="button">sub page2</a>
+    </div>
+    <div data-role="footer">
+        <h3>Main Page Footer</h3>
+    </div>
+</div>
+<div data-role="page" id="sub2">
+    <div data-role="header">
+        <h1>Sub page2 Header</h1>
+    </div>
+    <div data-role="content">
+        <h2>Sub2 Content Title</h2>
+        <p>Sub2 content texts</p>
+        <a href="#main" data-role="button">Main Page</a>
+    </div>
+    <div data-role="footer">
+        <h3>Sub page2 Footer</h3>
+    </div>
+</div>
+
+[jquery mobile event]
+- swipe, swipeleft, swiperight, tap, taphold
+(+ touchstart, touchend, touchmove, touchenter, touchleave)
+- orientationchange
+  --> js에서 matchMedia는 if 사용, 한번만 체크(새로고침시), 이는 지속적으로 체크 가능한 이벤트
+
+[jquery mobile page link]
+jquery($).mobile.changePage('url',{ transition:'~',type(get/post),reverse:true/false });
+
+[jquery mobile function]
+- selector.listview('refresh');  //refresh --> 새로고침
+
+
+221128
+[parallex]
+1. 부모요소 - fixed, 좌표 지정해주기, scroll 비율 정하기
+
+2. 자식요소 움직임 좌표 계산
+(부모 div의 최대이동거리) : (부모 div의 현재이동거리)
+= (자식 요소의 최대이동거리) : (자식 요소의 현재이동거리)
+
+[position함수]
+offset() : 문서기준 좌표인식
+position() : 부모기준 좌표인식
+
+
+
+
+221130
+[문서데이터 호출1] : selector.load( )
+load('url tag',function(htmlData){데이터 로드 완료시 실행할 명령...});
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script>
+    $(function(){
+
+    });
+  </script>
+  <style type="text/css">
+
+  </style>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+body,div{
+    margin: 0;
+    padding: 0;
+}
+@keyframes line1{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 400px;
+    }
+}
+@keyframes line2{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 380px;
+    }
+}
+@keyframes line3{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 380px;
+    }
+}
+@keyframes line4{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 360px;
+    }
+}
+.wrap{
+    width: 400px;
+    height: 400px;
+    background: #ced;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+}
+.wrap>span{
+    background: #036;
+}
+.wrap>.box1{
+    width: 0px;
+    height: 20px;
+    position: absolute; left: 0; top: 0;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    /*animation: name duration timing-function delay iteration-count direction fill-mode play-state;*/
+}
+.wrap:hover>.box1{
+    animation-name: line1;
+}
+.wrap>.box2{
+    width: 20px;
+    height: 0px;
+    position: absolute; right: 0; top: 20px;
+    animation-delay: 0.3s;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+.wrap:hover>.box2{
+    animation-name: line2;
+}
+.wrap>.box3{
+    width: 0px;
+    height: 20px;
+    position: absolute; right: 20px; bottom: 0;
+    animation-delay: 0.6s;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+.wrap:hover>.box3{
+    animation-name: line3;
+}
+.wrap>.box4{
+    width: 20px;
+    height: 0px;
+    position: absolute; left: 0; bottom: 20px;
+    animation-delay: 0.9s;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+.wrap:hover>.box4{
+    animation-name: line4;
+}

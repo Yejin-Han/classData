@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+body, div, ul, li{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	display: block;
+	border: 0; /*이미지에 a 링크 걸려서*/
+}
+.content{
+	width: 890px;
+	margin: 50px auto;
+}
+.content>ul{
+	width: 100%;
+	overflow: hidden;
+}
+.content>ul>li{
+	width: 215px;
+	float: left;
+	margin-left: 10px;
+}
+.content>ul>li:first-child{
+	margin-left: 0;
+}
+.content>ul>li>a{
+	display: block;
+	width: 215px;
+}
+.content>ul>li>a>span:first-of-type{
+	display: block;
+	width: 215px;
+	height: 135px;
+	overflow: hidden;
+}
+.content>ul>li>a>span:last-of-type{
+	display: block;
+	padding-top: 10px;
+	color: #151515;
+}
+.content>ul>li>a>span>img{
+	transition: all 0.4s;
+}
+.content>ul>li>a:hover>span>img{
+	transform: scale(1.05);
+}

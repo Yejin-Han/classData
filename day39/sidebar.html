@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>side_quick_btns (scrollTop + animate)</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script>
+            $(function(){
+                const headerH=$('header').outerHeight();
+                const defTop=parseInt($('aside').css('top'));
+                let tarPos=0;
+                let top_btn=$('aside>a');
+                top_btn.on('click',function(event){
+                    event.preventDefault();
+                    $('aside').stop().animate({top:defTop},800,'easeOutExpo');
+                    $('html,body').stop().animate({scrollTop:0},400);
+                });
+                $(window).scroll(function(){
+                    tarPos=$(document).scrollTop()+40;
+                    if(tarPos<=defTop){
+                        tarPos=defTop;
+                    }
+                    $('aside').stop().animate({top:tarPos},800);
+                });
+            });
+        </script>
+        <style type="text/css">
+            body,header,section,aside{
+                margin:0; padding:0;
+            }
+            a{
+                text-decoration:none;
+            }
+            header{
+                height:140px;
+                background: #3ce;
+                border-bottom: 2px solid #009;
+            }
+            section{
+                height:1600px;
+                margin-right: 120px;
+                padding: 20px;
+                background: #c69;
+            }
+            aside{
+                position:absolute; right:20px; top:162px;
+                width:80px; height:290px;
+                background: #fc0;
+                padding:5px;
+                box-sizing:border-box;
+            }
+            aside>a{
+                display:block;
+                position:absolute; left:0; bottom:5px;
+                width:80px;
+                text-align:center;
+                color:#090909;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="main_header">h1, gnb</header>
+        <section>Main Content</section>
+        <aside>
+            Quick btns
+            <a href="#main_header">top</a>
+        </aside>
+    </body>
+</html>

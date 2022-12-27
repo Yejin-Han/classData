@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>display-grid</title>
+		<style type="text/css">
+			.container{
+				width: 900px; height: 600px;
+				border: 2px solid #222;
+				margin: 50px auto;
+				display: grid;
+				grid-template-columns: 100px auto 100px;
+				grid-template-rows: 100px auto 100px;
+			}
+			.container>div{
+				background: #9cf;
+				border: 1px solid #ccc; box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div>box1</div>
+			<div>box2</div>
+			<div>box3</div>
+			<div>box4</div>
+			<div>box5</div>
+			<div>box6</div>
+			<div>box7</div>
+			<div>box8</div>
+			<div>box9</div>
+		</div>
+	</body>
+</html>

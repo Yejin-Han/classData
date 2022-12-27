@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>color decimal code</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: "나눔고딕", sans-serif;
+            }
+            div{
+                width: 600px;
+                height: 400px;
+                margin: 0 auto;
+                background: url("img/bg/bgVis01_m.gif") no-repeat right bottom;
+            }
+            h1{
+                text-align: center;
+            }
+            .color1{
+                padding: 15px;
+                background: rgba(220,0,64,0.3);
+            }
+            h2{
+                padding: 10px;
+                background-color: #069;
+                opacity: 0.5; /*배경뿐만 아니라 자체가 다 반투명해짐 -> 안쓴다*/
+            }
+            .color2{
+                padding: 15px;
+                background: hsla(179,64%,52%,0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Color Code</h1>
+        <div>
+            <h2>10진수 컬러 - rgba</h2>
+            <p class="color1">
+                red: 0~255<br>green: 0~255<br>blue: 0~255<br>
+                alpha(opacity): 0~1(배수)<br> <!-- 0이 투명 1이 불투명-->
+                rgba(~,~,~,1)
+            </p>
+            <h2>10진수 컬러 - hsla</h2>
+            <p class="color2">
+                hue: 0~360(색상환)<br>saturation: 0~100%(채도)<br>lightness: 0~100%<br>
+                alpha(opacity): 0~1(배수)<br>
+                hsla(~,~%,~%,1)
+            </p>
+        </div>
+    </body>
+</html>

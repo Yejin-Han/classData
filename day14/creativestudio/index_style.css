@@ -1,0 +1,303 @@
+@charset "utf-8";
+
+body, div, header, main, section, footer, nav, ul, li, p, h1, h2, h3{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	display: block;
+}
+hr{
+	display: none;
+}
+body{
+	font-size: 12px;
+	font-family: "맑은 고딕", "굴림", Arial, sans-serif;
+	background: #f4f4f4;
+	color: #5d5d5d;
+}
+/*==================================================================*/
+#black_bar{
+	height: 17px;
+	background: #090909;
+}
+header::after,
+section::after,
+footer::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*==================================================================*/
+#main_header{
+	width: 960px;
+	height: 138px;
+	margin: 0 auto;
+	border-bottom: 1px solid #c0c0c0;
+	position: relative; z-index: 9999;
+	font-family: Arial, sans-serif;
+}
+#main_header>h1{
+	width: 183px;
+	height: 100px;
+	float: left;
+	margin-top: 20px;
+}
+#main_header>h1>a{
+	display: block;
+	height: 100px;
+	background: url("images/h1_logo.png") no-repeat;
+	text-indent: -9999px;
+}
+#main_header>.gnb{
+	float: right;
+	margin-top: 64px;
+}
+#main_header>.gnb>ul>li{
+	/*하위메뉴 없을 때는 float말고 걍 inline 걸으래*/
+	display: inline;
+	padding-left: 60px;
+}
+#main_header>.gnb>ul>li:first-child{
+	padding-left: 0;
+}
+#main_header>.gnb>ul>li>a{
+	font-size: 13px;
+	font-weight: bold;
+	color: #fe9b00;
+}
+#main_header>.gnb>ul>li>a:hover,
+#main_header>.gnb>ul>li>a:focus{
+	color: #090909;
+}
+#main_header>p{
+	clear: both;
+	position: absolute; right: 0; top: 16px;
+}
+#main_header>p>a{
+	font-size: 13px;
+	color: #999;
+}
+/*==================================================================*/
+#main_container{
+	width: 960px;
+	margin: 20px auto 0;
+	padding-bottom: 48px;
+}
+#main_container h2{
+	background: url("images/bull_ico.png") no-repeat 2px 6px;
+	font-size: 18px;
+	color: #090909;
+	font-family: Arial, sans-serif;
+}
+/*==================================================================*/
+#main_container>#main_visual{
+	width: 960px;
+	height: 380px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #c0c0c0;
+	position: relative;
+}
+#main_container>#main_visual>p{
+	width: 960px;
+	height: 380px;
+	text-indent: -9999px;
+	background: url("images/main_visual.jpg") no-repeat;
+}
+#main_container>#main_visual>a{
+	display: block;
+	width: 443px;
+	height: 44px;
+	text-indent: -9999px;
+	background: url("images/view_portfolio.gif") no-repeat;
+	position: absolute; left: 33px; bottom: 66px;
+}
+/*==================================================================*/
+#main_container>#info_wrap{
+	width: 960px;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+#main_container>#info_wrap>div{
+	width: 284px;
+	float: left;
+	margin-left: 54px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+#main_container>#info_wrap>.about_us{
+	margin-left: 0;
+}
+#main_container>#info_wrap>div>h2{
+	margin-bottom: 18px;
+	padding: 0 0 10px 30px;
+	border-bottom: 5px solid #090909;
+}
+#main_container>#info_wrap>div>p{
+	line-height: 1.7;
+	text-align: justify;
+}
+#main_container>#info_wrap>.about_us>a{
+	display: block;
+	background: url("images/bull_ico.png") no-repeat 0px -44px;
+	margin-top: 12px;
+	padding-left: 24px;
+	text-transform: uppercase;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	color: #f60;
+}
+#main_container>#info_wrap>.our_benefits>ul>li{
+	background: url("images/bull_ico.png") no-repeat 0px -97px;
+	padding-left: 30px;
+	line-height: 1.3em;
+	margin-bottom: 14px;
+}
+#main_container>#info_wrap>.testimonials>em{
+	display: block;
+	font-weight: bold;
+	color: #090909;
+	margin-top: 30px;
+}
+/*==================================================================*/
+#main_container>#portfolio{
+	width: 960px;
+	margin-top: 20px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+#main_container>#portfolio>h2{
+	padding-left: 30px;
+	margin-bottom: 20px;
+}
+#main_container>#portfolio>ul{
+	overflow: hidden;
+}
+#main_container>#portfolio>ul>li{
+	width: 215px;
+	height: 135px;
+	float: left;
+	margin-right: 33px;
+	position: relative;
+}
+#main_container>#portfolio>ul>li:nth-child(2){
+	margin-right: 34px;
+}
+#main_container>#portfolio>ul>li:last-child{
+	margin-right: 0;
+}
+#main_container>#portfolio>ul>li>a{
+	display: block;
+	text-indent: -9999px;
+	/*li 크기 전체를 a 링크 걸리게 커서 걸리게 하고 싶어서, 크기를 100%로 두고 background 위치 조정*/
+	width: 100%;
+	height: 100%;
+	background: url("images/view.gif") no-repeat right bottom;
+	position: absolute; right: 0; bottom: 0;
+/*	line-height: 21px;
+	color: #222;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding-left: 10px;
+	background: #fe9b00 url("images/bull_ico.png") no-repeat right -42px;*/
+}
+/*==================================================================*/
+#main_container>#social_wrap{
+	width: 960px;
+	margin: 25px 0 44px;
+	overflow: hidden;
+}
+#main_container>#social_wrap h3{
+	background: url("images/bull_ico.png") no-repeat 0 -45px;
+	padding-left: 24px;
+	margin-bottom: 20px;
+	font-size: 12px;
+	color: #333;
+	font-family: Arial, sans-serif;
+}
+#main_container>#social_wrap>.blog_updates{
+	width: 670px;
+	float: left;
+}
+#main_container>#social_wrap>.blog_updates>p{
+	line-height: 1.8em;
+}
+#main_container>#social_wrap>.contact_with{
+	width: 215px;
+	float: right;
+}
+#main_container>#social_wrap>.contact_with>ul{
+	overflow: hidden; /*height: 32px;*/
+}
+#main_container>#social_wrap>.contact_with>ul>li{
+	width: 32px;
+	float: left;
+	margin-left: 14px;
+}
+#main_container>#social_wrap>.contact_with>ul>.s1{
+	margin-left: 0;
+}
+#main_container>#social_wrap>.contact_with>ul>li>a{
+	display: block;
+	width: 32px;
+	height: 32px;
+	text-indent: -9999px;
+	background: url("images/sns_icons.png") no-repeat;
+}
+#main_container>#social_wrap>.contact_with .s2>a{
+	background-position: 0 -32px;
+}
+#main_container>#social_wrap>.contact_with .s3>a{
+	background-position: 0 -64px;
+}
+#main_container>#social_wrap>.contact_with .s4>a{
+	background-position: 0 -96px;
+}
+/*==================================================================*/
+#main_footer{
+	height: 100px;
+	background: #e2e2e2;
+}
+#main_footer>.footer_innerbox{
+	width: 960px;
+	height: 100px;
+	margin: 0 auto;
+	background: url("images/footer_logo.gif") no-repeat right center;
+	overflow: hidden; /*자식의 margin-top 버그 없애기*/
+}
+#main_footer>.footer_innerbox>ul{
+	margin-top: 30px;
+	text-transform: capitalize;
+	overflow: hidden;
+	/*자식이 float 걸려서 ul(부모)의 height이 0이 되어버림 -> p에 margin 걸 수 없음 ->
+	  부모인 ul을 숨겨서 float 걸린 li들의 height의 합을 인식하도록 함*/
+}
+#main_footer>.footer_innerbox>ul>li{
+	background: url("images/line.gif") no-repeat right center;
+	float: left;
+	margin-left: 8px;
+	padding-right: 9px;
+}
+#main_footer>.footer_innerbox>ul>li:first-child{
+	margin-left: 0;
+}
+#main_footer>.footer_innerbox>ul>li:last-child{
+	padding-right: 0;
+	background: none;
+}
+#main_footer>.footer_innerbox>ul>li>a{
+	color: #5d5d5d;
+}
+#main_footer>.footer_innerbox>p{
+	clear: left;
+	margin-top: 8px;
+}

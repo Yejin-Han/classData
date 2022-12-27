@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>배경이미지 고정</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 16px;
+                font-family: Arial, sans-serif;
+                color: #222;
+            }
+            section{
+                height: 850px;
+                font-weight: bold;
+                font-style: italic;
+                padding: 30px;
+            }
+            #sect1{
+                background: #fc9;
+            }
+            #sect2{
+                background: url("../day4/img/bg/bgVis01_m.gif") repeat fixed; /*마치 clipping mask같은 효과*/
+            }
+            #sect3{
+                background: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="sect1">content block</section>
+        <section id="sect2">content block</section>
+        <section id="sect3">content block</section>
+    </body>
+</html>

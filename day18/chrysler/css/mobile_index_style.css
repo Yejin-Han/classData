@@ -1,0 +1,272 @@
+@charset "utf-8";
+
+/*약간의 반응형 소재 有*/
+/*default settings=================================================================*/
+body,header,main,section,footer,nav,ul,li,div,h1,h2,h3,p{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	display: block;
+	border: 0;
+}
+body{
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+}
+.hidden{
+	visibility: hidden;
+	display: block; width: 0; height: 0; overflow: hidden;
+	position: absolute; left: -9999px; top: -9999px;
+	font-size: 0; line-height: 0;
+}
+/*main_header===================================================================*/
+#main_header{
+	position: absolute;	left: 0; top: 0;
+	width: 100%;
+	min-width: 320px;
+	z-index: 9999;
+}
+#main_header>h1{
+	width: 153px;
+	height: 25px;
+	position: absolute; left: 50%; top: 10px;
+	transform: translateX(-50%);
+}
+#main_header>a{
+	display: block;
+	width: 36px;
+	height: 36px;
+	position: absolute; right: 15px; top: 5px;
+}
+/*gnb(펼침) - 그냥 흉내내보는거임 실제로는 이걸로 안함==============================*/
+#main_header>a:focus+.gnb{
+	display: block;
+}
+/*gnb(숨김)======================================================================*/
+#main_header>.gnb{
+	position: absolute;
+	width: 100%; left: 0; top: 0;
+	min-height: 640px;
+	padding: 50px 15px 12px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,0.8);
+	display: none;
+}
+#main_header>.gnb>ul>li{
+	margin-bottom: 15px;
+}
+#main_header>.gnb>ul>li:last-child{
+	margin-bottom: 0;
+}
+#main_header>.gnb>ul>li>a{
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	color: #c00;
+	border-bottom: 1px solid #c00;
+	letter-spacing: -1px;
+}
+#main_header>.gnb>ul>li:nth-child(2)>a{
+	color: #09f;
+	border-color: #09f;
+}
+#main_header>.gnb>ul>li:nth-child(3)>a{
+	color: #3c3;
+	border-color: #3c3;
+}
+#main_header>.gnb>ul>li:nth-child(4)>a{
+	color: #f34;
+	border-color: #f34;
+}
+#main_header>.gnb>ul>li:last-child>a{
+	color: #c93;
+	border-color: #c93;
+}
+#main_header>.gnb>ul>li>.sub{
+	margin-top: 6px;
+}
+#main_header>.gnb>ul>li>.sub>li{
+	margin-bottom: 8px;
+	border-left: 2px solid #f40;
+	padding-left: 10px;
+}
+#main_header>.gnb>ul>li>.sub>li:last-child{
+	margin-bottom: 0;
+}
+#main_header>.gnb>ul>li>.sub a{
+	color: #fff;
+	text-transform: uppercase;
+}
+/*main section1=================================================================*/
+#container>.slide_container{
+	position: relative;
+}
+#container>.slide_container>.slides{
+	position: relative;
+	overflow: hidden;
+}
+@keyframes fade{
+	0%{
+		opacity: 1;
+	}
+	75%{
+		opacity: 0.5;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+#container>.slide_container>.slides>img{
+	width: 100%;
+	height: auto;
+	position: absolute; left: 0; top: 0;
+	opacity: 0;
+}
+#container>.slide_container>.slides>img:first-of-type{
+	position: relative;
+	/*자식이 다 absolute면 부모 높이가 0이 돼서 다음 요소들이 위로 올라오기 때문.
+	relative는 자기 영역을 남겨놓기 때문에 높이가 인식된다.
+	그래서 나중에는 이 slide banner에 relative만을 건다.*/
+	animation-name: fade;
+	animation-duration: 2s;
+	animation-delay: 0s;
+}
+#container>.slide_container>.slides>img:nth-of-type(2){
+	/*left: 100%;*/
+	animation-name: fade;
+	animation-duration: 2s;
+	animation-delay: 1.5s;
+}
+#container>.slide_container>.slides>img:nth-of-type(3){
+	/*left: 200%;*/
+	animation-name: fade;
+	animation-duration: 2s;
+	animation-delay: 3.5s;
+}
+#container>.slide_container>a{
+	display: block;
+	width: 32px;
+	height: 32px;
+	text-indent: -9999px;
+	position: absolute; top: 50%; transform: translateY(-50%);
+}
+#container>.slide_container>.prev{
+	left: 0;
+	background: url("../images/prev_btn.png") no-repeat;
+}
+#container>.slide_container>.next{
+	right: 0;
+	background: rgba(0,0,0,0.4) url("../images/next_btn.gif") no-repeat center center;
+}
+/*main section2=================================================================*/
+#container>.direct_btns>ul{
+	overflow: hidden;
+}
+#container>.direct_btns>ul>li{
+	float: left;
+	width: 25%;
+}
+#container>.direct_btns>ul>li>a{
+	display: block;
+}
+#container>.direct_btns>ul>li>a>img{
+	width: 100%;
+	height: auto;
+}
+/*main section3=================================================================*/
+#container>.car_list{
+	clear: left;
+}
+#container>.car_list>ul>li{
+	height: 50px;
+	background: url("../images/list_bg.gif") repeat-x;
+}
+#container>.car_list>ul>li>a{
+	display: block;
+	padding-left: 26px;
+	background: url("../images/arrow.gif") no-repeat right 24px center;
+}
+/*main section4-1===============================================================*/
+#container>.icons{
+	height: 70px;
+	background: url("../images/list_bg.gif") repeat-x;
+	background-size: contain;
+}
+#container>.icons>.sns{
+	float: left;
+	height: 32px;
+	margin: 20px 0 0 15px;
+}
+#container>.icons>.sns>ul{
+	height: 32px;
+}
+#container>.icons>.sns>ul>li{
+	float: left;
+	margin-left: 5px;
+}
+#container>.icons>.sns>ul>li:first-child{
+	margin-left: 0;
+}
+#container>.icons>.sns>ul>li>a{
+	display: block;
+	width: 32px;
+	height: 32px;
+	text-indent: -9999px;
+	background: url("../images/sns_icon.png") no-repeat;
+}
+#container>.icons>.sns>ul>li:nth-child(2)>a{
+	background-position: 0 -32px;
+}
+#container>.icons>.sns>ul>li:last-child>a{
+	background-position: 0 -64px;
+}
+/*main section4-2===============================================================*/
+#container>.icons>.catalogs{
+	float: right;
+	height: 31px;
+	margin: 20px 15px 0 0;
+}
+#container>.icons>.catalogs>h3{
+	float: left;
+	line-height: 31px;
+	font-size: 12px;
+	letter-spacing: -1px;
+	margin-right: 5px;
+}
+#container>.icons>.catalogs>ul{
+	float: left;
+}
+#container>.icons>.catalogs>ul>li{
+	float: left;
+	margin-left: 5px;
+}
+#container>.icons>.catalogs>ul>li>a{
+	display: block;
+	width: 31px;
+	height: 31px;
+	text-indent: -9999px;
+}
+#container>.icons>.catalogs>ul>li:first-child>a{
+	background: url("../images/catalog1.png") no-repeat;
+}
+#container>.icons>.catalogs>ul>li:nth-child(2)>a{
+	background: url("../images/catalog2.png") no-repeat;
+}
+#container>.icons>.catalogs>ul>li:last-child>a{
+	background: url("../images/catalog3.png") no-repeat;
+}
+/*main_footer===================================================================*/
+#main_footer{
+	clear: both;
+	background: #1d1d1d;
+	padding: 12px 0;
+	text-align: center;
+	color: #fff;
+}

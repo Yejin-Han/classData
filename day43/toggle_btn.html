@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle 버튼</title>
+    <style type="text/css">
+      #toggle{
+        border:0;
+        background:transparent;
+        margin:0; padding:5px;
+        position:absolute; left:70px; top:40px;
+        width:40px; height:30px;
+        cursor:pointer;
+      }
+      #toggle>.sr_only{
+        display:block; visibility:hidden; overflow:hidden;
+        width:0; height:0; font-size:0; line-height: 0;
+        position:absolute; left:-9999px; top:-9999px;
+      }
+      #toggle>span{
+        display:block;
+        height:2px;
+        margin-bottom:7px;
+        border-radius:1px;
+        background: #151515;
+        transition:all 0.4s;
+      }
+      #toggle>.bar1{
+        width:13px;
+      }
+      #toggle>.bar2{
+        width:8px;
+      }
+      #toggle>.bar3{
+        width:17px;
+        margin-bottom: 0;
+      }
+      #toggle:hover>span{
+        width:30px;
+        background: #f60;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="toggle">
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
+      <span class="sr_only">전체메뉴</span>
+    </button>
+  </body>
+</html>

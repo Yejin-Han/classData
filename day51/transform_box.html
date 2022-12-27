@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>3D box</title>
+		<style type="text/css">
+			@keyframes rotatebox{
+				0%{
+					transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				}
+				100%{
+					transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+				}
+			}
+			section{
+				width: 200px; height: 200px;
+				margin: 200px auto;
+				transform-style: preserve-3d;
+				perspective: 0%;
+				/* transform: rotateX(30deg) rotateY(45deg) rotateZ(0deg); */
+				animation: rotatebox 5s linear 0s infinite;
+			}
+			section>div{
+				width: 200px; height: 200px;
+				opacity: 0.25;
+				position: absolute; left: 0; top: 0;
+			}
+			section>div:nth-child(1){
+				background: #f30;
+				transform: rotateY(0deg) translate3d(0,0,100px);
+			}
+			section>div:nth-child(2){
+				background: #3c3;
+				transform: rotateY(90deg) translate3d(0,0,100px);
+			}
+			section>div:nth-child(3){
+				background: #06f;
+				transform: rotateY(180deg) translate3d(0,0,100px);
+			}
+			section>div:nth-child(4){
+				background: #fc3;
+				transform: rotateY(270deg) translate3d(0,0,100px);
+			}
+			section>div:nth-child(5){
+				background: #630;
+				transform: rotateX(90deg) translate3d(0,0,100px);
+			}
+			section>div:nth-child(6){
+				background: #fcf;
+				transform: rotateX(180deg) translate3d(0,0,100px);
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+	</body>
+</html>

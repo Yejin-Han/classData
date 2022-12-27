@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동위요소 선택하기</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        const third1=$('#u01>.third');
+        third1.next().css('background','#630');
+        third1.prev().css('background','#269');
+        third1.next().css('color','#fff').end().prev().css('color','#f96');
+
+        const third2=$('#u02>.third');
+        third2.nextAll().css('background','#f7f');
+        third2.nextAll('.b').css('color','#fff');
+        third2.prevAll().css({'background':'#396','color':'#9c9'});
+
+        const third3=$('#u03>.third');
+        third3.siblings().css('background','#239');
+        third3.nextUntil('.c').css('color','#fff');
+        third3.nextAll(':contains(5)').css('font-weight','bold').css('color','#fc0');
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="u01">
+      <li>list1</li>
+      <li>list2</li>
+      <li class="third">list3</li>
+      <li>list4</li>
+      <li>list5</li>
+    </ul>
+    <ul id="u02">
+      <li>list1</li>
+      <li class="b">list2</li>
+      <li class="third">list3</li>
+      <li>list4</li>
+      <li class="b">list5</li>
+      <li>list6</li>
+      <li>list7</li>
+      <li class="b">list8</li>
+    </ul>
+    <ul id="u03">
+      <li>list1</li>
+      <li>list2</li>
+      <li class="third">list3</li>
+      <li>5list4</li>
+      <li>list5</li>
+      <li>list6</li>
+      <li class="c">list7</li>
+      <li>list58</li>
+    </ul>
+  </body>
+</html>

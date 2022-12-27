@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>animation1 - fadeIn/fadeOut</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                $('.div1').fadeIn(1200,function(){
+                    alert('fadeIn Complete!');
+                });
+                $('.div2').fadeOut(1200);
+            });
+        </script>
+        <style type="text/css">
+            .box{
+                height: 160px;
+                font-size: 8em;
+                line-height: 160px;
+            }
+            .box>.div1{
+                background: #fc0;
+                display: none;
+            }
+            .box>.div2{
+                background: #f9f;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="div1">FADE IN</div>
+        </div>
+        <div class="box">
+            <div class="div2">FADE OUT</div>
+        </div>
+    </body>
+</html>

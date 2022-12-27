@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Object literal (객체 생성(선언))</title>
+		<script>
+			const person={
+				name: "홍길동",
+				age: 25,
+				hi: function(){
+					console.log("안녕하세요 "+this.name+"입니다. 나이는 "+this.age+"살 입니다.");
+					console.log(`안녕하세요 ${this.name}입니다. 나이는 ${this.age}살 입니다.`);
+				}
+			}
+			console.log(person.name);
+			person.name='김철수';
+			person.age=30;
+			person.hi();
+			for(let value in person){
+				console.log(`${value}: ${person[value]}`);
+			}
+
+			/* let text="FOR";
+			for(let i in text){
+				console.log(i);
+				console.log(text[i]);
+			}
+			for(let j of text){
+				console.log(j);
+			} */
+			const arr=[50,100,200];
+			arr.add=400;
+			for(let i in arr){
+				console.log(i+1);
+				console.log(i*1+1);
+			}
+			for(let j of arr){
+				console.log(j+1);
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

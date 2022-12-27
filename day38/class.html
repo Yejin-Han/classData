@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>class 추가/삭제</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                $('#box1').addClass('borderK');
+                $('#box2').removeClass('borderK');
+                $('#box3').addClass('redborder');
+                $('#box4').removeClass('redborder');
+                $('div').on('mousedown',function(){
+                    $(this).addClass('on');
+                });
+                $('div').on('mouseup',function(){
+                    $(this).removeClass('on');
+                });
+            });
+        </script>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+            }
+            div{
+                margin: 20px;
+                padding: 20px;
+            }
+            .borderK{
+                border: 5px solid #151515;
+            }
+            .redborder{
+                border-color: #f30;
+            }
+            .on{
+                background-color: #fc0;
+                color: #fff;
+                text-indent: 4em;
+                border-color: #6c6;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box1">box1</div>
+        <div id="box2" class="borderK">box2</div>
+        <div id="box3" class="borderK">box3</div>
+        <div id="box4" class="borderK redborder">box4</div>
+    </body>
+</html>

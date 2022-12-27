@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SC Standard Capital</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+            }
+            img{
+                display: block;
+            }
+            #main_header{
+                width: 100%;
+                height: 63px;
+                border-top: 3px solid #47545a;
+            }
+            #main_header>.header_innerbox{
+                width: 978px;
+                height: 63px;
+                margin: 0 auto;
+            }
+            #navigation{
+                width: 100%;
+                height: 57px;
+                border-top: 1px solid #d8e0e3;
+                border-bottom: 3px solid #0762bd;
+            }
+            #navigation>.gnb{
+                width: 978px;
+                height: 57px;
+                margin: 0 auto;
+            }
+            #main_container{
+                width: 978px;
+                height: 862px; /*원래는 이런거 안 적어!!!!!!*/
+                margin: 0 auto;
+            }
+            #main_container>.content_top{
+                width: 978px;
+                height: 502px;
+            }
+            #main_container>.content_top>.banner{
+                width: 562px;
+                height: 502px;
+                float: left;
+            }
+            #main_container>.content_top>.loan_info{
+                width: 416px;
+                height: 502px;
+                float: right;
+            }
+            #main_container>.content_top>.loan_info>.loan_quick{
+                width: 194px;
+                height: 298px;
+                float: left;
+            }
+            #main_container>.content_top>.loan_info>.standard_loan{
+                width: 194px;
+                height: 298px;
+                float: right;
+            }
+            #main_container>.content_top>.loan_info>.loan_quick, #main_container>.content_top>.loan_info>.standard_loan{ 
+                margin: 77px 0 45px;
+            }
+            #main_container>.content_top>.loan_info>.lookup{
+                width: 416px;
+                height: 82px;
+                clear: both;
+            }
+            #main_container>.content_bottom{
+                width: 978px;
+                height: 359px;
+                background: #f7f7f7;
+                clear: both;
+            }
+            #main_container>.content_bottom>.info_etc{
+                width: 652px;
+                height: 359px;
+                float: left;
+            }
+            #main_container>.content_bottom>.info_etc>div{
+                width: 326px;
+                float: left;
+            }
+            #main_container>.content_bottom>.info_etc>.elec_complaints,
+            #main_container>.content_bottom>.info_etc>.call{
+                height: 179px;
+            }
+            #main_container>.content_bottom>.info_etc>.direct_btns,
+            #main_container>.content_bottom>.info_etc>.notice{
+                height: 180px;
+            }
+            #main_container>.content_bottom>.recommend{
+                width: 326px;
+                height: 359px;
+                float: right;
+            }
+            /*이미지에 border 없다고 가정, 다 깔아줘야 할 때!!*/
+            /*#main_container>.content_bottom{
+                width: 977px;
+                height: 358px;
+                border-right: 1px solid #cecece;
+                border-bottom: 1px solid #cecece;
+                background: #f7f7f7;
+                clear: both;
+            }
+            #main_container>.content_bottom>.info_etc{
+                width: 652px;
+                height: 358px;
+                float: left;
+            }
+            #main_container>.content_bottom>.info_etc>div{
+                width: 325px;
+                height: 178px;
+                border-top: 1px solid #cecece;
+                border-left: 1px solid #cecece;
+                float: left;
+            }
+            #main_container>.content_bottom>.recommend{
+                width: 324px;
+                height: 357px;
+                border-top: 1px solid #cecece;
+                border-left: 1px solid #cecece;
+                float: right;
+            }*/
+            #main_footer{
+                clear: both;
+                width: 100%;
+                height: 134px;
+                background: #44484b;
+                border-top: 1px solid #2e2f33;
+            }
+            #main_footer>.footer_top{
+                width: 100%;
+                height: 45px;
+                border-bottom: 1px solid #2e2f33;
+            }
+            #main_footer>.footer_top>.footer_menu{
+                width: 978px;
+                height: 45px;
+                margin: 0 auto;
+            }
+            #main_footer>.footer_bottom{
+                width: 978px;
+                height: 88px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="main_header">
+            <div class="header_innerbox">
+                <img src="images/header.gif" alt="">
+            </div>
+        </header>
+        <nav id="navigation">
+            <div class="gnb">
+                <img src="images/gnb.gif" alt="">
+            </div>
+        </nav>
+        <div id="main_container">
+            <section class="content_top">
+                <div class="banner">
+                    <img src="images/banner.gif" alt="">
+                </div>
+                <div class="loan_info">
+                    <div class="loan_quick">
+                        <img src="images/loan_quick.gif" alt="">
+                    </div>
+                    <div class="standard_loan">
+                        <img src="images/standard_loan.gif" alt="">
+                    </div>
+                    <div class="lookup">
+                        <img src="images/lookup.gif" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="content_bottom">
+                <div class="info_etc">
+                    <div class="elec_complaints">
+                        <img src="images/elec_complaints.gif" alt="">
+                    </div>
+                    <div class="call">
+                        <img src="images/call.gif" alt="">
+                    </div>
+                    <div class="direct_btns">
+                        <img src="images/direct_btns.gif" alt="">
+                    </div>
+                    <div class="notice">
+                        <img src="images/notice.gif" alt="">
+                    </div>
+                </div>
+                <div class="recommend">
+                    <img src="images/recommend.gif" alt="">
+                </div>
+            </section>
+        </div>
+        <footer id="main_footer">
+            <div class="footer_top">
+                <div class="footer_menu">
+                    <img src="images/footer_top.gif" alt="">
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <img src="images/footer_bottom.gif" alt="">
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>navigation</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                const list=$('#nav>ul>li');
+                list.on('mouseenter',function(){
+                    /*event가 발생하고 있는 지금 자신 ---> this*/
+                    $(this).children('.sub').stop().slideDown(300);
+                    /*chain method면 앞에 명령이 계속 같이 누적되므로 animation때는 animation만 하도록 앞의 명령은 정지시킴.*/
+                });
+                list.on('mouseleave',function(){
+                    $(this).find('.sub').stop().slideUp(250);
+                });
+            });
+        </script>
+        <style type="text/css">
+            body,nav,ul,li{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            body{
+                font-size: 12px;
+                font-family: "굴림", gulim, sans-serif;
+            }
+            #nav{
+                width: 700px;
+                height: 32px;
+                margin: 50px auto 0;
+                padding-top: 8px;
+                background: #036;
+            }
+            #nav>ul{
+                width: 480px;
+                height: 24px;
+                margin: 0 auto;
+                background: #c90;
+                text-align: center;
+            }
+            #nav>ul>li{
+                float: left;
+                width: 160px;
+                height: 24px;
+                line-height: 24px;
+            }
+            #nav>ul>li>a{
+                display: block;
+                width: 100%;
+                height: 100%;
+                font-weight: bold;
+                color: #fff;
+            }
+            #nav .sub{
+                background: #fe3;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <nav id="nav">
+            <ul>
+                <li>
+                    <a href="#">공지사항</a>
+                    <ul class="sub">
+                        <li><a href="#">주간소식</a></li>
+                        <li><a href="#">새소식</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">회원정보</a>
+                    <ul class="sub">
+                        <li><a href="#">일반회원</a></li>
+                        <li><a href="#">우수회원</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">사이트맵</a>
+                    <ul class="sub">
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">연락처</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>

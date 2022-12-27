@@ -1,0 +1,5 @@
+header 배경색 #f4f4f4
+글자색 f90, 090909
+선 색 c0c0c0
+footer bg #e2e2e2 글자 #999
+

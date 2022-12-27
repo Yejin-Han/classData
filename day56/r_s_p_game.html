@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>가위바위보</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script>
+			$(function(){
+				const comaction=new Array("가위", "바위", "보");
+				//방법 3
+				$('button').on('click',function(){
+					let index=$(this).index();
+					let random=Math.floor(Math.random()*3)+1;
+					$('.com').text(comaction[random-1]);
+					if(index==random){
+						$('.result').text('draw');
+					} else if(index%3==(random+2)%3){
+						$('.result').text('computer wins');
+					} else{
+						$('.result').text('user wins');
+					}
+				});
+				/* 방법 2
+				$('button').on('click',function(){
+					let index=$(this).index()-1;
+					let random=Math.floor(Math.random()*3);
+					$('.com').text(comaction[random]);
+					if(index==random){
+						$('.result').text('draw');
+					} else if((index==0 && random==1) || (index==1 && random==2) || (index==2 && random==0)){
+						$('.result').text('computer wins');
+					} else{
+						$('.result').text('user wins');
+					}
+				}); */
+				/* 방법 1
+				$('#btn1').on('click',function(){
+					let index=Math.floor(Math.random()*3);
+					$('.com').text(comaction[index]);
+					if(index==0){
+						$('.result').text('비겼습니다.');
+					} else if(index==1){
+						$('.result').text('졌습니다.');
+					} else if(index==2){
+						$('.result').text('이겼습니다.');
+					}
+				});
+				$('#btn2').on('click',function(){
+					let index=Math.floor(Math.random()*3);
+					$('.com').text(comaction[index]);
+					if(index==0){
+						$('.result').text('이겼습니다.');
+					} else if(index==1){
+						$('.result').text('비겼습니다.');
+					} else if(index==2){
+						$('.result').text('졌습니다.');
+					}
+				});
+				$('#btn3').on('click',function(){
+					let index=Math.floor(Math.random()*3);
+					$('.com').text(comaction[index]);
+					if(index==0){
+						$('.result').text('졌습니다.');
+					} else if(index==1){
+						$('.result').text('이겼습니다.');
+					} else if(index==2){
+						$('.result').text('비겼습니다.');
+					}
+				}); */
+			});
+		</script>
+		<style type="text/css">
+			.com{
+				width: 300px; height: 80px;
+				margin: 50px auto;
+				border: 1px solid #555;
+				text-align: center; line-height: 80px;
+				font-size: 30px; font-weight: bold;
+			}
+			.result{
+				width: 300px; height: 40px;
+				margin: 50px auto;
+				border: 1px solid #555;
+				text-align: center; line-height: 40px;
+				font-size: 20px; font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="com"></div>
+		<button type="button" id="btn1">가위</button>
+		<button type="button" id="btn2">바위</button>
+		<button type="button" id="btn3">보</button>
+		<div class="result"></div>
+	</body>
+</html>

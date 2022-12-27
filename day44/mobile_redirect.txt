@@ -1,0 +1,127 @@
+﻿<script type="text/javascript">
+  <!--
+  if (screen.width <= 800) {
+    window.location = "http://m.domain.com";
+  }
+  //-->
+</script>
+
+=============================================================
+
+<script language=javascript>
+<!--
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+   location.replace("http://url-to-send-them/iphone.html");
+}
+-->
+</script>
+
+
+=============================================================
+
+
+function RedirectSmartphone(url) {
+    if (url && url.length > 0 && IsSmartphone())
+        window.location = url;
+}
+
+function IsSmartphone() {
+    if (DetectUagent("android")) return true;
+    else if (DetectUagent("iphone")) return true;
+    else if (DetectUagent("ipod")) return true;
+    else if (DetectUagent("symbian")) return true;
+    return false;
+}
+
+function DetectUagent(name) {
+    var uagent = navigator.userAgent.toLowerCase();
+    if (uagent.search(name) > -1)
+        return true;
+    else
+        return false;
+}
+RedirectSmartphone("http://mobile.version.com");
+
+
+===============================================================
+
+
+
+if(jQuery.browser.mobile) window.location = 'mobile_url';
+
+
+
+
+===============================================================
+
+
+
+<script>
+    if (navigator.userAgent.match(/iPhone/) || navigator.userAgent.match(/iPad/) 
+        || navigator.userAgent.match(/Android/)) {
+        location.replace("redirect 시키려는 주소");
+    }
+</script>
+
+
+
+
+===============================================================
+
+
+
+<script type="text/javascript">
+ var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson');
+ for (var word in mobileKeyWords){
+     if (navigator.userAgent.match(mobileKeyWords[word]) != null){
+         location.href = "보내고 싶은 모바일 경로";
+         break;
+     }
+  
+}
+ </script>
+
+
+
+
+===============================================================
+
+
+<script type="text/javascript">
+var uAgent = navigator.userAgent.toLowerCase();
+var mobilePhones = new Array('iphone','ipod','android','blackberry','windows ce',
+'nokia','webos','opera mini','sonyericsson','opera mobi','iemobile');
+for(var i=0;i<mobilePhones.length;i++)
+if(uAgent.indexOf(mobilePhones[i]) != -1)
+document.location="모바일웹 주소";
+</script>
+
+
+===============================================================
+
+
+
+<script type="text/javascript">
+
+var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson','Windows Phone');
+
+for (var word in mobileKeyWords){
+
+if (navigator.userAgent.match(mobileKeyWords[word]) != null){
+
+location.href = "이동할 경로";
+
+break;
+
+}
+
+}
+
+</script>
+
+
+
+
+
+
+

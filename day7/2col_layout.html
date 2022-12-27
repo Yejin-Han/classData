@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>2col layout</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+            }
+            header{
+                height: 120px;
+                background: #6c0;
+            }
+            nav{
+                width: 180px;
+                height: 400px;
+                background: #039;
+                float: left;
+            }
+            section{
+                height: 700px;
+                background: #fc0;
+                margin-left: 180px;   /*2단으로 만들기*/
+            }
+            footer{
+                clear: left;   /*불안하니까 clear는 해주자.*/
+                height: 100px;
+                background: #555;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body> 
+        <header>h1, tnb, gnb</header>
+        <nav>snb</nav>
+        <section>main content</section>
+        <footer>address, footer menu, copyright, etc.</footer>
+    </body>
+</html>

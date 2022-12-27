@@ -1,0 +1,139 @@
+@charset "utf-8";
+body,section,div,form,fieldset,legend,input,button,ol,li,h1{
+  margin:0; padding:0;
+}
+ol{
+  list-style:none;
+}
+a{
+  text-decoration:none;
+}
+legend{
+  display:none;
+}
+fieldset{
+  border:0 none;
+}
+button{
+  border:0;
+}
+
+body{
+  font-size:12px;
+  color: #333;
+  font-family: "굴림","gulim",sans-serif;
+}
+#login_wrap{
+  width: 504px; height: 250px;
+  padding:22px 40px 8px;
+  border:1px solid #ccc;
+  position:absolute; left:50%; top:50%;
+  transform:translate(-50%,-50%);
+}
+h1{
+  width: 102px; height: 18px;
+  text-indent:-9999px;
+  margin-bottom: 10px;
+  background: url("LOGIN/TXT_H1.GIF") no-repeat;
+}
+#login_wrap>.form_box{
+  width: 504px; height: 112px;
+  border-top: 1px dotted #777;
+  border-bottom: 1px dotted #777;
+  position:relative;
+  /* overflow:hidden; */
+}
+#login_wrap>.form_box .id_box{
+  width: 270px; height: 22px;
+  position:absolute; left:70px; top:20px;
+}
+#login_wrap>.form_box .id_box>label,
+#login_wrap>.form_box .pw_box>label{
+  display:block;
+  width: 60px; height: 22px;
+  float: left;
+  text-indent: -9999px;
+  background: url("LOGIN/txt_mem_id.gif") no-repeat left center;
+}
+#login_wrap>.form_box .pw_box>label{
+  background-image:url("LOGIN/txt_mem_pw.gif");
+}
+#login_wrap>.form_box .id_box>input,
+#login_wrap>.form_box .pw_box>input{
+  width: 208px; height: 20px;
+  border: 1px solid #ccc;
+}
+#login_wrap>.form_box .pw_box{
+  width: 270px; height: 22px;
+  position:absolute; left:70px; top:50px;
+}
+#login_wrap>.form_box .save_box{
+  position:absolute; left:130px; top:80px;
+}
+#login_wrap>.form_box .save_box>input,
+#login_wrap>.form_box .save_box>label{
+  vertical-align:middle; /* 혹은 input에 relative 걸어서 직접 top좌표 바꿔 */
+}
+#login_wrap>.form_box .login_box{
+  width: 86px; height: 54px;
+  position:absolute; left:350px; top:20px;
+}
+#login_wrap>.form_box .login_box>button{
+  width: 86px; height: 54px;
+  text-indent:-9999px;
+  background:transparent url("LOGIN/btn_login.gif") no-repeat left top;
+}
+#login_wrap>.other_box{
+  margin-top: 18px;
+}
+#login_wrap>.other_box>ol>li{
+  height: 24px;
+  margin-bottom: 6px;
+  background:url("LOGIN/txt_ol_01.gif") no-repeat left center;
+}
+#login_wrap>.other_box>ol>li:nth-child(2){
+  background-image:url("LOGIN/txt_ol_02.gif");
+}
+#login_wrap>.other_box>ol>li:last-child{
+  margin-bottom: 0;
+  background-image:url("LOGIN/txt_ol_03.gif");
+}
+#login_wrap>.other_box>ol>li>span{
+  font-size:0; line-height: 0; left:-999px; top:-999px; visibility:hidden;
+  position:absolute;
+}
+#login_wrap>.other_box>ol>li>a{
+  display:block;
+  width: 90px; height: 24px;
+  text-indent: -9999px;
+  float: right;
+  background:url("LOGIN/BTN_JOIN.GIF") no-repeat right center;
+}
+#login_wrap>.other_box>ol>li:nth-child(2)>a{
+  background-image:url("LOGIN/btn_id_search.gif");
+}
+#login_wrap>.other_box>ol>li:nth-child(3)>a{
+  background-image:url("LOGIN/btn_pw_search.gif");
+}
+/* #login_wrap>.form_box> .id_box{
+  width: 270px; height: 22px;
+  float:left;
+  margin:20px 0 0 70px;
+}
+#login_wrap>.form_box .pw_box{
+  width: 270px; height: 22px;
+  clear:left;
+  float:left;
+  margin:8px 0 0 70px;
+}
+#login_wrap>.form_box .save_box{
+  clear:left;
+  float:left;
+  margin:8px 0 0 130px;
+}
+#login_wrap>.form_box .login_box{
+  width: 86px; height: 54px;
+  margin:20px 0 0 350px;
+} */
+/* form box float으로 요소 정리
+ol>li>span, a float이나 inline-block으로 해보기 */

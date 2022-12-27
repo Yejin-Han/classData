@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>1230grid test</title>
+        <link rel="stylesheet" href="1230.css">
+        <style type="text/css">
+            .container{
+                background: #ff9;
+            }
+            .container>.row{
+                background: #69f;
+                margin-bottom: 18px;
+            }
+            .container>.row>div{
+                height: 220px;
+                background: #9c9;
+            }
+            #main_header{
+                height: 120px;
+                background: #939;
+            }
+            #main_header>div{
+                height: 120px;
+            }
+            #main_visual{
+                height: 400px;
+                background: #151515;
+            }
+            #main_visual>.slides_wrap{
+                height: 400px;
+                background: #ededed;
+                position: relative;
+            }
+            .news>div{
+                margin: 18px 0;
+            }
+            #main_footer{
+                background: #454545;
+            }
+            #main_footer>.container>.copy{
+                background: #ccc;
+                height: 40px;
+                margin-top: 18px;
+            }
+            .wrapper>.test1>div{
+                height: 50px;
+            }
+            .wrapper>.test2>div{
+                height: 70px;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="main_header">
+            <div class="container">h1, gnb, nav</div>
+        </header>
+        <section id="main_visual">
+            <div class="slides_wrap container">
+                slide banner
+            </div>
+        </section>
+        <div class="wrapper container">
+            <section class="row btns">
+                <div class="col2 ml0 bt1">btn1</div>
+                <div class="col2 bt2">btn2</div>
+                <div class="col2 bt3">btn3</div>
+                <div class="col2 bt4">btn4</div>
+                <div class="col2 bt5">btn5</div>
+                <div class="col2 bt6">btn6</div>
+            </section>
+            <section class="row news">
+                <div class="col3 ml0">col3 - news1</div>
+                <div class="col9">col9 - news2</div>
+                <div class="col3 ml0">col3 - news3</div>
+                <div class="col3">col3 - news4</div>
+                <div class="col3">col3 - news5</div>
+                <div class="col3">col3 - news6</div>
+            </section>
+            <section class="row notice">
+                <div class="col5 ml0">col5 - notice1</div>
+                <div class="col7">col7 - notice2</div>
+            </section>
+            <section class="row test1">
+                <div class="col3 ml0">col3 - test1-1</div>
+                <div class="col3">col3 - test1-2</div>
+                <div class="col3">col3 - test1-3</div>
+                <div class="col3">col4 - test1-4</div>
+            </section>
+            <section class="row test2">
+                <div class="col7 ml0">col7 - test2-1</div>
+                <div class="col5">col5 - test2-2</div>
+            </section>
+        </div>
+        <footer id="main_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col3 ml0">col3 - footer logo</div>
+                    <div class="col6">col6 - address, menu</div>
+                    <div class="col3">col3 - family site</div>
+                </div>
+                <div class="col12 copy">col12 - copyright</div>
+            </div>
+        </footer>
+    </body>
+</html>

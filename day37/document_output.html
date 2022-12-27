@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>document output</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                $('#box1').text("DIV - Text Type Output");
+                $('#box2').html("DIV - HTML Type Output");
+                $('#box3').text('<strong>Div Text Type Output</strong>');
+                $('#box4').html('<strong>HTML Type Div Output</strong>');
+                $('#box5').empty();
+                $('#box5').html('<img src="img_jq/POSTER6.JPG" alt="">');
+                $('#box5').html('<img src="img_jq/PIC1.JPG" alt="">');
+                //js --> document.getElementById('box5').innerHTML='<img src=".." alt="..">';
+            });
+        </script>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+            }
+            div{
+                border: 2px solid #009;
+                padding: 20px;
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box1">Div box1</div>
+        <div id="box2">Div box2</div>
+        <div id="box3">Div box3</div>
+        <div id="box4">Div box4</div>
+        <div id="box5">Div box5</div>
+    </body>
+</html>

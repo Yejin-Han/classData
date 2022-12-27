@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>제목과 내용연결2</title>
+    </head>
+    <body>
+        <h1>제목과 내용연결2</h1>
+        <h2>scope 속성</h2>
+        <table border="1" rules="groups">
+        <!-- rules="all, cols, rows, groups, none" : 테이블의 border을 나타내는 속성 (css에서 해)-->
+            <caption>8월 22일 현재 영화 평점 안내</caption>
+            <!-- <thead> -->
+                <colgroup span="2"></colgroup>
+                <colgroup span="1"></colgroup>
+                <!-- 열 그룹 나눠주는거 -->
+                <tr>
+                    <th scope="col">상영작</th>
+                    <th scope="col">관람객평점</th>
+                    <th scope="col">평론가평점</th>
+                </tr>
+            <!-- </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="3">관람객평점은 관람직후 작성되었습니다.</td>
+                </tr>
+            </tfoot>
+            <tbody> -->
+                <tr>
+                    <td scope="row">비상선언</td>
+                    <td>6.55</td>
+                    <td>6.27</td>
+                </tr>
+                <tr>
+                    <td scope="row">탑건:매버릭</td>
+                    <td>9.60</td>
+                    <td>8.44</td>
+                </tr>
+                <tr>
+                    <td scope="row">헌트</td>
+                    <td>8.52</td>
+                    <td>7.18</td>
+                </tr>
+           <!--  </tbody> -->
+        </table>
+    </body>
+</html>

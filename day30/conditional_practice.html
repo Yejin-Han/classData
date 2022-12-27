@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>점수 판단 조건문</title>
+        <script>
+            let score=prompt("점수를 입력하세요.","");
+            let message="시험결과 : ";
+            if(score<=100){
+                if(score>=90){
+                    message+="참 잘했어요.";
+                } else if(score>=80){
+                    message+="잘했어요.";
+                } else if(score>=70){
+                    message+="고생했어요.";
+                } else{
+                    alert("잘못 입력하셨습니다. 다시 입력해주세요.");
+                    window.location.reload();
+                }
+            } else{
+                alert("잘못 입력하셨습니다. 다시 입력해주세요.");
+                window.location.reload();
+            }
+            document.write(message);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

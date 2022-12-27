@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>form basic2</title>
+        <style type="text/css">
+
+        </style>
+    </head>
+    <body>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>basic form</legend>
+                <input type="text"><br>
+                <input type="password"><br>
+                <input type="radio" id="r"><label for="r">radio</label><br>
+                <input type="checkbox" id="c"><label for="c">checkbox</label><br>
+                <select>
+                    <option>opt1</option>
+                    <option>opt2</option>
+                </select><br>
+                <textarea rows="5" cols="40">text input</textarea><br>
+                <button type="submit">submit</button>
+                <button type="reset">reset</button>
+                <button type="button">button</button>
+            </fieldset>
+            <fieldset>
+                <legend>HTML5 form input tag(for mobile)</legend>
+                <p><input type="color"></p>
+                <p><input type="date"></p>  <!-- 연도-월-일 캘린더 -->
+                <p><input type="datetime"></p>
+                <p><input type="datetime-local"></p>
+                <p><input type="month"></p>
+                <p><input type="week"></p>
+                <p><input type="time"></p>
+                <p><input type="search"></p>
+                <p><input type="number"></p>
+                <p><input type="tel"></p>
+                <p><input type="email"></p>
+                <p><input type="url"></p>
+                <p><input type="range"></p>
+                <p>
+                    <select name="select">
+                        <optgroup label="html5">
+                            <option value="multimedia">Multimedia</option>
+                            <option value="device_access">Device Access</option>
+                        </optgroup>
+                        <optgroup label="css3">
+                            <option value="transform">Transform</option>
+                            <option value="animation">Animation</option>
+                        </optgroup>
+                    </select>
+                </p>
+            </fieldset>
+        </form>
+    </body>
+</html>

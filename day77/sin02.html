@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Math sin01</title>
+		<style type="text/css">
+			span{
+				display:block; width:20px; height:20px; background:#06f; position:relative; 
+				margin:200px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<span></span>
+		<script>
+			/* animation 반복 ---> 윈도우,브라우저 환경에 최적화 1초 60번 반복 실행
+					const 함수명=()=>{
+			      window.requestAnimationFrame(함수명);
+						..
+					}
+			*/
+			let radianValue=0;// radian
+			let radius=150;
+			const sinCheck=()=>{
+				window.requestAnimationFrame(sinCheck);
+				radianValue+=0.025;
+				if( radianValue>=Math.PI*2 ){   radianValue=0;     }
+				document.querySelector("span").style.top=Math.sin(radianValue)*radius+"px";
+				document.querySelector("span").style.left=Math.cos(radianValue)*radius+"px";
+			}
+			sinCheck();
+		</script>
+	</body>
+</html>

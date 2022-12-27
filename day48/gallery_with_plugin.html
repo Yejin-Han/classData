@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image gallery</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="lightbox/js/lightbox.js"></script>
+    <link rel="stylesheet" href="lightbox/css/lightbox.css">
+    <script src="fancybox/js/jquery.fancybox.js"></script>
+    <link rel="stylesheet" href="fancybox/css/jquery.fancybox.css">
+    <script src="colorbox/jquery.colorbox.js"></script>
+    <link rel="stylesheet" href="colorbox/COLORBOX.CSS">
+    <script>
+      lightbox.option({
+        'albumLabel': "%1 / %2",
+        'disableScrolling': true,
+        'fadeDuration': 400,
+
+      });
+      $(function(){
+        Fancybox.bind("[data-fancybox]", {
+          infinite: true,
+        });
+        $('.gallery3 a').colorbox({rel:'group'});
+      });
+    </script>
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body>
+    <section class="gallery">
+      <h2>lightbox</h2>
+      <ul>
+        <li>
+          <a href="lightbox/pic1.jpg" data-lightbox="gallery" data-title="WALL-E">
+            <img src="lightbox/p1.jpg" alt="thumbnail1">
+          </a>
+        </li>
+        <li>
+          <a href="lightbox/pic2.jpg" data-lightbox="gallery">
+            <img src="lightbox/p2.jpg" alt="thumbnail2">
+          </a>
+        </li>
+        <li>
+          <a href="lightbox/pic3.jpg" data-lightbox="gallery">
+            <img src="lightbox/p3.jpg" alt="thumbnail3">
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="gallery2">
+      <h2>fancybox</h2>
+      <ul>
+        <li>
+          <a href="lightbox/pic1.jpg" data-fancybox="gallery2" data-title="WALL-E">
+            <img src="lightbox/p1.jpg" alt="thumbnail1">
+          </a>
+        </li>
+        <li>
+          <a href="lightbox/pic2.jpg" data-fancybox="gallery2">
+            <img src="lightbox/p2.jpg" alt="thumbnail2">
+          </a>
+        </li>
+        <li>
+          <a href="lightbox/pic3.jpg" data-fancybox="gallery2">
+            <img src="lightbox/p3.jpg" alt="thumbnail3">
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="gallery3">
+      <h2>colorbox</h2>
+      <ul>
+        <li>
+          <a href="lightbox/pic1.jpg" class="group">
+            <img src="lightbox/p1.jpg" alt="thumbnail1">
+          </a>
+        </li>
+        <li>
+          <a href="lightbox/pic2.jpg" class="group">
+            <img src="lightbox/p2.jpg" alt="thumbnail2">
+          </a>
+        </li>
+        <li>
+          <a href="lightbox/pic3.jpg" class="group">
+            <img src="lightbox/p3.jpg" alt="thumbnail3">
+          </a>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

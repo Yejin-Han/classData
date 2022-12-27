@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>display level</title>
+        <style type="text/css">
+            h1{
+                background-color: #fc0; /* 기본크기: 너비는 최대값, 높이는 최소값 */
+                width: 600px;
+                height: 70px;
+            }
+            div{
+                display: inline;
+            }
+            span{
+                display: block;
+                width: 80px;
+                height: 50px;
+                border: 1px solid #f30;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>block요소와 inline요소 비교</h1>
+        <h2>block요소</h2>
+        <p>
+            줄바꿈, width, height, text-align, 바깥여백, 안쪽여백 등 선언 가능
+        </p>
+        <p>
+            h1~h6, p, div, blockquote, table, ul, ol, li, dl, dt, dd, iframe 등
+        </p>
+        <h2>inline요소</h2>
+        <p>
+            좌우 안쪽여백만 선언 가능
+        </p>
+        <p>
+            a, strong, em, mark, ins, del, b, i, span, img 
+        </p>
+        <h2>stylesheet로 display 레벨 변경</h2>
+        <div>div 1</div>
+        <div>div 2</div>
+        <div>div 3</div>
+        <span>span1</span><span>span2</span><span>span3</span>
+    </body>
+</html>

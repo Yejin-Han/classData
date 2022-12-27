@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>자동차 상세보기 360deg rotate + mouse position</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				for(let i=1; i<=36; i++){
+					$('#vr_wrap').append('<img src="vr/SWP_'+i+'.png" alt="">');
+				}
+				const imgs=$('#vr_wrap').find('img');
+				imgs.hide();
+				imgs.eq(0).show();
+				imgs.attr('draggable',false);
+
+				let index=0;
+				function rotateLeft(){
+					index++;
+					if(index>35){ index=0; }
+					$('#vr_wrap>img:visible').hide();
+					imgs.eq(index).show();
+				}
+				function rotateRight(){
+					index--;
+					if(index<0){ index=35; }
+					$('#vr_wrap>img:visible').hide();
+					imgs.eq(index).show();
+				}
+
+				let pastX=0;
+				let currX=0;
+				$('#vr_wrap').on('mousedown',function(){
+					$(this).on('mousemove',function(e){
+						pastX=currX;
+						currX=e.pageX;
+						if(pastX>currX){
+							rotateLeft();
+						} else{
+							rotateRight();
+						}
+					});
+				});
+				$('body').on('mouseup',function(){
+					$('#vr_wrap').off('mousemove');
+				});
+			});
+		</script>
+		<style type="text/css">
+			#vr_wrap{
+				width: 960px; height: 438px;
+				border: 2px solid #009;
+				position: relative;
+				margin: 200px auto;
+			}
+			#vr_wrap>img{
+				display: block; border: 0;
+				width: 960px; height: 438px;
+				position: absolute; left: 0; top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="vr_wrap"></div>
+	</body>
+</html>

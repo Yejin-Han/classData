@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>placeholder - value</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script>
+    $(function(){
+      const id2=$('#id2');
+      const defaultID=id2.val();
+      id2.addClass('active');
+      id2.on('focus',function(){
+        //placeholder의 역할을 하는 value는 없애고 사용자가 입력한 값이 있다면 그 내용을 없애면 안됨
+        //사용자의 입력값은 진한 색으로
+        if(id2.val()==defaultID){
+          id2.val('');
+          id2.removeClass('active');
+        }
+      });
+      id2.on('blur',function(){
+        if(id2.val()==''){
+          id2.val(defaultID);
+          id2.addClass('active');
+        }
+      });
+
+      const pw2=$('#pw2');
+      const defaultPW=pw2.val();
+      pw2.addClass('active');
+      pw2.attr('type','text');
+      pw2.on('focus',function(){
+        if(pw2.val()==defaultPW){
+          pw2.val('');
+          pw2.attr('type','password');
+          pw2.removeClass('active');
+        }
+        /* if(pw2.attr('type','password')){
+          pw2.attr('type','text');
+        } */
+      });
+      pw2.on('blur',function(){
+        if(pw2.val()==''){
+          pw2.val(defaultPW);
+          pw2.attr('type','text');
+          pw2.addClass('active');
+        }/* else{
+          pw2.attr('type','password');
+        } */
+      });
+    });
+  </script>
+  <style type="text/css">
+    input{
+      margin:15px; padding:5px;
+      font-size:14px;
+      font-family:"맑은 고딕", sans-serif;
+      color:#151515;
+      border: 1px solid #ccc;
+      width: 140px; height: 20px;
+      line-height: 20px;
+    }
+    input.active{
+      color:#ccc;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <input type="text" id="id1" name="id1" placeholder="아이디 or 이메일">
+    <input type="password" id="pw1" name="pw1" placeholder="비밀번호">
+  </section>
+  <section>
+    <input type="text" id="id2" name="id2" value="아이디 or 이메일">
+    <input type="password" id="pw2" name="pw2" value="비밀번호">
+  </section>
+</body>
+</html>

@@ -1,0 +1,262 @@
+@charset "utf-8";
+
+body, header, section, div, h2, h3, footer{
+	margin: 0;
+	padding: 0;
+}
+img{
+	display: block;
+}
+a{
+	text-decoration: none;
+}
+/*=======================================================*/
+#main_header{
+	height: 99px;
+	background: #fff;
+	border-bottom: 1px solid #e9e6ed;
+}
+#main_header>.innerbox{
+	width: 1240px;
+	height: 99px;
+	margin: 0 auto;
+}
+/*=======================================================*/
+#main_visual{
+	height: 622px;
+	background: #3971ce;
+	padding: 60px 0;
+}
+#main_visual>.innerbox{
+	width: 1240px;
+	height: 622px;
+	margin: 0 auto;
+}
+#main_visual>.innerbox>.slide_banner{
+	width: 820px;
+	height: 305px;
+	float: left;
+	margin-bottom: 20px;
+}
+#main_visual>.innerbox>.reorg{
+	width: 400px;
+	height: 305px;
+	float: right;
+	margin-bottom: 20px;
+}
+#main_visual>.innerbox>.morning_kita{
+	clear: both;
+	width: 610px;
+	height: 297px;
+	float: left;
+}
+#main_visual>.innerbox>.notice{
+	width: 610px;
+	height: 297px;
+	float: right;
+}
+/*=======================================================*/
+#schedule{
+	clear: both;
+	height: 345px;
+	background: #f6f7f9;
+	padding: 50px 0;
+	border-bottom: 1px solid e7ecf0;
+}
+#schedule>.innerbox{
+	width: 1240px;
+	height: 345px;
+	margin: 0 auto;
+}
+#schedule>.innerbox>.title{
+	width: 330px;
+	height: 78px;
+	margin: 0 auto 32px;
+}
+#schedule>.innerbox>.title>.schedule_title{
+	width: 330px;
+	height: 29px;
+	margin-bottom: 17px;
+}
+#schedule>.innerbox>.title>.btns>a{
+	display: block;
+}
+#schedule>.innerbox>.title>.btns>.calender{
+	width: 160px;
+	height: 32px;
+	float: left;
+}
+#schedule>.innerbox>.title>.btns>.always{
+	width: 160px;
+	height: 32px;
+	float: right;
+}
+#schedule>.innerbox>.content{
+	clear: both;
+	width: 1240px;
+	height: 223px;
+	margin: 0 auto 10px;
+}
+#schedule>.innerbox>.content>div{
+	width: 293px;
+	height: 223px;
+	border: 1px solid #dcdcdc;
+	margin-right: 20px;
+	float: left;
+}
+#schedule>.innerbox>.content>div:last-child{
+	margin-right: 0;
+}
+/*=======================================================*/
+/* innerbox없는 section의 경우, padding 대신 위 섹션과 해당 섹션에 각각 margin-bottom을 주기도 한다. */
+#info_area{
+	clear: left;	
+	width: 1240px;
+	height: 474px;
+	padding: 60px 0;
+	margin: 0 auto;
+}
+#info_area>div{
+	border: 1px solid #dcdcdd;
+	float: left;
+	margin-right: 20px;
+}
+#info_area>.data{
+	width: 398px;
+	height: 231px;
+	margin-bottom: 20px;
+}
+#info_area>.report{
+	width: 798px;
+	height: 231px;
+	margin-bottom: 20px;
+}
+#info_area>.seminar{
+	width: 398px;
+	height: 219px;
+}
+#info_area>.commerce{
+	width: 798px;
+	height: 219px;
+}
+/*=======================================================*/
+#support{
+	clear: left;
+	height: 719px;
+	background: #3f5270;
+	padding: 87px 0 100px 0;
+}
+#support>.innerbox{
+	width: 1240px;
+	height: 719px;
+	margin: 0 auto;
+}
+#support>.innerbox>.title{
+	width: 222px;
+	height: 35px;
+	margin: 0 auto 74px;
+}
+#support>.innerbox>.content{
+	width: 1240px;
+	height: 610px;
+	margin: 0 auto;
+}
+#support>.innerbox>.content>div{
+	width: 295px;
+	height: 295px;
+	float: left;
+}
+#support>.innerbox>.content>.support_top{
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+#support>.innerbox>.content>.support_bot{
+	margin-right: 20px;
+}
+#support>.innerbox>.content>div:nth-child(4n){
+	margin-right: 0;
+}
+/*=======================================================*/
+#service{
+	clear: left;
+	width: 1240px;
+	height: 502px;
+	padding: 80px 0;
+	margin: 0 auto;
+}
+#service>div{
+	width: 400px;
+	height: 502px;
+	margin-right: 20px;
+	float: left;
+}
+#service>div:last-child{
+	margin-right: 0;
+}
+/*=======================================================*/
+#guide{
+	clear: left;
+	height: 294px;
+	background: #f7faff;
+	padding: 38px 0 55px;
+	border-top: 1px solid #eaeef1;
+}
+#guide>.innerbox{
+	width: 1240px;
+	height: 294px;
+	margin: 0 auto;
+}
+#guide>.innerbox>.guide_area{
+	width: 860px;
+	height: 294px;
+	float: left;
+}
+#guide>.innerbox>.guide_area>.guide_title{
+	width: 181px;
+	height: 18px;
+	margin-bottom: 21px;
+}
+#guide>.innerbox>.guide_area>.business_list{
+	border-top: 1px solid #cecece;
+	padding-top: 20px;
+	width: 860px;
+	height: 235px;
+}
+#guide>.innerbox>.family_site{
+	width: 280px;
+	height: 294px;
+	float: right;
+}
+#guide>.innerbox>.family_site>.family_site_title{
+	width: 98px;
+	height: 18px;
+	margin-bottom: 21px;
+}
+#guide>.innerbox>.family_site>.family_site_list{
+	border-top: 1px solid #cecece;
+	padding-top: 20px;
+	width: 280px;
+	height: 116px;
+	margin-bottom: 120px;
+}
+/*=======================================================*/
+#main_footer{
+	clear: both;
+	height: 189px;
+	background: #283f5e;
+}
+#main_footer>.footer_top{
+	width: 100%;
+	height: 72px;
+	border-bottom: 1px solid #3c5372;
+}
+#main_footer>.footer_top>.innerbox{
+	width: 1240px;
+	height: 72px;
+	margin: 0 auto;
+}
+#main_footer>.footer_bottom{
+	width: 1240px;
+	height: 116px;
+	margin: 0 auto;
+}

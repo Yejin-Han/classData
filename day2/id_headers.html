@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>제목과 내용연결1 - 표 접근성</title>
+		<style type="text/css">
+			body {
+				margin: 0px; /*문서 여백 0으로 처리*/
+				font-family: "맑은 고딕", "돋움", dotum, sans-serif; /*영문 서체는 공백 없으면 "" 필요없음*/
+				font-size: 14px;
+				color: #333333;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px; /*두 라인이 한 세트로 적용, table의 border와 td의 border가 겹쳐져라*/
+				width: 600px;
+				border-style: solid;
+				border-color: #f60;
+				border-width: 4px; /*선 두께*/
+			}
+			th, td {
+				border-style: solid;
+				border-color: #f60;
+				border-width: 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>제목과 내용연결</h1>
+		<h2>1. id 속성과 headers 속성 연결</h2>
+		<table border="1">
+			<caption>대학교 산학협력단 조직도 및 연락처</caption>
+			<tbody> <!-- 표 본문선언, 필수요소 -->
+				<tr>
+					<th colspan="2" id="dep">부서명</th>
+					<th id="tel">전화번호</th>
+					<th id="fax">팩스번호</th>
+				</tr>
+				<tr>
+					<td colspan="2" id="subdep1">산업협력단</td>
+					<td headers="dep subdep1 tel">000-1234-5678</td>
+					<td headers="dep subdep1 fax">000-0000-0000</td>
+				</tr>
+				<tr>
+					<td rowspan="3" id="subdep2">연구개발본부</td>
+					<td id="sub1">연구관리팀</td>
+					<td headers="dep subdep2 sub1 tel">000-1234-5678</td>
+					<td rowspan="3" headers="dep subdep2 fax">000-0000-0000</td>
+				</tr>
+				<tr>
+					<td id="sub2">연구개발팀</td>
+					<td headers="dep subdep2 sub2 tel">000-1234-5678</td>
+				</tr>
+				<tr>
+					<td id="sub3">산학기획팀</td>
+					<td headers="dep subdep2 sub3 tel">000-1234-5678</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

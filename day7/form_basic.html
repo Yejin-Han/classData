@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>form basic</title>
+    </head>
+    <body>
+        <h1>Form Tag</h1>
+        <form action="#" method="post">
+            <p>
+                <input type="text" name="id" id="id" maxlength="12" value="" placeholder="아이디 또는 이메일" required>
+            </p>
+            <p>
+                <input type="password" name="pw" id="pw" maxlength="16" value="" placeholder="비밀번호" required>
+            </p>
+            <p>
+                <input type="radio" name="gender" id="m" value="male">남자
+                <input type="radio" name="gender" id="f" value="female" checked>여자
+            </p>
+            <p>
+                <select id="email" name="email">
+                    <option value="" selected>이메일을 선택하세요</option>
+                    <option value="naver.com">Naver</option>
+                    <option value="gmail.com">Google</option>
+                    <option value="">직접입력</option>
+                </select>
+            </p>
+            <p>
+                <input type="checkbox" name="accept" id="accept" value="y">이메일 수신 동의
+            </p>
+            <p>
+                <button type="button" id="btn1">우편번호검색</button>
+                <button type="reset" id="reset">입력취소</button>
+                <button type="submit" id="submit">확인</button>
+            </p>
+        </form>
+    </body>
+</html>

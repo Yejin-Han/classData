@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>mouse position</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				// 지역변수로 하는 법
+				$('li').each(function(){
+					let list=$(this);
+					let titleTxt=list.attr('title');
+					list.removeAttr('title');
+					list.mouseover(function(e){
+						$('.tooltipbox').text(titleTxt);
+						$('.tooltipbox').css({left:e.pageX+10, top:e.pageY+10});
+						$('.tooltipbox').stop().fadeIn();
+					});
+					list.mouseout(function(){
+						$('.tooltipbox').stop().fadeOut();
+					});
+					list.mousemove(function(e){
+						$('.tooltipbox').css({left:e.pageX+10, top:e.pageY+10});
+					});
+				});
+				/*  배열로 하는 법
+				let listNum=$('li').length;
+				let titleArray=new Array;
+				for(let i=0; i<listNum; i++){
+					titleArray[i].push($('li').eq(i).attr('title'));
+				}
+				*/
+			});
+		</script>
+		<style type="text/css">
+			body,ul,li{
+				margin: 0; padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			body{
+				font-size: 12px; font-family: "맑은 고딕", sans-serif;
+			}
+			ul{
+				font-size: 3em;
+				font-weight: bold;
+				margin: 80px 0 0 200px;
+			}
+			li{
+				background: #777;
+				margin: 20px; padding: 20px;
+				float: left;
+				cursor: default;
+			}
+			.tooltipbox{
+				position: absolute; left: 0; top: 0;
+				background: #fc3; color: #e30;
+				box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.4);
+				font-weight: bold;
+				padding: 10px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tooltipbox"></div>
+		<ul>
+			<li title="웹 문서를 제작하는 기본 프로그래밍 언어 HTML의 최신규격">HTML5</li>
+			<li title="w3c의 표준이며 레이아웃과 스타이를 정의할 때의 자유도가 높음">CSS3</li>
+			<li title="객체기반의 스크립트 프로그래밍 언어">JAVASCRIPT</li>
+		</ul>
+	</body>
+</html>

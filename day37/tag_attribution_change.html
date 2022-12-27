@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>tag 속성 변경</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                const p1=$('#p1');
+                p1.attr('width','300');
+                p1.attr('height','200');
+                p1.attr('src','img_jq/XL1.jpg');
+                p1.attr('alt','XL1');
+
+                const originsrc=p1.attr('src');
+                const originalt=p1.attr('alt');
+                console.log(originsrc);
+                p1.on('mouseover',function(){
+                    p1.attr({src:'img_jq/alfaromeo.jpg',alt:'alfaromeo'});
+                });
+                p1.on('mouseout',function(){
+                    p1.attr({src:originsrc,alt:originalt});
+                });
+                $('#p2').attr('border','4');// border 4만 먹고 다른 속성 안먹는다. +).attr('border-color','#ff3300'); 안먹는다.
+            });
+        </script>
+    </head>
+    <body>
+        <p><img src="img_jq/pic1.jpg" alt="F35" width="113" height="68" id="p1"></p>
+        <p><img src="img_jq/veneno.jpg" alt="VENENO" width="300" height="200" id="p2"></p>
+    </body>
+</html>

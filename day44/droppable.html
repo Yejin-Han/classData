@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>droppable</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function(){
+        $('.dragbox').draggable({
+          stack:'.dragbox',
+          revert:true
+        });
+        $('#searchbox').droppable({
+          tolerance:'touch',
+          drop:function(event,ui){
+            let id=ui.draggable.attr('id');
+            if(id=='item1'){
+              window.open('https://www.google.com','','top=200, left=200, width=700, height=500, scrollbars=no, status=no, resizable=no, fullscreen=no');
+            } else{ //else if(id=='item2')
+              window.open('https://www.naver.com','','top=200, left=200, width=700, height=500, scrollbars=no, status=no, resizable=no, fullscreen=no');
+            }
+          }
+        });
+      });
+    </script>
+    <style type="text/css">
+      .dragbox{
+        position:absolute;
+        width: 70px; height: 40px;
+        text-align:center;
+        line-height: 40px;
+        border: 3px solid #009;
+        background: #fff;
+        cursor:move;
+      }
+      #searchbox{
+        width: 450px; height: 60px;
+        border: 6px solid #940;
+        text-align:center;
+        line-height: 60px;
+        color:#b5b5b5;
+        position:absolute; left:50%; top:50%;
+        transform:translate(-50%,-50%);
+      }
+      #item1{
+        left:300px; top: 250px;
+      }
+      #item2{
+        right: 200px; bottom: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="searchbox">이 곳에 드래그하세요</div>
+    <div id="item1" class="dragbox">Google</div>
+    <div id="item2" class="dragbox">Naver</div>
+  </body>
+</html>

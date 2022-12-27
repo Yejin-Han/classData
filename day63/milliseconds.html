@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>milliseconds</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				let ms=0;
+				let sec=0;
+				//setTimeout, setInterval의 기본오차 때문에 정확히 ms count는 date의 getMilliseconds로 해야함.
+				//지금은 그냥 눈속임정도로만
+				function secCheck(){
+					ms=0;
+					sec++;
+					if(sec<10){ sec="0"+sec; }
+					if(sec<999){
+						let first=Math.floor(sec/1000)+",";
+						let nth=sec%1000;
+						if(nth<10){ nth="00"+nth; }
+						if(nth<100){ nth="0"+nth; }
+						$('span').eq(0).text(first+nth+'초');
+					} else{
+						$('span').eq(0).text(sec+'초');
+					}
+					sec=parseInt(sec);
+					nth=parseInt(nth);
+					setTimeout(secCheck,1000);
+				}
+				secCheck();
+				function millisec(){
+					ms++;
+					if(ms<10){ ms="0"+ms; }
+					$('span').eq(1).text(ms);
+					ms=parseInt(ms);
+					setTimeout(millisec,10);
+				}
+				millisec();
+				/* function millitime(){
+					let now=new Date();
+					let ms=now.getMilliseconds();
+					console.log(ms);
+				}
+				millitime(); */
+			});
+		</script>
+	</head>
+	<body>
+		<div><span></span><span></span></div>
+	</body>
+</html>

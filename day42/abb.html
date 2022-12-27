@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>줄임표기라고 하지 않았나?..</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        $('div').on('click',function(){
+          $(this).text('div clicked');
+        });
+        $('section>p').each(function(i){
+          console.log(i); //저절로 i는 count변수가 됨
+          alert($(this).text());
+        });
+      });
+    </script>
+    <style type="text/css">
+      body{
+        margin:0;
+      }
+      div{
+        font-size:18px;
+        font-weight: bold;
+        margin: 15px; padding: 20px;
+        border: 4px solid #090;
+      }
+      section{
+        margin:20px;
+        padding:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="b1">DIV b1</div>
+    <div id="b2">DIV b2</div>
+    <div id="b3">DIV b3</div>
+    <section>
+      <p>hide()/show() -- display:(none/block)</p>
+      <p>fadeIn()/fadeOut() -- opacity animate(display:none<-->block)</p>
+      <p>slideDown()/slideUp() -- ovflw, height animate(display:none<-->block)</p>
+      <p>animate({prop:value},time,function(){})</p>
+      <p>css('prop','value'), css('prop')</p>
+      <p>addClass('~')/removeClass('~') == toggleClass('~')</p>
+      <p>toggle() -- show,hide / fadeToggle(time), slideToggle(time)</p>
+      <p>width(num)/height(num)</p>
+      <p>innerWidth()--w+p/outerWidth()--w+p+bd/outerWidth(true)--w+p+bd+m</p>
+      <p>innerHeight()--h+p/outerHeight()--h+p+bd/outerHeight(true)--h+p+bd+m</p>
+      <p>output명령 --> text('~')/html('~')/empty()</p>
+      <p>input명령 --> A.append(B)/B.appendTo(A)/A.prepend(B)/B.prependTo(A)/remove()</p>
+      <p>.attr('tag prop','value), .attr('tag prop')</p>
+      <p>scrollTop() : scrollTop되는 거리 측정 / scrollTop속성 : scrollTop되는 위치(지점) 정의</p>
+      <p>offset().left/offset().top : document(문서)기준 좌표 인식</p>
+      <p>eq(index) : 순서 호출</p>
+      <p>stop() : 이전동작 해제</p>
+      <p>end() : chain method 선택 명령 종료</p>
+      <p>find(~), children(~) : 하위요소 선택</p>
+      <p>parent(), parents(~) : 상위요소 선택</p>
+      <p>next(), prev(), nextAll(), prevAll(), nextUntil(), prevUntil(), siblings() : 동위요소 선택</p>
+      <p>setInterval(function name, interval time)/clearInterval(intervalID)</p>
+      <p>setTimeout(function name, delay time)/clearTimeout(timeoutID)</p>
+      <p>delay().~ : 후속함수(인자포함한 함수)를 지연</p>
+      <p>MouseEvent - click, mouseover, mouseout, mouseenter, mouseleave, mousedown, mouseup, mousemove, mousewheel</p>
+      <p>WindowEvent - scroll, resize</p>
+    </section>
+  </body>
+</html>

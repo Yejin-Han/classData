@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no, email=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>Minions</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				$(document).on('touchstart',function(){}); //아이폰 터치 설정
+				$('html,body').animate({scrollTop:'3px'},300); //주소줄 메타 써도 해줘야 함. (조금 스크롤 내리면 저절로 주소줄 안보이니까 mt 약간 주고 scrollTop 설정하기)
+				$('.start').on('click',function(){
+					window.location.href="game.html";
+				});
+			});
+		</script>
+		<style type="text/css">
+			body,section,h1,button,img{
+				display: block;
+				margin: 0; padding: 0;
+			}
+			body{
+				background: #5ca1d9;
+				overflow: hidden;
+			}
+			html,body{
+				width: 100%; height: 100%;
+			}
+			#wrapper{
+				width: 100%; height: 100%;
+				margin-top: 3px;
+				overflow: hidden;
+			}
+			#wrapper>h1{
+				width: 238px; height: 41px;
+				/* width: 50%;	height: auto; */
+				text-indent: -9999px;
+				background: url("img/h1_title.png") no-repeat center center;
+				background-size: contain;
+				position: absolute; left: 50%; top: 120px;
+				transform: translateX(-50%);
+			}
+			#wrapper>img{
+				width: 90%; height: auto;
+				margin: 250px auto 0;
+			}
+			#wrapper>.start{
+				width: 118px; height: 29px;
+				text-indent: -9999px;
+				border: 0;
+				margin: 30px auto 0;
+				background: transparent url("img/start_btn.png") no-repeat center center;
+				background-size: contain;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="wrapper">
+			<h1>MINIONS</h1>
+			<img src="img/Minionsw.png" alt="">
+			<button type="button" class="start">START</button>
+		</section>
+	</body>
+</html>

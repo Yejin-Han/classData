@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <style type="text/css">
+            textarea{
+                resize: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="#" method="post">
+            <fieldset>
+                <legend></legend>
+                <p>
+                    <input type="text" id="textfield_id" name="textfield group"
+                    value="값" readonly disabled placeholder="~~~" required>
+                </p>
+                <p>
+                    <input type="password" id="pw" name="pw" placeholder="비밀번호"
+                    maxlength="16">
+                </p>
+                <p>
+                    <textarea id="t_id" name="t_id" placeholder="인사말을 남겨주세요."
+                    cols="40" rows="5"></textarea>
+                </p>
+                <p>
+                    택일만 가능한 선택<br>
+                    <input type="radio" id="obj1" name="grp" value="yes">
+                    <label for="obj1">yes</label>
+                    <input type="radio" id="obj2" name="grp" value="no">
+                    <label for="obj2">no</label>
+                </p>
+                <p>
+                    다중적용, 자체 on/off 기능 선택<br>
+                    <input type="checkbox" id="h1" name="hobby" value="잠자기">
+                    <label for="h1">잠자기</label>
+                    <input type="checkbox" id="h2" name="hobby" value="공부하기">
+                    <label for="h2">공부하기</label>
+                    <input type="checkbox" id="h3" name="hobby" value="운동하기">
+                    <label for="h3">운동하기</label>
+                </p>
+                <p>
+                    <select id="family" name="family">
+                        <option value="~" selected>Naver</option>
+                        <option value="~">Google</option>
+                        <option value="~">Daum</option>
+                    </select>
+                </p>
+                <p>
+                    <button type="button" id="search">우편번호검색</button>
+                    <button type="reset" id="reset">입력데이터 취소</button>
+                    <button type="submit" id="submit">데이터 전송</button>
+                </p>
+            </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>공지사항</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                function notice(){
+                    let list=$('article>ul').find('li');
+                    list.eq(0).hide().appendTo($('article>ul'));
+                    list.eq(1).show();
+                }
+                setInterval(notice,1500);
+            });
+        </script>
+        <style type="text/css">
+            article{
+                width: 800px; height: 30px;
+                line-height: 30px;
+                margin: 80px auto;
+                position: relative;
+                background: #369;
+            }
+            ul{
+                list-style: none;
+            }
+            article>ul>li{
+                position: absolute; left: 0; top: 0;
+                width: 800px; height: 30px;
+                text-indent: 4em;
+                color: #fff;
+            }
+            article>ul>li:not(:first-child){
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <ul>
+                <li>청주서 불우아동 돕기 성금 모금 '핼러윈 뮤직 페스티벌'</li>
+                <li>하나투어-무브 ‘방콕·다낭 에어카텔’ 신상품 출시</li>
+                <li>무안군, 대한민국 청년들 기(氣) 살리기 축제 연다</li>
+            </ul>
+        </article>
+    </body>
+</html>

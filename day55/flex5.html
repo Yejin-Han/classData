@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>flex 05</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			.container1{
+				height: 400px;
+				margin: 30px;
+				background: #9c9;
+				display: flex;
+				justify-content: space-between;
+			}
+			.container1>div{
+				width: 100px; height: 100px;
+				margin: 10px;
+				background: #363; color: #fff;
+				text-align: center; line-height: 100px;
+				font-size: 20px; font-weight: bold;
+			}
+			.container2{
+				height: 400px;
+				margin: 30px;
+				background: #c93;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+			}
+			.container2>div{
+				width: 100px;
+				margin: 10px;
+				background: #236; color: #fff;
+				text-align: center;
+				font-size: 32px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container1">
+			<div>div1</div>
+			<div>div2</div>
+			<div>div3</div>
+		</div>
+		<div class="container2">
+			<div>
+				<h1>h1</h1>
+			</div>
+			<div>
+				<h2>h2</h2>
+			</div>
+			<div>
+				<h3>h3</h3>
+			</div>
+		</div>
+	</body>
+</html>

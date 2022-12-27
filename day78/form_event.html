@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>form event</title>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<!-- <form id="food">
+			가장 먹고 싶은 음식은?
+			<select id="like" multiple size="4">
+				<option value="라면">라면</option>
+				<option value="불고기">불고기</option>
+				<option value="국수">국수</option>
+				<option value="피자">피자</option>
+				<option value="짜장면">짜장면</option>
+			</select>
+			<button type="submit">전송</button>
+		</form> -->
+		<form id="food">
+			가장 먹고 싶은 음식은?
+			<input type="radio" id="r" name="like" value="라면">
+			<label for="r">라면</label>
+			<input type="radio" id="m" name="like" value="만두">
+			<label for="m">만두</label>
+			<input type="radio" id="b" name="like" value="불고기">
+			<label for="b">불고기</label>
+			<button type="submit">전송</button>
+		</form>
+		<script>
+			const food=document.querySelector('#food');
+			const like=food.querySelectorAll('input');
+			let resultTxt="가장 좋아하는 음식은 ";
+			food.addEventListener('submit',()=>{
+				for(let i=0; i<like.length; i++){
+					if(like[i].checked){
+						resultTxt+=like[i].value+'입니다.';
+					}
+				}
+				alert(resultTxt);
+			});
+		</script>
+	</body>
+</html>

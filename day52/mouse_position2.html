@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>mousemove 방향 인식</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				let pastX=0;
+				let currX=0;
+				$('.direction_info').on('mousemove',function(e){
+					pastX=currX;
+					currX=e.pageX;
+					if(pastX>currX){
+						$(this).text('왼쪽으로 마우스 이동 중입니다.');
+					} else{
+						$(this).text('오른쪽으로 마우스 이동 중입니다.');
+					}
+				});
+			});
+		</script>
+		<style type="text/css">
+			.direction_info{
+				width: 800px; height: 200px;
+				line-height: 200px;
+				font-size: 22px; font-weight: bold;
+				margin: 120px auto;
+				text-align: center;
+				background: #663; color: #fff;
+				cursor: default;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="direction_info">마우스 이동방향 표시</div>
+	</body>
+</html>

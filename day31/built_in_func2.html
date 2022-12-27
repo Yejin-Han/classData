@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>기초 내장함수2</title>
+        <script>
+            let data=prompt("수식을 입력해보세요.","");
+            document.write(data+"<br>");
+            document.write(eval(data)+"<br>");
+            let num=prompt("숫자를 입력하세요.","");
+            let result=isNaN(num);
+            if(!result){             //result==false <=> !result==true
+                document.write("입력된 숫자는 "+num+"입니다.");
+            } else{
+                alert("문자가 입력되었습니다. 다시 입력해주세요.");
+                window.location.reload();
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

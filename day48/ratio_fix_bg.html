@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ratio fix bg</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        function imgHCall(obj){
+          let imgH=$(obj).find('img').height();
+          $(obj).height(imgH);
+        }
+        imgHCall('.wrapper1');
+        $(window).resize(function(){
+          imgHCall('.wrapper1');
+        });
+        //bg-image는 img처럼 높이를 인식할 수가 없음 따라서 아래의 방법대로 (원본 비율은 알아야 함!)
+        //998:223=1920:x ----> x(resize됐을 때의 imgH) = $(obj).width()*imgH/imgW
+        function hCalc(obj,w,h){
+          let hVal=($(obj).width()*h)/w;
+          $(obj).height(hVal);
+        }
+        hCalc('.wrapper2',998,223);
+        $(window).resize(function(){
+          hCalc('.wrapper2',998,223);
+        });
+      });
+    </script>
+    <style type="text/css">
+      body,section{
+        margin: 0; padding: 0;
+      }
+      img{
+        display: block;
+      }
+      section{
+        position: relative;
+        border-bottom: 7px solid #f60;
+      }
+      .wrapper2{
+        border-color: #03f;
+        background: url('kbiz_img/l.png') no-repeat;
+        background-size: cover;
+      }
+      .wrapper1>img{
+        position:absolute; left:0; top:0;
+        width: 100%; height: auto;
+        z-index:10;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="wrapper1">
+      <img src="kbiz_img/ben.jpg" alt="">
+    </section>
+    <section class="wrapper2">KBIZ L.PNG</section>
+  </body>
+</html>

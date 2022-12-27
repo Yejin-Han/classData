@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        const movie=$('#movie').get(0);
+        movie.currentTime=12;
+        $('#play').on('click',function(){
+          movie.play();
+        });
+        $('#pause').on('click',function(){
+          movie.pause();
+        });
+        $('#stop').on('click',function(){
+          movie.currentTime=0;
+          movie.pause();
+        });
+        $('#restart').on('click',function(){
+          movie.currentTime=0;
+          movie.play();
+        });
+        $('#rwd').on('click',function(){
+          movie.currentTime-=5;
+          movie.pause();
+        });
+        $('#fwd').on('click',function(){
+          movie.currentTime+=5;
+          movie.pause();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <video id="movie">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <div id="controller">
+      <button type="button" id="restart">Restart</button>
+      <button type="button" id="rwd">Rwd</button> <!-- rewind -->
+      <button type="button" id="play">Play</button>
+      <button type="button" id="pause">Pause</button>
+      <button type="button" id="stop">Stop</button>
+      <button type="button" id="fwd">Fwd</button> <!-- fast forward -->
+    </div>
+  </body>
+</html>

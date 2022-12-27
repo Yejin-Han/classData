@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                $('.ellipse').on('click',function(){
+                    $('.ellipse').animate({top:'830px'},600);
+                    /*
+                    + style에 transition 걸고 script에서 css top 목표값으로 바꿔주기
+                    + margin-top 으로 animate 하기
+                    */
+                });
+            });
+        </script>
+        <style type="text/css">
+            .ellipse{
+                width: 70px;
+                height: 70px;
+                text-align: center;
+                line-height: 70px;
+                color: #fff;
+                background: #039;
+                border-radius: 50%;
+                position: absolute; left: 100px; top: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ellipse">ball</div>
+    </body>
+</html>

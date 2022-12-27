@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>centerbox - wrong answer</title>
+        <style type="text/css">
+            #box{
+                background: #363;
+                position: fixed;
+                left: 25%; right: 25%; top: 25%; bottom: 25%;
+                /* <=====> left: 25%; top: 25%; width: 50%; height: 50%;*/
+            }
+            /*왜 틀렸냐 ---> 모양까지 *가변*되기 때문에!!*/
+        </style>
+    </head>
+    <body>
+        <div id="box">centerbox</div>
+    </body>
+</html>

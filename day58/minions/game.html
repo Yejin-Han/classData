@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no, email=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>Minions game</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				$(document).on('touchstart',function(){});
+				$('html,body').animate({scrollTop:'5px'},200);
+				let sec=10;
+				$('.play>.time').text(sec);
+				let score=0;
+				let timer;
+				let cnt;
+				let n=0; //개체 이름 구분 변수 (랜덤)
+				let clickable=1; //연속 클릭 방지 상태 변수
+				function ranTar(){
+					n=Math.floor(Math.random()*9);
+					$('.c'+n).find('.minion>img').stop().fadeIn(100).delay(600).fadeOut(100);
+					clickable=1;
+					setTimeout(function(){ clickable=0; },800);
+				}
+				timer=setInterval(ranTar,900);
+				function cntdown(){
+					sec--;
+					$('.time').text(sec);
+					if(sec==0){
+						clearInterval(timer);
+						clearInterval(cnt);
+						$('.play').stop().fadeOut(100);
+						$('.end').stop().fadeIn(100);
+						$('.end').find('.score').text(score*10);
+					}
+				}
+				cnt=setInterval(cntdown,1000);
+				$('.minion>img').click(function(){
+					if(clickable==1){
+						score++;
+						$('.play>.score').text(score);
+						clickable=0;
+					}
+				});
+				$('.again').click(function(){
+					sec=10;
+					score=0;
+					num=0;
+					clickable=0;
+					$('.end').stop().fadeOut(100);
+					$('.play').find('.score').text(score);
+					$('.play').find('.time').text(sec);
+					$('.play').stop().fadeIn(100);
+					timer=setInterval(ranTar,900);
+					cnt=setInterval(cntdown,1000);
+				});
+			});
+		</script>
+		<style type="text/css">
+			body,section,h1,div,p,img,button{
+				display: block;
+				margin: 0; padding: 0;
+			}
+			html,body{
+				width: 100%; height: 100%;
+			}
+			body{
+				margin-top: 5px;
+				overflow: hidden;
+			}
+			section{
+				width: 100%; height: 100%;
+			}
+			.play{
+				background: url("img/play_backbg.jpg") repeat-x;
+				background-size: contain;
+				display: block;
+			}
+			.play>h1{
+				width: 238px; height: 136px;
+				margin: 0 auto;
+				text-indent: -9999px;
+				background: url("img/play_top.png") no-repeat;
+			}
+			.play_area{
+				height: calc(100% - 360px);
+				margin: 24px 20px 0;
+				display: flex; flex-flow: row wrap;
+				justify-content: space-around; align-content: space-around;
+			}
+			.play_area>div{
+				/* width: 94px; height: 82px; */
+				width: 33.333333%; height: 33.333333%;
+				background: url("img/play_n.png") no-repeat center top;
+				background-size: contain;
+				flex: none;
+			}
+			.play_area>div>.minion{
+				width: 100%; height: auto;
+			}
+			.play_area>div img{
+				width: 100%; height: auto;
+				display: none;
+			}
+			.play>.score{
+				width: 160px; height: 30px;
+				margin: 40px auto 20px;
+				padding-left: 105px; box-sizing: border-box;
+				background: url("img/hit_title.png") no-repeat left center; color: #f30;
+			}
+			.play>.time{
+				width: 175px; height: 30px;
+				margin: 20px auto;
+				text-indent: 126px;
+				background: url("img/time_title.png") no-repeat left center; color: #fee142;
+			}
+			.play>p{
+				font-family: Arial; font-weight: bold; font-size: 26px;
+			}
+			.end{
+				background: url("img/end_bg.jpg") no-repeat center bottom;
+				background-size: cover;
+				position: relative;
+				overflow: hidden;
+				display: none;
+			}
+			.end>h2{
+				width: 238px; height: 41px;
+				margin: 70px auto 0;
+				text-indent: -9999px;
+				background: url("img/h1_title.png") no-repeat; background-size: contain;
+			}
+			.end>img{
+				width: 270px; height: 229px;
+				margin: 150px auto 0;
+			}
+			.end>.score{
+				width: 210px; height: 37px;
+				padding-left: 160px; box-sizing: border-box;
+				background: url("img/score.png") no-repeat left center; color: #fee142;
+				position: absolute; left: 50%; top: 160px;
+				margin-left: -105px;
+				font-size: 32px; font-weight: bold; font-family: Arial;
+			}
+			.end>.again{
+				width: 138px; height: 34px;
+				text-indent: -9999px;
+				border: 0;
+				background: transparent url("img/again_btn.png") no-repeat;
+				position: absolute; left: 50%; top: 496px;
+				margin-left: -69px;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="play">
+			<h1>minions</h1>
+			<div class="play_area">
+				<div class="c0"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c1"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c2"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c3"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c4"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c5"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c6"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c7"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+				<div class="c8"><div class="minion"><img src="img/play_c.png" alt=""></div></div>
+			</div>
+			<p class="score">0</p>
+			<p class="time">0</p>
+		</section>
+		<section class="end">
+			<h2>minions</h2>
+			<img src="img/Bob_yay_minions.png" alt="">
+			<p class="score">0</p>
+			<button type="button" class="again">AGAIN?</button>
+		</section>
+	</body>
+</html>

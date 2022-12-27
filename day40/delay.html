@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시작 지연함수</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        $('span').delay(800).hide(); //hide가 인자 없는 함수라 delay 안 먹는다.
+        $('.pic1').delay(800).fadeOut();
+
+        function showing(){
+          $('span').show();
+          $('.pic1').fadeIn(500);
+        }
+        setTimeout(showing,2500);
+      });
+    </script>
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body>
+    <img src="../day37/img_jq/VENENO.JPG" alt="" class="pic1">
+    <span>VENENO</span>
+  </body>
+</html>

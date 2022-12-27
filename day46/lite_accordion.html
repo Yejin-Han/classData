@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liteAccordion</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="liteAccordion/js/jquery.easing.1.3.js"></script>
+    <script src="liteAccordion/js/liteaccordion.jquery.js"></script>
+    <link rel="stylesheet" href="liteAccordion/css/liteaccordion.css">
+    <script>
+      $(function(){
+        $('.accordion').liteAccordion({
+          slideSpeed : 400,
+          onTriggerSlide : function(e) {$('figcaption').hide();},
+          onSlideAnimComplete : function() {$('figcaption').fadeIn();},
+          autoPlay : true,
+          pauseOnHover : true,
+          cycleSpeed : 3000,
+          easing : 'easeInExpo',
+          theme : 'stitch',
+          rounded : true
+        });
+      });
+    </script>
+    <style type="text/css">
+      figcaption{
+        position:absolute; right:30px; bottom:24px; z-index:10;
+        padding: 10px 15px !important;
+        color: #fff;
+        background: #236;
+        display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <ol>
+        <li>
+          <h2><span>Slide One</span></h2>
+          <div>
+            <figure>
+              <img src="liteAccordion/img-demo/1.jpg" alt="">
+              <figcaption>img - one</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <h2><span>Slide Two</span></h2>
+          <div>
+            <figure>
+              <img src="liteAccordion/img-demo/2.jpg" alt="">
+              <figcaption>img - two</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <h2><span>Slide Three</span></h2>
+          <div>
+            <figure>
+              <img src="liteAccordion/img-demo/3.jpg" alt="">
+              <figcaption>img - three</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <h2><span>Slide Four</span></h2>
+          <div>
+            <figure>
+              <img src="liteAccordion/img-demo/4.jpg" alt="">
+              <figcaption>img - four</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <h2><span>Slide Five</span></h2>
+          <div>
+            <figure>
+              <img src="liteAccordion/img-demo/5.jpg" alt="">
+              <figcaption>img - five</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>

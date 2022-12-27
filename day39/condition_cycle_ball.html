@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Condition</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                let num=0;
+                $('.countbox').text(num);
+                function numCount(){
+                    num++;
+                    if(num>=8){
+                        num=0;
+                    } // <==> num=num%8;로 갱신
+                    $('.countbox').text(num);
+                }
+                setInterval(numCount,1000);
+
+                const defPos=parseInt($('.ball').css('left'));
+                let tarPos=defPos;
+                function ballMove(){
+                    tarPos=parseInt($('.ball').css('left'))+40;
+                    if(tarPos>=900){
+                        tarPos=defPos;
+                    }
+                    $('.ball').css('left',tarPos);
+                }
+                setInterval(ballMove,800);
+            });
+        </script>
+        <style type="text/css">
+            .ball{
+                width:50px; height:50px;
+                background:#06f;
+                border-radius:50%;
+                position:absolute; top:90px; left:27px;
+                transition:all 0.4s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="countbox"></div>
+        <div class="ball"></div>
+    </body>
+</html>

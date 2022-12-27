@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>form label</title>
+        <style type="text/css">
+            #btn{
+                border: 0;
+                width: 80px;
+                height: 28px;
+                background: #009;
+                color: #fff;
+            }
+            div{
+                width: 220px;
+            }
+            .box{
+                border: 1px solid #333;
+                height: 24px;
+                line-height: 24px;
+            }
+            .wd1{
+                width: 100px; padding: 0;
+            }
+            .wd2{
+                width: 90px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="radio" name="radio" id="r1" value="1">radio button
+        <br>
+        <input type="radio" name="radio" id="r2" value="2"><label for="r2">radio button</label>    <!-- ---ie6부터 but 안정성때문에 모바일 등에서 아직 사용함 -->
+        <br>
+        <label>
+            <input type="radio" name="radio" id="r3" value="3">
+            radio button    <!-- ---ie7부터 -->
+        </label>
+        <div>
+            <p>
+                <input type="text" id="tbx1" class="box wd1">  <!-- input 항상 사이즈 주고, padding도 적용되는지 잘 살펴볼 것 -->
+                <input type="text" id="tbx2" class="box wd2">
+            </p>
+            <p>
+                <button type="button" id="btn">Button</button>
+            </p>
+        </div>
+    </body>
+</html>

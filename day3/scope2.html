@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>제목과 내용연결2</title>
+        <style>
+            body {
+                margin: 0px;
+                font-family: "맑은 고딕", "돋움", dotum, sans-serif;
+                font-size: 14px;
+                color: #333;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0px;
+                width: 500px;
+                border-style: solid;
+                border-color: #009;
+                border-width: 2px;
+            }
+            th, td {
+                border-style: solid;
+                border-color: #009;
+                border-width: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>제목과 내용연결2</h1>
+        <h2>scope 속성</h2>
+        <table border="1">
+            <caption>8월 22일 현재 영화 평점 안내</caption>
+                <colgroup>
+                    <col><col span="2" style="width: 100px;">
+                </colgroup>
+                <!-- 열 복수선택 -->
+                <tr>
+                    <th scope="col">상영작</th>
+                    <th scope="col">관람객평점</th>
+                    <th scope="col">평론가평점</th>
+                </tr>
+                <tr>
+                    <td scope="row">비상선언</td>
+                    <td>6.55</td>
+                    <td>6.27</td>
+                </tr>
+                <tr>
+                    <td scope="row">탑건:매버릭</td>
+                    <td>9.60</td>
+                    <td>8.44</td>
+                </tr>
+                <tr>
+                    <td scope="row">헌트</td>
+                    <td>8.52</td>
+                    <td>7.18</td>
+                </tr>
+        </table>
+    </body>
+</html>

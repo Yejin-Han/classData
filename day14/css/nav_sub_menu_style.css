@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+body, nav, ul, li, div{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: Arial, sans-serif;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+/*=====================================================================*/
+#h_nav{
+	width: 750px;
+	height: 60px;
+	position: absolute; left: 50%; top: 70px; z-index: 9999;
+	margin-left: -375px;
+}
+#h_nav>ul>li{
+	width: 150px;
+	height: 60px;
+	float: left;
+	position: relative;
+}
+#h_nav>ul>li>a{
+	display: block;
+	width: 150px;
+	height: 60px;
+	background: #333;
+	font-size: 18px;
+	text-align: center;
+	line-height: 60px;
+	color: #fff;
+	transition: all 0.2s;
+}
+#h_nav>ul>li>.sub{
+	width: 150px;
+	height: 80px;
+	position: absolute; left: 0; top: 60px;
+	/*display: none;*/
+	height: 0;
+	overflow: hidden;
+	transition: all 0.4s;
+}
+#h_nav>ul>li>.sub a{
+	display: block;
+	width: 150px;
+	height: 40px;
+	background: #777;
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	transition: all 0.2s;
+}
+#h_nav>ul>li:hover>a{
+	color: #f90;
+	background: #222;
+}
+#h_nav>ul>li:hover>.sub{
+	/*display: block;*/
+	height: 80px;
+}
+#h_nav>ul>li>.sub a:hover{
+	color: #ededed;
+	background: #f90;
+}
+/*=====================================================================*/
+#h_nav2{
+	width: 750px;
+	height: 60px;
+	position: absolute; left: 50%; top: 80px; z-index: 9999;
+	margin-left: -375px;
+}
+#h_nav2>ul>li{
+	width: 150px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	float: left;
+}
+#h_nav2>ul>li>a{
+	display: block;
+	width: 150px;
+	height: 60px;
+	background: #333;
+	color: #fff;
+	transition: all 0.2s;
+}
+#h_nav2>ul>li>.sub{
+	width: 750px;
+	height: 200px;
+	position: absolute; left: 0; top: 60px;
+	background: #777;
+	/*display: none;*/
+	height: 0;
+	overflow: hidden;
+	transition: all 0.4s;
+}
+#h_nav2>ul>li:nth-child(2)>.sub>ul{
+	margin-left: 150px;
+}
+#h_nav2>ul>li:nth-child(3)>.sub>ul{
+	margin-left: 300px;
+}
+#h_nav2>ul>li:nth-child(4)>.sub>ul{
+	margin-left: 450px;
+}
+#h_nav2>ul>li:last-child>.sub>ul{
+	margin-left: 450px;
+}
+#h_nav2>ul>li>.sub>ul>li{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: normal;
+	float: left;
+}
+#h_nav2>ul>li>.sub a{
+	display: block;
+	width: 150px;
+	height: 40px;
+	background: #777;
+	color: #fff;
+	transition: all 0.2s;
+}
+#h_nav2>ul>li:hover>a{
+	color: #f90;
+	background: #222;
+}
+#h_nav2>ul>li:hover>.sub{
+	/*display: block;*/
+	height: 200px;
+}
+#h_nav2>ul>li>.sub>ul>li>a:hover{
+	color: #ededed;
+	background: #f90;
+}

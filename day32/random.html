@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <script>
+            let range=prompt("원하는 범위를 입력해주세요.","");
+            if (range<=1){
+                alert("범위값이 아닙니다. 다시 입력해주세요.");
+                range=prompt("원하는 범위를 입력해주세요.","");
+            }
+            let randomNum=Math.floor(Math.random()*range)+1;
+            document.write("1부터 "+range+"사이 정수 중 임의값 추출 : "+randomNum);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+body, header, div, nav, ul, li{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #ededed;
+	font-size: 14px;
+	font-family: "맑은 고딕", sans-serif;
+}
+#main_header{
+	height: 100px;
+	background: #fff;
+	position: relative;
+	z-index: 9999;
+	-webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,0.02);
+}
+#main_header>.innerbox{
+	width: 980px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	margin: 0 auto;
+}
+#main_header>.gnb{
+	width: 980px;
+	height: 60px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 50;
+	/*position: absolute; left: 50%; top: 40px; transform: translateX(-50%);*/
+}
+#main_header>.gnb>ul>li{
+	float: left;
+	width: 20%;
+	height: 60px;
+	position: relative;
+}
+#main_header>.gnb>ul>li>a{
+	display: block;
+	width: 100%;
+	height: 60px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 60px;
+	color: #222;
+}
+#main_header>.gnb .sub{
+	width: 100%;
+	height: 200px; /*혼자 li 개수가 적은 sub>ul에 있어 길이 인식이 안되면 hover시 문제가 있음*/
+	font-size: 14px;
+	letter-spacing: -1px;
+	position: absolute; left: 0; top: 60px; /*각 sub의 크기가 gnb li에 영향을 주지 않도록 하려고*/
+	display: none;
+}
+#main_header>.gnb .sub a{
+	display: block;
+	height: 38px;
+	line-height: 38px;
+	color: #454545;
+	padding-left: 22px;
+}
+#main_header>.gnb_bg{
+	width: 100%;
+	height: 200px;
+	background: #f3f4f7;
+	position: absolute; left: 0; top: 100px; /*gnb_bg의 크기가 gnb에 영향을 주지 않도록 하려고*/
+	-webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,0.02);
+	display: none;
+}
+#main_header>.gnb:hover .sub{
+	display: block;
+}
+#main_header>.gnb:hover+.gnb_bg{
+	display: block;
+}

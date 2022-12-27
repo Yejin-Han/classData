@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+body, div{
+    margin: 0;
+    padding: 0;
+}
+@media screen and (min-width: 1025px){
+	.wrapper{
+		width: 100%;
+		max-width: 1360px;
+		margin: 0px auto;
+		overflow: hidden;
+	}
+	.wrapper>div{
+		width: 25%;
+		height: 250px;
+		float: left;
+		border: 1px solid #39f;
+		box-sizing: border-box;
+		background: #fca;
+	}
+}
+@media screen and (max-width: 1024px) and (min-width: 641px){
+	.wrapper{
+		margin: 0 30px;
+		overflow: hidden;
+	}
+	.wrapper>div{
+		width: 50%;
+		height: 200px;
+		float: left;
+		border: 1px solid #5e4;
+		box-sizing: border-box;
+		background: #9fa;
+	}
+}
+@media screen and (max-width: 640px){
+	.wrapper{
+		margin: 0 30px;
+	}
+	.wrapper>div{
+		height: 150px;
+		float: none;
+		border: 1px solid #f50;
+		box-sizing: border-box;
+		margin-bottom: 5px;
+	}
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>snow</title>
+		<style type="text/css">
+			body{  margin:0;  padding:0;   overflow:hidden; }
+			section{  width:100vw;  height:100vh;  background:#000;  position:relative;  }
+			span{  
+				width:10px; height:10px; border-radius:50%;  position:absolute; left:0; top:0;
+				background:#fff;  
+			}
+		</style>
+	</head>
+	<body>
+		<section></section>
+		<script>
+			const area=document.querySelector("section");
+			const createSnow=()=>{ // 랜덤 크기,위치,투명도 지정, 움직임 선언
+				const snow=document.createElement("span");
+				area.appendChild(snow);
+				snow.style.left=Math.random()*window.innerWidth+"px";
+				snow.style.top=Math.random()*(-800)+"px";
+				snow.size=Math.random()*6+4;  //4~10 사이 랜덤 생성
+				snow.style.width=snow.size+"px";
+				snow.style.height=snow.size+"px";
+				snow.style.opacity=snow.size/15;
+				let yposition=parseInt( snow.style.top );
+				let xposition=parseInt( snow.style.left );// 현재 랜덤 위치값 호출(출발점)
+				let y_speed=snow.size*0.14;// y축 증가 변수 ( size에 비례,연계 )
+				let x_radian=snow.size*0.002;// 라디안 증가분 변수 x축 값 변경 ( size에 비례, 연계 )
+				let radian=0; // 라디안값 변수;
+				let radius=snow.size*2; // 사인 반경 크기비례
+				let xDirection=Math.random(); // 0.1~ 0.9 사이 
+				(function(){
+					const snowing=()=>{
+						window.requestAnimationFrame(snowing);
+					  yposition+=y_speed;
+						if( yposition>=window.innerHeight+20 ){
+							yposition=Math.random()*(-600);
+							xDirection=Math.random();
+						}
+						snow.style.top=`${yposition}px`;
+						radian+=x_radian;
+						if(radian>=Math.PI*2){  radian=0;  }
+						if( xDirection>0.5 ){
+							snow.style.left=xposition+Math.sin(radian)*radius+"px";
+						}else{
+							snow.style.left=xposition-Math.sin(radian)*radius+"px";
+						}						
+					}
+					snowing();
+				})();
+			}
+			for(let i=1; i<=300; i++){
+				createSnow();
+			}
+			// for문으로 createSnow실행 -- 반복횟수만큼 눈 생성
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

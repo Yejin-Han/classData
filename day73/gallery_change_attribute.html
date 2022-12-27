@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>gallery 1</title>
+		<script>
+			window.onload=()=>{
+				document.getElementsByClassName('pv').item(0).onclick=()=>{
+					clearInterval(timer);
+					rolling(1);
+					timer=setInterval("rolling(0)",3000);
+				}
+				document.getElementsByClassName('nx').item(0).onclick=()=>{
+					clearInterval(timer);
+					rolling(0);
+					timer=setInterval("rolling(0)",3000);
+				}
+				let timer=setInterval("rolling(0)",3000);
+			}
+			const rolling=(direction)=>{
+				let gbox=document.getElementById('gallery');
+				let imgLen=gbox.getElementsByTagName('img').length;
+				let first=gbox.getElementsByTagName('img').item(0);
+				let last=gbox.getElementsByTagName('img').item(imgLen-1);
+				if(direction==0){
+					gbox.appendChild(first);
+				} else if(direction==1){
+					gbox.insertBefore(last,first);
+				}
+				for(let i=0; i<imgLen; i++){
+					gbox.getElementsByTagName('img').item(i).setAttribute('class','img'+(i+1));
+					gbox.getElementsByTagName('img').item(i).style.transition='all .4s ease-in-out';
+				}
+			}
+			
+		</script>
+		<style type="text/css">
+			html,body{ width: 100vw; height: 100vh; }
+			body,h1,div{ margin: 0; padding: 0; }
+			img{ border: 0 none; }
+			body{ background: url('img/bg-main.jpg') no-repeat left top/cover; }
+			h1{ text-align: center; padding-top: 30px; }
+			h1>img{ width: 180px; height: auto; }
+			#gallery{
+				width: 300px; height: 300px;
+				border: 2px solid #fc0;
+				position: absolute; left: 50%; top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			#gallery>img{
+				width: 300px; height: 300px;
+				position: absolute;
+			}
+			#gallery>.img1{
+				width: 200px; height: 200px;
+				top: -150px; left: -550px;
+				opacity: 0;
+			}
+			#gallery>.img2{
+				width: 250px; height: 250px;
+				top: -50px; left: -300px;
+			}
+			#gallery>.img3{
+				width: 300px; height: 300px;
+				top: 0; left: 0;
+			}
+			#gallery>.img4{
+				width: 250px; height: 250px;
+				top: -50px; left: 350px;
+			}
+			#gallery>.img5{
+				width: 200px; height: 200px;
+				top: -150px; left: 650px;
+				opacity: 0;
+			}
+			.btn{
+				display: block;
+				width: 50px; height: 149px;
+				position: absolute; top: 50%;
+				transform: translateY(-50%);
+			}
+			.pv{ left: 100px; }
+			.nx{ right: 100px; }
+		</style>
+	</head>
+	<body>
+		<h1><img src="img/img-pd.jpg" alt="구르미 그린 달빛"></h1>
+		<div id="gallery">
+			<img src="img/cast01.jpg" alt="김병연 - 곽동연" class="img1">
+			<img src="img/cast02.jpg" alt="홍라온 - 김유정" class="img2">
+			<img src="img/cast03.jpg" alt="이영 - 박보검" class="img3">
+			<img src="img/cast04.jpg" alt="김윤성 - 진영" class="img4">
+			<img src="img/cast05.jpg" alt="조하연 - 채수빈" class="img5">
+		</div>
+		<a href="#" class="btn pv"><img src="img/left_btn.png" alt="왼쪽으로"></a>
+		<a href="#" class="btn nx"><img src="img/right_btn.png" alt="오른쪽으로"></a>
+	</body>
+</html>

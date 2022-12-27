@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Jquery 내장함수(스타일시트 변경)</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script> <!-- cdn: contents delivery network -->
+        <script>
+            $(function(){
+                $('.ecma').css('background','#f6f');
+                $('.ajax').css('font-weight','bold');
+            });
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li>Javascript</li>
+            <li class="ecma">ECMAscript</li>
+            <li>JQuery</li>
+            <li class="ajax">Ajax+json</li>
+            <li>React</li>
+        </ul>
+    </body>
+</html>

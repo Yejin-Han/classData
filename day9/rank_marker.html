@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>검색 순위</title>
+        <style type="text/css">
+            /*===============각 요소들 기초값 세팅===============*/
+            body, article, h2, div, ol, li{
+                margin: 0;
+                padding: 0;
+            }
+            ol{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                color: #333;
+            }
+            body{
+                font-size: 12px;
+                font-family: Noto sans, sans-serif;
+                color: #333;
+            }
+            article{
+                margin: 20px 70px;
+                padding: 8px 15px;
+                border: 2px solid #222;
+            }
+            article>h2{
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            /*=================================================*/
+            #rank>ol>li{
+                margin-bottom: 5px;
+                clear: left;
+            }
+            #rank>ol>li>span{
+                display: block;
+                width: 13px;
+                height: 13px;
+                background: url("img_bull/ico_daum_v7.png") no-repeat;
+                float: left;
+                margin: 2px 5px 0 0;
+            }
+            #rank>ol>li.r2>span{
+                background-position: -15px 0;
+            }
+            #rank>ol>li.r3>span{
+                background-position: -30px 0;
+            }
+            #rank>ol>.r4>span{
+                background-position: -45px 0;
+            }
+            #rank>ol>.r5>span{
+                background-position: -60px 0;
+            }
+            #rank>ol>.r6>span{
+                background-position: -75px 0;
+            }
+            #rank>ol>.r7>span{
+                background-position: -90px 0;
+            }
+            #rank>ol>.r8>span{
+                background-position: -105px 0;
+            }
+            #rank>ol>.r9>span{
+                background-position: -120px 0;
+            }
+            #rank>ol>.r10>span{
+                background-position: -135px 0;
+            }
+            #rank>ol>li>a:hover{
+                text-decoration: underline;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <h2>실시간 이슈 검색어</h2>
+            <div id="rank">
+                <ol>
+                    <!--자식 요소에 직접 이름을 지정하기보다 부모 요소에 지정할 것-->
+                    <li class="r1"><span></span><a href="#">티웨이항공</a></li>
+                    <li class="r2"><span></span><a href="#">배지현</a></li>
+                    <li class="r3"><span></span><a href="#">큐넷</a></li>
+                    <li class="r4"><span></span><a href="#">성년의 날</a></li>
+                    <li class="r5"><span></span><a href="#">홍현희</a></li>
+                    <li class="r6"><span></span><a href="#">서정희</a></li>
+                    <li class="r7"><span></span><a href="#">티몬</a></li>
+                    <li class="r8"><span></span><a href="#">구미 화재</a></li>
+                    <li class="r9"><span></span><a href="#">민경욱</a></li>
+                    <li class="r10"><span></span><a href="#">류현진</a></li>
+                </ol>
+            </div>
+        </article>
+    </body>
+</html>

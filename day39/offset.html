@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>offset</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                let box2Top=Math.round($('#box2').offset().top);
+                let box2Left=Math.round($('#box2').offset().left);
+                $('#box2').text('div box2 top: '+box2Top+'px, left: '+box2Left+'px');
+            });
+        </script>
+        <style type="text/css">
+            body{
+                margin:0;
+                font-size:15px;
+                font-family:Arial,sans-serif;
+            }
+            div{
+                margin:19px; padding:16px;
+                line-height: 1.7em;
+                border: 3px solid #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box1">div box1</div>
+        <div id="box2">div box2</div>
+        <div id="box3">div box3</div>
+        <div id="box4">div box4</div>
+    </body>
+</html>

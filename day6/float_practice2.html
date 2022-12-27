@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>float index</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+                color: #333;
+            }
+            /*자동줄바꿈에 따른 layout*/
+            #wrap0{
+                width: 300px;
+                height: 200px;
+                border: 3px solid #009;
+                margin: 20px; margin-left: 40px;
+            }
+            #wrap0>.box1{
+                width: 200px;
+                height: 100px;
+                background: #39c;
+                float: left;
+            }
+            #wrap0>.box2{
+                width: 100px;
+                height: 100px;
+                background: #9c9;
+                float: left;
+            }
+            #wrap0>.box3{
+                width: 100px;
+                height: 100px;
+                background: #a52;
+                float: left;
+            }
+            #wrap0>.box4{
+                width: 200px;
+                height: 100px;
+                background: #c93;
+                float: left;
+            }
+            /*wrap1과 wrap2는 읽는 순서에 따른 layout*/
+            #wrap1{
+                width: 400px;
+                height: 200px;
+                border: 3px solid #f30;
+                margin: 20px; margin-left: 40px;
+                color: #fff;
+            }
+            #wrap1>.box1{
+                width: 200px;
+                height: 100px;
+                background: #369;
+                float: left;
+            }
+            #wrap1>.box2{
+                width: 200px;
+                height: 200px;
+                background: #594;
+                float: right;
+            }
+            #wrap1>.box3{
+                width: 200px;
+                height: 100px;
+                background: #c6a;
+                float: left;
+            }
+            #wrap2{
+                width: 400px;
+                height: 200px;
+                border: 3px solid #f30;
+                margin: 20px; margin-left: 40px;
+                color: #fff;
+            }
+            #wrap2>.box1{
+                width: 200px;
+                height: 100px;
+                background: #368;
+                float: left;
+            }
+            #wrap2>.box2{
+                width: 200px;
+                height: 100px;
+                background: #97f;
+                clear: left;
+                float: left;
+            }
+            #wrap2>.box3{
+                width: 200px;
+                height: 200px;
+                background: #f90;
+                margin-left: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap0">
+            <div class="box1">div box1</div>
+            <div class="box2">div box2</div>
+            <div class="box3">div box3</div>
+            <div class="box4">div box4</div>
+        </div>
+        <div id="wrap1">
+            <div class="box1">div box1</div>
+            <div class="box2">div box2</div>
+            <div class="box3">div box3</div>
+        </div>
+        <div id="wrap2">
+            <div class="box1">div box1</div>
+            <div class="box2">div box2</div>
+            <div class="box3">div box3</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no, email=no">
+		<title>jquery mobile - collapsible + panel</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<div data-role="page">
+			<header data-role="header">
+				<h1>Collapsible</h1>
+			</header>
+			<div data-role="content">
+				<a href="#side" class="ui-btn">Panel</a>
+				<div data-role="collapsible-set">
+					<div data-role="collapsible">
+						<h2>title</h2>
+						<p>content text</p>
+					</div>
+					<div data-role="collapsible">
+						<h2>title</h2>
+						<p>content text</p>
+					</div>
+					<div data-role="collapsible">
+						<h2>title</h2>
+						<p>content text</p>
+					</div>
+				</div>
+			</div>
+			<footer data-role="footer">
+				<h3>footer</h3>
+			</footer>
+			<div data-role="panel" id="side" data-display="reveal">
+				<p>panel</p>
+				<a href="#" data-rel="close">close</a>
+			</div>
+		</div>
+	</body>
+</html>

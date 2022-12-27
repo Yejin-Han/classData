@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+/*default settings=================================================================*/
+body, nav, ul, li{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+body{
+	font-family: Arial, sans-serif;
+}
+/*vertical menu===================================================================*/
+#vertical{
+	width: 200px;
+	margin: 50px auto;
+/*	position: absolute; left: 50%; top: 100px;
+	transform: translateX(-50%);*/
+	background: #234;
+}
+#vertical>ul>li{
+	width: 200px;
+	border-bottom: 1px dotted #cecece;
+	position: relative;
+}
+#vertical>ul>li:last-child{
+	border-bottom: 0;
+}
+/*dotted border-bottom 위치 나중에 조절*/
+#vertical>ul>li>a{
+	display: block;
+	width: 200px;
+	height: 50px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 50px;
+	transition: all 0.2s;
+}
+#vertical .sub{
+	width: 200px;
+	height: 0px;
+	font-size: 16px;
+	background: #678;
+	overflow: hidden;
+	transition: all 0.2s;
+	/*display: none;*/
+}
+#vertical .sub>li>a{
+	display: block;
+	width: 200px;
+	height: 50px;
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+}
+#vertical>ul>li:hover>.sub{
+	/*display: block;*/
+	height: 100px;
+}
+#vertical>ul>li:hover>a{
+	background: #34c;
+}

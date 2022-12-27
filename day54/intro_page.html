@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>인트로 페이지</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script>
+			$(function(){
+				let cols=$('#container>div');
+				const defW=cols.width()/$(window).width()*100; //20
+				const expW=40;
+				const otherW=(100-expW)/4;
+				cols.on('mouseover',function(){
+					$(this).stop().animate({'width':expW+'%'},300);
+					$(this).siblings().stop().animate({'width':otherW+'%'},300);
+				});
+				cols.on('mouseout',function(){
+					cols.stop().animate({'width':defW+'%'},300);
+				});
+			});
+		</script>
+		<style type="text/css">
+			html,body{
+				width: 100%; height: 100%;
+			}
+			body{ overflow: hidden; } /* 5번만 position으로 띄워서 문제 없지만 혹시 스크롤바 생길까봐 한화면이 다라면 걸어주는 것도 나쁘지 않음 */
+			body,section,div{
+				margin: 0; padding: 0;
+			}
+			#container{
+				width: 100%; height: 100%;
+				background-color: #c5c; /* 5번만 position으로 띄워서 빈틈이 보이는 걸 그냥 5번과 같은 색으로 배경을 줘서 막아버림 */
+			}
+			#container>div{
+				float: left;
+				width: 20%; height: 100%;
+				padding-top: 80px; box-sizing: border-box;
+				text-align: center;
+				font-size: 1.8em; font-weight: bold;
+			}
+			#container>.col1{
+				background-color: #fc6;
+			}
+			#container>.col2{
+				background-color: #f64;
+			}
+			#container>.col3{
+				background-color: #0cf;
+			}
+			#container>.col4{
+				background-color: #09c;
+			}
+			#container>.col5{
+				float: none;
+				position: absolute; right: 0; top: 0;
+				background-color: #c5c;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="container">
+			<div class="col1">Area1</div>
+			<div class="col2">Area2</div>
+			<div class="col3">Area3</div>
+			<div class="col4">Area4</div>
+			<div class="col5">Area5</div>
+		</section>
+	</body>
+</html>

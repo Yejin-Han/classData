@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plugin - tubular</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="jquery.tubular.1.0.1/JS/jquery.tubular.1.0.js"></script>
+    <script>
+      $(function(){
+        $('.bg_movie').tubular({
+          ratio:16/9,
+          videoId:'a3TQjR8jDoQ'
+        });
+        //tubular.js에서 var tubularContainer div#tubular-container의 z-index를 -1로 낮추니 h2가 보인다.
+      });
+    </script>
+    <style type="text/css">
+      body,div,h2{
+        margin: 0;
+      }
+      /* #tubular-container{
+        z-index:-1 !important;
+      } 안먹힘 큿소*/
+      h2{
+        color:#fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="bg_movie"></div>
+      <h2>YOUTUBE</h2>
+    </div>
+  </body>
+</html>

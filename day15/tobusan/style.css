@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+body, header, main, section, footer, div, h1, p, ul, li{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	display: block;
+	border: 0;
+}
+body{
+	background: #070707 url("imgs/bg_contents_sect2.gif") no-repeat center top;
+}
+#main_container{
+	width: 640px;
+	margin: 0px auto;
+}
+/*index begins===========================================================================*/
+@keyframes move1{
+	0%{
+		transform: translateX(-100%);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+@keyframes move2{
+	0%{
+		transform: scale(0); /* 0일 때 에러나면 0.001 등 0과 가까운 무언가*/
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+/*=============================================*/
+#main_header{
+	height: 449px;
+}
+/*=============================================*/
+#main_content>.main_sect1{
+	overflow: hidden;
+}
+#main_content>.main_sect1>.txt1{
+	height: 178px;
+	transform: translateX(-100%); /*애니메이션의 초기상태를 css에도 적어주면 안정적임*/
+	animation-name: move1;
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+#main_content>.main_sect1>.event_box{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	padding-bottom: 35px;
+}
+#main_content>.main_sect1>.event_box>.evt1{
+	width: 640px;
+	height: 105px;
+	transform: scale(0);
+	animation-name: move2;
+	animation-delay: 0.5s;
+	animation-duration: 0.4s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+#main_content>.main_sect1>.event_box>.evt2{
+	width: 380px;
+	height: 67px;
+	margin: 0 auto;
+	transform: scale(0);
+	animation-name: move2;
+	animation-delay: 0.7s;
+	animation-duration: 0.4s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+#main_content>.main_sect1>.event_box>.evt3{
+	width: 307px;
+	height: 23px;
+	margin: 35px auto 0;
+	transform: scale(0);
+	animation-name: move2;
+	animation-delay: 0.9s;
+	animation-duration: 0.4s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+/*=============================================*/
+#main_content>.main_sect2{
+	padding-bottom: 24px;
+}
+#main_content>.main_sect2>p:first-of-type{
+	height: 235px;
+}
+#main_content>.main_sect2>.info{
+	width: 640px;
+	height: 148px;
+	background: url("imgs/txt_main_sect2_2.png") no-repeat;
+}
+#main_content>.main_sect2>.info>ul{
+	visibility: hidden;
+	position: absolute; left: -9999px; top: -9999px;
+	width: 0; height: 0;
+	overflow: hidden;
+}
+#main_content>.main_sect2>.btns{
+	width: 552px;
+	margin: 56px auto 26px;
+	overflow: hidden;
+}
+#main_content>.main_sect2>.btns>a{
+	display: block;
+	width: 552px;
+	height: 86px;
+}
+#main_content>.main_sect2>.btns>a:first-of-type{
+	margin-bottom: 20px;
+	height: 87px;
+}
+#main_content>.main_sect2>p:last-of-type{
+	width: 303px;
+	margin: 0 auto;
+}
+/*=============================================*/
+footer>p{
+	width: 268px;
+	height: 28px;
+	padding-bottom: 14px;
+	margin: 0 auto;
+}
+/*index ends=============================================================================*/
+/*main begins============================================================================*/
+#content_header{
+	height: 70px;
+	position: relative;
+	overflow: hidden;
+	/*실제로는 이렇게 하면 header에 메뉴가 안보이기때문에 그냥 padding-top을 주는게 마따*/
+}
+#content_header>h1{
+	width: 212px;
+	height: 58px;
+	position: absolute; left: 50%; top: 6px;
+	transform: translateX(-50%);
+}
+#content_header>a{
+	display: block;
+	width: 51px;
+	height: 52px;
+	margin-top: 9px;
+}
+/*=============================================*/
+#main_content>.main_sect1>.movie{
+	height: 340px;
+}
+#main_content>.main_sect1>.facebook{
+	height: 144px;
+}
+/*=============================================*/
+#main_content>.gallery{
+	padding: 15px 25px 8px;
+}
+#main_content>.gallery>ul{
+	overflow: hidden; /*자식 높이 합만큼 인식*/
+}
+#main_content>.gallery>ul>li{
+	margin-bottom: 10px;
+	overflow: hidden; /*hover 효과 걸었을 때 넘치는 부분 가리기*/
+}
+#main_content>.gallery>ul>li:nth-child(odd){
+	float: left;
+	width: 322px;
+	height: 246px;
+}
+#main_content>.gallery>ul>li:nth-child(even){
+	float: right;
+	width: 258px;
+	height: 356px;
+}
+#main_content>.gallery>ul>li:nth-child(4n){
+	height: 136px;
+}
+#main_content>.gallery>ul>li>a>img{
+	transform: scale(1);
+	transition: all 0.4s;
+}
+#main_content>.gallery>ul>li:hover>a>img{
+	transform: scale(1.1);
+}
+/*main ends==============================================================================*/

@@ -1,0 +1,858 @@
+221004
+[script 작성 방법]
+①
+<head>
+    <script>
+        ...
+    </script>
+</head>
+
+②
+<head>
+    <script src="~.js"></script>
+</head>
+
+③ 
+<body>
+    <tag onEvent="code( );">...</tag>
+</body>
+
+* 규칙(약속)이 아니라 3번의 js가 실행되면 제어해야 할 후행 script의 경우, body 안 맨 뒤, 혹은 body 뒤에 쓰기도 한다.
+
+
+
+221006
+[script]
+웹 브라우저에 사용되는 객체기반의 인터프리터 프로그래밍 언어
+(컴파일러 : 전체를 다 읽고 한번에 번역 / 인터프리터 : 언어입력 한 줄 씩 기계어로 번역 실행)
+javascript/ECMAScript(표준)
+* 한 줄 실행하고 다음 줄 실행하고 그런 식이니까 실행 순서 잘 생각해야 함
+
+[내장함수]
+alert("문자"); - 확인 버튼이 있는 메시지 창
+confirm("문자"); - 확인, 취소버튼이 있는 메시지 창 (확인->true/취소->false)
+prompt("문자", "초기값"); - 입력공간이 있는 메시지 창
+self.close( ); / window.close( ); - 창 닫기
+document.write("~ *tag 인식 가능"); - 출력 명령 <!-- 문서의 기존 내용을 덮어버림 즉 잘 안 씀-->
+
+1+2->3
+"1"+"2"->"12"
+"1"+2->"12"
+"pd/images/pdt_1.png" --> "pd/images/pdt_"+1+".png"
+
+[사용자 정의 함수]
+function 함수명( ){
+    내장함수
+    조건문
+    ...
+}
+
+[변수 선언 (set variables)] : 임의의 값을 담을 수 있는 공간(개체) 생성 - 이름 지정 필요
+1. var 변수명 = 초기값;
+2. var 변수명 (= "");
+3. 변수명 = 초기값;
+4. var 변수1=값1, 변수2, 변수3;
+
+
+
+
+221007
+[연산자]
+1. 대입연산자 : =
+2. 사칙연산자 : *, /, +, - (우선순위 주의)
+3. 비교연산자 : >, <, >=, <=, ==, ===, != (-> true/false 정할 때)
+4. 부정연산자 : ! ex) !true == false
+5. 기타연산자 : A%B(나머지값), new(생성연산자)
+6. 복합대입연산자(줄임표기) : *=, /=, +=, -=, ++, --
+   ex) a=a+10 == a+=10
+       b=b+1 == b++
+
+
+
+221011, 221013
+[조건문]
+1.
+if(조건 - 비교연산자) { 
+    조건 true 시 실행 명령
+}else {
+    위 조건 false일 때 실행 명령
+}
+ex)
+var a=22;
+var b=15;
+if(a>20){
+  a+=b;
+}
+document.write("a의 최종값은"+a+"입니다."); a=37
+
+2.
+switch(조건변수){
+  case "값1":
+    실행명령1;
+    break;<-- 실행종료
+  case "값2":
+    실행명령2;
+    break;
+  ...
+  default: <-- else와 비슷
+    실행명령n;
+}
+
+*case는 시작점만 잡아주는거라 break가 없으면 시작조건에 해당하는 case 이후 모두 실행
+
+
+[변수 선언 - ecmascript(ver 6 이후)]
+let 변수명=값; // 겹치는 이름으로 새 변수 선언시 오류!
+const 이름=상수; // 개체 생성시 사용
+
+[지역/전역 변수]
+ex)
+let a=10; --------  전역 변수
+function func1( ){
+  let b=a+10; -------- 지역 변수
+}
+
+a<=20;
+b=a+20; <----- *오류*
+
+
+
+221012
+[반대조건 예시]
+ex)
+let n=prompt("입력", );
+if(n>20){
+    code1...
+}
+if(n<=20){
+    code2...
+}
+-=-=-=-=
+if(n>20){
+    code1...
+} else{
+    code2...
+}
+
+[다중조건]
+if(조건1){
+    명령1;
+} else if(조건2){
+    명령2;
+} ... else{
+    명령n;
+}
+
+[새로고침 명령]
+window.location.reload( );
+
+[동시조건]
+and &&
+or ||
+
+
+
+221013, 221213
+[js link명령]
+window.location.href="https://www.google.com";
+
+[기초 내장함수2]
+eval("~"); //수식으로 인식 ex)"1+3*2"라는 문자 --> eval("1+3*2") = 7
+isNaN(~) //괄호 안의 값이 문자/숫자인지 판단 --> 문자:true 숫자:false
+
+[정수타입 전환 함수]
+자연수, 정수, 문자, boolean ---> 정수타입으로 변환(버림)
+ex)(1.1-->1, 1.9-->1,) "1px"-->1
+parseInt("~");
+
+[반복문]
+유한반복 실행(각 실행명령들의 시간차 없음, 최종결과만 구현)
+: for, while, for...in, do...while
+1. for
+for(count변수 및 초기값 선언; 반복조건; 증감식){
+  반복실행명령;
+}
+ex) for(let i=1; i<=5; i++){
+      js code...
+    }
+--> i가 1, 2, 3, 4, 5가 될 때까지 code를 반복 실행해라. 즉, 5회 실행, i=6이 되고 종료.
+** (예외식)continue; -> 이후의 코드를 건너뛰고 다시 조건 검사로 넘어간다.
+
+[Math 함수]
+Math.floor(num) //내림 ---->정수화 권장 함수
+Math.round(num) //반올림
+Math.ceil(num) //올림
+Math.abs(num) //절대값
+Math.sin(radian),Math.cos(radian),Math.tan(radian)
+Math.random( ) //0~1 사이의 소수 중 하나 임의로 지정
+ --> min~max 사이의 임의값 발생 : Math.random( )*(max-min) + min **소수로 나옴
+ --> min~max 사이의 정수 중 임의값 발생 : Math.floor(Math.random( )*(max-min+1)) + min
+      ** 1~10 사이의 정수 중 임의값 : Math.floor(Math.random( )*10) + 1★
+                                         <=>Math.ceil(Math.random( )*10)
+Q: 이렇게 정수 난수를 뽑으면 복권같이 중복 안되는 경우에 7.0~7.9가 다 7이 되니까 중복을 못 걸러내지 않음?
+
+[console.log] : 콘솔창에 출력
+
+
+
+221014, 221213
+[반복문2]
+2. while
+while(조건){
+    code...
+    증감식;
+}
+**if와의 차이점 : if는 조건 먼저 검토 후 실행, while은 실행1회 후 조건 검토, 실행
+
+3. do.. while
+do{
+    code..;
+}
+while(조건);
+**조건에 맞든 맞지않든 무조건 1차 실행은 한다.
+
+
+
+221017
+[배열]
+정형화시킬 수 없는 데이터들을 '순서대로' 나열한 데이터집합
+필요시 순번(시작:0)으로 호출, 사용하기 위해 배열 생성(관리)
+
+1. let 배열명 = new Array;
+   배열명[0] = data1;
+   배열명[1] = data2;
+   배열명[2] = data3;
+   ....
+2. let 배열명 = new Array(data1, data2, ...);
+** let 배열명 = new Array(num); //배열 공간 선언 (num개의 데이터만 담을 수 있음)
+3. (옛날버전 지금 안 씀) 배열명 = [data1, data2, ...];
+
+[배열 속성]
+배열명.length //배열 데이터 개수 인식 속성 (글자 길이에도 씀)
+
+[배열 내장함수]
+.push(데이터); //배열의 마지막 위치 뒤에 데이터 추가
+.splice(시작순서, 개수); //시작순서부터(시작순서포함) 개수만큼 삭제(잘라내기)
+.slice(시작순서, 추출하고자 하는 연속된 데이터의 마지막의 위치+1); //시작순서부터 위치까지의 데이터 복제, 복제된 데이터로 배열 생성
+.reverse( ); // 배열 데이터의 순서 뒤집기
+.sort( ); // 배열 데이터의 순서를 크기순으로 정렬
+기존배열.concat(합칠배열/데이터); //배열과 배열, 배열과 데이터로 새로운 배열 생성
+.split('~'); //' '안의 문자를 기준으로 앞 뒤를 다 잘라서 추출
+  ex)t='a~b~c~d' --> let arr=t.split('~') ---> arr=[a,b,c,d];
+
+[이중배열 / 이차원배열]
+let position=new Array;
+position=[[51,200,305],[40,190,362],[34,128,240]];
+position[1][1]=190;
+position[0][0]=51, position[0][1]=200, position[0][2]=305;
+
+
+
+
+221018
+[반복문3]
+4. for in
+for(카운트변수n in 데이터그룹){ ------ 객체
+    실행명령(데이터그룹[n]); //저절로 in 뒤의 데이터 개수에 맞춰짐.
+}
+
+5. for of
+for(변수n of 데이터그룹){ ------ 배열
+    실행명령(n); //데이터그룹의 n번째 데이터를 n에 대입 -->데이터 추출 가능
+}
+
+[popup]
+window.open("문서경로", "윈도우 창 이름(대부분 공란)",  "width=~, height=~, top=~, left=~, menubar=no, location=no, scrollbars=no, status=no, toolbars=no, resizable=no, fullscreen=no");
+
+[문서가 열리자마자 실행하는 event]
+onload="html명( );"
+
+[자기 자신] = this
+
+[mouse Event]
+이벤트 : 실행 조건
+//한번만 실행
+click, dblclick, mouseover<->mouseout, mousedown(누르고 있을 때/누르자마자)<->mouseup(누르고 있다가 뗄 때)
+//반복 실행
+mousemove, mousewheel
+
+//이벤트 시 자기 자신의 스타일을 바꾸고 싶다
+onEvent="this.style.바꿀속성=' '"
+
+[호출(개체 지정)]
+getElementById("id명")
+getElementByTagName("tag명")
+getElementsByClassName("class명")
+
+[해당 개체에 텍스트 출력]
+document.개체명.innerHTML="";
+
+
+
+221020
+[바로 전 단계로 돌아간다]
+window.history.back();
+
+
+
+221024
+[자동실행]
+setInterval((사용자정의)함수명, 시간간격);
+clearInterval(intervalID); //let intervalID=setInterval( ); 먼저 하기
+
+
+
+221025
+[시간]
+시간인식 --> new Date( ) (시간 데이터 객체 생성)
+연값 호출 --> getFullYear( )//4자리, getYear( )//100년 단위
+월값 호출 --> getMonth( ) //0~11월
+일값 호출 --> getDate( )
+요일값 호출 --> getDay( ) //0~6요일
+시값 호출 --> getHours( )
+분값 호출 --> getMinutes( )
+초값 호출 --> getSeconds( )
+밀리초값 호출 --> getMilliseconds( )
+
+
+
+221026
+[지연 실행(일회성) 함수]
+let id=setTimeout(함수명, time); //지정 시간이 지난 후 함수를 1회 실행
+clearTimeout(id);
+
+
+221101
+[redirect]
+desktop html, mobile html이 다른 경우 -----> 모바일 자동연결하기 위해서
+
+**head script에 적기
+function RedirectSmartphone(url) {
+    if (url && url.length > 0 && IsSmartphone())
+        window.location = url;
+}
+
+function IsSmartphone() {
+    if (DetectUagent("android")) return true;
+    else if (DetectUagent("iphone")) return true;
+    else if (DetectUagent("ipod")) return true;
+    else if (DetectUagent("symbian")) return true;
+    return false;
+}
+
+function DetectUagent(name) {
+    var uagent = navigator.userAgent.toLowerCase();
+    if (uagent.search(name) > -1)
+        return true;
+    else
+        return false;
+}
+RedirectSmartphone("도메인주소/mobile/index.html");
+
+
+
+221109
+[슬라이드 배너 플러그인 : swiper] //slide 대표2
+idangero.us --> swiperjs.com
+**javascript이므로 script는 body 제일 끝에 적을 수 있도록
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+
+
+
+221110
+[keyboard event]
+keydown, keyup, keypress
+
+event.keyCode; //키보드의 각 키가 가지고 있는 고유 아스키 코드를 출력해줌
+
+
+
+
+221111
+[문자열 추출]
+문자열.substr(시작순서, 글자수)  //원본에는 영향 없음
+*글자수 --> 문자열.length;
+
+ex)
+const str="javascript string type";
+              0123
+str.substr(3,10) ---> "ascript st" 출력
+
+
+
+
+221129
+[mediaquery] //이렇게만 쓰면 resize에는 반응 x, 새로고침 시에만 반응(if니까!)
+if(window.matchMedia("조건1").matches){
+ ...
+} else if(window.matchMedia("조건2").matches){
+  ...
+}
+...
+
+**window.orientation ---> 0 / 90 (각도로 반환)
+
+
+
+
+221130
+[로컬저장소 데이터 호출] -----> game ranking 등에 활용
+(window.)localStorage.setItem('key',value); //기록, 저장
+(window.)localStorage.getItem('key'); //호출
+(window.)localStorage.removeItem('key'); //특정 key 삭제
+(window.)localStorage.clear( ); //전체 삭제
+
+**데이터는 반드시 문자 형태로 저장
+**'value' 역시 문자로
+
+
+
+221201, 221202, 221206, 221207, 221208, 221212
+[bootstrap] - 템플릿 사용
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+*.container>.row>.col-size(lg,md,sm,xs)-칸수(1~12) //부모는 .container로 고정, 가운데 정렬
+*lg(>=1200px - desktop), md(>=992px - desktop), sm(>=768 - tablet), xs(<=767 - mobile) //+ lg 안쓰고 md만 써도 md위 상위값은 같은 서식 적용됨
+ex) class="col-md-6 col-sm-10 col-xs-12"
+
+     .container>.row -> clear: both, overflow:hidden 걸려있음.
+     .container-fluid -> 유동형(%)
+
+**container(.fixed) vs container-fluid
+- container : media query에 의해 반응형 동작 (>=1200 - 1170px, >=992 - 970px, >=768 - 750px, <=767 - 100%)
+- container-fluid : 무조건 100%
+
+* .col-size-offset-? //? 칸 수만큼 margin-left를 줌
+* .col-size-push-? //position: *relative* 선언, left:0 기준 칸 수만큼 left 좌표 (+) 이동
+* .col-size-pull-? //position: *relative* 선언, right:0 기준 칸 수만큼 right 좌표 (+) 이동
+* .pull-right //float: right 선언
+
+*button style(size,bgcolor,display...)
+.btn(찐 기본설정)
+- bgcolor: (btn)-default, (btn)-primary, (btn)-danger, (btn)-warning, (btn)-success, (btn)-info, -inverse...
+- size: lg, md, sm, xs
+- display: inline-block(def), block(margin ㅇ)
+
+*nav - dropdown menu(sub menu에 쓰이는 듯)
+부모 -> class="dropdown"
+자식 -> class="dropdown-menu"
+slide up-down을 담당할 버튼-> class="dropdown-toggle" data-toggle="dropdown"
+    접힘 표시-> class="caret"
+자손 li 중 class="dropdown-header" --> jquery mobile의 list-divider과 같음.
+버튼(a) -> class="dropdown-toggle"
+
+*nav - gnb
+((최상위 부모 header에게 container 부여))
+부모 -> class="navbar" //**container안에 안들어있어도 사용가능**
+        -> class="navbar-fixed-top/bottom" //위치 고정
+자식 -> class="navbar-header"
+    자식요소-> class="navbar-brand" //제목이 메뉴과 같은 라인에 ---> 필수 X
+자식 -> class="nav navbar-nav"
+(특히 모바일) 자식 -> class="navbar-collapse collapse"
+(only 모바일) 햄버거버튼 -> button.navbar-toggle > span.icon-bar *3
+
+*추적하는 gnb //특정 section이 특정 위치에 오면 해당하는 메뉴가 활성화됨.
+body에 선언 : data-spy="scroll" data-target=".navbar" data-offset="navbar 높이(navbar에 닿자마자 활성화되고 싶다면)"
+
+*tab menu
+부모 ul-> class="nav nav-tabs"
+기본으로 활성화될 li-> class="active"
+
+*pills tab menu
+부모 ul-> class="nav nav-pills"
+- vertical
+부모 ul-> class="nav nav-pills nav-stacked"
+
+*이미지 클래스
+.img-responsive
+.img-rounded
+.img-circle
+.img-thumbnail
+thumbnail link -> a href="이미지 주소" class="thumbnail"
+
+*table
+table class="table"
+.table-bordered
+.table-striped
+
+*collapsible (접혔다 펼쳐졌다 하는거)
+.collapse // 기본으로 접혀진 상태로 설정. 포개졌기 때문에 height: 0;
+*collapse button --- data-toggle="collapse" data-target="#ddd" <--> collapse a href="#ddd" data-toggle="collapse"
+//*target 걸린 #ddd에 직접 padding같은거 주면 애니메이션이 버벅거리니까 자식한테 줄 것.
+*collapsible panel
+.panel-group > .panel > .panel-heading(기본 보이는거) + .panel-collapse(접히는거)
+.panel-heading > .panel-title
+.panel-collapse > .panel-body (+ .panel-footer) // 자동 padding O
+
+*carousel (슬라이드)
+<최상위 부모> .carousel .slide data-ride="carousel"(자동 좌우슬라이드)
+<paginate>
+ol.carousel-indicators > li data-slide-to="0~" data-target="#부모(.carousel .slide)"
+<img slide>
+.carousel-inner > .item (.active) * $
+<prev, next>
+a > span
+a href="#부모(.carousel .slide)" class="left carousel-control" data-slide="prev"
+a href="#부모(.carousel .slide)" class="right carousel-control" data-slide="next"
+span.glyphicon.glyphicon-chevron-left
+span.glyphicon.glyphicon-chevron-right ...
+span(글자들) -> .sr-only //접근성!
+
+*affix //위치 고정하고 싶을 때
+data-spy="affix"
+.affix의 너비, 위치 조정
+
+
+221208
+[데이터 유형]
+숫자(자연수) : Number
+숫자(정수) : Int
+문자 : String
+논리값 : Boolean
+
+null :  값이 없음.
+Undefined : 선언이 되지 않음.(변수 등)
+
+객체 : Object (ECMA - Symbol)
+
+[template string] // 결합식 + 대신 사용
+: `(벡틱), $, {} 사용({} 안에서는 연산가능)
+` ~~~~~ ${변수} ~~~`
+
+[화살표 함수] //화살표 함수 내 this는 함수를 선언된 공간 개체로 인식
+/*
+사용자 정의 함수
+1. basic
+function 함수명(매개변수) { 명령... }
+2. callback
+var 함수명 = function() { 명령... }
+*/
+
+1. 실행 명령이 1개
+const 함수명=()=>명령()
+2. 실행 명령이 여러개
+const 함수명=()=>{ 명령... }
+
+3. 매개변수가 1개
+const 함수명=매개변수=>{ 명령... }
+4. 매개변수가 여러개
+const 함수명=(매개변수...)=>{ 명령... }
+** 매개변수에 초기값을 설정할 수 있다.
+
+[break, return]
+break - 실행명령 중지(탈출)
+return - 실행명령 중지, 값 호출
+
+[개체 선택]
+document.getElementById('~')
+document.querySelector('#~');
+
+[이벤트 적용]
+selector.addEventListener("event명", function); ==> selector.onevent 도 가능
+selector.removeEventListener("event명", function);
+
+
+
+221209
+[즉시실행함수](IIFE)
+즉시 한번만 실행하고 말면 되는 함수 --> 익명함수로 쓰는 경우가 많다.
+(function(매개변수){
+    명령... //변수 쓸 때 let/const로 선언할 필요 없음.
+}(매개변수 값));
+
+[type 전환 method]
+Number('~'); //문자가 포함되면 NaN 오류, null값은 0 출력
+* +(string), (string)*1
+parseFloat('~'); //소수점 이하 그대로 가져감, 문자로 시작시 NaN
+parseInt('~',n); // n진수의 값으로 인식->10진수로 변경, '0x~~'면 n값 없이도 16진수 값으로 인식, 소수점 이하 버림, 문자로 시작시 NaN
+
+toString(number);
+
+[querySelector]
+Element.querySelector('css selector'); //#name, .class, #gnb>ul>li 등
+
+
+
+
+221212
+[object literal]
+const 객체명={
+    속성: 값,
+    속성: 값2,
+    ...
+    메소드명: function(){
+    
+    }
+}
+const 객체명=next Object();
+
+[동위요소 선택]
+element.previousElementSibling  <==>prev()
+element.nextElementSibiling  <==>next()
+element.cloneNode(true)  <==>clone()
+element.classList.add(~)  <==>addClass()
+element.classList.remove(~)  <==>removeClass()
+element.style.~='value'  <==> css()
+
+
+
+221213
+[rest parameter] '...' //인수들을 배열로, 배열의 각각 인수를 활용할 때
+const func=(...rest)=>{
+    console.log(rest);
+}
+func(1,2,3,4,5); //[1,2,3,4,5]
+
+
+
+221214
+[문자열 객체]
+문자열 데이터를 객체로 지정, 각 method가 지원됨.
+
+생성
+1. let txt=new String('~');
+2. let txt='~';
+
+속성
+.length //문자 수 반환
+
+method
+문자열.charAt(index) //순번에 맞는 문자 하나를 반환
+문자열.indexOf('검색할 문자') //왼쪽부터 문자를 검색해서 일치하는 순서값 반환(일치하는 문자가 없으면 -1 반환)
+문자열.lastIndexOf('검색할 문자') //오른쪽부터 검색
+문자열.search('검색할 문자')
+문자열.replace('검색할 문자', '새로교체될 문자') //문자검색 후 교체
+문자열.substring(index1,index2); //index1~index2 순서의 문자 반환
+문자열.substr(index,num); //index 순서부터 num개의 문자 반환 
+문자열.split('구분문자'); //구분문자로 문자로 나눠서 배열로 반환
+문자열.toLowerCase( ); 문자열.toUpperCase( ); //변환(반환x)
+문자열.trim( ); //문자 앞 뒤 공백 제거
+문자열.match('검색할 문자'); //왼쪽부터 검색, 일치문자를 반환
+			.index  //.input
+
+
+
+221215
+[Date 객체]
+let date=new Date( );
+new Date(연,월,일,시,분 ... );  // new Date('August 19, 1980 23:15:41'); 형태로 가능
+이 때, 월에 그냥 숫자를 바로 적으면 0~11로 인식한다.
+
+<get>
+.getMonth( ) //월(0~11)
+.getDate( ) //일
+.getDay( ) //요일(0~6, 일~토)
+.getFullYear( ) //4자리 연도
+.getHours( ) //24시각 기준 시간
+.getMinutes( ) //분
+.getSeconds( ) //초
+.getMilliseconds( ) //밀리초
+
+*1970년 1월 1일 0시 이후 경과한 밀리초 호출
+.getTime( ) //unix타임 
+Date.now( ) //+ 불필요한 new Date개체 생성 방지
+
+
+[Math 객체]
+Math.random( ); //0~1 난수
+Math.floor(num) //내림 ---->정수화 권장 함수
+Math.round(num) //반올림
+Math.ceil(num) //올림
+Math.abs(num) //절대값
+Math.pow(num, n) //num의 n제곱
+Math.sqrt(num) //num의 제곱근
+Math.PI //원주율
+Math.max(n1,n2,n3,n4) //n1,n2,n3,n4 중에서 가장 큰 값
+Math.min(n1,n2,n3,n4) //n1,n2,n3,n4 중에서 가장 작은 값
+**rad : 호의 길이 = 반지름일 때 그 각을 1rad이라고 함.
+--> rad=deg*(Math.PI/180), deg=rad*(180/Math.PI)
+Math.sin(rad) : -1~1 / Math.cos(rad) / Math.tan(rad)
+((두 점 사이의 세타의 절대각))
+Math.atan2(y거리, x차이) //-pi~pi의 라디안 값으로 반환 <--- 두 점 사이의 상대좌표로 계산
+<-> Math.atan//-pi/2 ~ pi/2의 라디안 값으로 반환 <--- 두 점 사이의 탄젠트값으로 계산
+** 0도(수직)~+-90도(수평)이기 때문에 이미지 등의 기본 설정은 수직으로 놓을 것.
+
+
+[배열 객체]
+1. let arr=new Array( );
+2. let arr=[a,b,c,d,...];
+
+<method>
+Array.reverse( ); //순서 반전
+Array.sort( ); //크기 순 정렬
+Array.slice(시작순서, 종료순서+1); //복제 후 새 배열 생성
+Array.splice(시작순서, 삭제할개수, 그 자리에 추가할 요소); //시작순서포함, 시작순서부터 삭제할개수만큼 잘라내기, 잘라낸 자리에 요소 추가
+Array.push(~); //마지막에 데이터 추가
+Array.pop(~); //마지막 데이터 삭제
+Array.unshift(~); //처음에 데이터 추가
+Array.shift(~); //처음 데이터 삭제
+Array.concat(데이터 or 배열); //Array에 새 내용 합쳐서 그 배열의 사본 반환
+
+
+[DOM 객체] Document Object Model
+: html문서 안 모든 요소의 태그와 속성을 객체(node)로 인식, 제어 가능
+
+document node
+  Element node(부모, 자식관계 요소)
+    Attribute node
+      Text node
+
+** document > html > head(>title)+body > ...
+
+<요소선택>
+document.getElementById(~);
+document.getElementsByTagname(~);
+document.getElementsByClassName(~);
+document.getElementByName(~);
+document.querySelector(css선택자); //검색된 첫번째 요소 선택
+document.querySelectorAll(css선택자); //모든 해당요소 배열로 선택
+-----------------------------------------------------------------------------------
+document.forms //form요소 모두 선택
+document.images //img요소 모두 선택
+document.links //href 속성 가지고 있는 요소 모두 선택
+(.~로 하위까지 들어갈 수 있음)
+-----------------------------------------------------------------------------------
+Node.parentNode //부모노드
+Node.childNodes //자식노드들
+Node.firstChild //첫번째 자식노드
+Node.lastChild //마지막 자식노드
+Node.nextSibling //다음 노드(동위)
+Node.previousSibling //이전 노드(동위)
+Node.item(index) //노드의 index로 호출
+-----------------------------------------------------------------------------------
+ElementNode.hasAttribute(속성명) //지정속성 존재여부 판단
+ElementNode.getAttribute(속성명) //지정속성 호출
+-----------------------------------------------------------------------------------
+document.createElement(tag) //해당 tag인 element 생성
+document.createTextNode('~') //~라는 String을 가진 TextNode 생성 <==> document.write('~') *tag 인식
+Node.createAttribute(속성명) //*이미 있는 속성을 입력하면 속성 내용이 갱신됨.
+Node.cloneNode( ) //복제 + Node.cloneNode(true) //자식요소까지 복제
+-----------------------------------------------------------------------------------
+Node.setAttribute(속성, 값) //속성값 변경
+Node.innerHTML='~'
+-----------------------------------------------------------------------------------
+Node.replaceChild(새 자식노드, 기존 자식노드) //자식노드 교체
+TextNode.replaceData(교체위치, 글자수, 새 텍스트) //텍스트 교체
+-----------------------------------------------------------------------------------
+Node.appendChild(추가할노드) //마지막 위치에 자식노드 추가
+<==>.append (노드, string 등 추가 가능, 여러개 한번에 가능)
+Node.insertBefore(추가할노드, 기준노드) //기준자식노드 바로 앞에 노드 추가
+Node.insertData(순서, 추가할 텍스트)
+-----------------------------------------------------------------------------------
+Node.removeChild(삭제할노드)
+Node.removeAttribute(삭제할속성)
+
+
+
+221216
+[새로운 조건 표기법]
+(condition)?true code:false code;
+
+[setInterval]
+setInterval의 인자로 사용되는 '콜백함수' 필요 -> 인자가 있는 함수는 쓸 수 없음. -> "콜백함수(인자)"로 묶어 주면 됨.
+
+
+
+221219, 221221
+[마우스 좌표]
+1. screenX, screenY : 모니터 기준
+2. pageX, pageY : 전체 문서 기준
+3. clientX, clientY : 브라우저 화면 기준 (like position fixed)
+4. offsetX, offsetY : 부모(이벤트 적용 개체) 기준
+
+[클래스 추가/삭제/변경/확인]
+object.className='~'; //*기존에 클래스가 존재하는 상황에서 추가 삭제하기는 힘들다. ->↓활용
+object.classList.add('~') //클래스 추가
+object.classList.remove('~') //클래스 삭제
+object.classList.contains('~') //해당 클래스 유무 확인(boolean값 반환)
+object.classList.replace('기존클래스','새로운클래스') //클래스 교체
+object.classList.item(index) //여러 클래스 적용 시 순번으로 호출
+object.classList.toggle('~') // 클래스 토글 적용
+
+[음악 제어 - audio 객체]
+<attribute>
+obj.src
+obj.autoplay=true/false
+obj.currentTime=~ (단위 : s)
+obj.duration=~ (단위 : s)
+obj.volume=0~1
+obj.loop=true/false
+
+<method>
+obj.play( )
+obj.pause( )
+obj.load( )
+
+<event>
+timeupdate //currentTime이 변경되었을 때 발생.
+loadeddata //곡의 길이(duration) 불러올 때 사용. 미디어의 첫/현재 프레임이 로드되었을 때
+
+
+
+221221
+[EVENT]
+- this <==> .currentTarget  //이벤트가 선언된 개체
+- .target  //정말 이벤트가 일어난 최하위의 개체
+
+[크기 인식 속성]
+1. .clientWidth, .clientHeight  // padding포함 크기 인식
+2. .offsetWidth, .offsetHeight  // border 포함 크기 인식, 자식요소 크기(>부모) 포함 인식
+3. (method) .getBoundingClientRect( )  > (attribute) .width, .height, .top, .left (border+padding 포함, 소수점까지 표기)
+
+
+
+221222
+[transition event] + animation event(animationend, animationstart)
+//transition이 완료된 이후에 발생하는 이벤트
+transitionend, transitionstart, transitionrun
+
+
+
+221223
+[즉시 실행함수]
+(function( ){
+  ...
+})( );
+
+[애니메이션 프레임]
+window.requestAnimationFrame(함수명);
+
+[윈도우 크기] //메뉴바, 툴바 제외한 안쪽 창 영역의 크기
+window.innerWidth;
+window.innerHeight;
+
+[스크롤]
+문서의 스크롤 값-> document.documentElement.scrollTop;
+화면에서의 스크롤 값-> window.pageOffset (pageXOffset, pageYOffset) or window.scrollX/scrollY
+
+
+
+221227
+[form event]
+form tag에 하는 것 : submit, reset
+요소에 하는 것 : change(select), input, focus, blur, resize(textarea), scroll(textarea), load, checked...
+
+- change (select에 주로 사용, 입력한 뒤 포커스 잃을 때)
+- input (실시간 반응)
+ 
+* select 안의 option 잡기 -> select.options (굳이 queryselector 안해도 되는듯)
+
+
+
+
+
+
+
+
+

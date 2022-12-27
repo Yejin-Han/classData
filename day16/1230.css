@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+.container{
+	width: 1230px;
+	margin: 0 auto;
+}
+/*===section===*/
+.container>.row{
+	width: 1230px;
+	overflow: hidden;
+	clear: both;
+}
+/*===section===*/
+.container .col1{
+	float: left;
+	width: 86px;
+	margin-left: 18px;
+}
+.container .col2{
+	float: left;
+	width: 190px;
+	margin-left: 18px;
+}
+.container .col3{
+	float: left;
+	width: 294px;
+	margin-left: 18px;
+}
+.container .col4{
+	float: left;
+	width: 398px;
+	margin-left: 18px;
+}
+.container .col5{
+	float: left;
+	width: 502px;
+	margin-left: 18px;
+}
+.container .col6{
+	float: left;
+	width: 606px;
+	margin-left: 18px;
+}
+.container .col7{
+	float: left;
+	width: 710px;
+	margin-left: 18px;
+}
+.container .col8{
+	float: left;
+	width: 814px;
+	margin-left: 18px;
+}
+.container .col9{
+	float: left;
+	width: 918px;
+	margin-left: 18px;
+}
+.container .col10{
+	float: left;
+	width: 1022px;
+	margin-left: 18px;
+}
+.container .col11{
+	float: left;
+	width: 1126px;
+	margin-left: 18px;
+}
+.container .col12{
+	clear: left;
+	width: 1230px;
+	margin-left: 0;
+}
+.container .ml0{
+	margin-left: 0;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery ui - draggable</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function(){
+        $('.dragbox').draggable({
+          cursor:'move', stack:'.dragbox'
+        });
+        $('.dragbox').on('dragstart',function(){
+          $('.dragbox').css('opacity','0.4');
+          $(this).css('opacity','0.8');
+        });
+        $('.dragbox').on('dragstop',function(){
+          $('.dragbox').css('opacity','1');
+        });
+      });
+    </script>
+    <style type="text/css">
+      .dragbox{
+        width: 160px; height: 160px; line-height: 160px;
+        text-align: center;
+        font-weight: bold;
+        font-size:2em;
+        font-family:Arial, sans-serif;
+        margin:20px;
+        border-radius:80px;
+        /* cursor:default; */
+      }
+      .box1{
+        background:#69f;
+      }
+      .box2{
+        background:#6c5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dragbox box1">DRAG</div>
+    <div class="dragbox box2">DRAG</div>
+  </body>
+</html>

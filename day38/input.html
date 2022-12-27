@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Document input</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                $('.box1').append($('.box2'));
+                $('.box1').append($('.box3'));
+                $('.box1').prepend($('.box4'));
+                $('.box5').appendTo($('.box3'));
+                $('.box6').remove();
+                $('<img src="../day37/img_jq/XL1.JPG" alt="" width="110" height="65">').prependTo($('.box2'));
+            });
+        </script>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 18px;
+                font-family: Arial, sans-serif;
+            }
+            div{
+                margin: 20px;
+                padding: 20px;
+            }
+            .box1{
+                border: 5px solid #930;
+                background: #f90;
+            }
+            .box2{
+                border: 5px solid #030;
+                background: #6c0;
+            }
+            .box3{
+                border: 5px solid #006;
+                background: #39f;
+            }
+            .box4{
+                border: 5px solid #906;
+                background: #c6f;
+            }
+            .box5{
+                border: 5px solid #085;
+                background: #3cf;
+            }
+            .box6{
+                border: 5px solid #f33;
+                background: #c54;  
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">div box1</div>
+        <div class="box2">div box2</div>
+        <div class="box3">div box3</div>
+        <div class="box4">div box4</div>
+        <div class="box5">div box5</div>
+        <div class="box6">div box6</div>
+    </body>
+</html>

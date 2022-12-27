@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>navigation menu</title>
+        <style type="text/css">
+            /*=============block 요소들 기초값 세팅==============*/
+            body, nav, ul, li{
+                margin: 0;
+                padding: 0;
+            }
+            /*===============각 요소들 기초값 세팅===============*/
+            body{
+                font-size: 14px;
+                font-family: Roboto, sans-serif;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            /*=================================================*/
+            #gnb1{
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                margin-top: 80px;
+                border-top: 2px solid #063;
+                border-bottom: 2px solid #063;
+            }
+            #gnb1>ul{
+                text-align: center;
+            }
+            #gnb1>ul>li{
+                display: inline-block;
+                padding-left: 50px;
+            }
+            #gnb1>ul>li.first{
+                padding-left: 0;
+            }
+            #gnb1>ul>li>a{
+                color: #151515; font-weight: bold;
+            }
+            #gnb1>ul>li>a:hover{
+                color: #f92;
+            }
+            /*===================더 맞는 방법===================*/
+            #gnb2{
+                width: 100%;
+                height: 60px;
+                line-height: 50px;
+                margin-top: 50px;
+                border-top: 2px solid #06c;
+                border-bottom: 2px solid #06c;
+            }
+            #gnb2>ul{
+                width: 712px;
+                margin: 0 auto;
+            }
+            #gnb2>ul>li{
+                float: left;
+                margin-left: 50px;
+            }
+            #gnb2>ul>li:first-child{
+                margin-left: 0;
+            }
+            #gnb2>ul>li>a{
+                color: #151515; font-weight: bold;
+                display: block;
+                padding: 5px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav id="gnb1">
+            <ul>
+                <li class="first"><a href="#">MENU</a></li>
+                <li><a href="#">EVENT</a></li>
+                <li><a href="#">COMMUNITY</a></li>
+                <li><a href="#">STORE</a></li>
+                <li><a href="#">FRANCHISE</a></li>
+                <li><a href="#">SUBWAY</a></li>
+            </ul>
+        </nav>
+        <nav id="gnb2">
+            <ul>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">EVENT</a></li>
+                <li><a href="#">COMMUNITY</a></li>
+                <li><a href="#">STORE</a></li>
+                <li><a href="#">FRANCHISE</a></li>
+                <li><a href="#">SUBWAY</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>

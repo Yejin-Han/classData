@@ -1,0 +1,532 @@
+220822
+<style>
+    selector(선택자 - tag, id값){
+        속성:값단위;
+        속성:값단위;
+    }
+
+서체정의 -- font-family:서체1,서체2,서체3;
+서체크기 -- font-size:00px(px, pt, em, %)
+               기본)16px = 12pt = 1em = 100%
+                     12px = 9pt = 0.75em = 75%
+글자색 -- color:#FFFFFF;
+
+[기본세팅]
+body {
+	margin: 0px; /*문서 여백 0으로 처리*/
+	font-family: "맑은 고딕", "돋움", dotum, sans-serif; /*영문 서체는 공백 없으면 "" 필요없음*/
+	font-size: 14px;
+	color: #333333;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0px; /*두 라인이 한 세트로 적용, table의 border와 td의 border가 겹쳐져라*/
+	width: 600px;
+	border-style: solid;
+	border-color: #333;
+	border-width: 4px; /*선 두께*/
+}
+th, td {
+	border-style: solid;
+	border-color: #333;
+	border-width: 1px;
+}
+
+[table 속성]
+border-spacing: ~px;
+
+
+
+220823, 220824
+[문자 서식 관련 속성]
+크기 font-size:~px;
+색상 color:#fff;
+굵게 font-weight:(normal, bold);
+이탤릭체 font-style:(italic, normal, oblique);
+행간 line-height:~px; 주로 em
+자간 letter-spacing:~px;
+어간 word-spacing:~px;
+밑줄 text-decoration: underline; (+ 여유롭게 밑줄 : text-underline-position: under;)
+취소선 text-decoration: line-through;
+윗줄 text-decoration: overline;
+없애기 text-decoration: none;
+
+[문단 서식 관련 속성]
+첫 줄 들여쓰기/내어쓰기 text-indent:~px; (글자 개수)
+정렬 text-align:(left, center, right, justify-양끝정렬);
+ 
+*영어에만 쓰는 속성*
+text-transform:(uppercase, lowercase, Capitalize);
+영어는 단어가 단위라서 보통 word-wrap 걸리는데, !필요할 때! 이를 깰 수 있음. (-> 비영어권식으로 바꿈)
+(( text-align: justify 양끝 정렬일 때 이 기능이 필요 ))
+*word-wrap: break-word; //옛날버전 cross-browsing을 위해서
+*word-break: break-all;
+- 세트로!
+
+[CSS Selector]
+selectorA selectorB  A의 자손B
+selectorA>selectorB  A의 자식B
+#id  아이디호출
+.클래스  클래스호출
+
+[스타일 적용 우선순위]
+아이디> 클래스> 태그
+
+[td에만 쓰이는 정렬 속성]
+text-align / vertical-align
+* div 등에는 display:block; 주고 위아래로 padding 준다
+
+
+[border 속성]
+border-style: (solid, dotted, dashed, double, groove, ridge, inset, outset);
+border-width: ~px; // top right bottom left 순서
+border-color: #fff;	
+border-top-xxxx과 같이 top bottom left right 따로 값을 주는 것도 가능!
+
+[caption hidden]
+caption {
+                visibility:hidden; //이거 있으면 되더라 ^^
+	    /*position: absolute: absolute;
+                width:0;height:0;font-size:0;line-height:0;overflow:hidden;*/
+            }
+
+
+
+220825
+[여백]
+margin(바깥), padding(안쪽)
+
+ex)
+margin-top: 30px, margin-bottom: 80px;
+margin-left: 50px, margin-right: 15px;
+=
+margin: 30px 15px 80px 50px; // top right bottom left 시계방향으로
+=
+margin: 50px 90px; // top=bottom, right=left
+
+
+table의 요소에는 padding을 좌우를 더 길게 준다
+ex)
+td, th{
+	padding: 3px 5px;
+}
+
+[배경]
+background-color: #fff;
+background-image: url("배경그림 경로");  // 다른이름으로 저장이 안됨
+background-repeat: repeat, repeat-x, repeat-y, no-repeat;
+background-position: (x축)px, (y축)px;
+                            (left, center, right) (top, center, bottom);
+                            (~%) (~%);
+		    *right ~px bottom ~px 같은 표기도 가능
+background-attachment: fixed, scroll(기본값, 기입 생략);	*브라우저 창 기준으로 좌표 잡고 고정됨
+
+
+[block 요소 배치]
+- 수평으로
+float: left, right, none <--> (해제) clear: left, right, both
+* float이 뜬다는건데 입체적으로 떨어져 나온다고 생각하자
+* float이 걸리는 순간 걸린 개체의 부모의 height가 0이 됨.
+
+
+
+220830
+[ul li]
+"ul에"
+list-style-type: disc, circle, square, decimal, decimal-zero, ...;
+list-style-position: inside, outside;
+list-style-image: url("img_bull/LI_BULL.gif");
+"li에"
+<->background: url("img_bull/LI_BULL.gif") no-repeat left center; 위치 잡으려고
+
+
+
+220831
+[상태선택(가상선택자)]
+selector:(state){
+    ...
+}
+1. 마우스가 올라온 상태 *
+a:hover{}
+2. 마우스 버튼을 누르고 있는 상태
+a:active{} -> 모바일 특
+3. 마우스 버튼을 눌렀다 뗐을 때
+4. 링크 방문했던(데이터 로드) 상태(기본 보라색일 때)
+a:visited{} -> 거의 안쓴댕
+5. 활성화된(선택된) 상태 - 특히 form 연관됨 *
+a:focus{}
+
+[positioning]
+움직이는 개체, 겹치는 개체 등(뭐 위에 뭐가 올라가있는 형태 등)
+기본(반드시!!) : width, height 최소값으로 설정 -> width, height, left(right), top(bottom), z-index
+-----------> 속성이 아니고 따로 설정해야하더라
+- z-index는 겹치는 순서를 정한다 숫자가 커질 수록 위로 올라옴 (물리적 위치x z-좌표가 위로 올라오는거임)
+
+position: absolute; (좌표 기준이 문서(body-document)크기)
+- depth랑 관계 x
+- 부모(position 선언 된 개체)가 존재시 부모영역에 맞춰 판단
+position: relative; (좌표 기준이 개체의 현재영역(위치, 크기 모두 판단)에 맞춰짐)
+- relative 선언되기 전 영역을 유지하고 선언된 개체만 그 자리에서 움직임
+- 따라서 움직/겹침 을 위해서 쓰는 건 아직은 아님 (slide banner때 쓰임)
+- absolute를 품는 부모에 많이 쓰임
+position: fixed; (좌표 기준이 브라우저 창에 맞춰짐)
+
+
+
+220901
+[개체 가리기(숨김)]
+- visibility: visible/hidden;   ->공간은 그대로
+- display: block/none;   ->공간까지 가려짐 ***
+- opacity: 0~1;   -> visibility와 비슷
+----------------------------------------------------
+(확실히 하기 위해 세트로 활용) **
+- font-size: 0; line-height: 0;
+  visibility: hidden;
+  display:block; width: 0; height: 0; *overflow: hidden;*얘는 스크린리더 테스트하기
+  position: absolute; left: 0; top: 0; (또는 left: -9999px; top:-9999px;)
+
+
+
+220905
+[overflow]
+- block요소에만 적용
+- visible(기본값), hidden, scroll, auto
+- hidden은 넘치는 부분 안보이게
+- scroll은 xy 스크롤 다 생김, auto는 필요한 쪽만 생김
+- contents가 빠져나와도 layout에는 영향 x
+- header, nav 이외에는 대부분 다 쓰인다고 보면 됨.
+- 스크롤바 안생기게 할 때 쓰이기도 함.
+- overflow-x,y 로 한 축만 안생기게 할 수도.
+**- 부모요소에 overflow:hidden 설정 -> float 선언 된 자식요소의 높이(합) 인지, 자체 높이로 설정
+
+[구조 선택자]
+1. -child
+2. -of-type
+**nth-?일 때 ( )안에 숫자n을 적으면 숫자번째마다 반복되게 할 수 있음. odd/even 가능
+
+[문자구조 선택자]
+공통적으로 해당 위치에 무언가 추가할 때
+1. p::before //p 안에서 제일 앞
+2. p::after //p 안에서 제일 뒤
+--> 버튼 등에 배경그림 깔거나 그럴 때 쓰기
+(+)- content:"~" 해당 위치에 ~추가, 드래그 안됨
+/* float걸고 다음 부모에 clear하는거 까먹을 수 있음
+-> 해당 div 등에 ::after{ content:""; display:block; width:0; height:0; clear:both;}하기도 함! */
+3. -line //가변 가능
+4. -letter
+
+[둥근 사각형]
+border-radius
+(top-left - top-right - bottom-right - bottom-left)
+
+
+**** inline 요소들 간에는 vertical-align 가능!!!! ****
+text-top, baseline, text-bottom, ~px
+
+
+
+220906
+[transition]
+지원 속성 : left, right, top, bottom, width, height, opacity, background-color, background-position, margin, padding, color, border-color, border-width, font-size, ... 숫자 사용하는 것들
+
+transition-duration: ~s;
+transition-delay: ~s;
+transition-timing-function: ease(기본) linear ease-in ease-out ease-in-out cubic-bezier(좌표)->cubic-bezier.com에서 확인; //가속도 감속도
+transition-property: ; //여러 속성 중에 transition이 걸릴 속성을 제한해줌
+기본 : transition: all 0.4s;
+줄임표기 : property duration timing-function delay
+
+
+
+220908
+[글자 요소 가리기] - a태그에 뭐 넣고 글씨는 안보이게 하고싶을때등 길지 않은 단어 등에
+text-indent: -9999px;
+- 스크린 리더가 읽어줌!
+
+-----머시깽이든 margin 버그 고칠 때는 부모에 overflow:hidden!!
+
+
+
+220914
+[transform]
+- transform 속성 : none, translate( ), rotate( ), scale( ), skew( )
+  --> position: relative 선언된 것으로 간주. 즉, 자기 자신만 주변 변화 없이 붕 떠서 이동.
+- 중심점으로부터 이동. (일러에서 alt 잡고 누른것처럼)
+
+1. translate(dx, dy) : 위치이동
++ translateX(~), translateY(~) -- px, %
+- 값을 ~%로 주면 자기 자신의 ~%만큼 이동함.
+2. rotate(~deg(degree)) : (+)시계방향 회전
+3. scale(scaleX, scaleY)
++ scaleX(~), scaleY(~) -- 배수(like em)
+4. skew(xDeg, yDeg)
+
+[keyframe]
+1. 움직임 설정 -> 2. 선택자(요소) 적용(세부 설정)
+1-- @keyframes 움직임 이름(임의설정){
+	0%{시작 속성}
+	?%{중간 속성}
+	100%{종료 속성}     *%는 이후 지정될 duration에 비례
+     }
+2-- selector{
+	animation-name: 움직임 이름(keyframes에서 설정한 이름);
+	animation-duration: 재생시간;
+	animation-delay: 지연시간;
+	animation-timing-function: ease, ease-in, ...;
+	animation-iteration-count: 반복횟수, infinite;
+	animation-direction: normal, alternate(왕복, 대신 횟수는 편도로 셈);
+	animation-play-state: paused, running;
+	animation-fill-mode: both; (iteration-count 정해져 있을 때, 애니메이션 종료상태 유지);
+     }
+* 줄임표기
+animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+
+
+220915
+[background property 2]
+- 한 div에 background 속성을 여러번 사용하고 싶으면(여러개의 배경그림)
+background: ~~~, ~~~, ~~~; 쉼표로 이어 사용 가능
+-> 먼저 선언한 배경그림이 제일 위로 올라옴
+==========아래는 기본 background에 함께 쓰면 인식이 안될 우려가 있어 보통 바로 밑에 따로 써주는 속성===========
+- background-clip: border-box(기본값), padding-box, margin-box, text;
+(bg가 어느 영역까지 보이냐 문제, 아직 호환 문제 有)
+- background-size: x% y%; // 해당 block 크기의 비율로
+		~px ~px;
+		*cover; // 비율은 유지하되 부모를 가득 채우려고 듦. 따라서 더 긴 쪽에 100%를 맞추고 넘치는 부분은 자동으로 잘림. (반응형에 쓰임)
+		contain; // 비율 유지, 배경그림을 전체 다 보여주는 것이 목적-> 더 짧은 쪽에 100% 맞춤, 항상 가변됨. (반응형에 쓰임)
+
+[선택자 [ ] 사용]  ---> 우선순위 떨어짐, 즐겨 사용x
+- div[class] : div에 class 속성이 있는 개체
+- td[colspan=2] : td 중에서 colspan 속성값이 2로 선언된 개체
+- div[class*=clipbox] : div 중에서 class값에 clipbox라는 단어가 들어간 개체
+(( input type="" 일 때, td colspan 등, 숫자만 다른 class 이름이 너어어어무 많을 때 ))
+
+
+
+220916
+[shadow effect]
+1. block요소
+box-shadow: dx dy blur spread color inset/(기본)outset(inner, outer shadow)
+2. inline요소
+text-shadow: dx dy blur color
+
+[vender prefix] : 브라우저마다 인식되는게 다를 수 있어서 이 브라우저에서는 이 코드로 인식해줘 하는 명령어라고 생각하면 됨.
+-> gradient 등에서 많이 쓰임. cross-browsing 중 안나오는 브라우저 있으면 사용해보자.
+*-webkit- (chrome, safari)
+-moz- (firefox)
+-ie- (explorer)
+-o- (opera)
+(ex)
+-webkit-text-shadow: ~;
+-moz-text-shadow: ~;
+-ie-text-shadow: ~;
+-o-text-shadow: ~;
+text-shadow: ~;
+
+[box-sizing] : padding주면 크기 늘어나는 문제 등 해결 위해
+(기본)content-box
+border-box
+padding-box
+margin-box
+
+
+
+220920
+[동위요소 선택자]
+B 선택!
+- selector A + selector B : A개체 "바로" 다음에 있는 B개체
+- selector A ~ selector B : A개체 다음에 있는 모든 B개체
+
+
+
+220921
+[상태(반응) 선택자]
+:hover, :active, :focus, :checked, :enabled, :disabled
+
+
+
+220922
+[media query css]
+@media screen and (min-width: 1025px){
+
+}
+@media screen and (max-width: 1024px) and (min-width: 641px){
+
+}
+@media screen and (max-width: 640px){
+
+}
+
+
+
+220923
+[부정 선택자]
+selector: not(~){
+
+}
+ - ~가 아닌 개체 선택
+ex) p:not(:first-of-type){
+
+} -------> 첫번째 말고 나머지 p들 선택
+
+
+
+220928
+[form 요소의 default settings]
+input bd 1px ~;
+textarea{ resize:none; }
+
+
+
+220930
+[full page 구성할 때]
+html, body{
+	width:100%; height:100%;
+}
+
+
+
+221006
+[자동줄바꿈 해제]
+white-space: nowrap;
+
+[넘치는 글자 ...으로 출력]
+overflow: hidden;
+text-overflow: ellipsis;
+
+//세트로 사용!
+
+
+
+221007
+[단 설정]
+column-count : 단 개수
+column-gap : 단 간격
+column-rule: 단 구분선
+
+
+
+221017
+[object-fit]
+개체를 화면에 가득 채워라
+object-fit: cover;
+
+
+
+221024,221026
+[filter]
+:blur(~px);
+:grayscale(0~100%);
+:brightness(0~100%(기본)~);
+:contrast(0~100%(기본)~);
+:hue-rotate(0~360deg);
+:invert(0~100%); //보색처리
+:saturate(0~100%(기본)~);
+:sepia(0~100%);
+((:drop-shadow(x y blur color);
+:opacity(0~100%);))
+
+
+
+221031
+[display:table] **여러 줄(글자) 세로 가운데 정렬 시 쓰일 수도 (근데 무거워서 좋진 않음)
+display:table, table-caption, table-row, table-cell
+
+
+
+221109
+[3D transform]
+부모에 선언
+- transform-style: preserve-3d;
+- perspective: ~px; //기울어지는 각도(원근감의 거리)
+자식에 선언
+- rotateX( ), rotateY( ), rotateZ( ),
+  translateZ( ), translate3d(x,y,z)
+- position: absolute; left: 0; top: 0; (육면체같은거 만들때 한 부모에 모여야 할 때)
+
+
+
+221118, 221121 ...
+[display: flex]
+부모에 display: flex 선언하면 자식들이 자동으로 float된 것처럼 배치되며 width height 자동 지정됨(가변).
+- flex-direction: row(default), row-reverse, column, column-reverse
+- flex-wrap: nowrap(default), wrap, wrap-reverse //자동줄바꿈
+- flex-flow: direction값 wrap값
+---------------------------------------------------------------------------------
+((direction row 기준))
+- justify-content: center/flex-start(default)/flex-end/space-around(마진포함 양끝정렬)/space-between(그냥 양끝정렬) //가로 정렬
+- align-content: center/flex-start(default)/flex-end/space-around(마진포함 양끝정렬)/space-between(그냥 양끝정렬) //세로 정렬  **여러줄이 생겨 줄이 바뀔 때 정렬하기 위함-> 실제로 여러줄이 발생했을 때 flex-wrap: wrap 선언 후 사용
+---------------------------------------------------------------------------------
+- align-items: stretch(높이 최대값, default)/baseline/center/flex-start(top)/flex-end(bottom)
+---------------------------------------------------------------------------------
+- flex-grow: 0(고정)/num //전체에서 해당 개체가 차지하는 비율(->가변), contents보다는 무조건 크며, 본래 가지고 있던 width는 무시된다.(같은 부모를 가진 자식들끼리의 flex-grow와 내 flew-grow로 비율 결정)
+* - flex: ~% 도 같은 말로 사용 가능
+- flex-shrink: 0(고정)/1(default-기본비율)/그 이상의 num(줄어드는 비율, 배수값)
+- flex-basis: auto(default-content크기 기준으로 flex 배분)/0(부모기준 절대값);
+- flex: none <==> flex-grow: 0, flex-shrink: 0;
+- flex: 1 <==> flex-grow: 1, flex-shrink: 1, flex-basis: 0;
+---------------------------------------------------------------------------------
+- order: num //순서 마음대로 할 수 있음. tabindex와 같이 사용 가능
+- align-self: center/flex-start(default)/flex-end/space-around(마진포함 양끝정렬)/space-between(그냥 양끝정렬) //각각 세로 정렬
+---------------------------------------------------------------------------------
+** 아이템들 중에 하나 뜬금없이 양끝에 가있거나 위아래로 끝에 가야되거나 하면 해당하는 margin을 auto로 주면 됨.
+
+
+
+
+221129
+[mediaquery : portrait, landscape]
+@media screen and (orientation: portrait){
+    ... //세로방향
+}
+@media screen and (orientation: landscape){
+    ... //가로방향
+}
+
+
+
+221201, 221206
+[display: grid]
+부모에 display: grid 선언 후
+- grid-template-columns: 각 열의 너비; 
+- grid-template-rows: 각 행의 높이;
+  * 자동 계산 auto 사용 가능
+  * 비율로 계산 -> fr 사용 (1fr 2fr 1fr이면 1:2:1)
+  * px fr 등 혼용 가능
+  * repeat(n, 값) -> 같은 값을 n번 반복하여 사용(repeat(3,1fr)-> 1fr 1fr 1fr)
+- row/column-gap: ~px; <==> gap: ~px ~px(row column);
+- grid number로 크기 늘이기
+grid-column-start / grid-column-end <==> grid-column: startnum/endnum
+grid-row-start / grid-row-end <==> grid-row: startnum/endnum
+grid-column/row: startnum/span 늘어날 개수;
+
+
+
+221209
+[변수 사용]
+변수선언 :: --변수명: 값; //사용처의 부모에 선언
+*최상단 전역변수로의 사용을 원할 때 --> :root{ };
+사용시 var(--변수명);
+
+[count변수]
+counter-reset: 변수명;
+counter-increment: 변수명; //카운터 변수 값을 1씩 증가
+content: "~~" counter(변수명) "~~"; //출력
+
+
+
+221220
+[drag 방지]
+user-select: none; // auto(default), all(클릭으로 선택), none, text(글자 선택 가능)
+
+[글씨에 그라디언트 넣기]
+color: transparent;
+background: 그라디언트 컬러;
+background-clip: text; -webkit-background-clip: text;
+*아직 호환문제 있긴 함. 크로스브라우징에 문제 있음.
+** background-color를 먼저 선언해야 함!
+
+[object-fit] : img를 (비율에 맞춰) 늘일 때 사용(흡사 background-size)
+object-fit: fill, contain, cover, none, scale-down
+* fill(비율유지x 가득 채움--> w, h 100% 선언한 것과 동일), contain(비율유지o, 전체소실없이 보여줌), cover(비율유지o, 가득 채움), none(크기조절 x), scale-down(none, contain 중 크기가 작은 것)
+** 가운데 정렬, 가운데를 보여주고 나머지가 잘림 --> object-position: center top % px 등으로 조절 가능

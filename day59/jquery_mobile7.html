@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no, email=no">
+		<title>jquery mobile - form panel</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<div data-role="page">
+			<header data-role="header">
+				<h1>MAIN TITLE</h1>
+			</header>
+			<section data-role="content">
+				<a href="#panel" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">회원가입</a>
+			</section>
+			<footer data-role="footer">
+				<h3>main footer</h3>
+			</footer>
+			<div data-role="panel" id="panel" data-display="overlay">
+				<p><a href="#" data-rel="close">CLOSE</a></p>
+				<h2>SIGN IN</h2>
+				<form action="#" method="post">
+					<div class="ui-field-contain">
+						<label for="name">NAME :</label>
+						<input type="text" id="name" name="name" placeholder="full name" data-clear-btn="true">
+						<label for="date">DATE :</label>
+						<input type="date" id="date" name="date">
+						<label for="email">E-Mail :</label>
+						<input type="email" id="email" name="email">
+						<label for="memo">INTRODUCE</label>
+						<textarea name="memo" id="memo" rows="2"></textarea>
+					</div>
+					<fieldset data-role="controlgroup"> <!--fieldset border, legend 자동으로 가려짐-->
+						<legend>GENDER1</legend>
+						<label for="m">MAN</label>
+						<input type="radio" name="gender" id="m" value="MAN">
+						<label for="w">WOMAN</label>
+						<input type="radio" name="gender" id="w" value="WOMAN" checked>
+					</fieldset>
+					<fieldset data-role="controlgroup" data-type="horizontal"> <!--radio 사라짐-->
+						<legend>GENDER2</legend>
+						<label for="m2">MAN</label>
+						<input type="radio" name="gen" id="m2" value="MAN">
+						<label for="w2">WOMAN</label>
+						<input type="radio" name="gen" id="w2" value="WOMAN" checked>
+					</fieldset>
+					<fieldset data-role="controlgroup"> <!--fieldset border, legend 자동으로 가려짐-->
+						<legend>NATION</legend>
+						<label for="ko">KOREA</label>
+						<input type="checkbox" name="nation" id="ko" value="KOREA">
+						<label for="us">U.S.</label>
+						<input type="checkbox" name="nation" id="us" value="U.S.">
+						<label for="uk">U.K.</label>
+						<input type="checkbox" name="nation" id="uk" value="U.K.">
+						<label for="cn">CHINA</label>
+						<input type="checkbox" name="nation" id="cn" value="CHINA">
+					</fieldset>
+					<button type="reset" data-icon="delete" data-inline="true">취소</button>
+					<button type="submit" data-icon="check" data-inline="true">확인</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

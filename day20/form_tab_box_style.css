@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+body, article, p, div, ul, li, input{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+body{
+	font-size: 12px;
+	font-family: "맑은 고딕", sans-serif;
+	color: #333;
+}
+input[type=radio]{
+	display: none;
+}
+
+article{
+	width: 300px;
+	margin: 50px auto;
+	border: 1px solid #222;
+	position: relative;
+}
+article>.tab_btn{
+	height: 30px;
+}
+article>.tab_btn>label{
+	display: block;
+	float: left;
+	width: 150px;
+	height: 30px;
+	background: #222;
+	color: #fff;
+	border: 1px solid #222;
+	box-sizing: border-box;
+	border-bottom: 0;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 30px;
+}
+article>input:nth-of-type(1):checked~.tab_btn>label:nth-of-type(1),
+article>input:nth-of-type(2):checked~.tab_btn>label:nth-of-type(2){
+	background: #fff;
+	color: #222;
+}
+article>.panel{
+	padding: 10px;
+	border: 1px solid #222;
+	border-top: 0;
+	line-height: 1.8em;
+	display: none;
+}
+article>input:nth-of-type(1):checked~div:nth-of-type(1),
+article>input:nth-of-type(2):checked~div:nth-of-type(2){
+	display: block; /*display를 갖고 놀면 높이도 함께 변화하니까 굳이 위치 지정 안해줘도 된다*/
+}

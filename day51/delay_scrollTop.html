@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>delay - lazy load 구조</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+		<script>
+			$(function(){
+				let scrollTopNum=0;
+				$('.a1').fadeIn(1200);
+				$('.a2').delay(400).fadeIn(1200);
+				$('.b1').hide();
+				$('.b2').hide();
+				$('.c1').css({'opacity':0,marginTop:'280px'}).hide();
+				$('.c2').css({'opacity':0,marginTop:'280px'}).hide();
+				$(window).scroll(function(){
+					scrollTopNum=$('html,body').scrollTop();
+					if(scrollTopNum>=$('#div2').offset().top){
+						$('.b1').fadeIn(1200);
+						$('.b2').delay(400).fadeIn(1200);
+					}
+					if(scrollTopNum>=$('#div3').offset().top){
+						$('.c1').show().animate({'opacity':1,marginTop:'180px'},800,'easeOutCubic');
+						$('.c2').show().delay(400).animate({'opacity':1,marginTop:'180px'},800,'easeOutCubic');
+					}
+				});
+			});
+		</script>
+		<style type="text/css">
+			body,section,h2,div{
+				margin: 0; padding: 0;
+			}
+			h2{
+				font-size: 30px;
+				margin-bottom: 30px;
+			}
+			section{
+				overflow: hidden;
+			}
+			#div1{
+				height: 1496px; background: #61bff9;
+			}
+			#div2{
+				height: 1608px; background: #ff3375;
+			}
+			#div3{
+				height: 1751px; background: #62967f;
+			}
+			section>div{
+				width: 300px; height: 600px;
+				float: left;
+				margin: 100px 0 0 40px;
+			}
+			section>div:first-of-type{
+				background: #ffed94;
+			}
+			section>div:last-of-type{
+				background: #87f3e5;
+			}
+			#div1>div{
+				display: none;
+			}
+			#div3>div{
+				opacity: 0; margin-top: 180px;
+			}
+			#div3>.c1{
+				transition: all 0.8s;
+			}
+			#div3>.c2{
+				transition: all 0.8s;
+				transition-delay: 0.4s;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="div1">
+			<h2>div1</h2>
+			<div class="a1">box1-1</div>
+			<div class="a2">box1-2</div>
+		</section>
+		<section id="div2">
+			<h2>div2</h2>
+			<div class="b1">box2-1</div>
+			<div class="b2">box2-2</div>
+		</section>
+		<section id="div3">
+			<h2>div3</h2>
+			<div class="c1">box3-1</div>
+			<div class="c2">box3-2</div>
+		</section>
+	</body>
+</html>

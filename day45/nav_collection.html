@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigation 총정리</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script>
+      $(function(){
+        /*---nav01 begin---*/
+        $('#nav01>ul').on('mouseenter focusin',function(){ //tablet에서 focusin/out 가능, but a tag link 막아줘야 함
+          $(this).find('.sub').stop().slideDown(350,'easeOutCubic');
+          $('.sub_bg').stop().slideDown(350,'easeOutCubic');
+        });
+        $('#nav01>ul').on('mouseleave focusout',function(){
+          $(this).find('.sub').stop().slideUp(300,'easeOutCubic');
+          $('.sub_bg').stop().slideUp(300,'easeOutCubic');
+        });
+        /* $('#nav01>ul').hover(function(){ //.on('mouseenter mouseleave',function(){});
+          $(this).find('.sub').stop().slideToggle(350);
+          $('.sub_bg').stop().slideToggle(300);
+        }); */
+        /*---nav01 end---*/
+        /*---nav02 begin---*/
+        $('#nav02>ul>li').on('mouseenter',function(){ //desktop
+          if($(window).width()>1024){
+            $(this).children('.sub').stop().slideDown(350,'easeInOutCubic');
+            $(this).siblings().children('.sub:visible').slideUp(300,'easeInOutCubic');
+          }
+        });
+        $('#nav02>ul>li').on('mouseleave',function(){ //desktop
+          if($(window).width()>1024){
+            $(this).children('.sub').stop().slideUp(350,'easeInOutCubic');
+          }
+        });
+        $('#nav02>ul>li>a').on('click',function(event){ //tablet
+          if($(window).width()<=1024 && $(window).width()>640){
+            event.preventDefault();
+            $(this).next().stop().fadeToggle(350,'easeOutExpo');
+            $(this).parent().siblings().children('.sub:visible').stop().fadeOut(300,'easeOutExpo');
+          }
+        });
+        /* $('#nav02>ul').hover(function(){ //.on('mouseenter mouseleave',function(){});
+          $(this).find('.sub').stop().slideToggle(350);
+          $('.sub_bg').stop().slideToggle(300);
+        }); */
+        /*---nav02 end---*/
+        /*---nav03 begin---*/
+        let mouseoverstate=false;
+        $('#nav03>ul>li').on('mouseenter',function(){
+          let listIndex=$(this).index();
+          let listW=$(this).width();
+          $('.bar').stop().animate({opacity:1,left:listIndex*listW},200);
+          if(!mouseoverstate){
+            $(this).children('.sub').stop().slideDown(300);
+          } else{
+            $('.sub:visible').stop().fadeOut(100);
+            $(this).children('.sub').stop().fadeIn();
+          }
+          mouseoverstate=true;
+        });
+        $('#nav03>ul').on('mouseleave',function(){
+          let listW=$(this).width();
+          $('.bar').stop().animate({opacity:0,left:-listW},200);
+          $('.sub:visible').stop().slideUp(250);
+          mouseoverstate=false;
+        });
+        /* $('#nav02>ul>li>a').on('click',function(event){ //tablet
+          if($(window).width()<=1024 && $(window).width()>640){
+            event.preventDefault();
+            $(this).next().stop().fadeToggle(350,'easeOutExpo');
+            $(this).parent().siblings().children('.sub:visible').stop().fadeOut(300,'easeOutExpo');
+          }
+        }); */
+        /*---nav03 end---*/
+        /*---nav04 begin---*/
+        let overlist;
+        let overstate=false;
+        $('#nav04>ul>li').on('mouseenter',function(){
+          overlist=$(this); //밑에 leave때 선택된 li 어떤건지 전달해주려고
+          if(!overstate){
+            $(this).children('.sub').show();
+            $(this).find('ul').stop().animate({left:'0px'},350);
+            $('.sub_bg').stop().animate({left:'151px'},350);
+          } else{
+            $('.sub:visible').children('ul').stop().css('left','-110px');
+            $('.sub:visible').hide();
+            $(this).children('.sub').show();
+            $(this).find('ul').stop().css('left','0');
+          }
+          overstate=true;
+        });
+        $('#nav04>ul').on('mouseleave',function(){
+          $('.sub_bg').stop().animate({left:'40px'},350);
+          overlist.find('ul').stop().animate({left:'-110px'},350,function(){
+            $('.sub:visible').hide();
+          });
+          overstate=false;
+        });
+        /*---nav04 end---*/
+      });
+    </script>
+    <style type="text/css">
+      body{
+        margin: 0;
+        font-size:14px;
+        font-family:"맑은 고딕", sans-serif;
+      }
+      h1{
+        margin-left: 30px;
+      }
+      section{
+        margin: 30px; padding: 30px;
+        border: 1px solid #333;
+      }
+      a{
+        text-decoration: none;
+      }
+      /*---nav01 begin---*/
+      #hnav_box1{
+        padding-bottom: 120px;
+      }
+      #nav01{
+        width: 100%; height: 40px;
+        background: #69f;
+        position: relative; z-index: 9999;
+      }
+      #nav01 ul{
+        list-style: none;
+      }
+      #nav01 ul,li{
+        margin: 0; padding: 0;
+      }
+      #nav01>ul{
+        width: 400px; height: 40px;
+        margin: 0 auto;
+        position: relative; z-index: 100;
+      }
+      #nav01>.sub_bg{
+        width: 100%; height: 90px;
+        position: absolute; left: 0; top: 40px;
+        background: rgba(216,223,245,0.5);
+        display: none;
+      }
+      #nav01>ul>li{
+        width: 100px; height: 40px;
+        float: left;
+        position: relative;
+      }
+      #nav01>ul>li>a{
+        display: block;
+        width: 100%; height: 100%;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+        color: #333;
+      }
+      #nav01 .sub{
+        width: 100px; height: 90px;
+        position: absolute; left: 0px; top: 40px;
+        display: none;
+      }
+      #nav01 .sub>ul>li{
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+      }
+      #nav01 .sub>ul>li>a{
+        color: #5d5d5d;
+      }
+      /*---nav01 end---*/
+      /*---nav02 begin---*/
+      #hnav_box2{
+        padding-bottom: 120px;
+      }
+      #nav02{
+        width: 100%; height: 45px;
+        background: #363;
+        position: relative; z-index: 10001;
+      }
+      #nav02 ul{
+        list-style: none;
+      }
+      #nav02 ul,li{
+        margin: 0; padding: 0;
+      }
+      #nav02>ul{
+        text-align: center;
+      }
+      #nav02>ul>li{
+        display: inline-block;
+        padding: 0 15px;
+        position: relative;
+      }
+      #nav02>ul>li>a{
+        display: block;
+        line-height: 45px;
+        padding: 0 10px;
+        font-weight: bold;
+        color: #fff;
+      }
+      #nav02 .sub{
+        width: 100%; height: 90px;
+        position: absolute; left: 0; top: 45px;
+        line-height: 30px;
+        text-align: left;
+        padding-left: 22px;
+        background-color: #9c9;
+        font-size: 14px;
+        box-sizing: border-box;
+        display: none;
+      }
+      #nav02 .sub>ul>li{
+        height: 30px;
+      }
+      #nav02 .sub>ul>li>a{
+        color: #5d5d5d;
+      }
+      /*---nav02 end---*/
+      /*---nav03 begin---*/
+      #hnav_box3{
+        padding-bottom: 150px;
+      }
+      #nav03{
+        width: 100%; height: 45px;
+        background: #909;
+      }
+      #nav03 ul{
+        list-style: none;
+      }
+      #nav03 ul,li{
+        margin: 0; padding: 0;
+      }
+      #nav03>ul{
+        width: 400px; height: 45px;
+        margin: 0 auto;
+        position: relative; z-index: 10002;
+      }
+      #nav03>ul>li{
+        width: 100px; height: 45px;
+        float: left;
+      }
+      #nav03>ul>li>a{
+        display: block;
+        width: 100px; height: 45px;
+        line-height: 45px;
+        text-align: center;
+        color: #fff;
+        font-size: 15px; font-weight: bold;
+        text-transform: uppercase;
+        position: relative; z-index: 5;
+      }
+      #nav03>ul>li>span.bar{
+        width: 100px; height: 5px;
+        position: absolute; left: -100%; bottom: 0; /* z-index: -1; */
+        background: #fc0; opacity: 0;
+      }
+      #nav03 .sub{
+        width: 400px; height: 100px;
+        position: absolute; left: 0; top: 45px;
+        border: 1px solid #620; border-top: 0;
+        background: #fff;
+        display: none;
+      }
+      #nav03 .sub>.imgbox{
+        float: left;
+        width: 120px; height: 80px;
+        margin: 10px 0 0 24px;
+      }
+      #nav03 .sub>ul{
+        float: left;
+        margin: 10px 0 0 25px;
+      }
+      #nav03 .sub>ul>li{
+        float: left;
+        width: 55px;
+        text-align: center;
+      }
+      /*---nav03 end---*/
+      /*---nav04 begin---*/
+      #header_box{
+        width: 150px; height: 400px;
+        background: #f3f3f3;
+        border: 1px solid #090909;
+        position: relative;
+      }
+      #nav04{
+        width: 150px; height: 400px;
+        background: #fff;
+        padding-top: 40px; box-sizing: border-box;
+        /* border-right: 2px solid #f60; */
+        position: relative; z-index: 100;
+      }
+      .sub_bg{
+        width: 110px; height: 400px;
+        background: #9c40cf;
+        border: 1px solid #259; border-left: 0;
+        box-sizing: border-box;
+        position: absolute; left: 40px; top: 0;
+      }
+      #nav04 ul{
+        list-style: none;
+      }
+      #nav04 ul,li{
+        margin: 0; padding: 0;
+      }
+      #nav04>ul{
+        width: 150px; height: 185px;
+      }
+      #nav04>ul>li{
+        width: 150px; height: 45px;
+        border-bottom: 1px solid #ccc;
+      }
+      #nav04>ul>li:first-child{
+        border-top: 1px solid #ccc;
+      }
+      #nav04>ul>li>a{
+        display: block;
+        width: 150px; height: 45px;
+        line-height: 45px; text-align: center;
+        font-size: 16px; font-weight: bold;
+        color: #222;
+      }
+      #nav04 .sub{ /* 얘 자체는 z-index가 안먹어서 뒤로 숨겨지지 않음 -> overflow: hidden 걸어서 이동하는 ul 잘라버림*/
+        width: 110px; height: 400px;
+        position: absolute; left: 150px; top: 0;
+        overflow: hidden;
+        display: none;
+      }
+      #nav04 .sub>ul{ /* sub 대신에 ul이 이동한다 */
+        width: 110px; height: 260px;
+        position: absolute; left: -110px; top: 40px;
+      }
+      #nav04 .sub>ul>li{
+        height: 40px;
+      }
+      #nav04 .sub>ul>li>a{
+        display: block;
+        height: 40px; line-height: 40px;
+        color: #fff;
+        padding-left: 15px; box-sizing: border-box;
+      }
+      /*---nav04 end---*/
+    </style>
+  </head>
+  <body>
+    <h1>Navigation's</h1>
+    <section id="selector_box">
+      <h2>메뉴 필요 선택자</h2>
+      <ul>
+        <li>$('tag name')/$('.class name')/$('#id name')</li>
+        <li>하위 요소(자손) 찾기 - selector.find('.sub') : 전체 풀다운 메뉴 제작시</li>
+        <li>하위 요소(자식) 찾기 - selector.children('.sub') : 개별 풀다운 메뉴 제작시</li>
+        <li>동위 요소 찾기(다음개체) - selector.next() : 클릭이벤트 개별 메뉴 제작시</li>
+        <li>동위 요소 찾기(개체 선택반전) - selector.siblings() : 세로메뉴 개별 반응메뉴</li>
+        <li>동위 요소 찾기(특정개체) - selector.filter('.on') : 개별메뉴 중 특정 클래스 검색시</li>
+      </ul>
+    </section>
+    <section id="event_box">
+      <h2>적용 이벤트</h2>
+      <ul>
+        <li>on('click',function(){}) --> $('a'):event.preventDefault() 고려</li>
+        <li>on('mouseenter/mouseleave',function(){}) --> pull down menu</li>
+        <li>on('mouseover/mouseout',function(){}) --> button, a 등의 개별 이벤트</li>
+        <li>hover(function(){over 실행},function(){out 실행}) --> mouseover/out 줄임표기(</li>
+      </ul>
+    </section>
+    <section id="style_box">
+      <h2>style 준비</h2>
+      <ul>
+        <li>메인메뉴 글자수가 차이 없는 경우(li 너비가 같음, float, 가운데 정렬 margin 가능)</li>
+        <li>메인메뉴 글자수가 차이 나는 경우(float, margin 간격, 가운데 정렬 position, transform으로)</li>
+        <li>메인, 하위메뉴 position(relative, absolute('.sub'), fixed(gnb)) - z-index 신경쓰기</li>
+        <li>width, height 가급적 모두 기입</li>
+        <li>css transition --> a 자체 변경, 모바일 등장(퇴장)방식</li>
+        <li>css 값 교체, 추가/삭제 대비 --> class 상황 선언(.on/.off, .active 적용유무)</li>
+        <li>sub 메뉴 margin-top 주의 padding-top으로!</li>
+      </ul>
+    </section>
+    <section id="function_box">
+      <h2>effect function</h2>
+      <ul>
+        <li>selector.slideDown(time,easing,function(){});</li>
+        <li>selector.slideUp(time,easing,function(){});</li>
+        <li>selector.fadeIn(time,easing,function(){});</li>
+        <li>selector.fadeOut(time,easing,function(){});</li>
+        <li>selector.animate({property:value},time,easing,function(){});</li>
+        <li>selector.stop(); / selector.delay(time);</li>
+        <li>transition - addClass('~');/removeClass('~');</li>
+        <li>.toggle(); / .toggleClass('~');</li>
+        <li>.slideToggle(time,function(){}); / .fadeToggle(time,function(){});</li>
+        <li>.fadeTo(time,opacity(0~1));</li>
+      </ul>
+    </section>
+    <section id="hnav_box1">
+      <h2>Horizontal navigation - nav01 pull-down menu</h2>
+      <p>
+        서브메뉴 위치 주의, 높이 지정(모든 서브메뉴가 일치하게)시 서브메뉴 배경요소와 동일하게 설정<br>
+        이벤트 적용개체 - 최상위 개체(nav, nav>ul)<br>
+        이펙트 적용개체 - .find('.sub')<br>
+        이벤트 함수 - mouseenter/leave, hover, mouseover/out<br>
+        이펙트 함수 - slideDown/slideUp, fadeIn/fadeOut
+      </p>
+      <nav id="nav01">
+        <ul>
+          <li>
+            <a href="#">Main1</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub1-1</a></li>
+                <li><a href="#">Sub1-2</a></li>
+                <li><a href="#">Sub1-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main2</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub2-1</a></li>
+                <li><a href="#">Sub2-2</a></li>
+                <li><a href="#">Sub2-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main3</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub3-1</a></li>
+                <li><a href="#">Sub3-2</a></li>
+                <li><a href="#">Sub3-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main4</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub4-1</a></li>
+                <li><a href="#">Sub4-2</a></li>
+                <li><a href="#">Sub4-3</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <div class="sub_bg"></div>
+      </nav>
+    </section>
+    <section id="hnav_box2">
+      <h2>Horizontal navigation - Independent pull-down menu</h2>
+      <p>
+        서브메뉴 위치 주의, sub_bg요소 필요x<br>
+        이벤트 적용개체 - 최상위 li<br>
+        이펙트 적용개체 - .find('.sub') or .children('.sub') / .siblings().children('.sub') or $('.sub:visible')<br>
+        이벤트 함수 - mouseenter/leave, hover, mouseover/out, click, focusin/out<br>
+        이펙트 함수 - slideDown/Up, fadeIn/Out
+      </p>
+      <nav id="nav02">
+        <ul>
+          <li>
+            <a href="#">Main1</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub1-1</a></li>
+                <li><a href="#">Sub1-2</a></li>
+                <li><a href="#">Sub1-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main2</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub2-1</a></li>
+                <li><a href="#">Sub2-2</a></li>
+                <li><a href="#">Sub2-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main3</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub3-1</a></li>
+                <li><a href="#">Sub3-2</a></li>
+                <li><a href="#">Sub3-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main4</a>
+            <div class="sub">
+              <ul>
+                <li><a href="#">Sub4-1</a></li>
+                <li><a href="#">Sub4-2</a></li>
+                <li><a href="#">Sub4-3</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section id="hnav_box3">
+      <h2>Horizontal navigation - Independent pull-down menu2</h2>
+      <p>
+        서브 메뉴가 높이, 너비 일치(고정), sub_bg 필요X<br>
+        이벤트 적용개체 - 최상위 li(enter), 최상위 ul(leave)<br>
+        이펙트 적용개체 - .find('.sub') or .children('.sub') / ('.bar') / .siblings().children('.sub') or $('.sub:visible')<br>
+        이벤트 함수 - mouseenter/leave, hover, mouseover/out, click, focusin/out<br>
+        이펙트 함수 - slideDown/Up, fadeIn/Out, animate
+      </p>
+      <nav id="nav03">
+        <ul>
+          <li>
+            <a href="#">Main1</a><span class="bar"></span>
+            <div class="sub">
+              <div class="imgbox"><img src="https://via.placeholder.com/120x80" alt=""></div>
+              <ul>
+                <li><a href="#">Sub1-1</a></li>
+                <li><a href="#">Sub1-2</a></li>
+                <li><a href="#">Sub1-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main2</a>
+            <div class="sub">
+              <div class="imgbox"><img src="https://via.placeholder.com/120x80" alt=""></div>
+              <ul>
+                <li><a href="#">Sub2-1</a></li>
+                <li><a href="#">Sub2-2</a></li>
+                <li><a href="#">Sub2-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main3</a>
+            <div class="sub">
+              <div class="imgbox"><img src="https://via.placeholder.com/120x80" alt=""></div>
+              <ul>
+                <li><a href="#">Sub3-1</a></li>
+                <li><a href="#">Sub3-2</a></li>
+                <li><a href="#">Sub3-3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Main4</a>
+            <div class="sub">
+              <div class="imgbox"><img src="https://via.placeholder.com/120x80" alt=""></div>
+              <ul>
+                <li><a href="#">Sub4-1</a></li>
+                <li><a href="#">Sub4-2</a></li>
+                <li><a href="#">Sub4-3</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section id="vnav_box1">
+      <h2>Vertical navigation - side menu</h2>
+      <p>
+        서브 메뉴, sub_bg 필요ㅇ 크기 지정, absolute, z-index관리, overflow 적용<br>
+        이벤트 적용개체 - 최상위 li(enter), 최상위 ul(leave)<br>
+        이펙트 적용개체 - .find('.sub') or .children('.sub') /$('.sub_bg')<br>
+        이벤트 함수 - mouseenter/leave, hover, mouseover/out, click, focusin/out<br>
+        이펙트 함수 - show/hide, animate({left}) or addClass/removeClass + transition
+      </p>
+      <header id="header_box">
+        <!-- h1(logo) -->
+        <nav id="nav04">
+          <ul>
+            <li>
+              <a href="#">Main1</a>
+              <div class="sub">
+                <ul>
+                  <li><a href="#">Sub1-1</a></li>
+                  <li><a href="#">Sub1-2</a></li>
+                  <li><a href="#">Sub1-3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#">Main2</a>
+              <div class="sub">
+                <ul>
+                  <li><a href="#">Sub2-1</a></li>
+                  <li><a href="#">Sub2-2</a></li>
+                  <li><a href="#">Sub2-3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#">Main3</a>
+              <div class="sub">
+                <ul>
+                  <li><a href="#">Sub3-1</a></li>
+                  <li><a href="#">Sub3-2</a></li>
+                  <li><a href="#">Sub3-3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#">Main4</a>
+              <div class="sub">
+                <ul>
+                  <li><a href="#">Sub4-1</a></li>
+                  <li><a href="#">Sub4-2</a></li>
+                  <li><a href="#">Sub4-3</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="sub_bg"></div>
+      </header>
+    </section>
+    <section id="img_box">
+      <h2>가상이미지 호출</h2>
+      <img src="https://via.placeholder.com/320x120" alt="">
+      <img src="https://via.placeholder.com/320x120/EB117F/FFFFFF?text=logo_img" alt="">
+      <br>
+      <img src="https://placeimg.com/240/100/any" alt="">
+      <img src="https://placeimg.com/240/100/animals" alt="">
+      <img src="https://placeimg.com/240/100/nature" alt="">
+      <img src="https://placeimg.com/240/100/architecture" alt="">
+      <img src="https://placeimg.com/240/100/people" alt="">
+      <img src="https://placeimg.com/240/100/tech" alt="">
+    </section>
+  </body>
+</html>

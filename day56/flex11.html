@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>flex11 - layout practice</title>
+		<style type="text/css">
+			body,header,nav,section,footer,h1,h2,h3,div,p{
+				margin: 0; padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			#main_header{
+				padding: 20px;
+				text-align: center;
+				background: #9cb;
+			}
+			#navbar{
+				background: #248;
+				display: flex;
+				justify-content: center;
+			}
+			#navbar>a{
+				display: block;
+				color: #fff;
+				font-weight: bold;
+				padding: 14px 20px;
+			}
+			#row_wrap{
+				min-height: 700px;
+				display: flex;
+				flex-flow: row wrap;
+			}
+			#row_wrap>.side{
+				background: #777;
+				color: #fff;
+				flex: 30%;
+				display: flex;
+				flex-flow: column wrap;
+				justify-content: center;
+				align-content: center;
+			}
+			#row_wrap>.side>h2{
+				width: 70%; height: 30px;
+				text-align: center; line-height: 30px;
+				background: #96c;
+			}
+			#row_wrap>.side>.photo{
+				width: 70%; min-height: 300px;
+				background: #fc3;
+			}
+			#row_wrap>.main{
+				background: #f7f7f7;
+				flex: 70%;
+				display: flex;
+				flex-flow: column wrap;
+				justify-content: center;
+				align-content: center;
+			}
+			#row_wrap>.main>h2{
+				width: 330px; height: 30px;
+				line-height: 30px;
+				background: #fce;
+			}
+			#row_wrap>.main>div{
+				width: 330px; height: 120px;
+				line-height: 120px;
+				background: #9cf;
+			}
+			#main_footer{
+				height: 90px;
+				background: #454545;
+				line-height: 90px; text-align: center;
+			}
+			@media screen and (max-width: 640px){
+				#navbar,#row_wrap{
+					flex-direction: column;
+				}
+				#row_wrap>.side,#row_wrap>.main{
+					flex: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header id="main_header">
+			<h1>Web Title</h1>
+			<p>flex basic layout</p>
+		</header>
+		<nav id="navbar">
+			<a href="#">Main1</a>
+			<a href="#">Main2</a>
+			<a href="#">Main3</a>
+			<a href="#">Main4</a>
+		</nav>
+		<section id="row_wrap">
+			<div class="side">
+				<h2>About</h2>
+				<div class="photo">img+text</div>
+			</div>
+			<div class="main">
+				<h2>Portfolio1</h2>
+				<div class="thumb1">img+caption</div>
+				<h2>Portfolio2</h2>
+				<div class="thumb2">img+caption</div>
+			</div>
+		</section>
+		<footer id="main_footer">
+			<h3>Copyright</h3>
+		</footer>
+	</body>
+</html>

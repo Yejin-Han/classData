@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>아이디 중복확인 - 배열, 반복문, 조건문</title>
+        <script>
+            let memberId=new Array("line","admin","ansan","study","web");
+            let dup_check=0; //true(1) false(0)-기본값
+            let newId=prompt("아이디를 입력해주세요.","");
+            if(newId!=null && newId!=""){
+                for(let i=0; i<memberId.length; i++){
+                    if(newId==memberId[i]){
+                        dup_check=1;
+                    }
+                }
+                if(dup_check){
+                    alert("이미 존재하는 아이디입니다. 다시 입력해주세요.");
+                    window.location.reload();
+                } else{
+                    let registration=confirm("사용 가능한 아이디입니다. 사용하시겠습니까?");
+                    if(registration){
+                        memberId.push(newId);
+                        document.write(memberId);
+                    } else{
+                        alert("다른 값을 입력해주세요.");
+                        window.location.reload();
+                    }
+                }
+            } else{
+                alert("값이 입력되지 않았습니다. 다시 입력해주세요.");
+                window.location.reload();
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

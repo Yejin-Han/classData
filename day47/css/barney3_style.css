@@ -1,0 +1,72 @@
+@charset 'utf-8';
+body,section,div,ul,li{
+  margin: 0; padding: 0;
+}
+ul{
+  list-style:none;
+}
+a{
+  text-decoration:none;
+}
+img{
+  display:block;
+}
+
+.slide_container{
+  width: 600px; height: 350px;
+  border: 2px solid #f60;
+  position:absolute; left: 50%; top: 50%;
+  transform:translate(-50%,-50%);
+}
+.slide_container>.slides{
+  width: 600px; height: 350px;
+  position:relative;
+  overflow:hidden;
+}
+.slide_container>.slides>img{
+  width: 600px; height: 350px;
+  position:absolute; top: 0; left: 600px;
+}
+.slide_container>.slides>img:first-of-type{
+  left:0;
+}
+.slide_container>.btns{
+  width: 94px; height: 16px;
+  position:absolute; left: 50%; bottom: 20px;
+  transform:translateX(-50%); z-index:50;
+}
+.slide_container>.btns>ul>li{
+  float:left;
+  width: 16px; height: 16px;
+  margin-left: 10px;
+}
+.slide_container>.btns>ul>li:first-child{
+  margin-left: 0;
+}
+.slide_container>.btns>ul>li>a{
+  display: block;
+  width: 16px; height: 16px;
+  text-indent: -9999px;
+  background: url("../barney/btn.png") no-repeat 0 0;
+}
+.slide_container>.btns>ul>li>a.on{
+  background-position: 0 -15px;
+}
+.slide_container>a{
+  display: block;
+  width: 50px; height: 32px;
+  text-align: center;
+  line-height: 32px;
+  font-size: 12px;
+  font-weight: bold;
+  background: #fc0;
+  color: #151515;
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+}
+.slide_container>.prev{
+  left:0; z-index:51;
+}
+.slide_container>.next{
+  right:0; z-index:52;
+}

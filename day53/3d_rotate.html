@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>자동차 상세보기 360deg rotate</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				for(let i=1; i<=36; i++){
+					$('#vr_wrap').append('<img src="vr/SWP_'+i+'.png" alt="">');
+				}
+				const imgs=$('#vr_wrap').find('img');
+				imgs.hide();
+				imgs.eq(0).show();
+
+				let index=0;
+				function rotateView(){
+					index++;
+					if(index>35){ index=0; } //index=index%36;
+					imgs.hide(); //$('#vr_wrap').find('img:visible').hide();가 더 정확하게 ok
+					imgs.eq(index).show();
+				}
+				function rotateView_rev(){
+					index--;
+					if(index<0){ index=35; }
+					imgs.hide();
+					imgs.eq(index).show();
+				}
+				
+				let timer;
+				$('.left').on('mousedown',function(){
+					timer=setInterval(rotateView,50);
+				});
+				$('.left').on('mouseup',function(){
+					clearInterval(timer);
+				});
+				$('.right').on('mousedown',function(){
+					timer=setInterval(rotateView_rev,50);
+				});
+				$('.right').on('mouseup',function(){
+					clearInterval(timer);
+				});
+			});
+		</script>
+		<style type="text/css">
+			#vr_wrap{
+				width: 960px; height: 438px;
+				border: 2px solid #009;
+				position: relative;
+				margin: 200px auto;
+			}
+			#vr_wrap>img{
+				display: block; border: 0;
+				width: 960px; height: 438px;
+				position: absolute; left: 0; top: 0;
+			}
+			#vr_wrap>button{
+				width: 482px; height: 40px;
+				border: 1px solid #090909;
+				line-height: 40px; text-align: center;
+				font-size: 24px; font-weight: bold;
+				background: #ccc; color: #090909;
+				position: absolute; bottom: -42px;
+			}
+			#vr_wrap>.left{
+				left: -2px;
+			}
+			#vr_wrap>.right{
+				right: -2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="vr_wrap">
+			<button type="button" class="left">LEFT</button>
+			<button type="button" class="right">RIGHT</button>
+		</div>
+	</body>
+</html>

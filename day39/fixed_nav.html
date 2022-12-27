@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>full scroll - nav fixed</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <script>
+            $(function(){
+                let scrollTopNum=0;
+                const fixPos=$('header').outerHeight();
+                $(window).scroll(function(){
+                    scrollTopNum=$('html,body').scrollTop(); //$(document)
+                    if(scrollTopNum>=fixPos){
+                        $('nav').addClass('fix');
+                    } else{
+                        $('nav').removeClass('fix');
+                    }
+                });
+            });
+        </script>
+        <style type="text/css">
+            body,header,nav,section{
+                margin:0; padding:0;
+            }
+            img{
+                display:block;
+                border:0;
+            }
+            header{
+                height: 130px;
+                padding: 15px 20px;
+                background: #c9d;
+                border-bottom: 2px solid #509;
+            }
+            nav{
+                height: 50px;
+                line-height: 50px;
+                background: #39c;
+                color: #fff;
+                /*relative로 걸면 fixed로 바뀔 때 높이 없어지는 오류 발생*/
+                position: absolute; left:0; top:162px;
+                width:100%;
+                border-bottom: 2px solid #33c;
+            }
+            nav.fix{
+                position:fixed; left:0; top:0;
+            }
+            section{
+                margin-top: 52px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>h1, tnb</header>
+        <nav>ul - gnb</nav>
+        <section>
+            <h2>Main Contents</h2>
+            <img src="../day38/poster/1.jpg" alt="">
+            <img src="../day38/poster/2.jpg" alt="">
+        </section>
+    </body>
+</html>

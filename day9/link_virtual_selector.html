@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>link 가상선택자(상태선택)</title>
+        <style type="text/css">
+            body, h1, ul{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                font-size: 14px;
+                font-family: Roboto, sans-serif;
+                color: #222;
+            }
+            h1{
+                margin: 12px 0 20px 50px;
+            }
+            ul{
+                list-style: none;
+                margin-left: 50px;
+            }
+            a{
+                text-decoration: none;
+                color: #444;
+            }
+            a:link{
+                /*링크 상태 - 사실 a의 기본 상태*/
+                color: #fc6;
+            }
+            a:visited{
+                /*클릭 - load된 데이터 존재시*/
+                color: #f60;
+                text-decoration: underline;
+            }
+            a:hover{
+                /*마우스가 올라온 상태*/
+                color: #06f;
+                text-decoration: overline;
+            }
+            a:active{
+                /*마우스 버튼을 누르고 있는 상태*/
+                color: #393;
+                background: #fcc;
+            }
+            a:focus{
+                /*활성화(선택) - tab 접근, 클릭하고 난 상태*/
+                background: #f90;
+                color: #ffc;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>상태 선택자</h1>
+        <ul>
+            <li><a href="javascript:void();">프로젝트</a></li>
+            <li><a href="javascript:;">검색</a></li>
+            <li><a href="https://naver.com">브라우저</a></li>
+            <li><a href="#">도구</a></li>
+        </ul>
+    </body>
+</html>

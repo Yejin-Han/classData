@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>표 만들기 연습</title>
+	</head>
+	<body>
+		<h1>표 기본구조</h1>
+		<h2>기본형식</h2>
+		<table border="8" cellspacing="5" cellpadding="5" width="300" height="200" bordercolor="#0099ff"> <!--bordercolor 자체가 html5에서 지원 안하기도 하지만, cross browsing 고려 해야 함-->
+			<tr>
+				<td align="left" valign="top">data1</td>
+				<td align="center" valign="middle">data2</td>
+			</tr>
+			<tr>
+				<td align="right" valign="bottom">data3</td>
+				<td>data4</td>
+			</tr>
+		</table>
+		<h2>rowspan</h2>
+		<table border="1" width="300" height="200">
+			<tr>
+				<th rowspan="2">data1<br>data3</th>
+				<td>data2</td>
+			</tr>
+			<tr>
+				<td>data4</td>
+			</tr>
+		</table>
+		<h2>colspan</h2>
+		<table border="1" width="300" height="200">
+			<tr>
+				<td colspan="2">data1, data2</td>
+			</tr>
+			<tr>
+				<td>data3</td>
+				<td>data4</td>
+			</tr>
+		</table>
+		<h2>rowspan colspan 연습1</h2>
+		<table border="1" cellspacing="0" cellpadding="5" width="300" height="200">
+			<tr>
+				<td>1</td>
+				<td colspan="2">2 3</td>
+			</tr>
+			<tr>
+				<td rowspan="2">4<br>7</td>
+				<td>5</td>
+				<td rowspan="2">6<br>9</td>
+			</tr>
+			<tr>
+				<td>8</td>
+			</tr>
+			<tr>
+				<td rowspan="2">10<br>11</td>
+				<td>12</td>
+				<td rowspan="2">13<br>15</td>
+			</tr>
+			<tr>
+				<td>14</td>
+			</tr>
+		</table>
+		<h2>rowspan colspan 연습2</h2>
+		<table border="1" cellspacing="0" cellpadding="5" width="300" height="200">
+			<tr>
+				<td colspan="4">1 2 3 4</td>
+			</tr>
+			<tr>
+				<td rowspan="3">5<br>9<br>13</td>
+				<td colspan="3">6 7 8</td>
+			</tr>
+			<tr>
+				<td rowspan="2">10<br>14</td>
+				<td colspan="2">11 12</td>
+			</tr>
+			<tr>
+				<td>15</td>
+				<td>16</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>flex12 - layout practice2</title>
+		<style type="text/css">
+			body,header,nav,main,footer,ul,li,h1,button{
+				margin: 0; padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			body{
+				font-size: 14px; color: #333;
+			}
+			#wrapper{
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
+			#wrapper>*{
+				padding: 20px;
+			}
+			#wrapper>#main_header{
+				background: #9cf;
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-between;
+				align-content: center;
+				align-items: center;
+			}
+			#wrapper>#main_header>.logo{
+				width: 120px; height: 34px;
+				text-align: center; line-height: 34px;
+				background: #262;
+				font-size: 1.6em;
+				/* align-self: center; */
+			}
+			#wrapper>#main_header>.gnb{
+				width: 40%; height: 40px;
+				line-height: 40px;
+				background: #f90;
+			}
+			#wrapper>#main_header>.gnb>ul{
+				display: flex;
+				justify-content: space-around;
+			}
+			#wrapper>#main_header>#login{
+				width: 80px; height: 30px;
+				text-align: center; line-height: 30px;
+				border: 1px solid #ccc;
+				/* align-self: center; */
+			}
+			#wrapper>#main_content{
+				background: #bdc;
+				flex-grow: 1;
+			}
+			#wrapper>#main_footer{
+				background: #387;
+			}
+			@media screen and (max-width: 1024px){
+				#wrapper>#main_header>.gnb{
+					width: 100%;
+					order: 3;
+					margin-top: 12px;
+				}
+				#wrapper>#main_header>.login{
+					order: 2;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<header id="main_header">
+				<h1 class="logo">Logo</h1>
+				<nav class="gnb">
+					<ul>
+						<li><a href="#">Main1</a></li>
+						<li><a href="#">Main2</a></li>
+						<li><a href="#">Main3</a></li>
+						<li><a href="#">Main4</a></li>
+					</ul>
+				</nav>
+				<button type="button" id="login">Login</button>
+			</header>
+			<main id="main_content">
+				Main Contents
+			</main>
+			<footer id="main_footer">
+				Footer Contents
+			</footer>
+		</div>
+	</body>
+</html>

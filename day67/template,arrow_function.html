@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Javascript - ECMAScript</title>
+		<script>
+			let name="홍길동";
+			let time=0; //출근시간
+			console.log('사원 이름은 '+name+'이고, 출근시간은 '+time+'분 입니다.');
+			console.log(`사원 이름은 ${name+'님'}이고, 출근시간은 ${time+45}분 입니다.`);
+
+			let n1=1;
+			let n2=3;
+			const calc=(n)=>{
+				n1++;
+				return n1*n+n2;
+				n2++; //이미 return으로 함수 종료되었으므로 실행 x
+			}
+			let n3=calc(2); //여기서 n1++한번 더 실행되므로 후의 calc(2) 값은 변한다.
+			console.log(calc(2),n1,n2,n3);
+
+			let a=10;
+			let b=0;
+			b=a++; //b=a; a++;
+			console.log(a,b);
+			let c=10;
+			let d=0;
+			d=++c; //d++; d=c;
+			console.log(c,d);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

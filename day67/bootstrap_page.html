@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>Bootstrap responsive page</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			body{
+				font-family: "맑은 고딕", sans-serif;
+				font-size: 14px;
+				margin: 0;
+			}
+			h1,h2,h3{ margin: 0; }
+			header,section,footer,div{ transition: all 0.2s; }
+			.navbar{ margin-bottom: 10px; }
+			.main_content{
+				margin-top: 50px;
+				min-height: 700px;
+				background: url('bg/bg_main01.jpg') no-repeat center top;
+				background-size: cover;
+			}
+			.hgroup{
+				margin-top: 80px;	padding: 30px 0;
+				text-align: center;
+				background: rgba(201,123,186,0.5);
+			}
+			.content_info{ margin-top: 90px; }
+			.content_info>div{
+				height: 240px;
+				background: rgba(255,204,0,0.4);
+			}
+			.content_info>.design{ background: rgba(0,102,204,0.4); }
+			footer{
+				margin-top: 15px; padding: 10px;
+				background: #ededed;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="navbar navbar-inverse navbar-fixed-top container">
+			<div class="navbar-header">
+				<h1 class="navbar-brand">Logo</h1>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+			</div>
+			<nav class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About Me</a></li>
+					<li><a href="#">Contact Me</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Graphic Design</a></li>
+							<li><a href="#">Web Project</a></li>
+							<li><a href="#">Motion Animation</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<section class="container main_content">
+			<div class="row content_top">
+				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 hgroup">
+					<h2>Main Title</h2>
+					<h3>sub title text</h3>
+				</div>
+			</div>
+			<div class="row content_info">
+				<div class="col-md-2 col-md-offset-4 col-sm-6 web">
+					<h3>Latest Work</h3>
+					<p>img+introduce</p>
+				</div>
+				<div class="col-md-2 col-sm-6 design">
+					<h3>Latest Work</h3>
+					<p>img+introduce</p>
+				</div>
+			</div>
+		</section>
+		<footer class="container">
+			<div class="row">
+				<div class="col-md-10 col-sm-10 pull-right">
+					<address>address info</address>
+					<p>copyright</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

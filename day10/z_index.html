@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>z-index</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+                font-size: 30px;
+                font-family: "Noto Sans", sans-serif;
+            }
+            div{
+                width: 300px;
+                height: 300px;
+                position: absolute;
+                text-align: center;
+                line-height: 300px;
+                font-weight: bold;
+                color: #fc5;
+            }
+            .div1{
+                left: 50px;
+                top: 50px;
+                z-index: 1;
+                background: #6c6;
+            }
+            .div2{
+                left: 75px;
+                top: 75px;
+                z-index: 2;
+                background: #06f;
+            }
+            .div3{
+                left: 100px;
+                top: 100px;
+                z-index: 3;
+                background: #90f;
+            }
+            .black_bg{
+                left: 0;
+                top: 0;
+                z-index: 100;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+            }
+            .img_center{
+                width: 960px;
+                height: 404px; /*원래는 403*/
+                z-index: 1000;
+                left: 50%;
+                top: 50%;
+                margin: -202px 0 0 -480px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div1">DIV</div>
+        <div class="div2">DIV</div>
+        <div class="div3">DIV</div>
+        <div class="black_bg"></div>
+        <div class="img_center">
+            <img src="../day4/img/bg/bgVis01_m.gif" alt="">
+        </div>
+    </body>
+</html>

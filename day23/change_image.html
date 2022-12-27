@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <title>미디어쿼리 - 이미지 체인지</title>
+        <style type="text/css">
+            /*반응형 슬라이드 배너에 사용하는 방법*/
+            body{
+                margin: 0; padding: 0;
+            }
+            @media screen and (min-width: 1025px){
+                .d{
+                    display: block;
+                }
+                .t, .m{
+                    display: none;
+                }
+            }
+            @media screen and (max-width: 1024px) and (min-width: 641px){
+                .t{
+                    display: block;
+                }
+                .d, .m{
+                    display: none;
+                }
+
+            }
+            @media screen and (max-width: 640px){
+                .m{
+                    display: block;
+                }
+                .d, .t{
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <img src="img/desktop.jpg" alt="" class="d"><!-- ld -->
+        <img src="img/tablet.jpg" alt="" class="t">
+        <img src="img/mobile.jpg" alt="" class="m"><!-- sm -->
+    </body>
+</html>

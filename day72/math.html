@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Math 객체</title>
+		<script>
+			console.log(Math.max(2,7,3));
+			const num_ar=[1,4,2];
+			console.log(Math.max(...num_ar));
+
+			const calcAngle=(x,y)=>{
+				return Math.atan2(y,x)*180/Math.PI; //rad->deg
+			}
+			console.log(0,0);	console.log(calcAngle(0,0));
+			console.log(10,0);	console.log(calcAngle(10,0));
+			console.log(0,10);	console.log(calcAngle(0,10));
+			console.log(20,20);	console.log(calcAngle(20,20));
+			console.log(4,-4);	console.log(calcAngle(4,-4));
+			console.log(12,7);	console.log(calcAngle(12,7));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

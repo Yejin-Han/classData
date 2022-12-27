@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> //브라우저 edge에도 호환 cross browsing
+<meta name="Keywords" content=""> //검색엔진에 걸릴 단어 쉼표로 구분해서 적기. main일수록 중요, 매 page마다 적기
+<meta name="Description" content=""> //포털사이트에 검색하면 바로가기와 함께 뜨는 한줄 간단 설명.
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"> //모바일 기본설정
+<meta name="format-detection" content="telephone=no, address=no, email=no"> //모바일에서 이런저런 내용을 전화번호, 주소, 이메일로 인식하는 걸 막아줌.
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes"> //모바일 주소줄 안보이게
+
+
+css === <style>..</style> (안씀)
+           <link rel="" href="...css"> 외부파일 연결
+
+js === <script type="..">...</script> 문서 내 입력공간 (안씀)
+   === <script src="...js"></script> 외부파일 연결
+
+
+
+iPhone을 위한 설정
+html에서
+
+body ontouchstart=""
+
+click event 먹히려면
+해당 태그에 onclick="this.focus( );"

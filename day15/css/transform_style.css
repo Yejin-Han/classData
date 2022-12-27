@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+div{
+	width: 315px;
+	height: 235px;
+	border: 2px solid #06c;
+	margin: 30px;
+}
+div>img{
+	display: block;
+	width: 215px;
+	height: 135px;
+	margin: 50px;
+}
+/*img에 margin 주냐 div에 padding 주냐는 필요에 따라 정하셈 지금은 상관 x*/
+#translate_box>img{
+	transform: translate(70px, 90px);
+	/*값을 100%로 주면 자기 자신의 100%만큼 이동함.*/
+}
+#rotate_box>img{
+	transform: rotate(40deg);
+}
+#scale_box>img{
+	transform: scale(1.5);
+}
+#skew_box>img{
+	transform: skew(30deg, 30deg);
+}

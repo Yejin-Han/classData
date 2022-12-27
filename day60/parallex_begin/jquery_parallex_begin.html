@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>parallex 00</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        const pages=$("#parallex_wrap>div");
+        let wrapH=0; //pages.length*pages.height(); -- 섹션 높이 다 정확히 같을 때만 가능
+				const pagePos=new Array;
+				const subPos=new Array;
+				pages.each(function(i){
+					// pagePos.push($(this).offset().top);
+					pagePos[i]=$(this).offset().top;
+					subPos[i]=new Array;
+					let childDivs=$(this).children();
+					childDivs.each(function(m){
+						subPos[i][m]=$(this).position().top; //$(this).css('top');
+					});
+					wrapH+=$(this).height();
+				});
+        pages.css('position','fixed');
+				$('#parallex_wrap').height(wrapH);
+				pages.each(function(j){
+					$(this).css('top',pagePos[j]); //fixed 되고 나서 height 인식 안되므로 지정해줘야 함. <==> $(this).css('top',page.height()*j); -- 섹션 높이 다 정확히 같을 때만 가능
+				});
+				let scrollTop=0;
+				$(window).scroll(function(){
+					scrollTop=$(document).scrollTop();
+					pages.each(function(k){
+						let topPos=pagePos[k]-scrollTop; //fixed 되어서 다 독립적으로 움직이기 때문에 각자 스크롤탑만큼 동시에 위로 올려줘야 됨.
+						if(topPos<0){ //해당 pages가 화면 위로 올라갈 때
+							topPos*=0.1; //topPos=0 -- background-attachment: fixed;와 동일
+						}
+						$(this).css('top',topPos);
+						let parent=$(this);
+						let children=parent.children();
+						//(부모 div의 최대이동거리) : (부모 div의 현재이동거리) = (자식 요소의 최대이동거리) : (자식 요소의 현재이동거리)
+						children.each(function(m){
+							let parentMax=parent.outerHeight();
+							let parentCurr=scrollTop-pagePos[k];
+							let subMax=-100*m; //자식들마다 이동하는거리를 다르게 줌.(임의)
+							let subTop=subPos[k][m]+((parentCurr*subMax)/parentMax); //parentCurr=0이 될 때 우리가 css에서 지정한 subTop이 보임.
+							$(this).css('top',subTop);
+							/* 비율로 늘어나고 줄어들 때
+							let ratio=1-(parentCurr/parentMax);
+							$(this).css('transform','scale('+ratio+')'); */
+						});
+					});
+				});
+      });
+    </script>
+
+    <style type="text/css">
+      body {
+        margin: 0px;
+        font-size: 12px;
+        font-family: "맑은 고딕",sans-serif;
+      }
+      #parallex_wrap {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+      }
+      #parallex_wrap > div {
+        position: relative;
+        overflow: hidden;
+        left: 0px;
+        width: 100%;
+        height: 1200px;
+        top: 0px;
+      }
+      #parallex_wrap > div > * {
+        position: absolute;
+      }
+      #parallex_wrap #page1 {
+        background: url(parallex_bg/main1.jpg) no-repeat;
+      }
+      #parallex_wrap #page2 {
+        background: url(parallex_bg/bg_main01.jpg) no-repeat;
+        z-index: 100;
+      }
+      #parallex_wrap #page3 {
+        background: url(parallex_bg/bg_main02.jpg) no-repeat;
+        z-index: 200;
+      }
+      #parallex_wrap #page4 {
+        background: url(parallex_bg/bg_main03.jpg) no-repeat;
+        z-index: 300;
+      }
+      .sub1 {
+        width: 500px;
+        height: 200px;
+        background: #666;
+      }
+      .sub2 {
+        width: 700px;
+        height: 300px;
+        background: #636;
+      }
+      .sub3 {
+        width: 400px;
+        height: 100px;
+        background: #669;
+      }
+      #page1 .sub1 {
+        left: 300px;
+        top: 50px;
+      }
+      #page1 .sub2 {
+        left: 200px;
+        top: 300px;
+      }
+      #page1 .sub3 {
+        left: 400px;
+        top: 650px;
+      }
+      #page2 .sub1 {
+        left: 100px;
+        top: 30px;
+      }
+      #page2 .sub2 {
+        left: 300px;
+        top: 250px;
+      }
+      #page2 .sub3 {
+        left: 100px;
+        top: 700px;
+      }
+      #page3 .sub1 {
+        left: 300px;
+        top: 50px;
+      }
+      #page3 .sub2 {
+        left: 400px;
+        top: 300px;
+      }
+      #page3 .sub3 {
+        left: 500px;
+        top: 700px;
+      }
+      #page4 .sub1 {
+        left: 600px;
+        top: 50px;
+      }
+      #page4 .sub2 {
+        left: 400px;
+        top: 300px;
+      }
+      #page4 .sub3 {
+        left: 200px;
+        top: 650px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="parallex_wrap">
+      <div id="page1">
+        <div class="sub1">sub1</div>
+        <div class="sub2">sub2</div>
+        <div class="sub3">sub3</div>
+      </div>
+      <div id="page2">
+        <div class="sub1">sub1</div>
+        <div class="sub2">sub2</div>
+        <div class="sub3">sub3</div>
+      </div>
+      <div id="page3">
+        <div class="sub1">sub1</div>
+        <div class="sub2">sub2</div>
+        <div class="sub3">sub3</div>
+      </div>
+      <div id="page4">
+        <div class="sub1">sub1</div>
+        <div class="sub2">sub2</div>
+        <div class="sub3">sub3</div>
+      </div>
+    </div>
+  </body>
+</html>

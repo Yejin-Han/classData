@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle button animation</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+      $(function(){
+        $('.toggle').on('click',function(){
+          $(this).toggleClass('on');
+          $('#nav').toggleClass('on');
+          $('.black_bg').toggle();
+        });
+      });
+    </script>
+    <style type="text/css">
+      body,nav,div,button{
+        display:block;
+        margin:0; padding:0;
+      }
+      .toggle{
+        border:0;
+        background: transparent;
+        width: 35px; height: 39px;
+        cursor:pointer;
+        position:absolute; right:40px; top:40px; z-index:100;
+      }
+      .sr_only{
+        width: 0; height: 0; line-height: 0; font-size:0;
+        overflow:hidden; visibility:hidden;
+        position:absolute; left:-9999px; top:-9999px;
+      }
+      .toggle>span{
+        display:block;
+        width:35px; height: 5px;
+        margin:6px 0;
+        background: #151515;
+        opacity:1;
+        transition:all .4s;
+      }
+      .toggle.on>.bar1{
+        transform:translate(0,11px) rotate(45deg); /*rotate 하는 순간 축이 바뀌므로 수직이동하고싶으면 translate 먼저하기, 중심점을 기준으로 가운데로 움직이기*/
+      }
+      .toggle.on>.bar2{
+        opacity:0;
+        transition-duration:0.2s;
+      }
+      .toggle.on>.bar3{
+        transform:translate(0,-11px) rotate(-45deg);
+      }
+      #nav{
+        width: 80%; min-height: 640px;
+        background: #fc0;
+        position:absolute; left:-80%; top:0; z-index:50;
+        transition:all .4s;
+      }
+      #nav.on{
+        left:0;
+      }
+      .black_bg{
+        width:100vw; height:100vh;
+        position:absolute; left:0; top:0;
+        background: rgba(0,0,0,0.3); z-index:10;
+        display:none;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" class="toggle">
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
+      <span class="sr_only">Toggle Navigation</span>
+    </button>
+    <nav id="nav">Navigation</nav>
+    <div class="black_bg"></div>
+  </body>
+</html>

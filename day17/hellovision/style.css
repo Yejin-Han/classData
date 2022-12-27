@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+body, section, h2, p, ol, li{
+	margin: 0;
+	padding: 0;
+}
+ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+body{
+	font-size: 14px;
+	font-family: Arial, "맑은 고딕", sans-serif;
+	color: #333;
+	background: #f9f9f9;
+}
+section{
+	background: #cdf;
+	margin: 40px auto;
+	width: 100%;
+	max-width: 1280px; /*반응형에 사용 -> %와 maxmin*/
+	padding: 120px 0;
+}
+.text_color_red{
+	color: #ed174d;
+}
+section>h2{
+	font-size: 16px;
+	margin-bottom: 22px;
+}
+section>p{
+	height: 64px;
+	margin-bottom: 30px;
+}
+section>p>span{
+	float: left;
+	font-size: 40px;
+	line-height: 64px;
+	letter-spacing: -4px;
+}
+section>p>a{
+	display: block;
+	width: 242px;
+	height: 64px;
+	float: right;
+	background: #333 url("img/icon_arrow.png") no-repeat right 32px center;
+	background-size: 15px 10px;
+	border-radius: 32px;
+	color: #fff;
+	text-indent: 32px;
+	/*대신 padding-left를 주고 싶어 -> padding-left: 32px; box-sizing: border-box;*/
+	line-height: 64px;
+	transition: all 0.2s;
+}
+section>p>a:hover{
+	background-color: #ed174d;
+}
+section>ol{
+	clear: both;
+	height: 380px;
+}
+section>ol>li{
+	/*근데 내 생각에 이건 크게 의미 없는 반응형 같아 브라우저 사이즈 줄어들면 목록 크기가 줄어드는 것도
+	뭐 필요하겠지만 그보단 목록 배치 자체가 바뀌는게 맞지 않나..?*/
+	width: 22%;
+	height: 380px;
+	margin-left: 4%;
+	background: #fff no-repeat center 100px;
+	border-radius: 20px;
+	text-align: center;
+	float: left;
+	padding-top: 220px;
+	box-sizing: border-box;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
+}
+section>ol>li:first-child{
+	margin-left: 0;
+	background-image: url("img/self_step01.png");
+}
+section>ol>li:nth-child(2){
+	background-image: url("img/self_step02.png");
+	background-size: 64px 64px;
+}
+section>ol>li:nth-child(3){
+	background-image: url("img/self_step03.png");
+	background-size: 64px 64px;
+}
+section>ol>li:last-child{
+	background-image: url("img/self_step04.png");
+	background-size: 72px 64px;
+}
+section>ol>li>span{
+	font-weight: bold;
+	display: block;
+	margin-bottom: 8px;
+}
+section>ol>li>p{
+	line-height: 1.6em;
+}

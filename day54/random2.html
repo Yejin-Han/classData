@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>random</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				let n=0;
+				const len=$('.content_wrap>span').length;
+				function randomClass(){
+					n=Math.floor(Math.random()*len);
+					$('.content_wrap>span').eq(n).addClass('on');
+					setTimeout(function(){
+						$('.content_wrap>span').eq(n).removeClass('on');
+					},1000);
+				}
+				setInterval(randomClass,2000);
+			});
+		</script>
+		<style type="text/css">
+			.content_wrap{
+				width: 600px; height: 600px;
+				margin: 50px auto;
+			}
+			.content_wrap>span{
+				display: block; float: left;
+				width: 200px; height: 200px;
+				border: 1px solid #ccc; box-sizing: border-box;
+				background: #5d5d5d;
+			}
+			.content_wrap>span.on{
+				background: #fc0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content_wrap">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>kakaomap</title>
+	<style type="text/css">
+		section{
+			height: 400px;
+			background: #9cf;
+		}
+		#map{
+			width: 100%; max-width: 1200px;
+			margin: 0 auto; height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div id="map"></div>
+	</section>
+
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3c8e38c3c53d0e32f46d474149e9320b"></script>
+	<script>
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			mapOption = { 
+					center: new kakao.maps.LatLng(37.5812832, 128.327311), // 지도의 중심좌표
+					level: 3 // 지도의 확대 레벨
+			};
+
+	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	</script>
+</body>
+</html>

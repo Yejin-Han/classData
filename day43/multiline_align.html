@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multiline middle</title>
+    <style type="text/css">
+      .sect1{
+        display:table;
+        border: 2px solid #333;
+        margin: 50px; padding: 20px;
+      }
+      .sect1>h2{
+        display:table-caption;
+        margin:0;
+        text-align: center;
+        font-size:18px;
+      }
+      .sect1>.sect_wrap{
+        display:table-row;
+        background: #ededed;
+      }
+      .sect1>.sect_wrap>div{
+        display:table-cell;
+        width: 200px; height: 180px;
+        border: 1px solid #151515;
+        text-align: center;
+        vertical-align:middle;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sect1">
+      <h2>Multiline-vertical middle</h2>
+      <div class="sect_wrap">
+        <div>multiline<br>align</div>
+        <div>vertical text<br>middle</div>
+      </div>
+    </section>
+  </body>
+</html>

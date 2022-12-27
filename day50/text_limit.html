@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>제한글자 (문자추출)</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				const txt=$('.textbox').text();
+				let msg=txt;
+				if(txt.length>44){
+					msg=txt.substr(0,44)+'···';
+				}
+				$('.textbox').text(msg);
+			});
+		</script>
+		<style type="text/css">
+			.textbox{
+				width: 300px; height: 60px; line-height: 30px;
+				border: 1px solid #f60;
+				margin: 70px auto; padding: 12px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="textbox">
+			네이버는 25일 ‘네이버 AI 나우’ 컨퍼런스에서 국내 기업 최초로 개발한 ‘초대규모 인공지능(AI)’ 하이퍼클로바를 공개했다. 하이퍼클로바는 인공지능연구소 오픈AI가 만든 AI 모델 GPT-3를 뛰어넘는 규모로 개발됐다. GPT-3이 1750억개의 매개변수(파라미터)를 가지고 있는데 하이퍼클로바는 2040억개 규모다. 파라미터 수가 많을 수록 AI는 더 많은 문제를 정확하게 해결할 수 있다. 특히 하이퍼클로바는 한국어에 특화된 AI다. 네이버는 하이퍼클로바가 GPT-3보다 한국어 데이터를 6500배 이상 학습한 전 세계에서 가장 큰 한국어 초거대 언어모델이라고 설명했다. 하이퍼클로바 학습 데이터 중 한국어 비중이 97%에 달한다. 한국어에 최적화한 언어 모델을 개발해 AI 주도권을 확보한다는 의미라고 네이버는 강조했다.
+		</div>
+	</body>
+</html>

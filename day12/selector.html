@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>가상 선택자 : 구조 선택자1</title>
+        <link rel="stylesheet" href="css/selector_style.css" type="text/css">
+    </head>
+    <body>
+        <h1>가상 선택자(클래스)</h1>
+        <h2>구조 선택자1 -child</h2>
+        <div class="box1">
+            <p>selector:first-child</p>
+            <p>첫번째 자식요소 지정</p>
+            <p>ie6 인식안됨</p>
+            <p>ol과 li, ul과 li 개체들 선택시 일반적으로 사용</p>
+            <p>selector:nth-child(순서)</p>
+            <p>지정 순번 자식요소 선택</p>
+            <p>selector:nth-last-child(순서)</p>
+            <p>뒤에서 순서 지정 선택, 순서는 뒤에서부터 1</p>
+            <p>selector:last-child</p>
+            <p>마지막 자식요소 지정</p>
+        </div>
+        <h2>구조 선택자2 -of-type</h2>
+        <div class="box2">
+            <table>
+                <caption>구조 선택자2</caption>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>title2</th>
+                        <th>title3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>data1</td>
+                        <td>data2</td>
+                        <td>data3</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">data span2</th>
+                        <td>data3</td>
+                    </tr>
+                    <tr>
+                        <td>data1</td>
+                        <td>data2</td>
+                        <td>data3</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">data span2</th>
+                        <td>data3</td>
+                    </tr>
+                    <tr>
+                        <td>data1</td>
+                        <td>data2</td>
+                        <td>data3</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">data span2</th>
+                        <td>data3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>문자구조 선택자</h2>
+        <div class="box3">
+            <span>문자구조 선택은 ::로 시작하는게 정석이지만, : 하나만 사용해도 인식됩니다.</span>
+            <p>CSS의 position속성은 요소가 브라우저 화면에 어떻게 배치하는가를 결정하는 속성입니다. 기본값은 static이며 absolute나 fixed, relative, sticky 등으로 변경 가능합니다.</p>
+            <p>대표 필수 속성은 top, left, right, bottom 등의 좌표 지정 속성이며, 웹페이지 상에 요소의 간격(위치)을 지정하기 위해 사용됩니다.</p>
+        </div>
+        <h2>문자 선택자</h2>
+        <div class="box4">
+            <span>문자구조 선택은 ::로 시작하는게 정석이지만, : 하나만 사용해도 인식됩니다.</span>
+            <p>CSS의 position속성은 요소가 브라우저 화면에 어떻게 배치하는가를 결정하는 속성입니다. 기본값은 static이며 absolute나 fixed, relative, sticky 등으로 변경 가능합니다.</p>
+            <p>대표 필수 속성은 top, left, right, bottom 등의 좌표 지정 속성이며, 웹페이지 상에 요소의 간격(위치)을 지정하기 위해 사용됩니다.</p>
+        </div>
+    </body>
+</html>

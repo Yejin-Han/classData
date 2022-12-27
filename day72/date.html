@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Date 객체</title>
+		<script>
+			const date=new Date();
+			console.log(date.getTime(), Date.now());
+
+			const now=new Date();
+			const year=now.getFullYear();
+
+			const tarDate=new Date(year,11,31); //12월 31일
+			let calcTime=tarDate.getTime()-now.getTime();
+			let d_day=Math.ceil(calcTime/(1000*60*60*24)); //ms->day, 1초라도 지나면 날짜는 갱신된 것으로 판단.
+			document.write(`올해 연말까지의 D-day : ${d_day}일<br>`);
+
+			const tarDate2=new Date(year+1,0,22); //내년 1월 22일(설날 당일)
+			let calcTime2=tarDate2.getTime()-now.getTime();
+			let d_day2=Math.ceil(calcTime2/(1000*60*60*24));
+			document.write(`설날까지의 D-day : ${d_day2}일`);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

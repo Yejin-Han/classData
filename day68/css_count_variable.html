@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>count 변수</title>
+		<style type="text/css">
+			section{
+				counter-reset: sectNum;
+			}
+			h3::before{
+				counter-increment: sectNum;
+				content: "Step " counter(sectNum) " - ";
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<h3>web standard</h3>
+			<p>standard: ~~</p>
+			<h3>web accessibility</h3>
+			<p>accessibility: ~~</p>
+			<h3>code validator</h3>
+			<p>validator check: ~~</p>
+		</section>
+	</body>
+</html>

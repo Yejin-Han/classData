@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>mouse position</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				let centerX=$('body').width()/2;
+				let distX=0; //|중심점 - 마우스좌표|
+				$('body').on('mousemove',function(e){
+					distX=centerX-e.pageX;
+					let rY=distX/10; //조금만 이동해도 너무 많이 회전되기 때문에 조절했을 뿐
+					$('.box_wrap>div').css('transform','rotateY('+rY+'deg)')
+					$('.textbox').text('중심좌표에서 마우스가 '+Math.abs(distX)+'px만큼 이동했습니다.');
+				});
+			});
+		</script>
+		<style type="text/css">
+			html,body{
+				width: 100%; height: 100%;
+			}
+			body,div{
+				margin: 0; padding: 0;
+			}
+			.textbox{
+				width: 500px; height: 50px;
+				background: #ccc; color: #090909;
+				text-align: center; line-height: 30px;
+				margin: 50px auto;
+				font-size: 26px; font-weight: bold;
+			}
+			.box_wrap{
+				width: 100%; height: 500px;
+				/* background: #f4f4f4; */
+				transform-style: preserve-3d;
+				perspective: 500px;
+				padding: 40px 0;
+			}
+			.box_wrap>div{
+				width: 500px; height: 500px;
+				margin: 0 auto;
+				background: #39c;
+				/* transform: rotateX(20deg) rotateY(0deg); */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="textbox"></div> <!-- '문서 중심에서 ~px 위치에 마우스가 있다'라고 출력 -->
+		<div class="box_wrap">
+			<div></div>
+		</div>
+	</body>
+</html>

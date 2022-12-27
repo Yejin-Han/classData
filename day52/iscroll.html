@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>iscroll</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script src="js/iscroll.js"></script>
+		<script>
+			var myScroll;
+			function loadScroll(){
+				myScroll = new IScroll('#wrapper',{
+					scrollX: true,
+					scrollY: false,
+					mousewheel: true,
+				});
+			}
+			document.addEventListener('touchmove',function(e){e.preventDefault();},false);
+			$(function(){
+
+			});
+		</script>
+		<style type="text/css">
+			html{
+				-ms-touch-action: none;
+				touch-action: none;
+			}
+			body,ul,li{
+				margin: 0; padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			body{
+				font-size: 14px;
+			}
+			#wrapper{
+				width: 100%; height: 30px;
+				overflow: hidden;
+				background: #c9f;
+			}
+			#wrapper>#scroller{
+				height: 30px; width: 960px;
+				line-height: 30px;
+			}
+			#wrapper>#scroller>li{
+				width: 60px; height: 30px;
+				float: left;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body onload="loadScroll()">
+		<div id="wrapper">
+			<ul id="scroller">
+				<li><a href="#">menu1</a></li>
+				<li><a href="#">menu2</a></li>
+				<li><a href="#">menu3</a></li>
+				<li><a href="#">menu4</a></li>
+				<li><a href="#">menu5</a></li>
+				<li><a href="#">menu6</a></li>
+				<li><a href="#">menu7</a></li>
+				<li><a href="#">menu8</a></li>
+				<li><a href="#">menu9</a></li>
+				<li><a href="#">menu10</a></li>
+				<li><a href="#">menu11</a></li>
+				<li><a href="#">menu12</a></li>
+				<li><a href="#">menu13</a></li>
+				<li><a href="#">menu14</a></li>
+				<li><a href="#">menu15</a></li>
+				<li><a href="#">menu16</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

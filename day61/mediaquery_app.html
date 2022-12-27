@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no, email=no">
+		<title>Mediaquery - portrait, landscape</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				if(window.matchMedia("(orientation:portrait)").matches){
+					$('body').text("PORTRAIT");
+				} else if(window.matchMedia("(orientation:landscape)").matches){
+					$('body').text("LANDSCAPE");
+				}
+				$(window).on('orientationchange',function(event){
+					if(window.orientation==0){
+						$('body').text('PORTRAIT');
+					} else if(window.orientation==90){
+						$('body').text('LANDSCAPE');
+					}
+				});
+			});
+		</script>
+		<style type="text/css">
+			body{ background: #fc0; font-size: 40px;}
+			@media screen and (orientation: portrait){
+				body{ background: #09f; }
+			}
+			@media screen and (orientation: landscape){
+				body{ background: #fc0; }
+			}
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>

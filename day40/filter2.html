@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>filter</title>
+        <style type="text/css">
+            body{
+                margin: 0;
+            }
+            img{
+                display: block;
+                margin: 25px;
+            }
+            .pic1{
+                filter: blur(5px);
+                transition: all 0.4s;
+            }
+            .pic1:hover{
+                filter: blur(0px);
+            }
+            .pic2{
+                filter: grayscale(100%);
+                transition: all 0.4s;
+            }
+            .pic2:hover{
+                filter: grayscale(0%);
+            }
+            .pic3{
+                filter: brightness(20%);
+                transition: all .3s;
+            }
+            .pic3:hover{
+                filter: brightness(150%);
+            }
+            .pic4{
+                filter: contrast(100%);
+                transition: all .3s;
+            }
+            .pic4:hover{
+                filter:contrast(150%); /* 0%->회색됨 */
+            }
+            .pic5{
+                filter:hue-rotate(0deg);
+                transition:all 0.3s;
+            }
+            .pic5:hover{
+                filter:hue-rotate(180deg);
+            }
+            .pic6{
+                filter:invert(0%);
+                transition:all 0.3s;
+            }
+            .pic6:hover{
+                filter:invert(100%); /* 50%->중간색-->회색 */
+            }
+            .pic7{
+                filter:saturate(100%);
+                transition:all 0.3s;
+            }
+            .pic7:hover{
+                filter:saturate(150%); /* 0%->saturate 나름의 흑백 */
+            }
+            .pic8{
+                filter:sepia(0%);
+                transition:all .3s;
+            }
+            .pic8:hover{
+                filter:sepia(100%);
+            }
+            .pic9{
+                filter:drop-shadow(2px 2px 4px rgba(0,128,255,0.4)) opacity(80%);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>filter-blur</h2>
+        <img src="../day37/img_jq/VENENO.JPG" alt="" class="pic1">
+        <h2>filter-grayscale</h2>
+        <img src="../day37/img_jq/XL1.JPG" alt="" class="pic2">
+        <h2>filter-brightness</h2>
+        <img src="../day37/img_jq/alfaromeo.jpg" alt="" class="pic3">
+        <h2>filter-contrast</h2>
+        <img src="../day37/img_jq/VENENO.JPG" alt="" class="pic4">
+        <h2>filter-hue-rotate</h2>
+        <img src="../day37/img_jq/XL1.JPG" alt="" class="pic5">
+        <h2>filter-invert</h2>
+        <img src="../day37/img_jq/alfaromeo.jpg" alt="" class="pic6">
+        <h2>filter-saturate</h2>
+        <img src="../day37/img_jq/VENENO.JPG" alt="" class="pic7">
+        <h2>filter-sepia</h2>
+        <img src="../day37/img_jq/XL1.JPG" alt="" class="pic8">
+        <h2>filter-multi(drop-shadow, opacity)</h2>
+        <img src="../day37/img_jq/alfaromeo.jpg" alt="" class="pic9">
+    </body>
+</html>

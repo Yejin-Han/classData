@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+body, header, h1, nav, ul, li{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size: 14px;
+	font-family: "나눔고딕", "맑은 고딕", sans-serif;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	border: 0; /*이미지에 링크걸면 예전버전은 테두리 뜸*/
+}
+/*================================================================*/
+#main_header{
+	height: 80px;
+}
+/*================================================================*/
+h1{
+	width: 107px;
+	height: 53px;
+	float: left;
+	margin: 25px 0 0 20px;
+}
+h1>a, h1>a>img{
+	display: block;
+}
+/*================================================================*/
+#tnb{
+	height: 11px;
+	float: right;
+	margin: 20px 20px 0 0;
+}
+#tnb>ul>li{
+	/*float: left; and margin-right*/
+	display: inline;
+	padding-right: 10px;
+	font-size: 11px;
+}
+#tnb>ul>li:last-child{
+	padding-right: 0;
+}
+#tnb>ul>li>a{
+	color: #333;
+}
+#tnb img{
+	vertical-align: text-top;
+}
+/*================================================================*/
+#gnb{
+	width: 503px;
+	height: 33px;
+	position: absolute; left: 160px; top: 44px;
+}
+#gnb>ul{
+	width: 503px;
+	height: 33px;
+}
+#gnb>ul>li{
+	float: left;
+}
+#gnb>ul>li>a{
+	display: block;
+	height: 33px;
+	background: url("../happybean_img/LNB2.GIF") no-repeat;
+}
+#gnb>ul>li:first-child>a{
+	width: 58px;
+}
+#gnb>ul>li:nth-child(2)>a{
+	width: 59px;
+	background-position: -58px 0;
+}
+#gnb>ul>li:nth-child(3)>a{
+	width: 72px;
+	background-position: -117px 0;
+}
+#gnb>ul>li:nth-child(4)>a{
+	width: 70px;
+	background-position: -189px 0;
+}
+#gnb>ul>li:nth-child(5)>a{
+	width: 83px;
+	background-position: -259px 0;
+}
+#gnb>ul>li:nth-child(6)>a{
+	width: 81px;
+	background-position: -342px 0;
+}
+#gnb>ul>li:last-child>a{
+	width: 80px;
+	background-position: -423px 0;
+}
+#gnb>ul>li>a>span{
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	position: absolute;
+	left: -9999px;
+	top: -9999px;
+}
+#gnb>ul>li:first-child>a:hover,
+#gnb>ul>li:first-child>a:focus{
+	background-position: 0 -37px;
+}
+#gnb>ul>li:nth-child(2)>a:hover,
+#gnb>ul>li:nth-child(2)>a:focus{
+	background-position: -58px -37px;
+}
+#gnb>ul>li:nth-child(3)>a:hover,
+#gnb>ul>li:nth-child(3)>a:focus{
+	background-position: -117px -37px;
+}
+#gnb>ul>li:nth-child(4)>a:hover,
+#gnb>ul>li:nth-child(4)>a:focus{
+	background-position: -189px -37px;
+}
+#gnb>ul>li:nth-child(5)>a:hover,
+#gnb>ul>li:nth-child(5)>a:focus{
+	background-position: -259px -37px;
+}
+#gnb>ul>li:nth-child(6)>a:hover,
+#gnb>ul>li:nth-child(6)>a:focus{
+	background-position: -342px -37px;
+}
+#gnb>ul>li:nth-child(7)>a:hover,
+#gnb>ul>li:nth-child(7)>a:focus{
+	background-position: -423px -37px;
+}

@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+body,section,div{
+	margin: 0;
+	padding: 0;
+}
+img{
+	display: block;
+	border: 0;
+}
+@keyframes flow{
+	0%{
+		left: 0;
+	}
+	100%{
+		left: -1477px;
+	}
+}
+#bg{
+	background: #113;
+	width: 1300px;
+	height: 499px;
+	overflow: hidden;
+	margin: 80px auto;
+	position: relative;
+}
+#bg>.clouds{
+	width: 2954px;
+	height: 499px;
+	position: absolute; left: 0; top: 0;
+	z-index: 999;
+	animation: flow 80s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+#bg>.clouds>img{
+	float: left;
+	width: 1477px;
+	height: 499px;
+}
+#bg>.moon{
+	width: 1477px;
+	height: 499px;
+	position: absolute; right: 0; top: 0;
+	z-index: 10;
+	/*opacity: 0.5;*/
+}

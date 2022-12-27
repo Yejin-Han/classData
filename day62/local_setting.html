@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Local Storage set</title>
+		<script>
+			localStorage.setItem('data_test','javascript data load');
+			localStorage.setItem('ranking','kim-90,lee-65,park-78');
+			let rankData=localStorage.getItem('ranking');
+			let rank=rankData.split(',');
+			rank.push('nam-99');
+			localStorage.setItem('ranking',rank);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+body{
+	margin: 0;
+	font-size: 14px;
+}
+#div1{
+	width: 460px;
+	height: 160px;
+	border: 3px solid #06f;
+	margin: 20px auto;
+	text-align: center;
+	line-height: 160px;
+	/*border-radius: 80px;*/ /*높이의 절반 - 캡슐모양, 50% - 타원*/
+	border-radius: 80px 0 40px 20px;
+}
+#list{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 640px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #ededed;
+	margin: 30px auto;
+}
+#list>li{
+	width: 60px;
+	height: 40px;
+	float: left;
+}
+#list>li:first-child{
+	padding-left: 20px;
+	border-radius: 20px 0 0 20px;
+}
+#list>li:last-child{
+	padding-right: 20px;
+	border-radius: 0 20px 20px 0;
+}
+#list>li:nth-child(even){
+	font-weight: bold;
+}
+#list>li:nth-child(odd){
+	text-decoration: underline;
+}
+#list>li>a{
+	text-decoration: none;
+	display: block;
+	height: 40px;
+	color: #eee;
+}
+#list>li:nth-child(3n+1){
+	background: #0cf;
+}
+#list>li:nth-child(3n+2){
+	background: #369;
+}
+#list>li:nth-child(3n){
+	background: #fc5;
+}
