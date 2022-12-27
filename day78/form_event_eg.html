@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>form event example</title>
+		<style type="text/css">
+			body,div,h1,p,table,colgroup,thead,tbody,tfoot,tr,th,td,input{
+				margin: 0; padding: 0;
+			}
+			a{ text-decoration: none; }
+			img{ border: 0 none; }
+			table{
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			th,td{ border: 1px solid #ccc; height: 40px; }
+			th{ background: #404040; color: #fff; }
+			td{ text-align: center; }
+			#wrap{ width: 600px; margin: 40px auto 0; }
+			h1{ text-align: center; }
+			p>img{ width: 100%; height: auto; }
+			tfoot td>input{ width: 100%; border: 0; text-align: center; }
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<h1>자동차 견적</h1>
+			<p id="photo"><img src="./images/car1.jpg" alt="자동차1" title="grey"></p>
+			<table id="estimate">
+				<colgroup>
+					<col width="380px"><col width="160px"><col width="70px">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">옵션</th>
+						<th scope="col">추가 가격</th>
+						<th scope="col">선택</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">인조가죽시트</th>
+						<td>250,000</td>
+						<td><input type="checkbox" name="opt1" id="opt1" value="250000"></td>
+					</tr>
+					<tr>
+						<th scope="row">내비게이션</th>
+						<td>270,000</td>
+						<td><input type="checkbox" name="opt2" id="opt2" value="270000"></td>
+					</tr>
+					<tr>
+						<th scope="row">선루프</th>
+						<td>440,000</td>
+						<td><input type="checkbox" name="opt3" id="opt3" value="440000"></td>
+					</tr>
+					<tr>
+						<th scope="row">색상</th>
+						<td colspan="2" id="colors">
+							<a href="./images/car1.jpg"><img src="./images/c1.jpg" alt="grey"></a>
+							<a href="./images/car2.jpg"><img src="./images/c2.jpg" alt="red"></a>
+							<a href="./images/car3.jpg"><img src="./images/c3.jpg" alt="blue"></a>
+							<a href="./images/car4.jpg"><img src="./images/c4.jpg" alt="green"></a>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th scope="row">(기본)차량가격</th>
+						<td colspan="2"><input type="text" id="total" value="12340000" readonly></td> <!-- 12340000은 defaultValue. defaultChecked 등도 있음. -->
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<script>
+			const photo=document.querySelector('#photo>img'); //document.getElementById('photo').children[0];
+			const color_a=document.querySelectorAll('#colors>a');
+			const checkbox=document.querySelectorAll('input[type=checkbox]');
+			
+			//이미지 change
+			for(let i=0; i<color_a.length; i++){
+				color_a[i].onclick=function(){
+					photo.src=this.href; //화살표 함수를 쓰면 안먹히므로 e.target(currentTarget) 쓸 것
+					return false; //or 처음에 e.preventDefault();
+				}
+			}
+			//체크박스 클릭-> 기본가격에 누적
+			const calcTot=()=>{
+				let totValue=Number(document.querySelector('#total').defaultValue); //console.log(typeof totValue);
+				for(let k=1; k<=3; k++){ //k=0; k<checkbox.length
+					const option=document.getElementById('opt'+k);
+					if(option.checked){
+						totValue+=Number(option.value);
+					}
+				}
+				document.querySelector('#total').value=totValue;
+			}
+			for(let j=0; j<checkbox.length; j++){
+				checkbox[j].onclick=()=>{
+					calcTot();
+				}
+			}
+		</script>
+	</body>
+</html>

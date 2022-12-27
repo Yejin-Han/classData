@@ -279,10 +279,10 @@ mousemove, mousewheel
 //이벤트 시 자기 자신의 스타일을 바꾸고 싶다
 onEvent="this.style.바꿀속성=' '"
 
-[호출(개체 지정)]
-getElementById("id명")
-getElementByTagName("tag명")
-getElementsByClassName("class명")
+[호출(개체 지정)] - 전역에서만 되므로 document.~으로만 반응함.
+document.getElementById("id명")
+document.getElementByTagName("tag명")
+document.getElementsByClassName("class명")
 
 [해당 개체에 텍스트 출력]
 document.개체명.innerHTML="";
@@ -841,7 +841,7 @@ window.innerHeight;
 221227
 [form event]
 form tag에 하는 것 : submit, reset
-요소에 하는 것 : change(select), input, focus, blur, resize(textarea), scroll(textarea), load, checked...
+요소에 하는 것 : change(select), input, focus, blur, resize(textarea), scroll(textarea), load, checked(-->vue에는 있지만 react에는 없음)...
 
 - change (select에 주로 사용, 입력한 뒤 포커스 잃을 때)
 - input (실시간 반응)
