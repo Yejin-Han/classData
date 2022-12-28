@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>table data.json calling</title>
+		<style type="text/css">
+			table,th,td{
+				border: 2px solid #ccc;
+				border-collapse: collapse;
+			}
+			table{ width: 70%; margin: 80px auto; }
+		</style>
+	</head>
+	<body>
+		<div>
+			<span data-part="null">전체</span>
+			<span data-part="notice">공지사항</span>
+			<span data-part="event">이벤트</span>
+		</div>
+		<table>
+			<caption>JSON PARSING</caption>
+			<thead>
+				<tr>
+					<th>구분</th>
+					<th>제목</th>
+					<th>날짜</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<script>
+			let choice=null;
+			fetch("data/data.json")
+				.then((response)=>response.json())
+				.then((data)=>{
+					for(let i=0; i<data.webBoard.length; i++){
+						document.querySelector('tbody').innerHTML+='<tr>'+'<td>'+data.webBoard[i].type+'</td>'+'<td>'+data.webBoard[i].title+'</td>'+'<td>'+data.webBoard[i].date+'</td>'+'</tr>';
+					}
+					let spans=document.querySelectorAll('span');
+					spans.forEach(elem=>{
+						elem.addEventListener('click',function(){
+							document.querySelector('tbody').textContent='';
+							choice=this.getAttribute('data-part');
+							console.log(choice);
+							for(let i=0; i<data.webBoard.length; i++){
+								if(choice=='null'){
+									document.querySelector('tbody').innerHTML+='<tr>'+'<td>'+data.webBoard[i].type+'</td>'+'<td>'+data.webBoard[i].title+'</td>'+'<td>'+data.webBoard[i].date+'</td>'+'</tr>';
+								} else{
+									if(data.webBoard[i].type==choice){
+										document.querySelector('tbody').innerHTML+='<tr>'+'<td>'+data.webBoard[i].type+'</td>'+'<td>'+data.webBoard[i].title+'</td>'+'<td>'+data.webBoard[i].date+'</td>'+'</tr>';
+									}
+								}
+							}
+						});
+					})
+				})
+				.catch((error)=>console.log(error));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+{
+	"webBoard" : [
+		{"type":"notice", "title":"공지사항1 입니다.", "date":"2022-12-28"},
+		{"type":"notice", "title":"공지사항2 입니다.", "date":"2022-12-27"},
+		{"type":"event", "title":"이벤트안내1 입니다.", "date":"2022-12-27"},
+		{"type":"notice", "title":"공지사항3 입니다.", "date":"2022-12-24"},
+		{"type":"notice", "title":"공지사항4 입니다.", "date":"2022-12-23"},
+		{"type":"event", "title":"이벤트안내2 입니다.", "date":"2022-12-22"},
+		{"type":"notice", "title":"공지사항5 입니다.", "date":"2022-12-18"},
+		{"type":"notice", "title":"공지사항6 입니다.", "date":"2022-12-17"},
+		{"type":"event", "title":"이벤트안내3 입니다.", "date":"2022-12-17"},
+		{"type":"notice", "title":"공지사항7 입니다.", "date":"2022-12-16"},
+		{"type":"notice", "title":"공지사항8 입니다.", "date":"2022-12-15"},
+		{"type":"event", "title":"이벤트안내4 입니다.", "date":"2022-12-13"},
+		{"type":"notice", "title":"공지사항9 입니다.", "date":"2022-12-12"},
+		{"type":"notice", "title":"공지사항10 입니다.", "date":"2022-12-08"}
+	]
+}
