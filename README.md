@@ -81,6 +81,11 @@
 * day77
 * day78(221227)
 ```
-form event - submit (in select, radio)
-           - example : showing car estimate (in checkbox, click-> img change)
+form event - 1. submit (in select, radio)
+           - 2. example : showing car estimate (in checkbox, click-> img change)
+```
+* day79(221228)
+```
+1. making calendar (with form submit, onchange)
+2. json data calling (fetch, use in table)
 ```
