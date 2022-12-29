@@ -864,6 +864,10 @@ fetch('data url')
 
 
 
+221229
+[가상 객체 생성]
+document.createDocumentFragment( ); //가상 객체 생성 ---> append해서 사용
+* 데이터 상으로만 존재하므로 append하지 않으면 보이지 않음.
 
 
 
