@@ -89,3 +89,7 @@ form event - 1. submit (in select, radio)
 1. making calendar (with form submit, onchange)
 2. json data calling (fetch, use in table)
 ```
+* day80(221229)
+```
+virtual object - document.createDocumentFragment();
+```
