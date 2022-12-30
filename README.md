@@ -93,3 +93,8 @@ form event - 1. submit (in select, radio)
 ```
 virtual object - document.createDocumentFragment();
 ```
+* day81(221230)
+```
+1. virtual object2 - document.createDocumentFragment(); + (even)th extraction
+2. making calculator - =, c, del implementaion
+```
