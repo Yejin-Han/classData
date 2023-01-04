@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Class</title>
+		<script>
+			/* class선언 --> 실행( new ), 상속해서 새로운 클래스 생성, 사용  */
+			class Animal	{
+				constructor(name){
+					this.name=name;
+				}
+				message(){
+					console.log(`${this.name} like.`);
+				}
+			}
+			//let ab=new Animal("cat");			ab.message();
+			class Dog extends Animal{
+				constructor(name){
+					super(name);  // 부모 오브젝트 함수 호출 super(~)
+				}
+				speak(){
+					console.log(`${this.name} 개구쟁이`);
+				}
+			}
+			let cd=new Dog('jinsun');
+			cd.speak();
+		</script>
+	</head>
+	<body>	
+	</body>
+</html>

@@ -1,0 +1,89 @@
+App.js -------------------
+
+import './App.css';
+import {useState} from 'react';
+
+
+function App() {
+  //let post="추천 포스트";
+  // {post} / useState
+  let [title,setTitle]=useState(['Blog Title1','Blog Title2','Blog Title3','Blog Title4']);
+  //title=state값 , setTitle=state값 변경함수 || let [v1,v2]=["a-2","b-3"]
+  let [text,setText]=useState(['blog content1','blog content2','blog content3','blog content4']);
+  let [time,setTime]=useState(['2023년1월1일','2023년1월2일','2023년1월3일','2023년1월4일'])
+  
+  let [imgsrc,setImgSrc]=useState(['./images/cup-1.jpg','./images/cup-2.jpg','./images/cup-3.jpg']);
+  
+  return (
+    <div className="App">
+      <div className="nav-bar">
+        <h1> React Blog </h1>
+      </div>
+      <h2 style={ {color:"#f90",fontSize:"30px"} }>최근 포스트</h2>
+      <div className="blogList">
+        <h3> {title[0]} </h3>
+        <p> {text[0]} </p>
+        <p> {time[0]} </p>
+      </div>
+      <div className="blogList">
+        <h3> {title[1]} </h3>
+        <p> {text[1]} </p>
+        <p> {time[1]} </p>
+      </div>
+      <div className="blogList">
+        <h3> {title[2]} </h3>
+        <p> {text[2]} </p>
+        <p> {time[2]} </p>
+      </div>
+      <div className="blogList">
+        <h3> {title[3]} </h3>
+        <p> {text[3]} </p>
+        <p> {time[3]} </p>
+      </div>
+      <div className="wrapper">
+        <div className="card">
+          <h3>사진제목</h3>
+          <p><img src={imgsrc[0]} /></p>
+          <p>Cras id vulputate nisi. Aliquam sed justo non enim volutpat luctus.</p>
+        </div>
+        <div className="card">
+          <h3>사진제목</h3>
+          <p><img src={imgsrc[1]} /></p>
+          <p>Cras id vulputate nisi. Aliquam sed justo non enim volutpat luctus.</p>
+        </div>
+        <div className="card">
+          <h3>사진제목</h3>
+          <p><img src={imgsrc[2]} /></p>
+          <p>Cras id vulputate nisi. Aliquam sed justo non enim volutpat luctus.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+===================================================================
+
+App.css -------------------------------------------
+
+.blogList{
+  padding-left:28px;  border-bottom:1px dotted #ccc;
+}
+.blogList>p:last-child{  font-size:14px;  color:#999;}
+.blogList>h3{  color:#039;  }
+
+.wrapper{
+  background:#eee;  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  grid-gap:1rem;
+}
+.wrapper .card{
+  background:#fff;  box-shadow:0px 2px 5px #222;
+}
+.card h3{  font-size:1.5rem;  padding:0.5rem;  }
+.card p:last-child{  padding:0.5rem;  line-height:1.6;  }
+
+=====================================================================
+
+public폴더에 이미지폴더(images) 붙여넣기

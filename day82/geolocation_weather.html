@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Geolocation+weather api</title>
+		<style>
+			#weather{   margin:100px;   }
+			#weather>*{   display:block;   margin-bottom:14px;  font-size:26px;  }
+		</style>
+	</head>
+	<body>
+		<div id="weather"><strong></strong><em></em><span></span></div>
+		<script>
+			const API_KEY = "9b51c825a9c58096be48d1760fa20ae4";
+			function success(position){
+				//console.log( position );
+				const lat = position.coords.latitude;
+				const lon = position.coords.longitude;
+				console.log( "위도 : ",lat, "경도 : ",lon);
+				const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`;
+				fetch(url)
+					.then((response) => response.json() )
+					.then((data)=>{
+						const city = document.querySelector("#weather strong");
+						const weather = document.querySelector("#weather em");
+						const weather2 = document.querySelector("#weather span");
+						console.log(data);
+						city.innerText = data.name;
+						weather.innerHTML =`날씨 : ${data.weather[0].description} / 현재기온 : ${data.main.temp}&deg;C`;
+						const iconName = data.weather[0].icon;
+						const iconImg = document.createElement("img");
+						iconImg.setAttribute("src","http://openweathermap.org/img/wn/"+iconName+".png");
+						city.appendChild(iconImg);
+						weather2.innerHTML = `최저기온 : ${data.main.temp_min}&deg;C / 최고기온 : ${data.main.temp_max}&deg;C / 풍속 : ${data.wind.speed} m/s`;
+					});
+			}
+			function failer(){
+				alert("Can't Find Location");
+			}
+			navigator.geolocation.getCurrentPosition(success, failer)
+		</script>
+	</body>
+</html>

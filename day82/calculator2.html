@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>계산기</title>
+		<style>
+			#outputArea{  
+				width:460px;  height:60px;  border:1px solid #ccc;  font-size:20px;
+				line-height:58px;  padding:0 10px;  margin:20px auto;
+				box-sizing:border-box;  overflow:auto;
+			}
+			#btns{ 		width:460px;  margin:20px auto;  			}
+			button{
+				padding:0;  width:100px;  height:100px;  margin:5px; 
+				font-size:26px;  font-weight:bold; 
+			}
+			.big{   width:215px;  }
+		</style>
+	</head>
+	<body>
+		<div id="outputArea"></div>
+		<div id="btns">
+			<button type="button">1</button>
+			<button type="button">2</button>
+			<button type="button">3</button>
+			<button type="button">4</button>
+			<button type="button">5</button>
+			<button type="button">6</button>
+			<button type="button">7</button>
+			<button type="button">8</button>
+			<button type="button">9</button>
+			<button type="button">0</button>
+
+			<button type="button">.</button>
+			<button type="button">+</button>
+			<button type="button">-</button>
+			<button type="button">*</button>
+			<button type="button">/</button>
+			<button type="button">=</button>
+
+			<button type="button" class="big">c</button>
+			<button type="button" class="big">del</button>
+		</div>
+
+		<script>
+			let init_state=0; // 초기상태 0, 아니면 1
+			let nan_state=0; // 기호(문자)사용여부 사용전 0,  사용1
+			let result_state=0; // 결과출력여부  결과전 0, 결과 1
+			let dot_state=0; // . 사용 안함0,  사용1
+			let btns=document.querySelectorAll("button");
+			let result=document.querySelector("#outputArea");
+			const delFunc=()=>{
+				if( result_state==1 ){
+					return false; // result.innerHTML="";	result_state=0; init_state=0;
+				}
+				let text_r=result.innerHTML;
+				let text_num=text_r.length;
+				result.innerHTML = text_r.substr(0,text_num-1);
+				// 첫번째(0번째)부터 (전체글자수-1)만큼 글자 추출해서 출력
+				let txt2=text_r.substr(0,text_num-1);
+				let txt_num2=txt2.length;
+				let last_letter=txt2.substr(txt_num2-1,1); // 마지막 문자열
+				if(txt_num2==0){
+					init_state=0;
+				}
+				if( isNaN(last_letter) ){
+					nan_state=1;
+				}else{
+					nan_state=0;
+				}
+			}
+			const calcFunc=(val)=>{ // val =클릭 실행 전 입력 문자열
+				if( result_state==1 ){  return false;  } // 결과나온뒤 계산 막기
+				if( nan_state==1 && isNaN(val) ){  return false; }//문자입력후 새로 문자입력시 계산막기
+				if( init_state==0 && isNaN(val) && val!="-" ){  return false;   }
+				//처음입력시 숫자가 아니면( -제외 ) 계산 막기
+				if( nan_state==0 && dot_state==1 && val=="." ){  return false;  }
+				//기호 사용전 점 두번입력 막기
+				result.innerHTML=eval(result.innerHTML);
+				result_state=1;
+			}
+			for(let i=0; i<btns.length; i++){
+				btns[i].addEventListener("click",(e)=>{
+					let variable=e.target.innerHTML; //console.log( e.target.innerHTML );	
+					let variable2=null;
+					if( variable != "=" && variable !="c" && variable !="del" ){
+						variable2=e.target.innerHTML;
+					}
+					if( variable=="=" ){
+						calcFunc(variable2);
+					}else if( variable=="c" ){
+						result.innerHTML="";
+						result_state=0;
+					}else if( variable=="del"){
+						delFunc();
+					}else{
+						if( result_state==1 ){  return false;  } // 결과나온뒤 계산 막기
+						if( nan_state==1 && isNaN(variable2) ){  return false; }//문자입력후 새로 문자입력시 계산막기
+						if( init_state==0 && isNaN(variable2) && variable2!="-" ){  return false;   }
+						//처음입력시 숫자가 아니면( -제외 ) 계산 막기
+						if( nan_state==0 && dot_state==1 && variable2=="." ){  return false;  }
+						//기호 사용전 점 두번입력 막기
+						result.innerHTML+=variable;
+						if( isNaN(variable) ){   // 문자, 숫자검사  isNaN("~")
+							nan_state=1; /*문자사용*/
+							dot_state=0; /* .사용 가능 */
+						}else{
+							nan_state=0; /* 숫자사용 */
+						}
+						init_state=1; /* 초기입력상태 아님 */
+						if( variable=="." ){  dot_state=1;  }
+					}
+					
+				});
+			}
+		</script>
+	</body>
+</html>

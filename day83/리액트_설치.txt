@@ -1,0 +1,11 @@
+nodejs 최신버전 설치
+
+( vs code --> Terminal (powerShell에서 교체후) 입력 )
+npx create-react-app project1           (<-- 설치 )
+------------------------------------------------------
+cd project1 엔터
+npm start ( 미리보기 ) --->  ctrl+"C" ( 종료 )
+npm run start ( mac 미리보기 ) -->
+-------------------------------------------------------
+배포
+npm run build --> build폴더에 작성
