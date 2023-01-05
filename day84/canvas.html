@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>canvas</title>
+		<style>
+			html,body{ width: 100vw; height: 100vh; }
+			body{
+				margin: 0;
+				display: flex; justify-content: center; align-items: center;
+			}
+			canvas{
+				width: 800px; height: 600px;
+				border: 2px solid #222;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			const canvas=document.querySelector('canvas');
+			const ctx=canvas.getContext('2d');
+			canvas.width=800;
+			canvas.height=600;
+			ctx.fillStyle='#ff33ff';
+			ctx.fillRect(50,50,100,100);
+			ctx.rect(150,150,100,100);
+			ctx.fill();
+			ctx.beginPath();
+			ctx.fillStyle='#33ffff';
+			ctx.rect(250,250,100,100);
+			ctx.fill();
+			ctx.strokeRect(350,350,100,100);
+			ctx.rect(450,450,100,100);
+			ctx.strokeStyle='#ff6600';
+			ctx.lineWidth=2;
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.lineWidth=4;
+			ctx.moveTo(250,75);
+			ctx.lineTo(350,75);
+			ctx.lineTo(400,175);
+			ctx.lineTo(300,175);
+			ctx.lineTo(251,74);
+			ctx.fill();
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(500,250,50,0,Math.PI*2);
+			ctx.stroke();
+		</script>
+	</body>
+</html>
