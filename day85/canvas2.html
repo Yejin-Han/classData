@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>canvas</title>
+		<style>
+			html,body{ width: 100vw; height: 100vh; }
+			body{
+				margin: 0;
+				display: flex; justify-content: center; align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width='800' height='600' style='border: 2px solid #222'></canvas>
+		<script>
+			const canvas=document.querySelector('canvas');
+			const ctx=canvas.getContext('2d');
+			canvas.width=800;
+			canvas.height=600;
+			ctx.lineWidth=2;
+			let drawable=false;
+			function draw(e){
+				let x=e.offsetX;
+				let y=e.offsetY;
+				if(!drawable){
+					ctx.beginPath();
+					ctx.moveTo(x,y); //이벤트(클릭)가 발생한 상대좌표
+				} else{
+					ctx.lineTo(x,y);
+				}
+				ctx.stroke();
+			}
+			canvas.addEventListener('mousedown',()=>(drawable=true));
+			canvas.addEventListener('mouseup',()=>(drawable=false));
+			canvas.addEventListener('mousemove',draw);
+			canvas.addEventListener('mouseleave',()=>(drawable=false));
+		</script>
+	</body>
+</html>
