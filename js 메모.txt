@@ -871,7 +871,7 @@ document.createDocumentFragment( ); //가상 객체 생성 ---> append해서 사
 
 
 
-230105
+230105,230106,230109
 [canvas]
 const ctx = canvas.getContext('2d'); //기본설정
 
@@ -884,7 +884,7 @@ ctx.fill( ) //채우기
 ctx.strokeStyle='color'
 ctx.stroke( ) //선 그리기
 ctx.beginPath( ) //같은 캔버스 내에서 새로 시작하고 싶을 때
-ctx.lineWidth='~' (단위 px) //선 두께
+ctx.lineWidth=~ (단위 px) //선 두께
 ctx.arc(x, y, r, startAngle, endAngle) //단위 rad
 ctx.moveTo(x, y) //라인의 시작점 -> ctx.lineTo(x, y) //시작점과 이어줄 점. 여러번 선언시 순서대로 이어짐.
-
+ctx.lineCap='round/sqaure/butt(기본)';
