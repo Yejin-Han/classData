@@ -121,6 +121,6 @@ virtual object - document.createDocumentFragment();
 ```
 * day86(230109)
 ```
-1. canvas
-2. REACT
+1. canvas - paint program example
+2. REACT - input change useState
 ```
