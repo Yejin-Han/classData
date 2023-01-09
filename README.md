@@ -98,3 +98,29 @@ virtual object - document.createDocumentFragment();
 1. virtual object2 - document.createDocumentFragment(); + (even)th extraction
 2. making calculator - =, c, del implementaion
 ```
+* day82(230103)
+```
+1. open weather api
+2. making calculator - details
+```
+* day83(230104)
+```
+1. js letter animation
+2. js Class
+3. REACT installation & basic (+ usestate) blog making
+```
+* day84(230105)
+```
+1. canvas basic
+2. REACT js file detachment(요소별로 js 분리하여 활용), img src change
+```
+* day85(230106)
+```
+1. canvas basic2
+2. REACT props
+```
+* day86(230109)
+```
+1. canvas
+2. REACT
+```
