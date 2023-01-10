@@ -696,8 +696,9 @@ Array.splice(시작순서, 삭제할개수, 그 자리에 추가할 요소); //�
 Array.push(~); //마지막에 데이터 추가
 Array.pop(~); //마지막 데이터 삭제
 Array.unshift(~); //처음에 데이터 추가
-Array.shift(~); //처음 데이터 삭제
+Array.shift(~); //처음 데이터 삭제=>
 Array.concat(데이터 or 배열); //Array에 새 내용 합쳐서 그 배열의 사본 반환
+Array.map((value, idx, array)=>(실행할 코드)); //배열 각 요소들을 지정 규칙에 따라 새로운 배열로 생성 *중괄호 아님 주의!! **react에서 컴포넌트 불러올 때 key값 필요함(val or idx로 쓸 수 있음) ***value, idx, array 중 순서대로 필요한 것까지만 사용할 수도 있음.
 
 
 [DOM 객체] Document Object Model
@@ -888,3 +889,13 @@ ctx.lineWidth=~ (단위 px) //선 두께
 ctx.arc(x, y, r, startAngle, endAngle) //단위 rad
 ctx.moveTo(x, y) //라인의 시작점 -> ctx.lineTo(x, y) //시작점과 이어줄 점. 여러번 선언시 순서대로 이어짐.
 ctx.lineCap='round/sqaure/butt(기본)';
+
+
+
+230110
+[브라우저에서 인식 가능한 url로 바꾸기]
+URL.createObjectURL(원래파일url);
+
+[canvas를 이미지로 저장]
+canvas.toDataURL( ); ==> a tag 만들어서 href를 해당 url로 지정, 속성에 download 지정 (태그자체에도 가능, 따로 a.download='파일명(확장자까지)'로도 가능) ==> a.click( );
+* 기본 확장자 .png

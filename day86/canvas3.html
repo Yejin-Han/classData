@@ -28,7 +28,15 @@
 			.colorBtn>span:nth-of-type(4){ background: #0984e3; }
 			.colorBtn>span:nth-of-type(5){ background: #6c5ce7; }
 			.colorBtn>span:nth-of-type(6){ background: #2d3436; }
-			.eraseBtn{ margin-top: 15px; }
+			.eraseBtn,.fileBtn,.saveBtn{ margin-top: 15px; }
+			.fileBtn>#imgFile{ display: none; }
+			.fileBtn>label{
+				display: block;
+				width: 120px; height: 40px;
+				background: #dedede;
+				text-align: center; line-height: 40px;
+				cursor: pointer;
+			}
 		</style>
 	</head>
 	<body>
@@ -42,10 +50,18 @@
 				<span data-color='#0984e3'></span>
 				<span data-color='#6c5ce7'></span>
 				<span data-color='#2d3436'></span>
+				<!-- <input type="color"> -->
 			</div>
 			<div class="eraseBtn">
 				<button type="button" id="reset">Reset</button>
 				<button type="button" id="erase">Erase</button>
+			</div>
+			<div class="fileBtn">
+				<input type="file" id="imgFile" accept="img/*" />
+				<label for="imgFile">Open Image</label>
+			</div>
+			<div class="saveBtn">
+				<button type="button" id="save">Save to Image</button>
 			</div>
 		</div>
 		<script>
@@ -55,7 +71,10 @@
 			const colors=document.querySelectorAll('div>span');
 			const resetBtn=document.querySelector('#reset');
 			const eraseBtn=document.querySelector('#erase');
+			const fileBtn=document.querySelector('#imgFile');
+			const saveBtn=document.querySelector('#save');
 			canvas.width=800; canvas.height=600;
+			canvas.style.backgroundColor='#fff';
 			ctx.lineCap='round';
 			ctx.lineWidth=2;
 			function lineW(e){
@@ -111,6 +130,24 @@
 				ctx.strokeStyle='#fff';
 			}
 			eraseBtn.addEventListener('click', eraser);
+			function fileImg(e){
+				const fileUrl=e.target.files[0];
+				const imgUrl=URL.createObjectURL(fileUrl);
+				const image=new Image();
+				image.src=imgUrl;
+				image.onload=function(){
+					ctx.drawImage(image, 0, 0, 800, 600);
+				}
+			}
+			fileBtn.addEventListener('change', fileImg);
+			function saveImg(e){
+				const url=canvas.toDataURL();
+				const a=document.createElement('a');
+				a.href=url;
+				a.download='myArt.png';
+				a.click();
+			}
+			saveBtn.addEventListener('click', saveImg);
 		</script>
 	</body>
 </html>
