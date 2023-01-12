@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ping Pong Game</title>
+		<style type="text/css">
+			body{ margin: 0; padding: 0; }
+			#ball{
+				display: block;
+				width: 20px; height: 20px;
+				border-radius: 10px; background: #06f;
+				position: absolute; left: 600px; top: 400px;
+			}
+			.block{
+				width: 16px; height: 160px;
+				background: #ccc; border: 2px solid #222;
+				position: absolute; left: 960px; top: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		<span id="ball"></span>
+		<div class="block"></div>
+		<script>
+			const ball=document.querySelector('#ball');
+			const block=document.querySelector('.block');
+			const ballW=ball.clientWidth; const ballH=ball.clientHeight;
+			let ballX=Math.random()*300+300;
+			let ballY=400;
+			let incX=2;
+			let incY=-2;
+			const boundLeft=0;
+			const boundRight=window.innerWidth-ballW;
+			const boundTop=0;
+			const boundBottom=window.innerHeight-ballH;
+			const blockLeft=block.getBoundingClientRect().left;
+			const blockRight=block.getBoundingClientRect().right;
+			const blockTop=block.getBoundingClientRect().top;
+			const blockBottom=block.getBoundingClientRect().bottom;
+			const ballMoving=()=>{
+				ballX+=incX;
+				ballY+=incY;
+
+				if(ballX<boundLeft || ballX>boundRight){ incX*=(-1); }
+				if(ballY<boundTop || ballY>boundBottom){ incY*=(-1); }
+
+				ball.style.left=ballX+'px';
+				ball.style.top=ballY+'px';
+			}
+			const blockDetect=()=>{
+				if(ballX+ballW>blockLeft && ballX<blockRight && ballY+ballH>blockTop && ballY<blockBottom){
+					incX*=(-1);
+					clearInterval(blockDetecter);
+					block.remove();
+				}
+			}
+			let ballMover=setInterval(ballMoving, 10);
+			let blockDetecter=setInterval(blockDetect, 10);
+		</script>
+	</body>
+</html>

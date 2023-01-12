@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ping pong game with canvas</title>
+		<style type="text/css">
+			body{ margin: 0; padding: 0; overflow: hidden; }
+			canvas{
+				display: block;
+				width: 1000px; height: 800px;
+				margin: 100px auto;
+				background: #f4f4f4;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			const canvas=document.querySelector('canvas');
+			canvas.width=1000; canvas.height=800;
+			const ctx=canvas.getContext('2d');
+			const r=8;
+			let x=canvas.width/2;
+			let y=canvas.height/2;
+			let incX=2;
+			let incY=-2;
+			const ball=()=>{
+				ctx.beginPath();
+				ctx.arc(x,y,r,0,Math.PI*2);
+				ctx.fillStyle='#c0f';
+				ctx.fill();
+				ctx.closePath();
+			}
+			const barH=100;
+			const barW=10;
+			let barX=40;
+			let barY=(canvas.height-barH)/2;
+			const bar=()=>{
+				ctx.beginPath();
+				ctx.rect(barX,barY,barW,barH);
+				ctx.fillStyle='#fc0';
+				ctx.fill();
+				ctx.closePath();
+			}
+			let barDown=false;
+			let barUp=false;
+			const downKeyCheck=(e)=>{
+				if(e.keyCode==38){ barUp=true; }
+				if(e.keyCode==40){ barDown=true; }
+			}
+			const upKeyCheck=(e)=>{
+				if(e.keyCode==38){ barUp=false; }
+				if(e.keyCode==40){ barDown=false; }
+			}
+			document.addEventListener('keydown', downKeyCheck);
+			document.addEventListener('keyup', upKeyCheck);
+			const Moving=()=>{
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				ball();
+				bar();
+				x+=incX;
+				y+=incY;
+				if(x<r || x>canvas.width-r){ incX*=(-1); }
+				if(y<r || y>canvas.height-r){ incY*=(-1); }
+				if(barUp && barY>8){ barY-=5; }
+				if(barDown && barY<(canvas.height-barH-8)){ barY+=5; }
+				if(x<barX+barW+r && y>barY-r && y<barY+barH+r){ incX*=(-1); }
+			}
+			let mover=setInterval(Moving, 10);
+		</script>
+	</body>
+</html>
