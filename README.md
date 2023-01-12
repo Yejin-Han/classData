@@ -119,11 +119,13 @@ virtual object - document.createDocumentFragment();
 1. canvas basic2
 2. REACT props
 ```
-* day86(230109, 230110)
+* day86(230109, 230110, 230111)
 ```
 1. canvas - paint program example(brush thickness, change color, erase)
 2. REACT - input change useState using js .MAP(array method)
 
 3. canvas - paint program example(drawImage, save to image)
 4. REACT - TodoList basic(addList, deleteList)
+
+5. !TEST! : REACT blog making(useState, now date, add list ...)
 ```
