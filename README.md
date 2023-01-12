@@ -112,18 +112,25 @@ virtual object - document.createDocumentFragment();
 * day84(230105)
 ```
 1. canvas basic
-2. REACT js file detachment(요소별로 js 분리하여 활용), img src change
+2. REACT component, img src change
 ```
 * day85(230106)
 ```
 1. canvas basic2
 2. REACT props
 ```
-* day86(230109, 230110)
+* day86(230109, 230110, 230111)
 ```
 1. canvas - paint program example(brush thickness, change color, erase)
 2. REACT - input change useState using js .MAP(array method)
 
 3. canvas - paint program example(drawImage, save to image)
 4. REACT - TodoList basic(addList, deleteList)
+
+5. !TEST! : REACT blog making(useState, now date, add list ...)
+```
+* day87(230112)
+```
+1. pingpong game with general html and canvas(ball bounding, bar detecting)
+2. REACT - router and bootstrap installation, router basic(Routes, Route, Link, useNavigate), bootstrap basic
 ```
