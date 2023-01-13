@@ -1,0 +1,43 @@
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import {Routes, Route, Link, useNavigate} from 'react-router-dom';
+import {Container, Navbar, Nav} from 'react-bootstrap';
+
+function App() {
+  let navigate=useNavigate();
+  return (
+    <div className="App">
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#">Router & Bootstrap</Navbar.Brand>
+          <Nav>
+            <Nav.Link onClick={()=>{ navigate(1) }}>Go Forwards</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate(-1) }}>Go Backwards</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate('/') }}>Main</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate('/detail') }}>Detail</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate('/cart') }}>Cart</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Routes>
+        <Route path="/" element={ <div className="content">Main Page content</div> } />
+        <Route path="/detail" element={ <div className="content">상세정보</div> } />
+        <Route path="/cart" element={ <div className="content">장바구니</div> } />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+
+.bar{
+  background-color: bisque; color: #090909;
+  display: flex;
+  padding-left: 20px;
+}
+.content{
+  padding: 50px 20px 20px;
+  text-align: center;
+}
