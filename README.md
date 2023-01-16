@@ -129,8 +129,12 @@ virtual object - document.createDocumentFragment();
 
 5. !TEST! : REACT blog making(useState, now date, add list ...)
 ```
-* day87(230112)
+* day87(230112, 230113, 230116)
 ```
 1. pingpong game with general html and canvas(ball bounding, bar detecting)
-2. REACT - router and bootstrap installation, router basic(Routes, Route, Link, useNavigate), bootstrap basic
+2. REACT(MALL) - router and bootstrap installation, router basic(Routes, Route, Link, useNavigate), bootstrap basic
+
+3. REACT(MALL) - insert img, bootstrap
+
+4. REACT(MALL) - nested routing, Outlet, inner link, bootstrap
 ```
