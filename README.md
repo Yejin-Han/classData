@@ -129,7 +129,7 @@ virtual object - document.createDocumentFragment();
 
 5. !TEST! : REACT blog making(useState, now date, add list ...)
 ```
-* day87(230112, 230113, 230116)
+* day87(230112, 230113, 230116, 230117)
 ```
 1. pingpong game with general html and canvas(ball bounding, bar detecting)
 2. REACT(MALL) - router and bootstrap installation, router basic(Routes, Route, Link, useNavigate), bootstrap basic
@@ -137,4 +137,6 @@ virtual object - document.createDocumentFragment();
 3. REACT(MALL) - insert img, bootstrap
 
 4. REACT(MALL) - nested routing, Outlet, inner link, bootstrap
+
+5. REACT(MALL) - button(link) to call data.json using axios library, styled-components introduction, bootstrap
 ```
