@@ -79,64 +79,78 @@
 * day75
 * day76
 * day77
-* day78(221227)
+* 221227(day78)
 ```
 form event - 1. submit (in select, radio)
            - 2. example : showing car estimate (in checkbox, click-> img change)
 ```
-* day79(221228)
+* 221228(day79)
 ```
 1. making calendar (with form submit, onchange)
 2. json data calling (fetch, use in table)
 ```
-* day80(221229)
+* 221229(day80)
 ```
 virtual object - document.createDocumentFragment();
 ```
-* day81(221230)
+* 221230(day81)
 ```
 1. virtual object2 - document.createDocumentFragment(); + (even)th extraction
 2. making calculator - =, c, del implementaion
 ```
-* day82(230103)
+* 230103(day82)
 ```
 1. open weather api
 2. making calculator - details
 ```
-* day83(230104)
+* 230104(day83)
 ```
 1. js letter animation
 2. js Class
 3. REACT installation & basic (+ usestate) blog making
 ```
-* day84(230105)
+* 230105(day84)
 ```
 1. canvas basic
 2. REACT component, img src change
 ```
-* day85(230106)
+* 230106(day85)
 ```
 1. canvas basic2
 2. REACT props
 ```
-* day86(230109, 230110, 230111)
+* 230109(day86)
 ```
 1. canvas - paint program example(brush thickness, change color, erase)
 2. REACT - input change useState using js .MAP(array method)
-
-3. canvas - paint program example(drawImage, save to image)
-4. REACT - TodoList basic(addList, deleteList)
-
-5. !TEST! : REACT blog making(useState, now date, add list ...)
 ```
-* day87(230112, 230113, 230116, 230117)
+* 230110(day86)
+```
+1. canvas - paint program example(drawImage, save to image)
+2. REACT - TodoList basic(addList, deleteList)
+```
+* 230111
+```
+1. !TEST! : REACT blog making(useState, now date, add list ...)
+```
+* 230112(day87)
 ```
 1. pingpong game with general html and canvas(ball bounding, bar detecting)
 2. REACT(MALL) - router and bootstrap installation, router basic(Routes, Route, Link, useNavigate), bootstrap basic
-
-3. REACT(MALL) - insert img, bootstrap
-
-4. REACT(MALL) - nested routing, Outlet, inner link, bootstrap
-
-5. REACT(MALL) - button(link) to call data.json using axios library, styled-components introduction, bootstrap
+```
+* 230113
+```
+1. REACT(MALL) - insert img, bootstrap
+```
+* 230116
+```
+1. REACT(MALL) - nested routing, Outlet, inner link, bootstrap
+```
+* 230117(day87)
+```
+1. REACT(MALL) - button(link) to call data.json using axios library, styled-components introduction, bootstrap
+```
+* 230118
+```
+1. Wordpress
 ```
