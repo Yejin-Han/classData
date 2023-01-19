@@ -1,0 +1,18 @@
+Node.js command prompt 에서
+
+
+npm install sass -g(global 버전 설치)
+npm show sass version  ((1.57.1))
+
+[scss폴더 상위의 css폴더가 있는 경로 cd로 찾아가기]
+ex) C:\Users\LINE\Desktop\hyj\lesson\coding\day74\css
+
+[compile하기]
+~:파일명, css>scss가 전부고, scss와 같은 폴더에 css만들고 싶다면 (css폴더)\에 아무것도 입력하지 않는다.
+
+(수동)sass scss\~.scss:../\~.css      sass (scss폴더)\~.scss:(css폴더)\~.css
+sass "(scss폴더)\~.scss : (css폴더)\~.css" --style (nested/compact/compressed)
+(자동)
+sass --watch (scss폴더):(css폴더)
+
+watch시작하고나면 Ctrl+c 누르기 전까지 계속 추적 watching

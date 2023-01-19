@@ -1,0 +1,23 @@
+[221219]
+section{
+    width: 100vw;
+    >.list{
+        padding: 20px;
+        overflow: hidden;
+        li{
+            float: left;
+            margin-right: 10px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+/* 상위경로 */
+.btn{
+    position: absolute;
+    &.active{
+        color: #f60;
+    }
+}

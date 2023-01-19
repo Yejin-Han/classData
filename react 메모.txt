@@ -1,0 +1,55 @@
+230117
+[axios - 데이터 호출 라이브러리]
+//설치
+npm install axios
+
+//데이터 호출
+axios.get('~.json').then((result)=>{
+  result.data ...
+}).catch(()=>{예외처리})
+
+//여러 데이터 호출
+Promise.all([axios.get('~'), axios.get('~'])
+  .then( (result)=>{ ... } )
+  .catch( ()=>{ ... } )
+
+//데이터 전송
+axios.post('url', {data: value})
+
+* 불러올 데이터는 public에 있어야 함.
+
+
+
+230118
+[동기 처리-> 비동기 처리 :: 혼자 공부]
+javascript는 기본적으로 동기처리(직렬적 작업 수행) -> 비동기처리(병렬적 작업 수행, 해야 할 일을 위임하고 기다리는 방식)
+* 대표적으로 setTimeout
+1. promise : 비동기처리에서 사용되는 객체
+- pending(대기) : promise 객체 생성 시 (인자 : resolve, reject)
+- fulfilled(이행) : resolve에 파라미터를 넣어주면 이행상태로 넘어감. 이후 .then을 활용하면 결과 값을 받을 수 있다.
+- rejected(실패) : reject 인자 호출 시 실패 상태가 됨. 이후 .catch를 활용하면 결과값을 받고 예외를 확인할 수 있음.
+* .then을 여러개 이어서 사용할 수 있다
+2. async & await :  .then 문법에 의해 생기는 일명 '콜백지옥'을 극복하기 위한 문법으로, async는 함수 선언시 제일 앞에, await은 결과를 기다릴 함수(안에 promise객체가 선언되어 있는) 앞에 작성.
+- fulfilled promise 반환
+- promise와 .then으로 promise chain이 생겨 길고 복잡한 문장이 되는 것을 막아줌.
+
+ex)
+async function( ) { return "id" }
+const users = async( ) => { return "id" }
+<=>
+users( ).then(("id") => console.log("id"))
+
+230119
+[redux]
+1. redux를 왜 사용하는가?
+component가 많아지고 관리해야 하는 state들이 많아지면 props 관리가 힘들어진다.
+redux로 모든 component에서 reducer함수와 action을 통해 state에 접근할 수 있다.
+2. action : 앱에서 무언가 일어나는 것을 설명한 '이벤트'
+-payload : action이 일어나는 곳에서 상태를 바로 받아올 때
+3. dispatch : action을 발생시키는 것. 즉, 상태를 업데이트 하는 유일한 방법으로써 dispatch( 변경 함수 ( ) ) 메소드 호출 후 action 객체를 넘겨주는 것이다. only update, not return
+4. reducer : action, state, Reducer(두 인수를 받아 새 상태를 리턴함)
+5. store.js 생성
+- createSlice로 변수 생성 -> initialState: (객체 or 배열), reducers(상태변경함수)
+* reducers : 변화를 일으키는 함수, 현재 state와 action 객체를 받아 필요한 경우 상태를 업데이트하는 방법을 결정, 새로운 상태를 반환하는 함수.
+- 생성한 함수 해당 변수의 actions와 함께 export 해준다.
+- configureStore -> reducer에서 반환된 새로운 state를 store 객체로 만들어주는 것
