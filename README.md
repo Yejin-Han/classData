@@ -148,9 +148,13 @@ virtual object - document.createDocumentFragment();
 ```
 * 230117(day87)
 ```
-1. REACT(MALL) - button(link) to call data.json using axios library, styled-components introduction, bootstrap
+1. REACT(MALL) - button(link) to call data.json using axios library, More button, styled-components introduction, bootstrap
 ```
 * 230118
 ```
-1. Wordpress
+1. Wordpress & TEST
+```
+* 230119
+```
+1. REACT(MALL) - Cart.js with react-redux (action, dispatch, reducer, store.js-createSlice,-configureStore)
 ```
