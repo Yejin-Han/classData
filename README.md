@@ -158,3 +158,7 @@ virtual object - document.createDocumentFragment();
 ```
 1. REACT(MALL) - Cart.js with react-redux (action, dispatch, reducer, store.js-createSlice,-configureStore)
 ```
+* 230120
+```
+1. REACT(MALL) - recently viewed list(localStorage, Array(Set, .from, .map))
+```
