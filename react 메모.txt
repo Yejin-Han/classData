@@ -1,7 +1,151 @@
+230104
+[useState] : 함수형 컴포넌트에서 상태 관리하기
+//import
+import React, {useState} from 'react';
+
+//사용법
+const [변수명, 함수명(setter함수)] = useState(초기값);
+* 초기값에는 숫자, 문자, 배열, 객체 등 다양하게 가능하다.
+
+
+
+230105
+[Component] : 뷰를 독립적으로 구성하여 재사용하기 위함.
+* 항상 대문자로 시작할 것(소문자는 DOM태그로 취급)
+* 독립적인 .js를 만들어 활용, export 해주고 App.js에서 import 해줘야 함.
+
+//함수형 컴포넌트 ((주로 활용))
+function Component(props) {
+  <></>
+}
+export default Component;
+
+//클래스형 컴포넌트
+class Component extends React.Component{
+  constructor(props){ //생성함수
+     super(props);
+  }
+  componentDidMount( ){ //상속받은 생명주기 함수
+  
+  }
+  render( ){ //상속받은 화면 출력 함수, 클래스형 컴포넌트는 render( ) 필수!
+    return ...;
+  }
+}
+export default Component;
+
+
+
+230106
+[props] : 상위 component(App.js)에서 하위 component에 값을 전달할 때 사용(단방향 데이터 흐름), 하위 component는 그 값을 받아서 읽기만 가능.
+* 문자열 전달 시 "", 그 외는 {} 활용
+* 사용시 {props.지정한prop명}으로 사용
+[PropTypes] : props의 타입을 미리 지정해주기 위해 사용.
+//import
+import PropTypes from 'prop-types';
+//사용
+Component.propTypes={
+  propname: PropTypes.string; ...
+}
+* 기본값 설정x, 값은 줄 때 필수 proptypes 설정 가능 -> PropTypes.타입.isRequired
+//기본값 설정
+Component.defaultProps={
+ propname: '디폴트값';
+}
+
+
+
+230109
+[input with useState]
+const [state, setState]=useState('');
+-> onChange 경우에 setState, input의 value 값을 {state}로 받음
+
+
+
+230110
+[useEffect] : 컴포넌트가 렌더링될 때마다 특정 작업을 실행할 수 있도록 함.
+* 렌더링 : 컴포넌트가 현재 props와 state의 상태에 기초하여 UI를 어떻게 구성할지 컴포넌트에게 요청하는 작업.
+//import
+import React, {useEffect} from 'react';
+//기본 형식
+useEffect(()=>{ ... }, []);
+- function: 수행하고자 하는 작업
+- deps: 검사하고자 하는 특정 값의 배열 형태 / 빈 배열
+* deps가 빈 배열 --> 처음 렌더링될 때 한번만 실행,
+배열 생략 --> 리렌더링될 때마다 실행
+배열 안에 값이 있을 때 --> 해당 값이 업데이트될 때, 마운트 될 때, 언마운트될 때, 값이 바뀌기 직전 등 마다 실행
+** useEffect 안에서 사용하는 state, props가 있다면 deps에 넣어주는 것이 규칙이다.
+
+
+
+230112
+[React-Router] : SPA(Single Page Application)를 구현하기 위한 라이브러리
+//설치
+npm install react-router-dom --save
+
+//import
+* index.js
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+* App.js
+import { Routes, Route, Link, useNavigate ... } from 'react-router-dom';
+
+//사용
+<Routes>
+  <Route path="/" element={ <Component /> } />
+  ...
+*path에는 주소로 활용할 임시이름을 지정해 줌.
+</Routes>
+
+//navigate <==> <Link to='path'> </Link>
+import 
+*그렇다면 왜 navigate를 쓰는가?
+- 특정 '행동'을 했을 때 이동하기 위해서. 즉, 조건을 거는거임. useNavigate는 **함수**임.
+let navigate=useNavigate(); //navigate 함수
+이벤트발생 시 ( )=>{ navigate('route path') }
+
+
+
+230113
+[useParams] : 파라미터 정보를 가져와 활용하고 싶을 때(라우터 사용하고 있다는 가정 하에)
+//import 
+import { useParams } from 'react-router-dom';
+
+//사용
+let {변수명} = useParams( );
+props를 사용하듯이 {변수명}을 넣으면 해당하는 파라미터값을 사용할 수 있다.
+* 그렇다면 여기서의 파라미터 값은 어떻게 지정되는가?
+- Route path="/sdfsfdf/:값"일 때 해당 값이 파라미터로 불려 사용된다.
+- 이 때 실제 서버에서의 주소는 localhost:3000/sdfsfdf/값
+- 값은 어떻게 정하는가?
+  - 직접 해당 자리에 입력
+  - params의 변수명을 입력해놓고, params 선언한 js에서 해당 변수에 값을 지정해주고 redux 활용시 dispatch를 통해 값을 업데이트 함.
+
+
+
+230116
+[nested routing]
+Route 안에 Route를 선언, 상위 Route의 path /~~~ 뒤로 하위 Route를 인식하도록 설정.
+상위 Route 페이지 안에서 하위가 바뀔 때 사용
+
+[Outlet] : 중첩라우팅을 한 경우, 상위 Route의 어디에 하위 Route를 보일 것인가 결정
+//import {Outlet} from 'react-router-dom';
+원하는 위치에 <Outlet></Outlet>을 삽입하면
+하위 Route들은 Outlet 위치에 번갈아 나타난다.
+
+[react.strictmode]
+함수형 컴포넌트의 double-invoked 문제의 원인이 됨. (두번 렌더링)
+- 의도된 현상, 사이드 이펙트 발견을 위함. 실제 빌드 때는 영향 x
+- 따라서 오류가 다 확실히 정리된 상태라면 제거해도 무방.
+
+
 230117
 [axios - 데이터 호출 라이브러리]
 //설치
 npm install axios
+
+//import
+import axios from 'axios';
 
 //데이터 호출
 axios.get('~.json').then((result)=>{
@@ -21,14 +165,16 @@ axios.post('url', {data: value})
 
 
 230118
-[동기 처리-> 비동기 처리 :: 혼자 공부]
+[동기 처리-> 비동기 처리 :: 혼자 공부 .. react 명령은 아니지만 주로 사용]
 javascript는 기본적으로 동기처리(직렬적 작업 수행) -> 비동기처리(병렬적 작업 수행, 해야 할 일을 위임하고 기다리는 방식)
 * 대표적으로 setTimeout
+
 1. promise : 비동기처리에서 사용되는 객체
 - pending(대기) : promise 객체 생성 시 (인자 : resolve, reject)
 - fulfilled(이행) : resolve에 파라미터를 넣어주면 이행상태로 넘어감. 이후 .then을 활용하면 결과 값을 받을 수 있다.
 - rejected(실패) : reject 인자 호출 시 실패 상태가 됨. 이후 .catch를 활용하면 결과값을 받고 예외를 확인할 수 있음.
 * .then을 여러개 이어서 사용할 수 있다
+
 2. async & await :  .then 문법에 의해 생기는 일명 '콜백지옥'을 극복하기 위한 문법으로, async는 함수 선언시 제일 앞에, await은 결과를 기다릴 함수(안에 promise객체가 선언되어 있는) 앞에 작성.
 - fulfilled promise 반환
 - promise와 .then으로 promise chain이 생겨 길고 복잡한 문장이 되는 것을 막아줌.
@@ -39,17 +185,38 @@ const users = async( ) => { return "id" }
 <=>
 users( ).then(("id") => console.log("id"))
 
+
+
 230119
-[redux]
+[react-redux] npm i react-redux
+
 1. redux를 왜 사용하는가?
 component가 많아지고 관리해야 하는 state들이 많아지면 props 관리가 힘들어진다.
 redux로 모든 component에서 reducer함수와 action을 통해 state에 접근할 수 있다.
+
 2. action : 앱에서 무언가 일어나는 것을 설명한 '이벤트'
 -payload : action이 일어나는 곳에서 상태를 바로 받아올 때
+
 3. dispatch : action을 발생시키는 것. 즉, 상태를 업데이트 하는 유일한 방법으로써 dispatch( 변경 함수 ( ) ) 메소드 호출 후 action 객체를 넘겨주는 것이다. only update, not return
+
 4. reducer : action, state, Reducer(두 인수를 받아 새 상태를 리턴함)
-5. store.js 생성
+
+5. Provider
+//import { Provider } from 'react-redux'; in index.js
+index.js에서 <Provider store={store}></Provider>로 React컴포넌트(browserrouter, app)을 크게 감싸줌으로써 Provider의 하위 컴포넌트들이 Provider를 통해 Redux의 store에 접근할 수 있게 해준다.
+
+6. store.js 생성
+//import store from './store'; in index.js
+//import { configureStore, createSlice } from '@reduxjs/toolkit';
 - createSlice로 변수 생성 -> initialState: (객체 or 배열), reducers(상태변경함수)
 * reducers : 변화를 일으키는 함수, 현재 state와 action 객체를 받아 필요한 경우 상태를 업데이트하는 방법을 결정, 새로운 상태를 반환하는 함수.
 - 생성한 함수 해당 변수의 actions와 함께 export 해준다.
 - configureStore -> reducer에서 반환된 새로운 state를 store 객체로 만들어주는 것
+
+
+
+230120
+[react sass]
+//설치 (현재 깔려있는 node.js와 node-sass의 버전 호환 상태 잘 확인하고 설치)
+npm install node-sass@8
+--> App.css 를 App.scss로 rename, import 수정
