@@ -162,3 +162,8 @@ virtual object - document.createDocumentFragment();
 ```
 1. REACT(MALL) - recently viewed list(localStorage, Array(Set, .from, .map))
 ```
+* 230126
+```
+1. REACT(MALL) - memo, useMemo, useTransition, useDeferredValue
+2. scss basic
+```
