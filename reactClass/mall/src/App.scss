@@ -1,0 +1,27 @@
+.logo{
+  width: 200px; height: 70px;
+  background: url('./logo.jpg') no-repeat center center;
+  background-size: contain;
+}
+.main-visual>img{ width: 100%; height: auto; }
+$b-c: cadetblue;
+$hoverColor: rgb(25, 90, 92);
+$f-b: 700;
+.new_pdt{
+  background-color: aliceblue;
+  h3{
+    font-weight: $f-b;
+    color: brown;
+  }
+  button{
+    text-decoration: none;
+    font-weight: $f-b;
+    color: $b-c;
+    &:hover{
+      color: $hoverColor;
+    }
+  }
+}
+.new_item_wrap{ padding: 100px 0; }
+.new_item_list>*{ padding: 0 20px; margin-bottom: 50px; }
+.new_item_list img{ width: 100%; height: auto; }

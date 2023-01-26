@@ -1,0 +1,21 @@
+App.js 에만 적용되는 CSS
+   App.module.css 로 작성, 연결
+Detail.js에서만  적용  Detail.module.css
+<style> </style> 
+------------------------------------------
+npm install styled-components  설치
+
+import styled from 'styled-compoents'
+
+let Btn=styled.button`
+    background:${ props=>props.bg };
+    color:${ props=>props.bg=='#3399ff'? 'white':'#222' };
+    padding:10px 20px;
+`
+<Btn bg="#3399FF">버튼</Btn>
+<Btn bg="#99FFcc">버튼</Btn>
+
+
+
+
+

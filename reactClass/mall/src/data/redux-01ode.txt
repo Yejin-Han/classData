@@ -1,0 +1,56 @@
+npm install @reduxjs/toolkit react-redux
+
+index.js ---
+import { Provider } from 'react-redux';
+import store from './store';
+
+<Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+
+
+-- store.js --
+
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+
+
+
+export default configureStore({
+  reducer:{
+    
+  }
+})
+
+=========================================
+--- Cart.js( step01 ) ---
+
+import { Table } from "react-bootstrap";
+
+function Cart(){
+  return(
+    <>
+      <Table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>상품명</th>
+            <th>수량</th>
+            <th>수량변경버튼</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>상품</td>
+            <td>2</td>
+            <td><button>+</button></td>
+          </tr>
+        </tbody>
+      </Table>
+    </>
+  );
+}
+
+export default Cart;

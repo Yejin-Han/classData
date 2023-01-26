@@ -220,3 +220,33 @@ index.js에서 <Provider store={store}></Provider>로 React컴포넌트(browserr
 //설치 (현재 깔려있는 node.js와 node-sass의 버전 호환 상태 잘 확인하고 설치)
 npm install node-sass@8
 --> App.css 를 App.scss로 rename, import 수정
+
+
+
+230126
+[memo]
+//import {memo} from 'react';
+- Component의 재렌더링 방지 (매번 같은 내용일 때)
+- 복잡한 컴포넌트에만 사용하자(남용하면 오히려 무거워짐)
+
+//사용
+let 함수명 = memo(function( ){
+  ...
+})
+
+[useMemo] <==> useEffect (렌더링 후 한번 실행)
+- 컴포넌트의 첫 로드 때만 렌더링
+// let result=useMemo(()=>{ return 임의의 함수 }, [state]);
+
+[useTransition]
+// import { useTransition } from 'react';
+//사용
+let [ispending, startTransition]=useTransition();
+- ispending (변수), startTransition 함수가 처리 중일 때 true 
+- useState함수를 startTransition함수로 감싸줌.
+=> transition이 end될 때까지 ispending 상태이고 end되면 false.
+    따라서 삼항연산자 써서 false 일 때 실행해야 할 함수 적어주면 지연실행 가능.
+
+[useDeferredValue]
+- 인자로 state or valuable 1개 넣어 사용
+- 인자 값이 바뀔 때 그 처리를 늦게 함.
