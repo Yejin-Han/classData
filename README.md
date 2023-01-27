@@ -167,3 +167,7 @@ virtual object - document.createDocumentFragment();
 1. REACT(MALL) - memo, useMemo, useTransition, useDeferredValue
 2. scss basic
 ```
+* 230127
+```
+1. scss - advanced nesting, #{}, mixin, function, conditional, loop, built-in function
+```
