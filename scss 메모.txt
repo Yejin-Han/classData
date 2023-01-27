@@ -26,5 +26,119 @@ section{
 
 
 230126
-[변수만들기] : $변수명
-[부모 선택] : &  //hover 등의 상태 선택자를 위해
+[variable] : $변수명
+- 변수를 다른 변수에 사용할 수 있다.
+- 변수 선언 후 뒤에 !global을 선언하면 어느 위치에서 변수를 선언하든 전역변수가 된다.
+
+[parent selector] : &  //특히 hover 등의 상태 선택자를 위해
+
+
+
+230127
+[advanced nesting]
+ex)
+.title{
+  font: {
+    size: 20px;
+    weight: bold;
+    family: sans-serif;
+  }
+}
+
+.col{
+  &-sm{  }
+  &-md{  }
+  &-lg{  }
+} // <==> .col-sm / .col-md / .col-lg
+
+[#{ } : backtick과 유사하게 사용, 문자사이에 변수 삽입 시]
+(기본)$family: ("Lucida Sans unicode");
+-> @import url("https://font.googleapi.com/?family="+$family
+
+$family: unquote("Lucida Sans unicode");
+-> @import url("https://font.googleapi.com/?family=#{$family}")
+
+[Mixin] : 스타일 정의
+@mixin primary{
+  font-size: 18px;
+  font-weight: bold;
+  color: #2369f9;
+  text-align: center;
+}
+.
+.
+.
+h3{ @include primary; }
+button{ @include primary; }
+
+[operator]
++ - * / % 다 활용 가능!!
+
+[function]
+$max-width: 1080px;
+@function gridCol($n: 1, $total: 12){
+  @return $max-width*($n/$total);
+}
+.row{
+  width: @max-width;
+  .col1{ width: gridCol(); }
+  .col5{ width: gridCol(5); }  --> 5/12
+  .col10{ width: gridCol(10); }  --> 10/12
+}
+
+[Conditional : 삼항식과 유사]
+$wd: 600px;
+.
+.
+div{
+  width: if( $wd > 200px, $wd, 200px );
+}
+=================================
+div{ //조건의 소괄호는 생략 가능
+  @if( $w >= ?? ){
+    ...
+  } @else if $w >= !! {
+    ...
+  } @else{
+    ...
+  }
+}
+
+
+[loop]
+$wd: 100px;
+@for $i from 1 through 4{ //1~4, 4번 반복
+  li:nth-child( #{$i} ){
+    left: 100px * ($i - 1);
+  }
+}
+--------------------------------------------
+@for $i from 1 to 4{ //1~4 전, 3번 반복
+  li:nth-child( #{$i} ){
+    left: 100px * ($i - 1);
+  }
+}
+--------------------------------------------
+@each $state in alert, warning, map{
+  .#{ $state }-icon{
+    background: url('/images/#{ $state }.png') no-repeat;
+  }
+}
+
+
+[Built-in function]
+$color: #095ec2;
+background-color: lighten( $color, 20% );
+background-color: darken( $color, 20% );
+background-color: grayscale( $color );
+background-color: rgba( $color, 0.4 );
+background-color: invert( $color );
+
+
+
+
+
+
+
+
+
