@@ -82,11 +82,14 @@ useEffect(()=>{ ... }, []);
 [React-Router] : SPA(Single Page Application)를 구현하기 위한 라이브러리
 //설치
 npm install react-router-dom --save
+(or npm install react-router-dom@6)
 
 //import
 * index.js
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+<App>을 <BrowserRouter></BrowserRouter>로 감싸주기
+
 * App.js
 import { Routes, Route, Link, useNavigate ... } from 'react-router-dom';
 
@@ -250,3 +253,43 @@ let [ispending, startTransition]=useTransition();
 [useDeferredValue]
 - 인자로 state or valuable 1개 넣어 사용
 - 인자 값이 바뀔 때 그 처리를 늦게 함.
+
+
+
+230130
+[SQL, server]
+//install
+npm install i express mysql cors
+npm install -g nodemon
+nodemon server.js
+
+//server.js
+const express = require('express');
+const app = express();
+const mysql = require('mysql');
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root(내가 설정한 user명)",
+  password: "root의 비밀번호",
+  database: "생성한 데이터베이스명"
+})
+
+app.get("/", (req, res)=>{
+  const sqlQuery="SELECT * FROM 데이터베이스명.테이블명;"
+  db.query(sqlQuery, (err, data)=>{
+    if(err) return res.json(err);
+    return res.json(data);
+  })
+})
+//app.use(express, json());
+
+app.listen(8080, function(){ //localhost:8080 서버 사용
+    console.log('listening on 8080');
+});
+
+
+(( ** errno 1251 해결
+1. mysql 대신 mysql2 설치, require mysql2 해주면 됨.
+2. mysql cmd 열고
+ALTER USER '설정한 user'@'localhost' IDENTIFIED WITH mysql_native_password BY '비밀번호';(최선은 아닌듯) ))
