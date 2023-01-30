@@ -171,3 +171,7 @@ virtual object - document.createDocumentFragment();
 ```
 1. scss - advanced nesting, #{}, mixin, function, conditional, loop, built-in function
 ```
+* 230130
+```
+1. mysql(call database), express(server)
+```
