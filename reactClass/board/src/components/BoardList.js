@@ -1,7 +1,23 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table } from "react-bootstrap";
 
 function BoardList(){
+	const [boards, setBoards] = useState([]);
+	useEffect(() => {
+		const fetchBoards = async() => {
+			try{
+				const res = await axios.get('http://localhost:8080/board');
+				setBoards(res.data);
+			} catch(err) {
+				console.log(err);
+			}
+		}
+		fetchBoards();
+	}, []);
+
 	return(
 		<div>
 			<Table striped bordered hover>
@@ -14,24 +30,16 @@ function BoardList(){
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>제목1</td>
-						<td>한예진</td>
-						<td>2023-01-29</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>제목2</td>
-						<td>김민석</td>
-						<td>2023-01-30</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>제목3</td>
-						<td>손승완</td>
-						<td>2023-01-31</td>
-					</tr>
+					{
+						boards.map((data, idx) => (
+							<tr key={idx}>
+								<td>{data.id}</td>
+								<td>{data.title}</td>
+								<td>{data.author}</td>
+								<td>{data.date}</td>
+							</tr>
+						))
+					}
 				</tbody>
 			</Table>
 			<Button variant="info">글쓰기</Button>
