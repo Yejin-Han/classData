@@ -136,19 +136,32 @@ virtual object - document.createDocumentFragment();
 * 230112(day87)
 ```
 1. pingpong game with general html and canvas(ball bounding, bar detecting)
-2. REACT(MALL) - router and bootstrap installation, router basic(Routes, Route, Link, useNavigate), bootstrap basic
+2. REACT(MALL)
+- router and bootstrap installation
+- router basic(Routes, Route, Link, useNavigate)
+- bootstrap basic
 ```
 * 230113
 ```
-1. REACT(MALL) - insert img, bootstrap
+1. REACT(MALL)
+- insert img
+- bootstrap
 ```
 * 230116
 ```
-1. REACT(MALL) - nested routing, Outlet, inner link, bootstrap
+1. REACT(MALL)
+- nested routing
+- Outlet
+- inner link
+- bootstrap
 ```
 * 230117(day87)
 ```
-1. REACT(MALL) - button(link) to call data.json using axios library, More button, styled-components introduction, bootstrap
+1. REACT(MALL)
+- button(link) to call data.json using axios library
+- More button
+- styled-components introduction
+- bootstrap
 ```
 * 230118
 ```
@@ -156,22 +169,54 @@ virtual object - document.createDocumentFragment();
 ```
 * 230119
 ```
-1. REACT(MALL) - Cart.js with react-redux (action, dispatch, reducer, store.js-createSlice,-configureStore)
+1. REACT(MALL)
+- Cart.js with react-redux (action, dispatch, reducer, store.js-createSlice,-configureStore)
 ```
 * 230120
 ```
-1. REACT(MALL) - recently viewed list(localStorage, Array(Set, .from, .map))
+1. REACT(MALL)
+- recently viewed list(localStorage, Array(Set, .from, .map))
 ```
 * 230126
 ```
-1. REACT(MALL) - memo, useMemo, useTransition, useDeferredValue
+1. REACT(MALL)
+- memo
+- useMemo
+- useTransition
+- useDeferredValue
 2. scss basic
 ```
 * 230127
 ```
-1. scss - advanced nesting, #{}, mixin, function, conditional, loop, built-in function
+1. scss
+- advanced nesting
+- #{}
+- mixin
+- function
+- conditional
+- loop
+- built-in function
 ```
 * 230130
 ```
-1. mysql(call database), express(server)
+1. SQL
+- mysql workbench -> create table, insert
+2. server
+- mysql.createConnection
+- express -> get, listen
+3. make board frame
+```
+* 230131
+```
+1. server
+- express -> post
+2. board frame
+- get db data using useState, useEffect and map it
+- async, await
+- try & catch
+```
+* 230201
+```
+1. server
+- express -> put, delete
 ```
