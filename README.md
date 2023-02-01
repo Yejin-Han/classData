@@ -217,6 +217,11 @@ virtual object - document.createDocumentFragment();
 ```
 * 230201
 ```
+1. !TEST!
+- making Cinema mainpage using React, react-router
+```
+* 230202
+```
 1. server
 - express -> put, delete
 ```
