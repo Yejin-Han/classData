@@ -1,0 +1,90 @@
+#header_section{
+  height: 43px;
+  position: fixed; z-index: 99999;
+  left: 0; right: 0; top: 0;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  #nav{
+    width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    li{
+      display: inline-block;
+      a{
+        display: block;
+        height: 40px; line-height: 40px;
+        padding: 0 24px;
+        font-size: 14px; letter-spacing: 0.1;
+      }
+    }
+  }
+}
+#sub_section{
+  #main_visual{
+    width: 100%; height: 774px;
+    overflow: hidden;
+    display: flex; justify-content: center;
+    /* position: relative;
+    .inner{
+      width: 1920px;
+      position: absolute; left: 50%;
+      transform: translateX(-50%);
+    } */
+  }
+}
+.title{
+  font-size: 17px;
+  border-bottom: 1px dotted #d9d9d9;
+  margin-bottom: 10px; padding-bottom: 10px;
+}
+#contents{
+  width: 980px;
+  margin: 0 auto;
+  .now_movies{
+    margin: 40px 0 60px;
+    .movies_wrap{
+      padding-top: 20px;
+      display: flex; flex-flow: row wrap;
+      justify-content: space-between; gap: 15px;
+      li{
+        flex: 1 1 0;
+        img{ width: 100%; height: auto; }
+      }
+    }
+  }
+  .sp{
+    margin-bottom: 34px;
+    .sp_wrap{
+      display: flex; flex-flow: row wrap; justify-content: space-between;
+      padding: 16px 0;
+      overflow: hidden;
+    }
+  }
+  .evt{
+    margin-bottom: 34px;
+    .evt_wrap{
+      height: 512px;
+      margin-left: -11px;
+      li{
+        float: left;
+        height: 250px;
+        margin-left: 11px; margin-bottom: 11px;
+      }
+      .e1{ width: 183px; }
+      .e2{ width: 286px; }
+      .e3{ width: 478px; }
+      .float_r{
+        float: right !important;
+        width: 295px; height: 511px;
+      }
+    }
+  }
+  .direct_btns{
+    margin-bottom: 150px;
+    display: flex; flex-flow: row wrap; justify-content: space-between;
+  }
+}
+#evt_box{
+  text-align: center;
+  padding-top: 100px;
+}
