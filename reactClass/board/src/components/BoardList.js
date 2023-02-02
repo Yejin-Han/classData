@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table } from "react-bootstrap";
 
 function BoardList(){
+	const navigate = useNavigate();
 	const [boards, setBoards] = useState([]);
 	useEffect(() => {
 		const fetchBoards = async() => {
@@ -42,7 +43,7 @@ function BoardList(){
 					}
 				</tbody>
 			</Table>
-			<Button variant="info">글쓰기</Button>
+			<Button variant="info" onClick={()=>{navigate('/add')}}>글쓰기</Button>
 			<Button variant="secondary">수정하기</Button>
 			<Button variant="danger">삭제하기</Button>
 		</div>
