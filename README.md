@@ -227,3 +227,15 @@ virtual object - document.createDocumentFragment();
 - func handleChange : setState function(using prev state)
 - func writeComplete : axios.post (but now not working)
 ```
+* 230203
+```
+1. board frame
+<Write page>
+- func writeComplete : axios.post modify (---> work!)
+<Update page>
+- useLocation
+- func updateComplete : axios.put
+- func handleDelete : axios.delete
+2. server
+- express -> put, delete
+```
