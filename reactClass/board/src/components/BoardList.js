@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table } from "react-bootstrap";
@@ -28,6 +28,7 @@ function BoardList(){
 						<th>제목</th>
 						<th>작성자</th>
 						<th>작성일</th>
+						<th>수정하기</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,14 +39,13 @@ function BoardList(){
 								<td>{data.title}</td>
 								<td>{data.author}</td>
 								<td>{data.date}</td>
+								<td><Button variant="danger" onClick={()=>{navigate(`/update/${data.id}`)}}>수정하기</Button></td>
 							</tr>
 						))
 					}
 				</tbody>
 			</Table>
 			<Button variant="info" onClick={()=>{navigate('/add')}}>글쓰기</Button>
-			<Button variant="secondary">수정하기</Button>
-			<Button variant="danger">삭제하기</Button>
 		</div>
 	);
 }

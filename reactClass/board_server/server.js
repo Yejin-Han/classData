@@ -28,7 +28,7 @@ app.get("/board", (req, res) => {
 });
 
 app.post("/board", (req, res) => {
-	const sqlQuery = "INSERT INTO webboard('title', 'author', 'date') VALUES (?)";
+	const sqlQuery = "INSERT INTO webboard(`title`, `author`, `date`) VALUES (?)";
 	const values = [
 		req.body.title,
 		req.body.author,
@@ -40,8 +40,6 @@ app.post("/board", (req, res) => {
 	});
 });
 
-//app.delete
-
 app.put("/board/:id", (req, res) => {
 	const boardId = req.params.id;
 	const sqlQuery = "UPDATE webboard SET `title` = ?, `author` = ?, `date` = ? WHERE id = ?";
@@ -51,6 +49,15 @@ app.put("/board/:id", (req, res) => {
 		req.body.date,
 	];
 	db.query(sqlQuery, [...values, boardId], (err, data) => {
+		if(err) return res.send(err);
+		return res.json(data);
+	});
+});
+
+app.delete("/board/:id", (req, res) => {
+	const boardId = req.params.id;
+	const sqlQuery = "DELETE FROM webboard WHERE id = ?";
+	db.query(sqlQuery, [boardId], (err, data) => {
 		if(err) return res.send(err);
 		return res.json(data);
 	});
