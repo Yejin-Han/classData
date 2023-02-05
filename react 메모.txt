@@ -293,3 +293,26 @@ app.listen(8080, function(){ //localhost:8080 서버 사용
 1. mysql 대신 mysql2 설치, require mysql2 해주면 됨.
 2. mysql cmd 열고
 ALTER USER '설정한 user'@'localhost' IDENTIFIED WITH mysql_native_password BY '비밀번호';(최선은 아닌듯) ))
+
+
+
+230206 - 혼자공부
+[context] : props 이외의 방식으로 컴포넌트 간에 값을 전달하는 방법
+
+ - props로만 데이터 전달 시 발생할 수 있는 문제 : props drilling
+여러 컴포넌트를 거쳐서 값을 전달해야하는 경우 복잡해지고 가독성이 떨어질 수도 있고 오류 발생률 ↑
+
+// import
+import { createContext } from 'react';
+const MyContext = createContext();
+
+// 사용
+<MyContext.Provider value=" "> //value 값을 props로 사용
+  <Component000 />
+</MyContext.Provider>
+--> MyContext.Provider 안에 있는 컴포넌트들은 해당 Provider가 가진 value 값을 공유할 수 있으며,
+        해당 value값에는 useState값도 활용가능하다.
+
+다른 컴포넌트에서
+const value  = useContext(MyContext); 해서
+해당 value 값을 props로써 사용할 수 있다.
