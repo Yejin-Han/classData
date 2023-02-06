@@ -63,6 +63,15 @@ app.delete("/board/:id", (req, res) => {
 	});
 });
 
+app.get("/board/:id", (req, res) => {
+	const sqlQuery="SELECT * FROM webboard WHERE id = ?";
+	const params = req.params.id;
+	db.query(sqlQuery, params, (err, data) => {
+		if(err) return res.json(err);
+		return res.json(data);
+	});
+});
+
 app.listen(8080, function(){
 	console.log('listening on 8080');
 });

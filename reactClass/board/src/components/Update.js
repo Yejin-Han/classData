@@ -4,11 +4,19 @@ import { Form, Button } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Update(){
+	let [list, setList] = useState({
+		title: '',
+		author: '',
+		date: ''
+	});
+	const navigate = useNavigate();
+	const location = useLocation();
+	const boardId = location.pathname.split("/")[2];
 	const [boards, setBoards] = useState([]);
 	useEffect(() => {
 		const fetchBoards = async() => {
 			try{
-				const res = await axios.get('http://localhost:8080/board');
+				const res = await axios.get(`http://localhost:8080/board/${boardId}`);
 				setBoards(res.data);
 			} catch(err) {
 				console.log(err);
@@ -16,14 +24,7 @@ function Update(){
 		}
 		fetchBoards();
 	}, []);
-	const navigate = useNavigate();
-	const location = useLocation();
-	const boardId = location.pathname.split("/")[2];
-	let [list, setList] = useState({
-		title: '',
-		author: '',
-		date: ''
-	});
+	console.log(boards);
 
 	const handleChange = (e) => {
 		setList(prev => ({...prev, [e.target.name]: e.target.value}));
