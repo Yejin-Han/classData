@@ -249,3 +249,12 @@ virtual object - document.createDocumentFragment();
 3. React
 - lazy
 ```
+* 230207
+```
+1. board frame
+<Update page>
+- boards.map, default value
+2. server
+- DATE_FORMAT
+3. scroll, wheel event (day88)
+```
