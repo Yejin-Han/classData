@@ -256,5 +256,5 @@ virtual object - document.createDocumentFragment();
 - boards.map, default value
 2. server
 - DATE_FORMAT
-3. scroll, wheel event (day88)
+3. (day88) scroll, wheel event - horizontal scroll
 ```
