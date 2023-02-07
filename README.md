@@ -239,3 +239,13 @@ virtual object - document.createDocumentFragment();
 2. server
 - express -> put, delete
 ```
+* 230206
+```
+1. board frame
+<Update page>
+- another fetch(sql data -> update page)
+2. server
+- express -> get(:id)
+3. React
+- lazy
+```
