@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body, div{
+			margin: 0; padding: 0;
+		}
+		div{ height: 300vh; }
+		img{ position: fixed; left: 0; top: 0; }
+		/* body{
+			width: 100vw; height: 100vh;
+			overflow-y: hidden;
+		}
+		div{
+			width: 100%; height: 100%;
+			transition: all 0.3s;
+		} */
+	</style>
+</head>
+<body>
+	<!-- <div><img src="panorama1.jpg" alt=""></div> -->
+	<div></div>
+	<img src="panorama1.jpg" alt="">
+	<script>
+		/* const img=document.querySelector('img');
+		let num=0;
+		window.addEventListener('wheel', function(e){
+			if(num<0){
+				num=0;
+			} else if(num>img.offsetWidth){
+				num=img.offsetWidth;
+			}
+			if(e.deltaY>0){
+				img.style.transform=`translateX(${num+=30}px)`;
+			} else{
+				img.style.transform=`translateX(${num-=30}px)`;
+			}
+		}); */
+		const divbox = document.querySelector('div');
+		const img = document.querySelector('img');
+		let maxScrollV=document.body.offsetHeight - window.innerHeight;
+		let leftPo = 0;
+		window.addEventListener('scroll', function(){
+			leftPo-=window.pageYOffset;
+			img.style.left = `${leftPo}px`;
+		});
+	</script>
+</body>
+</html>

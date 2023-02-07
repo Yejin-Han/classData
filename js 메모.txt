@@ -913,3 +913,13 @@ URL.createObjectURL(원래파일url);
 [canvas를 이미지로 저장]
 canvas.toDataURL( ); ==> a tag 만들어서 href를 해당 url로 지정, 속성에 download 지정 (태그자체에도 가능, 따로 a.download='파일명(확장자까지)'로도 가능) ==> a.click( );
 * 기본 확장자 .png
+
+
+
+230207
+[프로필에 사용할 이벤트 및 메소드]
+1. onWheel -> e.deltaY(위 아래 인식)
+2. onScroll -> .pageYOffset, .getBoundingClientRect().top...
+3. scrollTo({top, left, behavior:'auto, smooth, ...'})
+4. 개체의 위치 .offsetTop, .offsetLeft
+5. 개체의 크기 .offsetWidth, .offsetHeight 등 시리즈있음

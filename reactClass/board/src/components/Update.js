@@ -53,22 +53,25 @@ function Update(){
 	return(
 		<div>
 			<h2>Update Board</h2>
-			<Form>
-				<Form.Group className="mb-3" controlId="title" name="title">
-					<Form.Label>제목</Form.Label>
-					<Form.Control type="text" name="title" placeholder="제목을 입력하세요." onChange={handleChange} />
-				</Form.Group>
-				<Form.Group controlId="author" name="author">
-					<Form.Label>작성자</Form.Label>
-					<Form.Control type="text" name="author" placeholder="작성자" onChange={handleChange} />
-				</Form.Group>
-				<Form.Group controlId="date" name="date">
-					<Form.Label>작성일</Form.Label>
-					<Form.Control type="date" name="date" onChange={handleChange} />
-				</Form.Group>
-				<Button variant="primary" type="submit" onClick={updateComplete}>수정 완료</Button>
-				<Button variant="secondary" onClick={handleDelete}>글 삭제</Button>
-			</Form>
+			{boards.map((data, idx) => (
+				<Form key={idx}>
+					<Form.Group className="mb-3" controlId="title" name="title">
+						<Form.Label>제목</Form.Label>
+						<Form.Control type="text" name="title" placeholder="제목을 입력하세요." onChange={handleChange} defaultValue={data.title} />
+					</Form.Group>
+					<Form.Group controlId="author" name="author">
+						<Form.Label>작성자</Form.Label>
+						<Form.Control type="text" name="author" placeholder="작성자" onChange={handleChange} defaultValue={data.author} />
+					</Form.Group>
+					<Form.Group controlId="date" name="date">
+						<Form.Label>작성일</Form.Label>
+						<Form.Control type="date" name="date" onChange={handleChange} defaultValue={new Date().toISOString().substring(0,10)} />
+					</Form.Group>
+					<Button variant="primary" type="submit" onClick={updateComplete}>수정 완료</Button>
+					<Button variant="secondary" onClick={handleDelete}>글 삭제</Button>
+					<Button variant="warning" onClick={()=>{navigate('/')}}>목록으로</Button>
+				</Form>
+			))}
 		</div>
 	);
 }

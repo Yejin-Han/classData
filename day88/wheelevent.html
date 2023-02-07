@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>wheel event</title>
+	<style>
+		/* div{
+			font-size: 3em;
+			font-weight: bold;
+			width: 300px;
+			line-height: 1.8;
+			text-align: center;
+			margin: 300px auto;
+			border: 1px solid #ccc;
+			transition: all .3s;
+		} */
+		div{ height: 300vh; }
+		h2{
+			font-size:2em;
+			position: absolute; color: #009;
+			left: 400px; top: 40%;
+			transform: scale(1);
+			transition: all .3s;
+		}
+		h2.zoom{ transform: scale(2); }
+	</style>
+</head>
+<body>
+	<!-- <div>wheel scale</div>
+	<script>
+		const scaleValue = 0.1;
+		let zoomValue = 1;
+		const box = document.querySelector('div');
+		window.addEventListener('wheel', function(e){
+			if(e.deltaY>0){
+				box.style.transform = `scale(${zoomValue += scaleValue})`;
+			} else{
+				box.style.transform = `scale(${zoomValue -= scaleValue})`;
+			}
+		});
+	</script> -->
+	<div></div>
+	<h2>TEXT title</h2>
+	<script>
+		const divbox = document.querySelector('div');
+		const title = document.querySelector('h2');
+		window.addEventListener('scroll', function(e){
+			// console.log(window.pageYOffset);
+			// console.log(divbox.getBoundingClientRect().top);
+			let posY = title.getBoundingClientRect().top;
+			if(posY<window.innerHeight*0.3){
+				title.classList.add('zoom');
+			} else{
+				title.classList.remove('zoom');
+			}
+		});
+	</script>
+</body>
+</html>

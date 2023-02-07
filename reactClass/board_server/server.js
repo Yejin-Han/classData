@@ -20,7 +20,7 @@ const db = mysql.createConnection({
 })
 
 app.get("/board", (req, res) => {
-	const sqlQuery="SELECT * FROM test.webboard";
+	const sqlQuery="SELECT id, title, author, DATE_FORMAT(date, '%y-%m-%d') AS date FROM test.webboard";
 	db.query(sqlQuery, (err, data) => {
 		if(err) return res.json(err);
 		return res.json(data);
@@ -64,7 +64,7 @@ app.delete("/board/:id", (req, res) => {
 });
 
 app.get("/board/:id", (req, res) => {
-	const sqlQuery="SELECT * FROM webboard WHERE id = ?";
+	const sqlQuery="SELECT id, title, author, DATE_FORMAT(date, '%y-%m-%d') AS date FROM webboard WHERE id = ?";
 	const params = req.params.id;
 	db.query(sqlQuery, params, (err, data) => {
 		if(err) return res.json(err);
