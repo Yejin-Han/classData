@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>프로필 구조 연습</title>
+	<style>
+		body,main,section,article,div,h1,h3{
+			margin: 0; padding: 0;
+		}
+		section{
+			width: 100vw; height: 100vh;
+			position: relative; z-index: 100;
+		}
+		#sect1{ background-color: #777; }
+		#sect2{ background-color: #555; overflow: hidden; }
+		#sect2>p{
+			margin: 5vw 0 0 7vw;
+			font-size: 5vw;
+			line-height: 1.8;
+			color: #fff;
+		}
+		#sect2>p span{
+			display: inline-block;
+			opacity: 0;
+			min-width: 1.4vw;
+			transform: translateY(70px);
+			transition: all .3s ease-in-out;
+		}
+		#sect2>p span.active{
+			opacity: 1;
+			transform: translateY(0);
+		}
+		#sect3{
+			background-color: #ccc;
+			height: 300vw;
+			z-index: 0;
+		}
+		#sect3>.mp{
+			width: 300vw; height: 100%;
+			position: fixed; left: 0; top: 0;
+			display: flex;
+		}
+		#sect3>.mp>article{
+			width: 100vw; height: 100vh;
+			position: relative;
+		}
+		#sect3>.mp>article:nth-of-type(1){ background: #c35; }
+		#sect3>.mp>article:nth-of-type(2){ background: #c90; }
+		#sect3>.mp>article:nth-of-type(3){ background: #ad4; }
+		#sect4{ background-color: #333; }
+		.imgbox{
+			position: absolute; left: 15%; top: 9%;
+			width: 350px; height: 290px;
+			background: #9c9;
+		}
+		.detail{
+			position: absolute; left: 45%; top: 35%;
+			width: 400px; height: 200px;
+			background: #cfc;
+		}
+		#sect5{ background-color: #777; }
+		#sect6{ background-color: #ededed; }
+	</style>
+</head>
+<body>
+	<main>
+		<section id="sect1">
+			<h1>ㅇㅇㅇ 포트폴리오</h1>
+		</section>
+		<section id="sect2">
+			<p>각오 또는 좌우명</p>
+		</section>
+		<section id="sect3">
+			<div class="mp">
+				<article><span>project1</span></article>
+				<article><span>project2</span></article>
+				<article><span>web</span></article>
+			</div>
+		</section>
+		<section id="sect4" class="web">
+			<h3>responsive web1</h3>
+			<div class="imgbox"></div>
+			<div class="detail"></div>
+		</section>
+		<section id="sect5" class="web">
+			<h3>responsive web2</h3>
+			<div class="imgbox"></div>
+			<div class="detail"></div>
+		</section>
+		<section id="sect6">
+			<strong>Contact Me</strong>
+		</section>
+	</main>
+	<script>
+		const sect2 = document.querySelector('#sect2');
+		const sect3 = document.querySelector('#sect3');
+		let text2 = document.querySelector('#sect2>p');
+		let splitText = text2.innerText.split('').join('</span><span>');
+		splitText = '<span>'+splitText+'</span>';
+		text2.innerHTML=splitText;
+		const mp = document.querySelector('.mp');
+		const web = document.querySelectorAll('.web');
+		const scroll = () => {
+			let scrollTop = window.pageYOffset;
+			let offset2 = sect2.offsetTop;
+			if(scrollTop >= offset2){
+				text2.querySelectorAll('span').forEach((elem,idx) => {
+					setTimeout(()=>{
+						elem.classList.add('active');
+					}, 50*(idx+1));
+				});
+			}
+			let offset3 = scrollTop - sect3.offsetTop; //sect3의 시작위치(=0으로 가정)부터 스크롤한 값
+			if(scrollTop >= sect3.offsetTop){
+				mp.style.left = `-${offset3}px`;
+			}
+			web.forEach((elem, idx) => {
+				let imgOffset = (scrollTop - elem.offsetTop) * 0.08;
+				let detailOffset = (scrollTop - elem.offsetTop) * 0.18;
+				elem.querySelector('.imgbox').style.transform = `translateY(${imgOffset}px)`;
+				elem.querySelector('.detail').style.transform = `translateY(${-detailOffset}px)`;
+			});
+			//requestAnimationFrame(scroll);
+		}
+		//scroll();
+		window.addEventListener('scroll', () => {
+			scroll();
+		});
+	</script>
+</body>
+</html>
