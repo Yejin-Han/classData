@@ -258,3 +258,9 @@ virtual object - document.createDocumentFragment();
 - DATE_FORMAT
 3. (day88) scroll, wheel event - horizontal scroll
 ```
+* 230208
+```
+1. profile page structure practice
+- horizontal scroll
+- text animation with scroll
+```
