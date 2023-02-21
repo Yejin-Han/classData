@@ -1,0 +1,72 @@
+230221 vue1
+
+
+//install
+npm install -g @vue/cli
+vue create 프로젝트명
+y, vue3 선택
+
+//기본 구조
+<template>
+  html 태그
+</template>
+
+<script>
+  모든 스크립트
+</script>
+
+<style>
+  style 요소
+</style>
+
+
+//template
+★★ template안의 태그 속성으로 script 안의 data를 직접 불러올 때 사용하는 "v-???" 명령어
+( v-text, v-bind:~(생략), v-on:~(@로 줄임), v-if(아예 데이터출력 자체를 다룸), v-show(display를 다룸), v-for, v-model  ) //~ 앞은 보통 생략하거나 @로 줄인다.
+* v-bind: ~ 는 일반 html에서 우리가 쓰는 속성들에 data를 사용할 때 쓰는 듯
+* v-for="i in data명" :key="i" or v-for="(item,idx) in data명" :key="idx"
+* v-model="data명" --> input에 사용
+   ==> 기본적으로는 data에 true/false 값을 받는다.
+   ==> checkbox, radio와 같이 같은 v-model을 가진 multi input들은 data에 []를 받아서 value값을 받을 수 있다.
+   ==> .lazy (event 끝나고 반영), .trim (여백 없이 가져옴), .number(숫자)
+
+- text 자리에 state를 활용하려면 {{ }}로 감싼다.
+
+
+//script
+/* script 안의 어떤 요소에서든  data를 사용하려면 this.를 붙이기 */
+export default {
+  name: "App", //현재 파일명
+  methods: {
+    함수명() {
+      this.data명을 어떻게 할지
+    }
+  },
+  data() {  //useState 역할
+    return{
+      state ...
+    }
+  },
+  computed: { //data를 이용한 계산 시 사용, 함수들이 항상 값 반환, 내부 property 변경 시 실행
+
+  },
+  components:  {
+     import 한 component명
+  },
+}
+
+//component
+1) 외부 컴포넌트
+- components 폴더에 .vue 파일 제작,
+- 안에 똑같이 template, script, style를 만드는데 script 안에 export default에 Component의 이름과 props를 지정한다.
+export default {
+  name: "컴포넌트명",
+  props: {},
+};
+- App.vue 에서 불러오기 -> import 컴포넌트명 from '경로';
+- script의 components에 컴포넌트명 적기
+* 만약 App에서 template 안에 component를 사용할 때 적힐 내용을 바꾸고 싶다면, component.vue 파일에서 내용 부분에 <slot></slot>을 넣어준다.
+
+2) 내부 컴포넌트
+- script안에 component 변수 선언, template 속성에 태그와 내용을 적는다.
+- script안의 component에 컴포넌트명: 컴포넌트변수명 적기
