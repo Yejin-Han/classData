@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xml data</title>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $(function () {
+        $.ajax({
+          url: "data.xml",
+          dataType: "xml",
+          success: function (xml) {
+            var index = $(xml); //jquery data로 변환
+            index.find("publisher").each(function () {
+              var coder = $(this);
+              var tr = $("<tr />");
+              var no = $("<td />").text(coder.find("no").text());
+              var name = $("<td />").text(coder.find("name").text());
+              var email = $("<td />").text(coder.find("email").text());
+              tr.append(no).append(name).append(email);
+              $("tbody").append(tr);
+            });
+          },
+        });
+      });
+    </script>
+    <style>
+      table {
+        width: 450px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 3px solid #333;
+        background: #ccc;
+        margin: 50px auto;
+      }
+      th,
+      td {
+        border: 1px solid #777;
+        background: #fff;
+        padding: 4px 6px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        XML Data
+      </caption>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Name</th>
+          <th>E-mail</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>

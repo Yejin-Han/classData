@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Ajax</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script>
+      $(function () {
+        $("#inputBtn").on("click", function () {
+          $.ajax({
+            type: "GET",
+            url: "./data.json",
+            dataType: "json",
+            success: function (json) {
+              //const data=$.parseJSON(json);
+              $.each(json, function (idx, data) {
+                $("#contentBox").append(idx + "<br>");
+                $("#contentBox").append(data.no + "<br>");
+                $("#contentBox").append(data.name + "<br>");
+                $("#contentBox").append(data.email + "<br><br>");
+              });
+            },
+            error: function () {
+              alert("error");
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button type="button" id="inputBtn">json Input</button>
+    <div id="contentBox"></div>
+  </body>
+</html>

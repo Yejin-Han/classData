@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<info>
+  <publisher>
+    <no>01</no>
+    <name>강윤정</name>
+    <email>k@gmail.com</email>
+  </publisher>
+  <publisher>
+    <no>02</no>
+    <name>박영민</name>
+    <email>p@gmail.com</email>
+  </publisher>
+  <publisher>
+    <no>03</no>
+    <name>권하경</name>
+    <email>kh@gmail.com</email>
+  </publisher>
+  <publisher>
+    <no>04</no>
+    <name>윤응영</name>
+    <email>y@gmail.com</email>
+  </publisher>
+  <publisher>
+    <no>05</no>
+    <name>나한석</name>
+    <email>n@gmail.com</email>
+  </publisher>
+</info>
